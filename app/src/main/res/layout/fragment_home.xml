@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        tools:context=".BlankFragment">
+
+        <include
+            android:id="@+id/home_rectangle"
+            layout="@layout/home_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            />
+
+        <LinearLayout
+
+            android:id="@+id/home_text_button"
+            android:layout_below="@id/home_rectangle"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/holdings"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/home_rectangle"
+                android:text="Trending Market"
+                android:fontFamily="@font/poppins_bold"
+                android:textSize="22sp" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/black"
+                android:src="@drawable/vector_search" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/home_cardsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/home_text_button">
+            <include
+
+                layout="@layout/stock_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:layout_marginTop="10dp"
+                layout="@layout/stock_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <include
+                android:layout_marginTop="10dp"
+
+                layout="@layout/stock_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <include
+                android:layout_marginTop="10dp"
+
+                layout="@layout/stock_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <include
+                android:layout_marginTop="10dp"
+
+                layout="@layout/stock_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <include
+                android:layout_marginTop="10dp"
+
+                layout="@layout/stock_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>
