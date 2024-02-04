@@ -1,16 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Fragments.PortfolioFragment">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/PortfoliorelativeLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Portfolo Fragment"
-        android:textSize="28dp"
-        android:layout_gravity="center"
-        />
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        tools:context=".BlankFragment">
 
-</FrameLayout>
+        <include
+            android:id="@+id/portfolio_rectangle"
+            layout="@layout/portfolio_card"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+
+            />
+        <LinearLayout
+            android:id="@+id/buttons_in_portfolio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/portfolio_rectangle"
+            android:layout_marginTop="12dp"
+            >
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/DepositINRId"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:text="Deposit INR"
+                android:textAllCaps="false"
+                android:fontFamily="@font/poppins_bold"
+                android:elevation="4dp"
+                android:background="@drawable/rectangle_for_portfolio"
+                android:textColor="@color/white"
+                />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="0dp"
+                android:id="@+id/WithDrawINRId"
+                android:layout_height="55dp"
+                android:layout_weight="1"
+                android:text="Withdrawl INR"
+                android:textAllCaps="false"
+                android:fontFamily="@font/poppins_bold"
+                android:elevation="4dp"
+                android:background="@drawable/stroked_button"
+                android:textColor="@color/card_blue"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/holdings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttons_in_portfolio"
+            android:layout_marginTop="20dp"
+            android:text="Holdings"
+            android:fontFamily="@font/poppins_bold"
+            android:textSize="22sp"
+            />
+
+        <LinearLayout
+            android:id="@+id/portfolio_cardsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/holdings">
+            <include
+
+                layout="@layout/stock_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:layout_marginTop="10dp"
+                layout="@layout/stock_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <include
+                android:layout_marginTop="10dp"
+
+                layout="@layout/stock_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <include
+                android:layout_marginTop="10dp"
+
+                layout="@layout/stock_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <include
+                android:layout_marginTop="10dp"
+
+                layout="@layout/stock_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <include
+                android:layout_marginTop="10dp"
+
+                layout="@layout/stock_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

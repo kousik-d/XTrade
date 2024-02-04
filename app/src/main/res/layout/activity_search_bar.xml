@@ -38,8 +38,10 @@
 
         <!-- Onclick the activity has to cancel -->
         <TextView
+            android:id="@+id/CancelTextId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
             android:text="Cancel"
             android:layout_marginRight="15dp"
             android:fontFamily="@font/poppins_medium"
