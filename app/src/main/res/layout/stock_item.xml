@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/stock_card"
+    app:cardElevation="5dp"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:padding="16dp"
+    android:elevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+
+            android:id="@+id/card_stock_logo"
+
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/bitcoinpjg"
+            />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            >
+
+            <TextView
+                android:id="@+id/card_stock_name"
+                android:textColor="@color/darkBlack"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="HDFC Bank"
+                android:textSize="20dp" />
+
+            <TextView
+
+                android:id="@+id/card_stock_company"
+
+                android:textColor="@color/darkBlack"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="HDFC"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/poppins_thin"
+                android:textSize="14sp"
+                />
+
+        </LinearLayout>
+
+        <ImageView
+
+            android:id="@+id/card_growth_image"
+            android:src="@drawable/up_graph"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="15dp"
+            >
+
+            <TextView
+
+                android:id="@+id/card_stock_inr"
+
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="₹23.45"
+                android:textColor="@color/darkBlack"
+                android:textSize="20sp" />
+
+            <TextView
+
+                android:id="@+id/card_stock_percentage"
+
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="+9.77%"
+                android:textColor="#21BF73"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="14sp"
+                />
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
