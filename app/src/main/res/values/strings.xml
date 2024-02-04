@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">XTrade</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_bottom_navigation">BottomNavigation</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -17,4 +18,5 @@
     <string name="SecureP3">Data encryption: This protects your sensitive\ninformation, such as account numbers and\nsocial security numbers, from being accessed\nby unauthorized users.</string>
 
     <string name="SecureP4">Secure session management: This ensures\nyour session is automatically terminated after a\nperiod of inactivity or if you log out.</string>
+
 </resources>
