@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".YourWishlist">
+    <TextView
+        android:id="@+id/YourWishlistTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:padding="15dp"
+        android:text="Your Wishlist"
+        android:layout_centerHorizontal="true"
+        android:textSize="16dp"
+        android:layout_margin="15dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:clickable="true"
+        android:layout_margin="20dp"
+        android:src="@drawable/back_button" />
+
+    <ListView
+        android:id="@+id/totalwishList"
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:layout_below="@id/YourWishlistTextView"
+        android:layout_centerInParent="true"
+        tools:listitem="@layout/stock_item" />
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        android:id="@+id/referYourFriendId"
+        android:backgroundTint="#F59300"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        android:padding="10dp"
+        android:layout_alignParentBottom="true">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Refer and Earn"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_margin="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="22dp"
+        android:text="Refer you Friend\nand Win upto ₹500"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="265dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/referral_ok"/>
+    <!-- refer now button to send a referal to someone -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/referNowBtn"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_gravity="bottom"
+        android:padding="5dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/refer_btn_back"
+        android:text="Refer Now"
+        android:textAllCaps="false"
+        android:textColor="#F59300" />
+</androidx.cardview.widget.CardView>
+
+</RelativeLayout>

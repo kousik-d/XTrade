@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.RewardsFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:id="@+id/ReferalCardId"
+        android:padding="20dp"
+        android:layout_margin="20dp"
+        app:cardElevation="5dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="21dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Referral"
+                android:textAppearance="@font/poppins_bold"
+                android:textSize="20sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginRight="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total No of referral"
+                    android:textColor="#6C757D"
+                    />
+                <TextView
+                    android:id="@+id/ReferalCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:layout_marginLeft="200dp">
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginRight="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total No of Qualified referral"
+                    android:textColor="#6C757D"
+                    />
+                <TextView
+                    android:id="@+id/QualifiedReferalCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:textColor="#0063F5"
+                    android:layout_marginLeft="142dp">
+                </TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/referYourFriendId"
+        android:backgroundTint="#F59300"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:cardCornerRadius="10dp"
+        android:layout_below="@+id/ReferalCardId">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Refer and Earn"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_margin="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="22dp"
+            android:text="Refer you Friend\nand Win upto ₹500"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="265dp"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/referral_ok"/>
+
+        <!-- refer now button to send a referal to someone -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/referNowBtn"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_gravity="bottom"
+            android:padding="5dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/refer_btn_back"
+            android:text="Refer Now"
+            android:textAllCaps="false"
+            android:textColor="#F59300" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/rewardsId"
+        android:backgroundTint="#9300F5"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:cardCornerRadius="10dp"
+        android:layout_below="@+id/referYourFriendId">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rewards"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_margin="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="22dp"
+            android:text="Like, Share &amp;\nget free coupons"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="265dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/like_share_drawable"/>
+
+        <!-- refer now button to send a referal to someone -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/shareNowBtn"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_gravity="bottom"
+            android:padding="5dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/refer_btn_back"
+            android:text="Share Now"
+            android:textAllCaps="false"
+            android:textColor="#9300F5" />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</RelativeLayout>

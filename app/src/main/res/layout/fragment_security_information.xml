@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:backgroundTint="#FEFCFF"
+    android:layout_height="match_parent"
+    tools:context=".SecurityInformation">
+
+    <TextView
+        android:id="@+id/SecurityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:padding="15dp"
+        android:text="Security"
+        android:layout_centerHorizontal="true"
+        android:textSize="16dp"
+        android:layout_margin="15dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:clickable="true"
+        android:layout_margin="20dp"
+        android:src="@drawable/back_button" />
+
+    <LinearLayout
+        android:layout_below="@id/SecurityTextView"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ellipse_point"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins"
+                android:text="@string/SecureP1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ellipse_point"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/SecureP2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ellipse_point"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/SecureP3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ellipse_point"
+                android:layout_weight="1"/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/SecureP4" />
+        </LinearLayout>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>
