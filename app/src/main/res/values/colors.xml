@@ -8,8 +8,16 @@
     <color name="orange">#FF7D26</color>
     <color name="card_blue">#0063F5</color>
     <color name="grey">#2F1C1C1C</color>
+<<<<<<< HEAD
     <color name="green">#3CAC41</color>
     <color name="transparent_black">#7CF1EAEA</color>
     <color name="transparent_blue">#996FA6F7</color>
     <color name="red">#A11414</color>
+=======
+    <color name="transparent_black">#7CF1EAEA</color>
+    <color name="green">#3CAC41</color>
+    <color name="transparent_blue">#996FA6F7</color>
+
+
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 </resources>

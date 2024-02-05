@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_marginBottom="16dp"
@@ -415,3 +416,409 @@
 
     </LinearLayout>
 </ScrollView>
+=======
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/back_icon"/>
+
+        <ImageView
+            
+            android:id="@+id/stock_logo"
+            
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:paddingLeft="5dp"
+            android:src="@drawable/apxor_x_logo"/>
+        
+        <TextView
+            
+            android:id="@+id/stock_name"
+            
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="APXOR Technology solutions Pvt. Limited."
+            android:textSize="16sp"
+            android:paddingLeft="10dp"
+            android:textAllCaps="false"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="0.5"
+            android:layout_gravity="center_vertical"
+            android:paddingRight="5dp"
+            android:src="@drawable/star_filled"/>
+        
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="@drawable/stroked_button">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/stock_graph"
+            android:layout_gravity="center" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp">
+
+            <View
+                android:id="@+id/grey_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/grey" />
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/grey_line"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/grey" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="04:24"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins"/>
+                    
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/grey" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="06:54"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/grey" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="09:18"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/grey" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="14:57"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/grey" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="16:29"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="9sp"
+                        android:fontFamily="@font/poppins"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:padding="5dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/stock_button_1H"
+
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:text="1H"
+            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:textColor="@color/card_blue"
+            android:background="@drawable/stock_screen_button_clicked"
+            android:fontFamily="@font/poppins_semibold"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/stock_button_24H"
+
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:text="24H"
+            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:background="@drawable/stock_screen_button"
+            android:fontFamily="@font/poppins_semibold"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/stock_button_1W"
+
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:text="1W"
+            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:background="@drawable/stock_screen_button"
+            android:fontFamily="@font/poppins_semibold"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/stock_button_1M"
+
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:text="1M"
+            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:background="@drawable/stock_screen_button"
+            android:fontFamily="@font/poppins_semibold"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/stock_button_6M"
+
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:text="6M"
+            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:background="@drawable/stock_screen_button"
+            android:fontFamily="@font/poppins_semibold"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/stock_button_1Y"
+
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:text="1Y"
+            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:background="@drawable/stock_screen_button"
+            android:fontFamily="@font/poppins_semibold"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/stock_button_ALL"
+
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:text="ALL"
+            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:background="@drawable/stock_screen_button"
+            android:fontFamily="@font/poppins_semibold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp">
+
+        <TextView
+            android:id="@+id/stock_screen_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="₹5,329.75"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="28sp"/>
+
+        <TextView
+            android:id="@+id/stock_screen_percentage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.25"
+            android:gravity="center"
+            android:text="+1700.254(9.77%)"
+            android:textColor="@color/green"
+            android:fontFamily="@font/poppins"
+            android:textSize="18sp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttons_in_portfolio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:padding="5dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:text="BUY"
+            android:textSize="15sp"
+            android:fontFamily="@font/poppins_semibold"
+            android:elevation="4dp"
+            android:background="@drawable/rectangle_for_portfolio"
+            android:textColor="@color/white"
+            />
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:text="SELL"
+            android:textSize="15sp"
+            android:fontFamily="@font/poppins_semibold"
+            android:elevation="4dp"
+            android:background="@drawable/stroked_button"
+            android:textColor="@color/card_blue"
+            />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036

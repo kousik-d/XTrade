@@ -55,8 +55,13 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_marginTop="10dp"
+<<<<<<< HEAD
             android:layout_width="150dp"
             android:layout_height="40dp"
+=======
+            android:layout_width="160dp"
+            android:layout_height="45dp"
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
             android:background="@drawable/rectangle_for_portfolio"
             android:text="Invest Today"
             android:textColor="@color/card_blue"

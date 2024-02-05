@@ -17,4 +17,9 @@
 
     <string name="SecureP4">Secure session management:\nThis ensures your session is automatically terminated after a period of inactivity or if you log out.</string>
 
+<<<<<<< HEAD
+=======
+    <string name="SecureP4">Secure session management: This ensures\nyour session is automatically terminated after a\nperiod of inactivity or if you log out.</string>
+
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 </resources>
