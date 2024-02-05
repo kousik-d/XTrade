@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="10dp"
+    android:background="@color/black"
+    android:padding="20dp"
+    android:backgroundTint="@color/card_blue"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:id="@+id/portfolio_card_layout"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/portfolio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Portfolio"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_bold"
+            />
+
+        <TextView
+            android:id="@+id/holdingValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins"
+            android:text="Holding value"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <LinearLayout
+
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/portfolio_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹2,509.75"
+                android:textSize="30sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_semibold"
+                />
+
+            <TextView
+                android:id="@+id/portfolio_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/poppins"
+                android:text="+9.77%"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <LinearLayout
+
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Invested value"
+                    android:textSize="12sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins"
+                    />
+
+                <TextView
+                    android:id="@+id/portfolio_invested_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="₹1,768.75"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+            <View
+                android:padding="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="0.9dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/white" />
+
+            <LinearLayout
+
+                android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Available INR"
+                    android:textSize="12sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins"
+                    />
+
+                <TextView
+                    android:id="@+id/portfolio_available_inr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="₹1,589"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
+

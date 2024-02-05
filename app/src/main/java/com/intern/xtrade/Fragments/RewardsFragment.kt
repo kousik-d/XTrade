@@ -3,6 +3,7 @@ package com.intern.xtrade.Fragments
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Context.CLIPBOARD_SERVICE
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -14,6 +15,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat.getSystemService
@@ -34,6 +36,9 @@ class RewardsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var referNowButton : AppCompatButton
+    lateinit var shareNowButton : AppCompatButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -49,10 +54,18 @@ class RewardsFragment : Fragment() {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.rewards_fragment, container, false)
         var cardView : CardView = view.findViewById(R.id.referYourFriendId)
-        var button = cardView.findViewById<AppCompatButton>(R.id.referNowBtn)
+        referNowButton = cardView.findViewById(R.id.referNowBtn)
+        shareNowButton = view.findViewById<CardView>(R.id.rewardsId).findViewById(R.id.shareNowBtn)
 
-        button.setOnClickListener {
-            SendReferral("https://www.xtrade.com/?refcode=RRPSFAS")
+        shareNowButton.setOnClickListener {
+            SendReferral("https://www.xtrade.com/?rewardCode=WERFTFT")
+        }
+        referNowButton.setOnClickListener {
+            val clipboardManager = requireContext().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            val clipData = ClipData.newPlainText("Text","https://www.xtrade.com/?refcode=RRPSFAS" )
+            clipboardManager.setPrimaryClip(clipData)
+            Toast.makeText(requireContext(), "Text copied to clipboard", Toast.LENGTH_SHORT).show()
+//            SendReferral("https://www.xtrade.com/?refcode=RRPSFAS")
         }
         return view
     }

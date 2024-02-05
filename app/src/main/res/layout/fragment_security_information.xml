@@ -1,105 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:backgroundTint="#FEFCFF"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".SecurityInformation">
 
-    <TextView
-        android:id="@+id/SecurityTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_semibold"
-        android:padding="15dp"
-        android:text="Security"
-        android:layout_centerHorizontal="true"
-        android:textSize="16dp"
-        android:layout_margin="15dp"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:clickable="true"
-        android:layout_margin="20dp"
-        android:src="@drawable/back_button" />
 
     <LinearLayout
-        android:layout_below="@id/SecurityTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/security_back"
+
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:src="@drawable/back_icon" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="20sp"
+            android:paddingRight="16sp"
+            android:gravity="center"
+            android:textColor="@color/darkBlack"
+            android:text="Security" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_marginTop="5dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ellipse_point"
-                android:layout_weight="1"/>
+                android:paddingTop="5sp"
+                android:src="@drawable/ellipse_point"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/poppins"
+                android:paddingLeft="10sp"
+                android:textColor="@color/darkBlack"
+                android:fontFamily="@font/poppins_medium"
                 android:text="@string/SecureP1" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_marginTop="18dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ellipse_point"
-                android:layout_weight="1"/>
+                android:paddingTop="5sp"
+                android:src="@drawable/ellipse_point"/>
+
             <TextView
-                android:layout_weight="1"
-                android:fontFamily="@font/poppins"
-                android:layout_marginTop="15dp"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="10sp"
+                android:textColor="@color/darkBlack"
+
+                android:fontFamily="@font/poppins_medium"
+
                 android:text="@string/SecureP2" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_marginTop="18dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ellipse_point"
-                android:layout_weight="1"/>
+                android:paddingTop="5sp"
+                android:src="@drawable/ellipse_point"/>
+
             <TextView
-                android:layout_weight="1"
-                android:layout_marginTop="15dp"
-                android:fontFamily="@font/poppins"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="10sp"
+                android:textColor="@color/darkBlack"
+
+                android:fontFamily="@font/poppins_medium"
                 android:text="@string/SecureP3" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_marginTop="18dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ellipse_point"
-                android:layout_weight="1"/>
+                android:paddingTop="5sp"
+                android:src="@drawable/ellipse_point"/>
+
             <TextView
-                android:layout_weight="1"
-                android:layout_marginTop="15dp"
-                android:fontFamily="@font/poppins"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="10sp"
+                android:textColor="@color/darkBlack"
+
+                android:fontFamily="@font/poppins_medium"
                 android:text="@string/SecureP4" />
         </LinearLayout>
 
@@ -111,4 +130,4 @@
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>
