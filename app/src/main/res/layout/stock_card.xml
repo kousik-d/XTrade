@@ -4,28 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     android:id="@+id/stock_card"
-<<<<<<< HEAD
-<<<<<<< HEAD
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp"
     android:elevation="10dp"
     android:backgroundTint="@color/white"
     app:cardCornerRadius="5dp"
-=======
-=======
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="8dp"
-    android:elevation="4dp"
-    android:backgroundTint="@color/white"
-    app:cardCornerRadius="10dp"
-<<<<<<< HEAD
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
     >
 
     <LinearLayout
@@ -55,15 +39,7 @@
 
                 android:id="@+id/card_stock_name"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:textColor="@color/darkBlack"
-=======
-                android:textColor="@color/black"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
-                android:textColor="@color/black"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2"
@@ -72,21 +48,8 @@
                 android:textSize="18sp" />
 
             <TextView
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:id="@+id/card_stock_company"
                 android:textColor="@color/darkBlack"
-=======
-=======
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-
-                android:id="@+id/card_stock_company"
-
-                android:textColor="@color/black"
-<<<<<<< HEAD
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -105,16 +68,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-<<<<<<< HEAD
-<<<<<<< HEAD
             android:layout_marginLeft="2dp"
             android:paddingRight="3dp"
-=======
-            android:layout_marginLeft="5dp"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
-            android:layout_marginLeft="5dp"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
             />
 
         <LinearLayout
@@ -124,36 +79,14 @@
             android:orientation="vertical">
 
             <TextView
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:id="@+id/card_stock_inr"
-=======
-
-                android:id="@+id/card_stock_inr"
-
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
-
-                android:id="@+id/card_stock_inr"
-
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Rs."
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:textColor="@color/darkBlack"
                 android:textSize="16sp"/>
-=======
-                android:textColor="@color/black"
-                android:textSize="14sp" />
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
-                android:textColor="@color/black"
-                android:textSize="14sp" />
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 
             <TextView
 
@@ -165,15 +98,7 @@
                 android:text="-"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/poppins"
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:textSize="10sp"
-=======
-                android:textSize="8sp"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
-                android:textSize="8sp"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
                 />
 
         </LinearLayout>

@@ -3,49 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
-
     <TextView
-<<<<<<< HEAD
-<<<<<<< HEAD
         android:id="@+id/DepositMoneyTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-=======
-        android:id="@+id/FinalPaymentTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
-        android:id="@+id/FinalPaymentTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
         android:layout_marginLeft="55dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_semibold"
         android:padding="15dp"
-<<<<<<< HEAD
-<<<<<<< HEAD
         android:text="Deposit Money"
         android:textSize="16dp" />
 
     <ImageView
         android:id="@+id/DepositMoneyBackId"
-=======
-=======
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-        android:text="Buy Stock"
-        android:textSize="16dp" />
-
-    <ImageView
-        android:id="@+id/FinalPaymentBackId"
-<<<<<<< HEAD
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -76,15 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/poppins"
-<<<<<<< HEAD
-<<<<<<< HEAD
             android:text="Enter the amount"
-=======
-            android:text="Enter the anount"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
-            android:text="Enter the anount"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
             android:textAlignment="center"
             android:textSize="12sp" />
 
@@ -107,15 +70,7 @@
             android:paddingEnd="14dp"
             android:paddingBottom="14dp"
             android:textAlignment="center"
-<<<<<<< HEAD
-<<<<<<< HEAD
             android:textColor="@color/darkBlack"
-=======
-            android:textColor="@color/black"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
-            android:textColor="@color/black"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -123,15 +78,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/MoneyButtonId"
-<<<<<<< HEAD
-<<<<<<< HEAD
         android:layout_width="wrap_content"
-=======
-        android:layout_width="200dp"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
-        android:layout_width="200dp"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="10dp"
@@ -139,13 +86,7 @@
         android:layout_marginEnd="10dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-<<<<<<< HEAD
-<<<<<<< HEAD
         android:background="@drawable/buy_button_background"
-=======
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
         android:backgroundTint="@color/card_blue"
         android:gravity="center"
         android:text="BUY"

@@ -1,14 +1,8 @@
 package com.intern.xtrade.Fragments
 
 import android.content.Intent
-<<<<<<< HEAD
-<<<<<<< HEAD
 import android.graphics.Color
 import android.graphics.drawable.Drawable
-=======
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -16,8 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-<<<<<<< HEAD
-<<<<<<< HEAD
 import android.widget.LinearLayout
 import android.widget.Space
 import android.widget.TextView
@@ -26,14 +18,6 @@ import com.intern.xtrade.R
 import com.intern.xtrade.SearchBarActivity
 import com.intern.xtrade.StockScreen
 import kotlin.random.Random
-=======
-import com.intern.xtrade.R
-import com.intern.xtrade.SearchBarActivity
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
-import com.intern.xtrade.R
-import com.intern.xtrade.SearchBarActivity
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,14 +35,8 @@ class HomeFragment : Fragment() {
     private var param2: String? = null
 
     private lateinit var searchIcon : ImageView
-<<<<<<< HEAD
-<<<<<<< HEAD
     private lateinit var TrendingLinearLayout : LinearLayout
     private var totalStockList : List<StockInfo> = getSampleStockData()
-=======
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -78,8 +56,6 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(),SearchBarActivity::class.java)
             startActivity(intent)
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
         TrendingLinearLayout = view.findViewById<LinearLayout>(R.id.home_cardsContainer)
         CreateListAndAppendToLayout(totalStockList)
         return view
@@ -127,12 +103,6 @@ class HomeFragment : Fragment() {
         intent.putExtra("STOCKPERCENTAGE",Stock.StockPercentage)
         intent.putExtra("GRAPHBOOLEAN",Stock.GraphBoolean)
         startActivity(intent)
-=======
-        return view
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
-        return view
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
     }
 
     companion object {

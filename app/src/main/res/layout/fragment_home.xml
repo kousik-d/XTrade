@@ -34,28 +34,12 @@
                 android:id="@+id/holdings"
                 android:layout_width="0dp"
                 android:layout_weight="4"
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:textColor="@color/darkBlack"
-=======
-                android:textColor="@color/black"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
-                android:textColor="@color/black"
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
                 android:layout_height="wrap_content"
                 android:layout_below="@id/home_rectangle"
                 android:text="Trending Market"
                 android:fontFamily="@font/poppins_bold"
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:textSize="20sp" />
-=======
-                android:textSize="22sp" />
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
-                android:textSize="22sp" />
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 
             <ImageView
                 android:id="@+id/SearchIconId"
@@ -76,85 +60,7 @@
             android:orientation="vertical"
             android:layout_marginTop="15dp"
             android:layout_below="@id/home_text_button">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<!--            <include-->
 
-<!--                layout="@layout/stock_card"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
-
-<!--            <include-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                layout="@layout/stock_card"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
-<!--            <include-->
-<!--                android:layout_marginTop="10dp"-->
-
-<!--                layout="@layout/stock_card"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
-<!--            <include-->
-<!--                android:layout_marginTop="10dp"-->
-
-<!--                layout="@layout/stock_card"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
-<!--            <include-->
-<!--                android:layout_marginTop="10dp"-->
-
-<!--                layout="@layout/stock_card"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
-<!--            <include-->
-<!--                android:layout_marginTop="10dp"-->
-
-<!--                layout="@layout/stock_card"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
-=======
-=======
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-            <include
-
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <include
-                android:layout_marginTop="10dp"
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <include
-                android:layout_marginTop="10dp"
-
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <include
-                android:layout_marginTop="10dp"
-
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <include
-                android:layout_marginTop="10dp"
-
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <include
-                android:layout_marginTop="10dp"
-
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-<<<<<<< HEAD
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
-=======
->>>>>>> eaa839231dd42db111e140c41d10efed3effa036
         </LinearLayout>
 
     </RelativeLayout>
