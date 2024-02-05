@@ -60,41 +60,7 @@
             android:orientation="vertical"
             android:layout_marginTop="15dp"
             android:layout_below="@id/home_text_button">
-<!--            <include-->
 
-<!--                layout="@layout/stock_card"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
-
-<!--            <include-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                layout="@layout/stock_card"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
-<!--            <include-->
-<!--                android:layout_marginTop="10dp"-->
-
-<!--                layout="@layout/stock_card"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
-<!--            <include-->
-<!--                android:layout_marginTop="10dp"-->
-
-<!--                layout="@layout/stock_card"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
-<!--            <include-->
-<!--                android:layout_marginTop="10dp"-->
-
-<!--                layout="@layout/stock_card"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
-<!--            <include-->
-<!--                android:layout_marginTop="10dp"-->
-
-<!--                layout="@layout/stock_card"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content" />-->
         </LinearLayout>
 
     </RelativeLayout>
