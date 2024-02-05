@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:orientation="vertical"
+    android:backgroundTint="@color/white"
+    tools:context=".validity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Validity"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_bold"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/validity_day"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/buy_sell_background"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Day"
+            android:textColor="@color/card_blue"
+            android:textSize="12sp" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/validity_ioc"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/buy_sell_background_grey"
+            android:text="IOC"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/validity_minutes"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.35"
+            android:background="@drawable/buy_sell_background_grey"
+            android:text="Minutes"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Disc Qty."
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="16sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <EditText
+
+            android:id="@+id/validity_left_value"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="0"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"
+            android:inputType="number"
+            android:textColor="@color/black"/>
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatSpinner
+
+            android:id="@+id/validity_dropdown"
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
