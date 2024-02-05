@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#FEFCFF"
+    tools:context=".SearchBarActivity">
+
+<!--    <SearchView-->
+<!--        android:id="@+id/searchBarId"-->
+<!--        android:background="@drawable/search_shape"-->
+<!--        android:layout_width="265dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginLeft="100dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginBottom="20dp" />-->
+
+    <LinearLayout
+        android:id="@+id/searchLinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <AutoCompleteTextView
+        android:id="@+id/rectangle_6"
+        android:layout_width="301dp"
+        android:layout_height="48dp"
+        android:drawablePadding="8dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_weight="400"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/search_shape"
+        android:drawableLeft="@drawable/search_icon"
+        android:padding="5dp" />
+
+        <!-- Onclick the activity has to cancel -->
+        <TextView
+            android:id="@+id/CancelTextId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="Cancel"
+            android:layout_marginRight="15dp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="#343A40"/>
+    </LinearLayout>
+
+    <!-- Click to show the wishlist -->
+    <TextView
+        android:id="@+id/wishListId"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchLinear"
+        android:text="Your Wishlist"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_alignParentRight="true"
+        />
+
+    <!-- contains all the list of stocks -->
+    <ListView
+        android:id="@+id/ListOfStocksId"
+        tools:listitem="@layout/stock_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wishListId"/>
+
+</RelativeLayout>

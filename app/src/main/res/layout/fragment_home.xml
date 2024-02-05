@@ -42,8 +42,10 @@
                 android:textSize="22sp" />
 
             <ImageView
+                android:id="@+id/SearchIconId"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:clickable="true"
                 android:layout_weight="1"
                 android:backgroundTint="@color/black"
                 android:src="@drawable/vector_search" />

@@ -1,4 +1,20 @@
 <resources>
     <string name="app_name">XTrade</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_bottom_navigation">BottomNavigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="SecureP1">Two-factor authentication (2FA): This adds an\n
+        extra layer of security by requiring a second\n
+        factor, such as a code sent to your phone, in\n addition to your password to log in.</string>
+
+    <string name="SecureP2">Password strength requirements: This ensures\nyour password is difficult to guess by\nenforcing minimum length and complexity\nrules.</string>
+
+
+    <string name="SecureP3">Data encryption: This protects your sensitive\ninformation, such as account numbers and\nsocial security numbers, from being accessed\nby unauthorized users.</string>
+
+    <string name="SecureP4">Secure session management: This ensures\nyour session is automatically terminated after a\nperiod of inactivity or if you log out.</string>
+
 </resources>
