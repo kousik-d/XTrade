@@ -34,12 +34,12 @@
                 android:id="@+id/holdings"
                 android:layout_width="0dp"
                 android:layout_weight="4"
-                android:textColor="@color/black"
+                android:textColor="@color/darkBlack"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/home_rectangle"
                 android:text="Trending Market"
                 android:fontFamily="@font/poppins_bold"
-                android:textSize="22sp" />
+                android:textSize="20sp" />
 
             <ImageView
                 android:id="@+id/SearchIconId"
@@ -60,41 +60,41 @@
             android:orientation="vertical"
             android:layout_marginTop="15dp"
             android:layout_below="@id/home_text_button">
-            <include
+<!--            <include-->
 
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+<!--                layout="@layout/stock_card"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
 
-            <include
-                android:layout_marginTop="10dp"
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <include
-                android:layout_marginTop="10dp"
+<!--            <include-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                layout="@layout/stock_card"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--            <include-->
+<!--                android:layout_marginTop="10dp"-->
 
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <include
-                android:layout_marginTop="10dp"
+<!--                layout="@layout/stock_card"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--            <include-->
+<!--                android:layout_marginTop="10dp"-->
 
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <include
-                android:layout_marginTop="10dp"
+<!--                layout="@layout/stock_card"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--            <include-->
+<!--                android:layout_marginTop="10dp"-->
 
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <include
-                android:layout_marginTop="10dp"
+<!--                layout="@layout/stock_card"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--            <include-->
+<!--                android:layout_marginTop="10dp"-->
 
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+<!--                layout="@layout/stock_card"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content" />-->
         </LinearLayout>
 
     </RelativeLayout>

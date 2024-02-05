@@ -1,11 +1,19 @@
 package com.intern.xtrade.Fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import com.intern.xtrade.Notifications
 import com.intern.xtrade.R
+import com.intern.xtrade.SecurityInformation
+import com.intern.xtrade.StockScreen
+import com.intern.xtrade.YourStocks
+import com.intern.xtrade.YourWishlist
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +30,13 @@ class ProfileFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    lateinit var showStockBtn : ImageView
+    lateinit var showWishlist: ImageView
+    lateinit var showNotificationBtn : ImageView
+    lateinit var showSecurityBtn : ImageView
+    lateinit var showHelpandSupportBtn : ImageView
+    lateinit var showTermAndConditionBtn : ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,7 +50,34 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        val view = inflater.inflate(R.layout.activity_profile_list, container, false)
+
+        showStockBtn = view.findViewById(R.id.yourStocksOpenBtn)
+        showWishlist = view.findViewById(R.id.yourWishlistOpenBtn)
+        showNotificationBtn = view.findViewById(R.id.yourNotificationsOpenBtn)
+        showSecurityBtn = view.findViewById(R.id.yourSecurityOpenBtn)
+        showHelpandSupportBtn = view.findViewById(R.id.yourHelpandSupportOpenBtn)
+        showTermAndConditionBtn = view.findViewById(R.id.yourTermsAndConditionOpenBtn)
+
+        showStockBtn.setOnClickListener {
+            startActivity(Intent(requireContext(),YourStocks::class.java))
+        }
+        showWishlist.setOnClickListener {
+            startActivity(Intent(requireContext(),YourWishlist::class.java))
+        }
+        showNotificationBtn.setOnClickListener {
+            startActivity(Intent(requireContext(),Notifications::class.java))
+        }
+        showSecurityBtn.setOnClickListener {
+            startActivity(Intent(requireContext(),SecurityInformation::class.java))
+        }
+        showHelpandSupportBtn.setOnClickListener {
+            //Do Something
+        }
+        showTermAndConditionBtn.setOnClickListener {
+            //Do Something
+        }
+        return view
     }
 
     companion object {

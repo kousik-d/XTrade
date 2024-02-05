@@ -52,8 +52,8 @@ class PortfolioFragment : Fragment() {
         availabeINR = view.findViewById<CardView>(R.id.portfolio_rectangle).findViewById(R.id.portfolio_available_inr)
 
         DepositINRbtn.setOnClickListener {
-
-
+            val intent :Intent = Intent(requireContext(),DepositINRActivity::class.java)
+            startActivity(intent)
         }
         WithDrawINRbtn.setOnClickListener {
             val intent: Intent = Intent(requireContext(),FinalPayment::class.java)

@@ -7,4 +7,9 @@
     <color name="light_blue">#04BBE2</color>
     <color name="orange">#FF7D26</color>
     <color name="card_blue">#0063F5</color>
+    <color name="grey">#2F1C1C1C</color>
+    <color name="green">#3CAC41</color>
+    <color name="transparent_black">#7CF1EAEA</color>
+    <color name="transparent_blue">#996FA6F7</color>
+    <color name="red">#A11414</color>
 </resources>

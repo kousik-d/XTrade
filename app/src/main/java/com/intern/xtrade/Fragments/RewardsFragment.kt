@@ -37,6 +37,7 @@ class RewardsFragment : Fragment() {
     private var param2: String? = null
 
     private lateinit var referNowButton : AppCompatButton
+    lateinit var shareNowButton : AppCompatButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,8 +54,12 @@ class RewardsFragment : Fragment() {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.rewards_fragment, container, false)
         var cardView : CardView = view.findViewById(R.id.referYourFriendId)
-        referNowButton = cardView.findViewById<AppCompatButton>(R.id.referNowBtn)
+        referNowButton = cardView.findViewById(R.id.referNowBtn)
+        shareNowButton = view.findViewById<CardView>(R.id.rewardsId).findViewById(R.id.shareNowBtn)
 
+        shareNowButton.setOnClickListener {
+            SendReferral("https://www.xtrade.com/?rewardCode=WERFTFT")
+        }
         referNowButton.setOnClickListener {
             val clipboardManager = requireContext().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
             val clipData = ClipData.newPlainText("Text","https://www.xtrade.com/?refcode=RRPSFAS" )

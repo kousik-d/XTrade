@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:layout_height="wrap_content"
+    tools:context=".Fragments.TagsFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tags"
+        android:layout_weight="2"
+        android:textColor="@color/darkBlack"
+        android:fontFamily="@font/poppins_semibold"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_weight="0.5"
+        android:text="+ Add Tags"
+        android:fontFamily="@font/poppins_medium"
+        android:textAllCaps="false"
+        android:background="@drawable/buy_sell_background"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

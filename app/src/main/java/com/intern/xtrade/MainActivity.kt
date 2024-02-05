@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var rewardsFragment: RewardsFragment
     lateinit var profileFragment: ProfileFragment
     lateinit var bottom_nav : BottomNavigationView
+
+    //R.layout.activity_main
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
