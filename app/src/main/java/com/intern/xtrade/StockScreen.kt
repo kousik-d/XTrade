@@ -3,6 +3,7 @@ package com.intern.xtrade
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 <<<<<<< HEAD
+<<<<<<< HEAD
 import android.provider.ContactsContract.CommonDataKinds.Im
 import android.widget.Button
 import android.widget.ImageView
@@ -54,11 +55,16 @@ class StockScreen : AppCompatActivity() {
 
 
 =======
+=======
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 
 class StockScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stock_screen)
+<<<<<<< HEAD
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
+=======
 >>>>>>> eaa839231dd42db111e140c41d10efed3effa036
     }
 }

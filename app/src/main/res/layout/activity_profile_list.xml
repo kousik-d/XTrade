@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -7,18 +8,24 @@
     android:orientation="vertical"
     android:padding="16dp">
 =======
+=======
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileLIstActivity">
+<<<<<<< HEAD
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
+=======
 >>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 
     <androidx.cardview.widget.CardView
         android:id="@+id/profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         android:backgroundTint="#0063F5"
@@ -33,6 +40,8 @@
             android:orientation="vertical"
             android:padding="16dp">
 =======
+=======
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
@@ -50,6 +59,9 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
             android:orientation="vertical">
+<<<<<<< HEAD
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
+=======
 >>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 
             <ImageView
@@ -59,7 +71,11 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
 <<<<<<< HEAD
+<<<<<<< HEAD
                 android:src="@drawable/profilepicimg" />
+=======
+                android:src="@drawable/profilepic" />
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 =======
                 android:src="@drawable/profilepic" />
 >>>>>>> eaa839231dd42db111e140c41d10efed3effa036
@@ -68,27 +84,39 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 <<<<<<< HEAD
+<<<<<<< HEAD
                 android:layout_marginTop="6dp"
                 android:text="Agilan Senthil"
                 android:fontFamily="@font/poppins_semibold"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
 =======
+=======
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
                 android:layout_marginTop="5dp"
                 android:text="Agilan Senthil"
                 android:textColor="
 #FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+<<<<<<< HEAD
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
+=======
 >>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 <<<<<<< HEAD
+<<<<<<< HEAD
                 android:layout_marginTop="4dp"
                 android:text="agilansenthilkumar@gmail.com"
                 android:fontFamily="@font/poppins_medium"
+=======
+                android:layout_marginTop="5dp"
+                android:text="agilansenthilkumar@gmail.com"
+
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 =======
                 android:layout_marginTop="5dp"
                 android:text="agilansenthilkumar@gmail.com"
@@ -103,8 +131,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
 <<<<<<< HEAD
+<<<<<<< HEAD
                 android:text="+91-9444977118"
                 android:fontFamily="@font/poppins_medium"
+=======
+                android:text="+91 9444977118"
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 =======
                 android:text="+91 9444977118"
 >>>>>>> eaa839231dd42db111e140c41d10efed3effa036
@@ -123,6 +155,7 @@
 
     </androidx.cardview.widget.CardView>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     <Space
         android:layout_width="match_parent"
@@ -426,6 +459,8 @@
                 app:tint="#6C757D" />
         </LinearLayout>
 =======
+=======
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -747,6 +782,9 @@
 
         </androidx.cardview.widget.CardView>
 
+<<<<<<< HEAD
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
+=======
 >>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 
 
@@ -754,7 +792,11 @@
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 </LinearLayout>
+=======
+</androidx.constraintlayout.widget.ConstraintLayout>
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 =======
 </androidx.constraintlayout.widget.ConstraintLayout>
 >>>>>>> eaa839231dd42db111e140c41d10efed3effa036

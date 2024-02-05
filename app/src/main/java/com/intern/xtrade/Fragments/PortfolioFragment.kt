@@ -53,8 +53,13 @@ class PortfolioFragment : Fragment() {
 
         DepositINRbtn.setOnClickListener {
 <<<<<<< HEAD
+<<<<<<< HEAD
             val intent :Intent = Intent(requireContext(),DepositINRActivity::class.java)
             startActivity(intent)
+=======
+
+
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 =======
 
 

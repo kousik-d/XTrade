@@ -38,7 +38,10 @@ class RewardsFragment : Fragment() {
 
     private lateinit var referNowButton : AppCompatButton
 <<<<<<< HEAD
+<<<<<<< HEAD
     lateinit var shareNowButton : AppCompatButton
+=======
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 =======
 >>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 
@@ -58,12 +61,17 @@ class RewardsFragment : Fragment() {
         var view = inflater.inflate(R.layout.rewards_fragment, container, false)
         var cardView : CardView = view.findViewById(R.id.referYourFriendId)
 <<<<<<< HEAD
+<<<<<<< HEAD
         referNowButton = cardView.findViewById(R.id.referNowBtn)
         shareNowButton = view.findViewById<CardView>(R.id.rewardsId).findViewById(R.id.shareNowBtn)
 
         shareNowButton.setOnClickListener {
             SendReferral("https://www.xtrade.com/?rewardCode=WERFTFT")
         }
+=======
+        referNowButton = cardView.findViewById<AppCompatButton>(R.id.referNowBtn)
+
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 =======
         referNowButton = cardView.findViewById<AppCompatButton>(R.id.referNowBtn)
 

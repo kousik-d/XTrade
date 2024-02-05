@@ -1,5 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
+=======
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 =======
 >>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
@@ -9,7 +12,11 @@
         android:color="@color/grey" />
     <corners android:radius="5dp" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 </shape>
+=======
+</shape>
+>>>>>>> eaa839231dd42db111e140c41d10efed3effa036
 =======
 </shape>
 >>>>>>> eaa839231dd42db111e140c41d10efed3effa036
