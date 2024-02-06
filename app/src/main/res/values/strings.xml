@@ -9,12 +9,9 @@
     <string name="SecureP1">Two-factor authentication (2FA):\nThis adds an
         extra layer of security by requiring a
         factor, such as a code sent to your phone, in addition to your password to log in.</string>
-
     <string name="SecureP2">Password strength requirements:\nThis ensures your password is difficult to guess by enforcing minimum length and complexity rules.</string>
-
 
     <string name="SecureP3">Data encryption:\nThis protects your sensitive information,such as account numbers and social security numbers,from being accessed by unauthorized users.</string>
 
     <string name="SecureP4">Secure session management:\nThis ensures your session is automatically terminated after a period of inactivity or if you log out.</string>
-
 </resources>
