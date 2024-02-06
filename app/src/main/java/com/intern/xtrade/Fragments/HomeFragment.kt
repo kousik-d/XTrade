@@ -1,8 +1,6 @@
 package com.intern.xtrade.Fragments
 
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,12 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.Space
 import android.widget.TextView
+import androidx.lifecycle.lifecycleScope
 import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.R
 import com.intern.xtrade.SearchBarActivity
 import com.intern.xtrade.StockScreen
+import com.intern.xtrade.wishList.StockSharedPreferences
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 // TODO: Rename parameter arguments, choose names that match
@@ -58,10 +59,15 @@ class HomeFragment : Fragment() {
         }
         TrendingLinearLayout = view.findViewById<LinearLayout>(R.id.home_cardsContainer)
         CreateListAndAppendToLayout(totalStockList)
+
+        //Log.i("KOUSIKFILE","${singleton.singleValueFileManager.readDataFromFile("WISH.txt")}")
         return view
     }
 
     private fun CreateListAndAppendToLayout(totalStockList: List<StockInfo>) {
+        lifecycleScope.launch(Dispatchers.IO) {
+
+        }
         for(stock in totalStockList){
             val cardView = layoutInflater.inflate(R.layout.stock_card,null)
             cardView.findViewById<TextView>(R.id.card_stock_name).text = stock.StockName.substring(0,7)+".."
@@ -73,7 +79,6 @@ class HomeFragment : Fragment() {
                 cardView.findViewById<ImageView>(R.id.card_growth_image).setImageResource(
                     v1[Random.nextInt(2)]
                 )
-                Log.i("KOUSIKDASARI123","${stock.CompanyName}")
                 var StockPercent = cardView.findViewById<TextView>(R.id.card_stock_percentage)
                 StockPercent.text = "+ ${stock.StockPercentage}"
                 StockPercent.setTextColor( resources.getColor(R.color.green))
@@ -97,11 +102,13 @@ class HomeFragment : Fragment() {
 
     private fun navigationationToStockScreen(Stock:StockInfo) {
         val intent = Intent(requireContext(),StockScreen::class.java)
+        Log.i("KOUSIKHOMEFRAG","${Stock}")
         intent.putExtra("STOCKNAME",Stock.StockName)
         intent.putExtra("COMPANYLOGO",Stock.CompanyLogo)
         intent.putExtra("STOCKPRICE",Stock.StockPrice)
         intent.putExtra("STOCKPERCENTAGE",Stock.StockPercentage)
         intent.putExtra("GRAPHBOOLEAN",Stock.GraphBoolean)
+        intent.putExtra("STOCKID",Stock.StockId)
         startActivity(intent)
     }
 
@@ -115,6 +122,7 @@ class HomeFragment : Fragment() {
          * @return A new instance of fragment HomeFragment.
          */
         // TODO: Rename and change types and number of parameters
+
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             HomeFragment().apply {
@@ -160,12 +168,7 @@ class HomeFragment : Fragment() {
             "Quantum Systems",
             "Oceanic Ventures",
             "Pinnacle Innovations",
-            "Blue Sky Investments",
-            "Eco Futures",
-            "Dynamic Visionaries",
-            "Evergreen Holdings",
-            "Gold Standard Co.",
-            "Supreme Solutions"
+            "Blue Sky Investments"
         )
 
         val stockNames = listOf(
@@ -183,12 +186,7 @@ class HomeFragment : Fragment() {
             "PinnacleInnovations",
             "BlueSkyStock",
             "EcoFutures",
-            "DynamicVisions",
-            "EvergreenStock",
-            "GoldStandard",
-            "SupremeStock",
-            "XYZTech",
-            "ABCInvest"
+            "DynamicVisions"
         )
 
         val random = Random.Default
@@ -200,7 +198,7 @@ class HomeFragment : Fragment() {
                 CompanyLogo = companyLogo[i-1], // Replace with actual drawable resource
                 StockName = stockNames[i-1],
                 GraphBoolean = random.nextBoolean(),
-                StockPrice = i* 1234 + i * 10 + Random.nextDouble(1.0),
+                StockPrice = i * 1234 + i * 10 + Random.nextDouble(0.01),
                 StockPercentage = 5.0 + i * 0.5,
                 StockId = i
             )

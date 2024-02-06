@@ -22,8 +22,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-    <AutoCompleteTextView
-        android:id="@+id/rectangle_6"
+    <SearchView
+        android:id="@+id/SearchViewToStock"
         android:layout_width="301dp"
         android:layout_height="48dp"
         android:drawablePadding="8dp"

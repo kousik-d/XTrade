@@ -1,5 +1,6 @@
 package com.intern.xtrade
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,25 +11,26 @@ import com.intern.xtrade.Fragments.PortfolioFragment
 import com.intern.xtrade.Fragments.ProfileFragment
 import com.intern.xtrade.Fragments.RewardsFragment
 
+
 class MainActivity : AppCompatActivity() {
 
     private var TAG = "MAIN_ACTIVITY"
-
     lateinit var homeFragment: HomeFragment
     lateinit var portfolioFragment: PortfolioFragment
     lateinit var rewardsFragment: RewardsFragment
     lateinit var profileFragment: ProfileFragment
     lateinit var bottom_nav : BottomNavigationView
 
+
     //R.layout.activity_main
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         homeFragment = HomeFragment()
         portfolioFragment = PortfolioFragment()
         rewardsFragment = RewardsFragment()
         profileFragment = ProfileFragment()
+
 
         bottom_nav = findViewById(R.id.bottom_nav)
         setCurrentFragment(homeFragment)
@@ -40,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                     Log.i(TAG,"HOME")
                     true
                 }
-                R.id.nav_portfolio ->{
+                R.id.nav_portfolio -> {
                     setCurrentFragment(portfolioFragment)
                     Log.i(TAG,"PORTFOLIO")
                     true
@@ -68,4 +70,6 @@ class MainActivity : AppCompatActivity() {
             commit()
         }
     }
+
+
 }
