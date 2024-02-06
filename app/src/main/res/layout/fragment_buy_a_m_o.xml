@@ -1,17 +1,335 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".RegularAndAMO.BuyAMO">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/LinearLayoutForBuyRegular"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:textAppearance="@font/poppins_semibold"
-        android:textSize="32dp"
-        android:layout_height="match_parent"
-        android:text="Fragment AMO" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <androidx.cardview.widget.CardView
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/card_blue"
+            app:cardElevation="5dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/QuantityLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:gravity="left"
+                            android:text="Quantity"
+                            android:textAppearance="@font/poppins_bold"
+                            android:textColor="@color/white"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins"
+                            android:gravity="right"
+                            android:text="Lot size 1"
+                            android:textColor="@color/white"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"/>
+
+                    <EditText
+                        android:id="@+id/buy_TotalQuantity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/search_shape"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="5dp"
+                        android:textColor="@color/darkBlack"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins"/>
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:gravity="top"
+                            android:text="Price"
+                            android:textColor="@color/white"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/poppins"
+                            android:gravity="right"
+                            android:text="Tick size 0.05"
+                            android:textColor="@color/white"
+                            android:textSize="12dp" />
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"/>
+
+                    <EditText
+                        android:id="@+id/buy_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/search_shape"
+                        android:drawableRight="@drawable/dropper_svg"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="5dp"
+                        android:textColor="@color/darkBlack"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Product"
+                android:textColor="@color/darkBlack"
+                android:textSize="16sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/product_intraday"
+
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/buy_sell_background"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Intraday MIS"
+                    android:textAllCaps="false"
+                    android:textColor="@color/card_blue"
+                    android:textSize="12sp" />
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent" />
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/product_longterm"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/buy_sell_background_grey"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Longterm CNC"
+                    android:textAllCaps="false"
+                    android:textColor="@color/darkBlack"
+                    android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Type"
+                android:textColor="@color/darkBlack"
+                android:textSize="16sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/type_market"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:background="@drawable/buy_sell_background"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Market"
+                    android:textAllCaps="false"
+                    android:textColor="@color/card_blue"
+                    android:textSize="12sp" />
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/type_limit"
+
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/buy_sell_background_grey"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Limit"
+                    android:textAllCaps="false"
+                    android:textColor="@color/darkBlack"
+                    android:textSize="12sp" />
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/type_sl"
+
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/buy_sell_background_grey"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="SL"
+                    android:textAllCaps="false"
+                    android:textColor="@color/darkBlack"
+                    android:textSize="12sp" />
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/type_slm"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/buy_sell_background_grey"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="SL-M"
+                    android:textAllCaps="false"
+                    android:textColor="@color/darkBlack"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+        <FrameLayout
+            android:id="@+id/FrameTrigger"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <FrameLayout
+            android:id="@+id/FrameGtt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <FrameLayout
+            android:id="@+id/FrameTags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <FrameLayout
+            android:id="@+id/FrameValidity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>

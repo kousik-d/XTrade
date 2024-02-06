@@ -1,11 +1,14 @@
 package com.intern.xtrade.RegularAndAMO
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatButton
+import androidx.core.content.ContextCompat
 import com.intern.xtrade.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -24,6 +27,14 @@ class BuyRegularActivity : Fragment() {
     private var param2: String? = null
 
 
+    lateinit var ProductIntraDay : AppCompatButton
+    lateinit var ProductLongTerm : AppCompatButton
+    lateinit var TypeMarket : AppCompatButton
+    lateinit var TypeLimit : AppCompatButton
+    lateinit var TypeSL : AppCompatButton
+    lateinit var TypeSLM : AppCompatButton
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -39,7 +50,45 @@ class BuyRegularActivity : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_buy_regular_activity, container, false)
-        Log.i("KOUSIKDASARIFRAG","ISOK")
+
+        ProductIntraDay = view.findViewById(R.id.product_intraday)
+        ProductLongTerm = view.findViewById(R.id.product_longterm)
+        TypeMarket = view.findViewById(R.id.type_market)
+        TypeLimit = view.findViewById(R.id.type_limit)
+        TypeSL = view.findViewById(R.id.type_sl)
+        TypeSLM = view.findViewById(R.id.type_slm)
+
+        ProductIntraDay.setOnClickListener {
+
+        }
+        ProductLongTerm.setOnClickListener {
+            ProductIntraDay.setBackgroundResource(R.drawable.buy_sell_background_grey)
+            ProductIntraDay.setTextColor(ContextCompat.getColor(requireContext(), R.color.darkBlack))
+            it.setBackgroundResource(R.drawable.buy_sell_background)
+            ProductLongTerm.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+        }
+
+        TypeMarket.setOnClickListener {
+
+        }
+        TypeLimit.setOnClickListener {
+            TypeMarket.setBackgroundResource(R.drawable.buy_sell_background_grey)
+            TypeMarket.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkBlack))
+            it.setBackgroundResource(R.drawable.buy_sell_background)
+            TypeLimit.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+        }
+        TypeSL.setOnClickListener {
+            TypeLimit.setBackgroundResource(R.drawable.buy_sell_background_grey)
+            TypeLimit.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkBlack))
+            it.setBackgroundResource(R.drawable.buy_sell_background)
+            TypeSL.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+        }
+        TypeSLM.setOnClickListener {
+            TypeSL.setBackgroundResource(R.drawable.buy_sell_background_grey)
+            TypeSL.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkBlack))
+            it.setBackgroundResource(R.drawable.buy_sell_background)
+            TypeSLM.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+        }
         return view
     }
 

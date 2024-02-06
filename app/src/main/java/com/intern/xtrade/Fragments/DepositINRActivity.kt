@@ -1,10 +1,12 @@
 package com.intern.xtrade.Fragments
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatButton
+import com.intern.xtrade.PaymentSuccessActivity
 import com.intern.xtrade.R
 
 class DepositINRActivity : AppCompatActivity() {
@@ -20,7 +22,10 @@ class DepositINRActivity : AppCompatActivity() {
         backBtn = findViewById(R.id.DepositMoneyBackId)
         DepositButton = findViewById(R.id.MoneyButtonId)
         DepositButton.setOnClickListener {
-
+            val depositedAmount = PaymentAmount.text
+            val intent = Intent(this,PaymentSuccessActivity::class.java)
+            intent.putExtra("DEPOSITEDMONEY",depositedAmount.toString())
+            startActivity(intent)
         }
         backBtn.setOnClickListener {
             finish()
