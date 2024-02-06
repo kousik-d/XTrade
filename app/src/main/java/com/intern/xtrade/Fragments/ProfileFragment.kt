@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import com.intern.xtrade.Notifications
 import com.intern.xtrade.R
 import com.intern.xtrade.SecurityInformation
@@ -30,12 +31,12 @@ class ProfileFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    lateinit var showStockBtn : ImageView
-    lateinit var showWishlist: ImageView
-    lateinit var showNotificationBtn : ImageView
-    lateinit var showSecurityBtn : ImageView
-    lateinit var showHelpandSupportBtn : ImageView
-    lateinit var showTermAndConditionBtn : ImageView
+    lateinit var showStockBtn : LinearLayout
+    lateinit var showWishlist: LinearLayout
+    lateinit var showNotificationBtn : LinearLayout
+    lateinit var showSecurityBtn : LinearLayout
+    lateinit var showHelpandSupportBtn : LinearLayout
+    lateinit var showTermAndConditionBtn : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

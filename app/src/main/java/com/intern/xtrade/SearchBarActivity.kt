@@ -18,10 +18,11 @@ class SearchBarActivity : AppCompatActivity() {
     lateinit var cancelText : TextView
     lateinit var yourWishList : TextView
     lateinit var ListtoShow : ListView
-    lateinit var SearchView : SearchView
+    lateinit var SearchView : androidx.appcompat.widget.SearchView
 
     private var totalStocks = HomeFragment().getSampleStockData()
     private var searchStock = arrayListOf<StockInfo>()
+    private var namesOfCompany = HomeFragment().companyNames
 
 
 
@@ -40,7 +41,7 @@ class SearchBarActivity : AppCompatActivity() {
         }
 
 
-        SearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        SearchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 SearchView.clearFocus()
                 val indexToshow = searchInUserAdapter(query)

@@ -90,7 +90,9 @@
         <!--            tools:layout_editor_absoluteX="34dp">-->
 
         <LinearLayout
+            android:id="@+id/yourStocksOpenBtn"
             android:layout_width="match_parent"
+            android:clickable="true"
             android:layout_height="0dp"
             android:layout_weight="1">
 
@@ -114,7 +116,6 @@
                 android:textSize="16sp" />
 
             <ImageView
-                android:id="@+id/yourStocksOpenBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -141,6 +142,8 @@
 
 
         <LinearLayout
+            android:id="@+id/yourWishlistOpenBtn"
+            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -168,7 +171,6 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/yourWishlistOpenBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -194,7 +196,9 @@
             android:layout_height="16dp" />
 
         <LinearLayout
+            android:id="@+id/yourNotificationsOpenBtn"
             android:layout_width="match_parent"
+            android:clickable="true"
             android:layout_height="0dp"
             android:layout_weight="1">
 
@@ -219,7 +223,6 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/yourNotificationsOpenBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -247,6 +250,8 @@
 
 
         <LinearLayout
+            android:id="@+id/yourSecurityOpenBtn"
+            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -269,7 +274,6 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/yourSecurityOpenBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -294,7 +298,9 @@
             android:layout_height="16dp" />
 
         <LinearLayout
+            android:id="@+id/yourHelpandSupportOpenBtn"
             android:layout_width="match_parent"
+            android:clickable="true"
             android:layout_height="0dp"
             android:layout_weight="1">
 
@@ -317,7 +323,6 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/yourHelpandSupportOpenBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -341,6 +346,8 @@
             android:layout_height="16dp" />
 
         <LinearLayout
+            android:id="@+id/yourTermsAndConditionOpenBtn"
+            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -364,7 +371,6 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/yourTermsAndConditionOpenBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:backgroundTint="#FEFCFF"
     tools:context=".SearchBarActivity">
 
@@ -18,20 +19,20 @@
 
     <LinearLayout
         android:id="@+id/searchLinear"
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/SearchViewToStock"
-        android:layout_width="301dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:drawablePadding="8dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="16dp"
-        android:layout_weight="400"
-        android:layout_marginTop="30dp"
+        android:layout_weight="1"
+        app:iconifiedByDefault="false"
         android:background="@drawable/search_shape"
         android:drawableLeft="@drawable/search_icon"
         android:padding="5dp" />
@@ -43,10 +44,10 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:text="Cancel"
-            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
             android:fontFamily="@font/poppins_medium"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="20dp"
+
             android:textColor="#343A40"/>
     </LinearLayout>
 
