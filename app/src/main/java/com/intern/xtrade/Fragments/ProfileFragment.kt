@@ -6,15 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.LinearLayout
-import com.intern.xtrade.Notifications
+import com.intern.xtrade.ProfileActivites.Notifications
 import com.intern.xtrade.R
-import com.intern.xtrade.SecurityInformation
-import com.intern.xtrade.StockScreen
+import com.intern.xtrade.ProfileActivites.SecurityInformation
 import com.intern.xtrade.YourStocks
-import com.intern.xtrade.YourWishlist
+import com.intern.xtrade.ProfileActivites.YourWishlist
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -64,13 +61,13 @@ class ProfileFragment : Fragment() {
             startActivity(Intent(requireContext(),YourStocks::class.java))
         }
         showWishlist.setOnClickListener {
-            startActivity(Intent(requireContext(),YourWishlist::class.java))
+            startActivity(Intent(requireContext(), YourWishlist::class.java))
         }
         showNotificationBtn.setOnClickListener {
-            startActivity(Intent(requireContext(),Notifications::class.java))
+            startActivity(Intent(requireContext(), Notifications::class.java))
         }
         showSecurityBtn.setOnClickListener {
-            startActivity(Intent(requireContext(),SecurityInformation::class.java))
+            startActivity(Intent(requireContext(), SecurityInformation::class.java))
         }
         showHelpandSupportBtn.setOnClickListener {
             //Do Something

@@ -10,6 +10,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
+import androidx.cardview.widget.CardView
 import androidx.lifecycle.lifecycleScope
 import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.R
@@ -38,6 +42,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var searchIcon : ImageView
     private lateinit var TrendingLinearLayout : LinearLayout
+    lateinit var investToday: CardView
     public var totalStockList : List<StockInfo> = getSampleStockData()
     var companyNames = listOf(
         "ABC Corporation",
@@ -72,6 +77,11 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         searchIcon = view.findViewById(R.id.SearchIconId)
+        investToday = view.findViewById(R.id.home_rectangle)
+        investToday.findViewById<AppCompatButton>(R.id.InvestTodayId).setOnClickListener {
+            val intent = Intent(requireContext(),SearchBarActivity::class.java)
+            startActivity(intent)
+        }
         searchIcon.setOnClickListener {
             val intent = Intent(requireContext(),SearchBarActivity::class.java)
             startActivity(intent)

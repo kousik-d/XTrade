@@ -57,6 +57,7 @@ class RewardsFragment : Fragment() {
         referNowButton = cardView.findViewById(R.id.referNowBtn)
         shareNowButton = view.findViewById<CardView>(R.id.rewardsId).findViewById(R.id.shareNowBtn)
 
+
         shareNowButton.setOnClickListener {
             SendReferral("https://www.xtrade.com/?rewardCode=WERFTFT")
         }

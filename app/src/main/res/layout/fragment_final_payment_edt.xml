@@ -89,7 +89,8 @@
         android:background="@drawable/buy_button_background"
         android:backgroundTint="@color/card_blue"
         android:gravity="center"
-        android:text="BUY"
+        android:text="Deposit"
+        android:textAllCaps="false"
         android:fontFamily="@font/poppins_semibold"
         android:textSize="16sp"
         android:textColor="@color/white" />

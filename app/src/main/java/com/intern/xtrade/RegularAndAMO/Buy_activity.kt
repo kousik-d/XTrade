@@ -1,14 +1,13 @@
-package com.intern.xtrade
+package com.intern.xtrade.RegularAndAMO
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toolbar
-import androidx.viewpager.widget.ViewPager
-import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.intern.xtrade.Adapters.FragmentPageAdapter
+import com.intern.xtrade.R
 
 class Buy_activity : AppCompatActivity() {
 

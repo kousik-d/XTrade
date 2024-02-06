@@ -4,8 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.intern.xtrade.BuyAMO
-import com.intern.xtrade.BuyRegularActivity
+import com.intern.xtrade.RegularAndAMO.BuyAMO
+import com.intern.xtrade.RegularAndAMO.BuyRegularActivity
 
 class FragmentPageAdapter(
     fragmentManager: FragmentManager,

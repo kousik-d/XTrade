@@ -12,7 +12,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        tools:context=".BlankFragment">
+        tools:context=".Fragments.PortfolioFragment">
 
         <include
             android:id="@+id/portfolio_rectangle"

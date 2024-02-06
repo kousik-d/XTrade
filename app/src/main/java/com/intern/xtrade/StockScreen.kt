@@ -3,19 +3,18 @@ package com.intern.xtrade
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.intern.xtrade.RegularAndAMO.Buy_activity
 import com.intern.xtrade.wishList.WishlistManager
 
 
 class StockScreen : AppCompatActivity() {
 
     lateinit var stockLogoImage : ImageView
-    val fileName = "WISH.txt"
     lateinit var stockName : TextView
     lateinit var stockValue : TextView
     lateinit var stockScreenPercentage : TextView
@@ -48,7 +47,7 @@ class StockScreen : AppCompatActivity() {
         StockBuyButton = findViewById(R.id.Stock_Screen_BuyButton)
 
         StockBuyButton.setOnClickListener {
-            val intent = Intent(this,Buy_activity::class.java)
+            val intent = Intent(this, Buy_activity::class.java)
             startActivity(intent)
         }
         stockScreenBack.setOnClickListener {

@@ -4,15 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Adapter
 import android.widget.ArrayAdapter
-import android.widget.ListAdapter
 import android.widget.ListView
-import android.widget.SearchView
 import android.widget.TextView
 import com.intern.xtrade.Adapters.CustListAdapter
 import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.Fragments.HomeFragment
+import com.intern.xtrade.ProfileActivites.YourWishlist
+import java.util.Locale
 
 class SearchBarActivity : AppCompatActivity() {
     lateinit var cancelText : TextView
@@ -44,24 +43,43 @@ class SearchBarActivity : AppCompatActivity() {
         SearchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 SearchView.clearFocus()
-                val indexToshow = searchInUserAdapter(query)
-                if(indexToshow<=15){
-                    val filteredList = totalStocks.filterIndexed{ index, stockInfo ->
-                        index == indexToshow
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                searchStock.clear()
+                val searchText = newText?.toLowerCase(Locale.getDefault())
+                searchText?.let {searchText->
+                    if(searchText.isNotEmpty()){
+                        totalStocks.forEach {
+                            if(it.CompanyName.contains(searchText,ignoreCase = true)){
+                                searchStock.add(it)
+                            }
+                        }
+                        ListtoShow.adapter = CustListAdapter(this@SearchBarActivity,searchStock)
+                        ListtoShow.isClickable = true
+                        ListtoShow.setOnItemClickListener { parent, view, position, id ->
+                            val intent = Intent(this@SearchBarActivity,StockScreen::class.java)
+                            Log.i("KOUSIKHOMEFRAG","${searchStock[position]}")
+                            intent.putExtra("STOCKNAME",searchStock[position].StockName)
+                            intent.putExtra("COMPANYLOGO",searchStock[position].CompanyLogo)
+                            intent.putExtra("STOCKPRICE",searchStock[position].StockPrice)
+                            intent.putExtra("STOCKPERCENTAGE",searchStock[position].StockPercentage)
+                            intent.putExtra("GRAPHBOOLEAN",searchStock[position].GraphBoolean)
+                            intent.putExtra("STOCKID",searchStock[position].StockId)
+                            startActivity(intent)
+                        }
+                    }else{
+                        searchStock.clear()
+                        ListtoShow.adapter = CustListAdapter(this@SearchBarActivity,totalStocks)
                     }
-                    createListViewAdapter(filteredList)
                 }
                 return false
             }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                return false
-            }
-
         })
-
         yourWishList.setOnClickListener {
-            val intent = Intent(this,YourWishlist::class.java)
+            val intent = Intent(this, YourWishlist::class.java)
             startActivity(intent)
         }
     }
