@@ -1,14 +1,25 @@
 package com.intern.xtrade.RegularAndAMO
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
+import com.intern.xtrade.Fragments.GttFragment
+import com.intern.xtrade.Fragments.TagsFragment
+import com.intern.xtrade.PaymentSuccessActivity
 import com.intern.xtrade.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -26,14 +37,23 @@ class BuyRegularActivity : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-
+    lateinit var PriceAmount : EditText
+    lateinit var StockQuantity : EditText
     lateinit var ProductIntraDay : AppCompatButton
     lateinit var ProductLongTerm : AppCompatButton
     lateinit var TypeMarket : AppCompatButton
     lateinit var TypeLimit : AppCompatButton
     lateinit var TypeSL : AppCompatButton
     lateinit var TypeSLM : AppCompatButton
+    lateinit var ValidityDay : AppCompatButton
+    lateinit var ValidityIOC : AppCompatButton
+    lateinit var ValidityMin : AppCompatButton
+    lateinit var PurchaseButton : AppCompatButton
 
+    lateinit var DiscQtyqt : EditText
+    lateinit var DiscQtSpinner : Spinner
+
+    //Flags
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,14 +71,111 @@ class BuyRegularActivity : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_buy_regular_activity, container, false)
 
+
+        PriceAmount = view.findViewById(R.id.buy_Price)
+        StockQuantity = view.findViewById(R.id.buy_TotalQuantity)
+        PurchaseButton = view.findViewById(R.id.PurchaseButtonId)
+
+        PurchaseButton.setOnClickListener {
+            val intent = Intent(requireContext(),PaymentSuccessActivity::class.java)
+            intent.putExtra("STOCKID",BuyRegularActivity.PurchasedStockId)
+            startActivity(intent)
+        }
+
+        PriceAmount.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // Not needed for this implementation
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Not needed for this implementation
+            }
+            override fun afterTextChanged(s: Editable?) {
+                val text = s.toString()
+                if (text.isNotEmpty()) {
+                    val value = text.toDoubleOrNull()
+                    if (value != null && value % 0.05 != 0.0) {
+                        Toast.makeText(
+                            requireContext(),
+                            "Enter valid value (Tick size: 0.05)",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        // Clear the EditText or perform any other action
+                        PriceAmount.text.clear()
+                    }
+                }
+            }
+        })
+
         ProductIntraDay = view.findViewById(R.id.product_intraday)
         ProductLongTerm = view.findViewById(R.id.product_longterm)
         TypeMarket = view.findViewById(R.id.type_market)
         TypeLimit = view.findViewById(R.id.type_limit)
         TypeSL = view.findViewById(R.id.type_sl)
         TypeSLM = view.findViewById(R.id.type_slm)
+        ValidityDay = view.findViewById(R.id.validity_day)
+        ValidityIOC = view.findViewById(R.id.validity_ioc)
+        ValidityMin = view.findViewById(R.id.validity_minutes)
+        DiscQtyqt = view.findViewById(R.id.validity_left_value)
+        DiscQtSpinner =view.findViewById(R.id.validity_dropdown)
+
+
+// Define the options
+        val options = arrayOf(
+            "1 minute",
+            "2 minutes",
+            "3 minutes",
+            "5 minutes",
+            "10 minutes",
+            "15 minutes",
+            "30 minutes",
+            "45 minutes",
+            "60 minutes",
+            "90 minutes",
+            "120 minutes",
+        )
+
+        val adapter = ArrayAdapter<String>(requireContext(), android.R.layout.simple_spinner_item, options)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        DiscQtSpinner.adapter = adapter
+
+        ValidityDay.setOnClickListener {
+            SetValidityBackground()
+            it.setBackgroundResource(R.drawable.buy_sell_background)
+            ValidityDay.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+
+            DiskVisibility()
+            TypeVisibility()
+            DiscQtSpinner.visibility = EditText.INVISIBLE
+        }
+
+        ValidityMin.setOnClickListener {
+            SetValidityBackground()
+            it.setBackgroundResource(R.drawable.buy_sell_background)
+            ValidityMin.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+
+            DiskVisibility()
+            TypeVisibility()
+        }
+
+        ValidityIOC.setOnClickListener {
+            SetValidityBackground()
+            it.setBackgroundResource(R.drawable.buy_sell_background)
+            ValidityIOC.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+
+            TypeSL.visibility = Button.INVISIBLE
+            TypeSLM.visibility = Button.INVISIBLE
+            DiscQtyqt.visibility = EditText.INVISIBLE
+            DiscQtSpinner.visibility = EditText.INVISIBLE
+        }
+
+
 
         ProductIntraDay.setOnClickListener {
+
+            it.setBackgroundResource(R.drawable.buy_sell_background)
+            ProductIntraDay.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+            ProductLongTerm.setBackgroundResource(R.drawable.buy_sell_background_grey)
+            ProductLongTerm.setTextColor(ContextCompat.getColor(requireContext(), R.color.darkBlack))
 
         }
         ProductLongTerm.setOnClickListener {
@@ -69,30 +186,128 @@ class BuyRegularActivity : Fragment() {
         }
 
         TypeMarket.setOnClickListener {
+            ReplaceTriggerLayout()
+            ReplaceAlltheBackGroundtoGrey()
+            it.setBackgroundResource(R.drawable.buy_sell_background)
+            TypeMarket.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
 
+
+            AllVisibility()
+            PriceAmount.visibility = EditText.INVISIBLE
         }
         TypeLimit.setOnClickListener {
-            TypeMarket.setBackgroundResource(R.drawable.buy_sell_background_grey)
-            TypeMarket.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkBlack))
+            ReplaceTriggerLayout()
+            ReplaceAlltheBackGroundtoGrey()
             it.setBackgroundResource(R.drawable.buy_sell_background)
             TypeLimit.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+
+            AllVisibility()
         }
         TypeSL.setOnClickListener {
-            TypeLimit.setBackgroundResource(R.drawable.buy_sell_background_grey)
-            TypeLimit.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkBlack))
+            LoadTrigger()
+            ReplaceAlltheBackGroundtoGrey()
             it.setBackgroundResource(R.drawable.buy_sell_background)
             TypeSL.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+
+            AllVisibility()
+            ValidityIOC.visibility =  Button.INVISIBLE
         }
         TypeSLM.setOnClickListener {
-            TypeSL.setBackgroundResource(R.drawable.buy_sell_background_grey)
-            TypeSL.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkBlack))
+            LoadTrigger()
+            ReplaceAlltheBackGroundtoGrey()
             it.setBackgroundResource(R.drawable.buy_sell_background)
             TypeSLM.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+
+            AllVisibility()
+            PriceAmount.visibility = EditText.INVISIBLE
+            ValidityIOC.visibility = Button.INVISIBLE
+
         }
+
         return view
     }
 
+    private fun SetValidityBackground() {
+        ValidityDay.setBackgroundResource(R.drawable.buy_sell_background_grey)
+        ValidityDay.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkBlack))
+        ValidityMin.setBackgroundResource(R.drawable.buy_sell_background_grey)
+        ValidityMin.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkBlack))
+        ValidityIOC.setBackgroundResource(R.drawable.buy_sell_background_grey)
+        ValidityIOC.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkBlack))
+
+    }
+
+    private fun AllVisibility(){
+        TypeMarket.visibility = Button.VISIBLE
+        TypeLimit.visibility = Button.VISIBLE
+        TypeSL.visibility = Button.VISIBLE
+        TypeSLM.visibility = Button.VISIBLE
+        PriceAmount.visibility = EditText.VISIBLE
+        ValidityIOC.visibility = Button.VISIBLE
+    }
+
+    private fun TypeVisibility(){
+        TypeMarket.visibility = Button.VISIBLE
+        TypeLimit.visibility = Button.VISIBLE
+        TypeSL.visibility = Button.VISIBLE
+        TypeSLM.visibility = Button.VISIBLE
+    }
+
+    private fun DiskVisibility(){
+        DiscQtyqt.visibility = EditText.VISIBLE
+        DiscQtSpinner.visibility= Spinner.VISIBLE
+    }
+
+    private fun ValidityVisibility(){
+
+        ValidityDay.visibility = Button.VISIBLE
+        ValidityMin.visibility = Button.VISIBLE
+        ValidityIOC.visibility = Button.VISIBLE
+        DiscQtyqt.visibility = EditText.VISIBLE
+        DiscQtSpinner.visibility= Spinner.VISIBLE
+    }
+
+    private fun ReplaceTriggerLayout(){
+        val frag = childFragmentManager.findFragmentById(R.id.FrameTrigger)
+        frag?.let {
+            childFragmentManager.beginTransaction()
+                .remove(it)
+                .commit()
+        }
+    }
+
+    private fun LoadTrigger() {
+       childFragmentManager.beginTransaction()
+           .replace(R.id.FrameTrigger,TriggerFragment())
+           .commit()
+    }
+
+
+    private fun ReplaceAlltheBackGroundtoGrey() {
+        TypeSL.setBackgroundResource(R.drawable.buy_sell_background_grey)
+        TypeSL.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkBlack))
+        TypeMarket.setBackgroundResource(R.drawable.buy_sell_background_grey)
+        TypeMarket.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkBlack))
+        TypeLimit.setBackgroundResource(R.drawable.buy_sell_background_grey)
+        TypeLimit.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkBlack))
+        TypeSLM.setBackgroundResource(R.drawable.buy_sell_background_grey)
+        TypeSLM.setTextColor(ContextCompat.getColor(requireContext(),R.color.darkBlack))
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+
+
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -105,6 +320,8 @@ class BuyRegularActivity : Fragment() {
          * @param param2 Parameter 2.
          * @return A new instance of fragment BuyRegularActivity.
          */
+
+        var PurchasedStockId = 1
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =

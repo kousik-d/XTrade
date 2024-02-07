@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         portfolioFragment = PortfolioFragment()
         rewardsFragment = RewardsFragment()
         profileFragment = ProfileFragment()
+        val AmountDeposited = intent.getIntExtra("DEPOSITEDMONEY",0)
 
 
         bottom_nav = findViewById(R.id.bottom_nav)
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_portfolio -> {
+                    PortfolioFragment.AmountToAddToDeposit = AmountDeposited
                     setCurrentFragment(portfolioFragment)
                     Log.i(TAG,"PORTFOLIO")
                     true
@@ -68,6 +70,12 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragment_wrapper,fragment)
             commit()
+        }
+    }
+
+    override fun onBackPressed() {
+        if(false){
+            super.onBackPressed()
         }
     }
 

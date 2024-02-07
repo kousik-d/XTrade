@@ -65,7 +65,7 @@ class RewardsFragment : Fragment() {
             val clipboardManager = requireContext().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
             val clipData = ClipData.newPlainText("Text","https://www.xtrade.com/?refcode=RRPSFAS" )
             clipboardManager.setPrimaryClip(clipData)
-            Toast.makeText(requireContext(), "Text copied to clipboard", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(requireContext(), "Text copied to clipboard", Toast.LENGTH_SHORT).show()
 //            SendReferral("https://www.xtrade.com/?refcode=RRPSFAS")
         }
         return view

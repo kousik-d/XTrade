@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     android:layout_height="wrap_content">
 
     <TextView
@@ -10,7 +9,8 @@
         android:layout_width="wrap_content"
         android:text="Trigger"
         android:textColor="@color/darkBlack"
-        android:fontFamily="@font/poppins_semibold"
+        android:fontFamily="@font/poppins_bold"
+        android:textSize="16sp"
         android:layout_height="0dp"/>
 
     <LinearLayout
@@ -32,10 +32,16 @@
             android:layout_weight="1"
             android:layout_height="match_parent"/>
     </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
     <View
         android:id="@+id/LineId"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="15dp"
         android:background="@color/grey"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp"/>
 </LinearLayout>

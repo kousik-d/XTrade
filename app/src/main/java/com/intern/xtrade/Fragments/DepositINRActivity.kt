@@ -24,7 +24,7 @@ class DepositINRActivity : AppCompatActivity() {
         DepositButton.setOnClickListener {
             val depositedAmount = PaymentAmount.text
             val intent = Intent(this,PaymentSuccessActivity::class.java)
-            intent.putExtra("DEPOSITEDMONEY",depositedAmount.toString())
+            intent.putExtra("DEPOSITEDMONEY",depositedAmount.toString().toInt())
             startActivity(intent)
         }
         backBtn.setOnClickListener {

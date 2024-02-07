@@ -44,23 +44,7 @@ class HomeFragment : Fragment() {
     private lateinit var TrendingLinearLayout : LinearLayout
     lateinit var investToday: CardView
     public var totalStockList : List<StockInfo> = getSampleStockData()
-    var companyNames = listOf(
-        "ABC Corporation",
-        "XYZ Inc.",
-        "Tech Innovators",
-        "Global Traders",
-        "Green Energy Co.",
-        "Silver Enterprises",
-        "Star Solutions",
-        "Alpha Investments",
-        "Infinite Dynamics",
-        "Future Tech",
-        "Sunrise Holdings",
-        "Quantum Systems",
-        "Oceanic Ventures",
-        "Pinnacle Innovations",
-        "Blue Sky Investments"
-    )
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,73 +78,41 @@ class HomeFragment : Fragment() {
     }
 
     private fun CreateListAndAppendToLayout(totalStockList: List<StockInfo>) {
-
         lifecycleScope.launch(Dispatchers.IO) {
             for (stock in totalStockList) {
                 val cardView = layoutInflater.inflate(R.layout.stock_card, null)
-                cardView.findViewById<TextView>(R.id.card_stock_name).text =
-                    stock.StockName.substring(0, 7) + ".."
-                cardView.findViewById<TextView>(R.id.card_stock_inr).text =
-                    "₹ ${stock.StockPrice}".substring(0, 7) + ".."
-                cardView.findViewById<TextView>(R.id.card_stock_company).text =
-                    " ${stock.CompanyName}"
-                cardView.findViewById<ImageView>(R.id.card_stock_logo)
-                    .setImageResource(stock.CompanyLogo)
-                if (stock.GraphBoolean == true) {
+                cardView.findViewById<TextView>(R.id.card_stock_name).text = "${stock.StockName.substring(0, 7)}.."
+                cardView.findViewById<TextView>(R.id.card_stock_inr).text = "₹ ${stock.StockPrice}".substring(0, 7) + ".."
+                cardView.findViewById<TextView>(R.id.card_stock_company).text = " ${stock.CompanyName}"
+                cardView.findViewById<ImageView>(R.id.card_stock_logo).setImageResource(stock.CompanyLogo)
+                val stockPercent = cardView.findViewById<TextView>(R.id.card_stock_percentage)
+                if (stock.GraphBoolean) {
                     val v1 = listOf<Int>(R.drawable.up_graph, R.drawable.upgraph_2)
-                    cardView.findViewById<ImageView>(R.id.card_growth_image).setImageResource(
-                        v1[Random.nextInt(2)]
-                    )
-                    var StockPercent = cardView.findViewById<TextView>(R.id.card_stock_percentage)
-                    StockPercent.text = "+ ${stock.StockPercentage}"
-                    StockPercent.setTextColor(resources.getColor(R.color.green))
+                    cardView.findViewById<ImageView>(R.id.card_growth_image).setImageResource(v1.random())
+                    stockPercent.text = "+ ${stock.StockPercentage}"
+                    stockPercent.setTextColor(resources.getColor(R.color.green))
                 } else {
                     val v2 = listOf<Int>(R.drawable.downgraph_1, R.drawable.downgraph_2)
-                    cardView.findViewById<ImageView>(R.id.card_growth_image).setImageResource(
-                        v2[Random.nextInt(2)]
-                    )
-                    var StockPercent = cardView.findViewById<TextView>(R.id.card_stock_percentage)
-                    StockPercent.text = "- ${stock.StockPercentage}"
-                    StockPercent.setTextColor(resources.getColor(R.color.red))
+                    cardView.findViewById<ImageView>(R.id.card_growth_image).setImageResource(v2.random())
+                    stockPercent.text = "- ${stock.StockPercentage}"
+                    stockPercent.setTextColor(resources.getColor(R.color.red))
                 }
                 cardView.setOnClickListener {
                     navigationationToStockScreen(stock)
                 }
                 withContext(Dispatchers.Main) {
-                    TrendingLinearLayout.addView(cardView);
+                    // Set margin for card view
+                    val layoutParams = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                    )
+                    layoutParams.setMargins(0, 0, 0, resources.getDimensionPixelSize(R.dimen.margin_between_cards))
+                    cardView.layoutParams = layoutParams
+                    // Add card view to linear layout
+                    TrendingLinearLayout.addView(cardView)
                 }
             }
         }
-        // Without using the Threads
-//        for(stock in totalStockList){
-//            val cardView = layoutInflater.inflate(R.layout.stock_card,null)
-//            cardView.findViewById<TextView>(R.id.card_stock_name).text = stock.StockName.substring(0,7)+".."
-//            cardView.findViewById<TextView>(R.id.card_stock_inr).text = "₹ ${stock.StockPrice}".substring(0,7)+".."
-//            cardView.findViewById<TextView>(R.id.card_stock_company).text = " ${stock.CompanyName}"
-//            cardView.findViewById<ImageView>(R.id.card_stock_logo).setImageResource(stock.CompanyLogo)
-//            if(stock.GraphBoolean == true){
-//                val v1 = listOf<Int>(R.drawable.up_graph,R.drawable.upgraph_2)
-//                cardView.findViewById<ImageView>(R.id.card_growth_image).setImageResource(
-//                    v1[Random.nextInt(2)]
-//                )
-//                var StockPercent = cardView.findViewById<TextView>(R.id.card_stock_percentage)
-//                StockPercent.text = "+ ${stock.StockPercentage}"
-//                StockPercent.setTextColor( resources.getColor(R.color.green))
-//            }else{
-//                val v2 = listOf<Int>(R.drawable.downgraph_1,R.drawable.downgraph_2)
-//                cardView.findViewById<ImageView>(R.id.card_growth_image).setImageResource(
-//                    v2[Random.nextInt(2)]
-//                )
-//                var StockPercent = cardView.findViewById<TextView>(R.id.card_stock_percentage)
-//                StockPercent.text = "- ${stock.StockPercentage}"
-//                StockPercent.setTextColor( resources.getColor(R.color.red))
-//
-//            }
-//
-//            cardView.setOnClickListener {
-//                navigationationToStockScreen(stock)
-//            }
-//            TrendingLinearLayout.addView(cardView);
     }
 
     private fun navigationationToStockScreen(Stock:StockInfo) {
@@ -197,6 +149,7 @@ class HomeFragment : Fragment() {
     }
     fun getSampleStockData(): List<StockInfo> {
         val sampleStockData = mutableListOf<StockInfo>()
+
 
         var companyNames = listOf(
             "ABC Corporation",

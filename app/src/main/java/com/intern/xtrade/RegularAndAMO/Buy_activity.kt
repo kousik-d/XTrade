@@ -3,6 +3,7 @@ package com.intern.xtrade.RegularAndAMO
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.Toolbar
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
@@ -14,15 +15,19 @@ class Buy_activity : AppCompatActivity() {
     lateinit var viewPager: ViewPager2
     lateinit var tabLayout: TabLayout
     lateinit var adapter : FragmentPageAdapter
-    lateinit var BuyToolBar : Toolbar
+    lateinit var purchaseStockBackBtn : ImageView
+//    lateinit var BuyToolBar : Toolbar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.buy_activity)
          viewPager = findViewById(R.id.viewPager)
-        tabLayout = findViewById(R.id.tab_layout)
-        BuyToolBar = findViewById(R.id.BuyStockToolBar)
-        setActionBar(BuyToolBar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+         tabLayout = findViewById(R.id.tab_layout)
+         purchaseStockBackBtn = findViewById(R.id.BuyActivityBackBtn)
+         purchaseStockBackBtn.setOnClickListener {
+             finish()
+         }
+        val stockId= intent.getIntExtra("STOCKID",1)
+        BuyRegularActivity.PurchasedStockId = stockId
         adapter = FragmentPageAdapter(supportFragmentManager ,lifecycle)
 
         viewPager.adapter = adapter

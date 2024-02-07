@@ -2,34 +2,28 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:padding="5dp">
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/PortfoliorelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        tools:context=".Fragments.PortfolioFragment">
-
+        tools:context=".BlankFragment">
         <include
             android:id="@+id/portfolio_rectangle"
             layout="@layout/portfolio_card"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-
-            />
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"/>
         <LinearLayout
             android:id="@+id/buttons_in_portfolio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_below="@id/portfolio_rectangle"
-            android:layout_marginTop="12dp"
+            android:padding="10dp"
             >
-
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/DepositINRId"
                 android:layout_width="0dp"
@@ -39,15 +33,13 @@
                 android:textAllCaps="false"
                 android:fontFamily="@font/poppins_bold"
                 android:elevation="4dp"
+                android:layout_margin="4dp"
                 android:background="@drawable/rectangle_for_portfolio"
                 android:textColor="@color/white"
                 />
-
             <Space
                 android:layout_width="10dp"
                 android:layout_height="match_parent"/>
-
-
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="0dp"
                 android:id="@+id/WithDrawINRId"
@@ -57,66 +49,37 @@
                 android:textAllCaps="false"
                 android:fontFamily="@font/poppins_bold"
                 android:elevation="4dp"
+                android:layout_margin="4dp"
                 android:background="@drawable/stroked_button"
                 android:textColor="@color/card_blue"
                 />
         </LinearLayout>
-
         <TextView
             android:id="@+id/holdings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/buttons_in_portfolio"
-            android:layout_marginTop="20dp"
             android:text="Holdings"
+            android:padding="16sp"
+            android:textColor="@color/darkBlack"
             android:fontFamily="@font/poppins_bold"
-            android:textSize="22sp"
+            android:textSize="18sp"
             />
-
         <LinearLayout
             android:id="@+id/portfolio_cardsContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="10dp"
+            android:padding="12dp"
             android:layout_below="@id/holdings">
-            <include
 
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <include
-                android:layout_marginTop="10dp"
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <include
-                android:layout_marginTop="10dp"
-
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <include
-                android:layout_marginTop="10dp"
-
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <include
-                android:layout_marginTop="10dp"
-
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <include
-                android:layout_marginTop="10dp"
-
-                layout="@layout/stock_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
         </LinearLayout>
-
     </RelativeLayout>
-
 </ScrollView>
+
+
+
+
+
+
+

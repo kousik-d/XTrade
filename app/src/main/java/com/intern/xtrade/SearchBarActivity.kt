@@ -21,7 +21,6 @@ class SearchBarActivity : AppCompatActivity() {
 
     private var totalStocks = HomeFragment().getSampleStockData()
     private var searchStock = arrayListOf<StockInfo>()
-    private var namesOfCompany = HomeFragment().companyNames
 
 
 

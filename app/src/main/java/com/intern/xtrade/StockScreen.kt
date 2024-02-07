@@ -48,6 +48,7 @@ class StockScreen : AppCompatActivity() {
 
         StockBuyButton.setOnClickListener {
             val intent = Intent(this, Buy_activity::class.java)
+            intent.putExtra("STOCKID",stockId)
             startActivity(intent)
         }
         stockScreenBack.setOnClickListener {
