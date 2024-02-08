@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import com.intern.xtrade.Adapters.CustListAdapter
@@ -14,7 +15,7 @@ import com.intern.xtrade.ProfileActivites.YourWishlist
 import java.util.Locale
 
 class SearchBarActivity : AppCompatActivity() {
-    lateinit var cancelText : TextView
+    lateinit var cancelText : ImageView
     lateinit var yourWishList : TextView
     lateinit var ListtoShow : ListView
     lateinit var SearchView : androidx.appcompat.widget.SearchView
@@ -28,10 +29,11 @@ class SearchBarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_bar)
 
-        cancelText = findViewById(R.id.CancelTextId)
+        cancelText = findViewById(R.id.SearchBarBackBtn)
         yourWishList = findViewById(R.id.wishListId)
         ListtoShow = findViewById(R.id.ListOfStocksId)
         SearchView = findViewById(R.id.SearchViewToStock)
+        Log.i("SEARCHBAR","SEARCH")
 
         createListViewAdapter(totalStocks)
         cancelText.setOnClickListener {

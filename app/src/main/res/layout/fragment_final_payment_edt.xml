@@ -10,6 +10,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="55dp"
         android:layout_marginTop="16dp"
+        android:textColor="@color/darkBlack"
         android:fontFamily="@font/poppins_semibold"
         android:padding="15dp"
         android:text="Deposit Money"

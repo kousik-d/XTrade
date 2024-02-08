@@ -106,7 +106,7 @@ class HomeFragment : Fragment() {
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
                     )
-                    layoutParams.setMargins(0, 0, 0, resources.getDimensionPixelSize(R.dimen.margin_between_cards))
+                    layoutParams.setMargins(resources.getDimensionPixelSize(R.dimen.margin_between_cards), 0, resources.getDimensionPixelSize(R.dimen.margin_between_cards), resources.getDimensionPixelSize(R.dimen.margin_between_cards))
                     cardView.layoutParams = layoutParams
                     // Add card view to linear layout
                     TrendingLinearLayout.addView(cardView)

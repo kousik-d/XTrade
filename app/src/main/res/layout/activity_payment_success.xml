@@ -24,6 +24,7 @@
             android:src="@drawable/tick_mark" />
 
         <TextView
+            android:id="@+id/PaymentSuccessMessage"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"

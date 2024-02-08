@@ -70,7 +70,7 @@ class PortfolioFragment : Fragment() {
         CreateListAndAppendToLayout(WishlistManager.getYourStocks(requireContext()))
 
         val moneyPresent = availabeINR.text.toString().toInt()
-        val indiLocal = Locale("en", "IN")
+        val indiLocal = Locale("en", "US")
         val totalMoney =  (moneyPresent + PortfolioFragment.AmountToAddToDeposit)
         availabeINR.text = NumberFormat.getCurrencyInstance(indiLocal).format(totalMoney)
         DepositINRbtn.setOnClickListener {

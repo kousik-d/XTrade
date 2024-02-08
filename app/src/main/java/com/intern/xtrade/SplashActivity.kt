@@ -16,12 +16,12 @@ class SplashActivity:  AppCompatActivity() {
             Handler().postDelayed({
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
-            },3000)
+            },2000)
         }else {
             Handler().postDelayed({
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent);
-            }, 3000)
+            }, 2000)
         }
     }
 }

@@ -18,6 +18,7 @@
             android:id="@+id/card_stock_logo"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:background="@drawable/image"
             android:src="@drawable/loading_image"
             />
         <View
@@ -35,15 +36,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="2"
-                android:fontFamily="@font/poppins_semibold"
+                android:paddingLeft="3dp"
+                android:gravity="left"
+                android:fontFamily="@font/poppins_medium"
                 android:text="Loading.."
-                android:textSize="16sp" />
+                android:textSize="14sp" />
             <TextView
                 android:id="@+id/card_stock_company"
                 android:textColor="@color/darkBlack"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:gravity="left"
                 android:text="Loading.."
                 android:fontFamily="@font/poppins"
                 android:textSize="12sp"
