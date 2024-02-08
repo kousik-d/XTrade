@@ -17,7 +17,6 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
-import com.intern.xtrade.Fragments.GttFragment
 import com.intern.xtrade.Fragments.TagsFragment
 import com.intern.xtrade.PaymentSuccessActivity
 import com.intern.xtrade.R
