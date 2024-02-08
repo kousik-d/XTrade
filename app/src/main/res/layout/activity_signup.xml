@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AppOpenActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SignUp"
+        android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/darkBlack"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="Mobile number"
+        android:textColor="@color/card_blue"
+        android:textSize="16dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:scrollHorizontally="true" />
+
+    <EditText
+
+        android:id="@+id/signup_mobileNumber"
+
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buy_sell_background_grey"
+        android:hint="+91 - "
+        android:textSize="18dp"
+        android:padding="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/card_blue"
+        android:inputType="number"
+        android:textCursorDrawable="@color/card_blue"/>
+
+    <TextView
+
+        android:id="@+id/signup_mobileNumberWarning"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:textColor="@color/red"
+        android:text="Enter a valid Mobile number"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="Referral code (Optional)"
+        android:textColor="@color/card_blue"
+        android:textSize="16dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:scrollHorizontally="true" />
+
+    <EditText
+
+        android:id="@+id/signup_referralCode"
+
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buy_sell_background_grey"
+        android:hint="Enter Referral Code"
+        android:textSize="18dp"
+        android:padding="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/card_blue"
+        android:textCursorDrawable="@color/card_blue"/>
+
+    <CheckBox
+
+        android:id="@+id/signup_checkBox"
+
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:layout_gravity="left"
+        android:gravity="center_vertical"
+        android:text=" Terms &amp; Conditions"
+        android:textColor="@color/card_blue"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColorLink="@color/card_blue"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="12dp"
+        android:textColor="@color/black"
+        android:text="By clicking, you agree to all T&amp;C and give your consent for communication via WhatsApp, Email, SMS, Call."
+        android:fontFamily="@font/poppins_medium"
+        android:layout_marginTop="5dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+
+        android:id="@+id/signup_continue"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Continue"
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"/>
+
+
+
+
+</LinearLayout>
