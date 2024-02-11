@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AppOpenActivity">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        
+        <ImageView
+
+            android:id="@+id/mobileNumberVerification_back"
+
+            android:layout_width="20dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:clickable="true"
+            android:src="@drawable/back_button"/>
+        
+        <TextView
+
+            android:layout_weight="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mobile number Verification"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/darkBlack"/>
+        
+        <ImageView
+
+            android:id="@+id/mobileNumberVerification_help"
+
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/icons_help"
+            android:clickable="true"/>
+
+
+    </LinearLayout>
+    
+    
+    <TextView
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="Please enter the OTP sent to the entered mobile number"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:fontFamily="@font/poppins_medium"
+        android:scrollHorizontally="true" />
+
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+
+            android:id="@+id/mobileNumberVerification_number"
+
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="1234567890"
+            android:textColor="@color/darkBlack"
+            android:textSize="16dp"
+            android:fontFamily="@font/poppins_medium" />
+
+        <ImageView
+
+            android:id="@+id/mobileNumberVerification_edit"
+
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/icons_edit"
+            android:clickable="true"
+            android:layout_marginLeft="10dp"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Enter OTP"
+            android:layout_weight="1.5"
+            android:textColor="@color/card_blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/icons_phoneotp"
+            android:textSize="14dp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Resend OTP in :"
+            android:layout_weight="1.5"
+            android:gravity="right"
+            android:textColor="@color/darkBlack"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="14dp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:text="00:54"
+            android:layout_weight="0.7"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="14dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <EditText
+
+            android:id="@+id/mobileNumberVerification_otp1"
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/buy_sell_background_grey"
+            android:textSize="16dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:inputType="number"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:maxLength="1"
+
+            android:cursorVisible="true"
+            android:textCursorDrawable="@color/transparent_blue"
+            android:padding="8dp"/>
+
+
+        <EditText
+
+            android:id="@+id/mobileNumberVerification_otp2"
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/buy_sell_background_grey"
+            android:textSize="16dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:inputType="number"
+            android:maxLength="1"
+
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:cursorVisible="true"
+            android:textCursorDrawable="@color/transparent_blue"
+            android:padding="8dp"/>
+
+        <EditText
+
+            android:id="@+id/mobileNumberVerification_otp3"
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/buy_sell_background_grey"
+            android:textSize="16dp"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:inputType="number"
+            android:maxLength="1"
+
+            android:gravity="center"
+            android:cursorVisible="true"
+            android:textCursorDrawable="@color/transparent_blue"
+            android:padding="8dp"/>
+
+        <EditText
+
+            android:id="@+id/mobileNumberVerification_otp4"
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/buy_sell_background_grey"
+            android:textSize="16dp"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:inputType="number"
+            android:maxLength="1"
+
+            android:gravity="center"
+            android:cursorVisible="true"
+            android:textCursorDrawable="@color/transparent_blue"
+            android:padding="8dp"/>
+
+        <EditText
+
+            android:id="@+id/mobileNumberVerification_otp5"
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/buy_sell_background_grey"
+            android:textSize="16dp"
+            android:layout_marginRight="8dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:inputType="number"
+            android:maxLength="1"
+
+            android:gravity="center"
+            android:cursorVisible="true"
+            android:textCursorDrawable="@color/transparent_blue"
+            android:padding="8dp"/>
+
+        <EditText
+
+            android:id="@+id/mobileNumberVerification_otp6"
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/buy_sell_background_grey"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:fontFamily="@font/poppins_semibold"
+            android:inputType="number"
+            android:maxLength="1"
+
+            android:cursorVisible="true"
+            android:textCursorDrawable="@color/transparent_blue"
+            android:padding="8dp"/>
+
+    </LinearLayout>
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+
+        android:id="@+id/mobileNumberVerification_resendOtp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resend OTP"
+        android:layout_marginTop="30dp"
+        android:textSize="14sp"
+        android:padding="16dp"
+        android:layout_alignParentBottom="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAllCaps="true"
+        android:background="@color/grey"
+        android:textColor="@color/white"
+
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/mobileNumberVerification_confirm"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirm"
+            android:textSize="14sp"
+            android:padding="16dp"
+            android:layout_marginBottom="30dp"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/poppins_semibold"
+            android:textAllCaps="true"
+            android:background="@color/grey"
+            android:textColor="@color/white"
+
+            />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

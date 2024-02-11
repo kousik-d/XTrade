@@ -16,7 +16,22 @@
         android:theme="@style/Theme.XTrade"
         tools:targetApi="31">
         <activity
+            android:name=".UserDetails"
+            android:exported="false" />
+        <activity
+            android:name=".EmailVerificationOTP"
+            android:exported="false" />
+        <activity
+            android:name=".EmailVerification"
+            android:exported="false" />
+        <activity
+            android:name=".MobileNumberOTP"
+            android:exported="false" />
+        <activity
             android:name=".AppOpenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Signup"
             android:exported="false" />
         <activity
             android:name=".PaymentSuccessActivity"
