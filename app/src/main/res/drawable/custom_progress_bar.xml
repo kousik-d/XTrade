@@ -1,0 +1,46 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background track -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/card_blue" />
+        </shape>
+    </item>
+
+    <!-- Progress indicator with icons -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <solid android:color="@color/card_blue" />
+            </shape>
+        </clip>
+    </item>
+
+    <!-- Icon at start -->
+    <item android:drawable="@drawable/details_checked">
+        <clip>
+            <shape android:shape="rectangle">
+                <size android:width="20dp" android:height="20dp" />
+            </shape>
+        </clip>
+    </item>
+
+    <!-- Icon at middle -->
+    <item android:drawable="@drawable/details_1">
+        <clip android:drawable="@drawable/details_1">
+            <shape android:shape="rectangle">
+                <size android:width="20dp" android:height="20dp" />
+            </shape>
+        </clip>
+    </item>
+
+    <!-- Icon at end -->
+    <item android:drawable="@drawable/details_2">
+        <clip android:drawable="@drawable/details_2">
+            <shape android:shape="rectangle">
+                <size android:width="20dp" android:height="20dp" />
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>

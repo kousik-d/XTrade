@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    tools:context=".UserDetails">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <ImageView
+
+            android:id="@+id/userDetails_back"
+
+            android:layout_width="20dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:clickable="true"
+            android:src="@drawable/back_button"/>
+
+        <TextView
+
+            android:id="@+id/userDetails_fragmentName"
+
+            android:layout_weight="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Details"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/darkBlack"/>
+
+        <ImageView
+
+            android:id="@+id/userDetails_help"
+
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/icons_help"
+            android:clickable="true"/>
+
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp">
+
+
+        <ImageView
+
+            android:id="@+id/userDetails_step0"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/details_checked"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_tab0"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+
+            android:id="@+id/userDetails_tab0"
+
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:background="@drawable/details_tab_after"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userDetails_step0"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_step1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+
+            android:id="@+id/userDetails_step1"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/details_man"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userDetails_tab0"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_tab1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+
+            android:id="@+id/userDetails_tab1"
+
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:background="@drawable/details_tab_before"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userDetails_step1"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_step2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+
+            android:id="@+id/userDetails_step2"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/details_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userDetails_tab1"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_tab2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <View
+
+            android:id="@+id/userDetails_tab2"
+
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:background="@drawable/details_tab_before"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userDetails_step2"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_step3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+
+            android:id="@+id/userDetails_step3"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/details_3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userDetails_tab2"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_tab3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+
+            android:id="@+id/userDetails_tab3"
+
+            android:layout_width="0dp"
+            android:layout_height="5dp"
+            android:background="@drawable/details_tab_before"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userDetails_step3"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_step4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageView
+
+            android:id="@+id/userDetails_step4"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/details_4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userDetails_tab3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_gravity="center">
+
+
+        <TextView
+
+            android:id="@+id/userDetails_text0"
+            android:text="   SignUp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="10dp"
+            android:textColor="@color/card_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_gap0"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+
+            android:id="@+id/userDetails_gap0"
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userDetails_text0"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_text1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+
+            android:id="@+id/userDetails_text1"
+            android:text="            Pan"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="10dp"
+            android:textColor="@color/card_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userDetails_gap0"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_gap1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+
+            android:id="@+id/userDetails_gap1"
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userDetails_text1"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_text2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+
+            android:id="@+id/userDetails_text2"
+            android:text="                 Bank"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="10dp"
+            android:textColor="@color/details_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userDetails_gap1"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_gap2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <View
+
+            android:id="@+id/userDetails_gap2"
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userDetails_text2"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_text3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+
+            android:id="@+id/userDetails_text3"
+            android:text="           Personal"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="10dp"
+            android:textColor="@color/details_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userDetails_gap2"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_gap3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <View
+
+            android:id="@+id/userDetails_gap3"
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userDetails_text3"
+            app:layout_constraintEnd_toStartOf="@id/userDetails_text4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+
+            android:id="@+id/userDetails_text4"
+            android:text="Documents"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="10dp"
+            android:textColor="@color/details_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userDetails_gap3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="25dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+
+            android:id="@+id/userDetails_frame"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </ScrollView>
+
+</LinearLayout>

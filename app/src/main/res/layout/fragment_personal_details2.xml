@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PANDetails">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Help us understand you better by provinding more information !"
+        android:textColor="@color/card_blue"
+        android:textSize="18dp"
+        android:fontFamily="@font/poppins_semibold"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="Educational qualification"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textAllCaps="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:scrollHorizontally="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails2_highSchool"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="High school"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+        <Space
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails2_graduate"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Graduate"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails2_postGraduate"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Post graduate"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+        <Space
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails2_doctorate"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Doctorate"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails2_professionalDegree"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Professional degree"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+        <Space
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails2_underHighSchool"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Under high school"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails2_illiterate"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Illiterate"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+        <Space
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails2_others"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Others"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails2_continue"
+
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Proceed"
+            android:textSize="14sp"
+            android:padding="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textAllCaps="false"
+            android:background="@color/grey"
+            android:textColor="@color/white"
+            />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

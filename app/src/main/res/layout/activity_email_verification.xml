@@ -7,22 +7,56 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".AppOpenActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <ImageView
+
+            android:id="@+id/emailVerification_back"
+
+            android:layout_width="20dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:clickable="true"
+            android:src="@drawable/back_button"/>
+
+        <TextView
+
+            android:layout_weight="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email Verification"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/darkBlack"/>
+
+        <ImageView
+
+            android:id="@+id/emailVerification_help"
+
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/icons_help"
+            android:clickable="true"/>
+
+
+    </LinearLayout>
+
+
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SignUp"
-        android:textSize="18dp"
-        android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/poppins_semibold"
-        android:textColor="@color/darkBlack"/>
-
-    <TextView
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:text="Mobile number"
+        android:text="Email"
         android:textColor="@color/card_blue"
         android:textSize="14dp"
         android:fontFamily="@font/poppins_semibold"
@@ -30,20 +64,22 @@
 
     <EditText
 
-        android:id="@+id/signup_mobileNumber"
+        android:id="@+id/emailVerification_email"
 
+        android:cursorVisible="true"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/buy_sell_background_grey"
         android:textSize="16dp"
-        android:drawableLeft="@drawable/icons_phone"
+        android:drawableLeft="@drawable/icons_email"
         android:paddingLeft="10dp"
         android:drawablePadding="10dp"
         android:paddingVertical="10dp"
         android:paddingRight="10dp"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/card_blue"
+        android:inputType="textEmailAddress"
         android:textCursorDrawable="@color/card_blue"/>
 
     <TextView
@@ -54,59 +90,10 @@
         android:layout_height="wrap_content"
         android:textSize="10dp"
         android:textColor="@color/red"
-        android:text="Enter a valid Mobile number"
+        android:text="Enter a valid email"
         android:fontFamily="@font/poppins_medium"
         android:layout_marginTop="5dp"/>
 
-    <TextView
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text="Referral code (Optional)"
-        android:textColor="@color/card_blue"
-        android:textSize="14dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:scrollHorizontally="true" />
-
-    <EditText
-
-        android:id="@+id/signup_referralCode"
-
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/buy_sell_background_grey"
-        android:hint="Enter Referral Code"
-        android:textSize="16dp"
-        android:padding="10dp"
-        android:inputType="date"
-        android:fontFamily="@font/poppins"
-        android:textColor="@color/card_blue"/>
-    <CheckBox
-
-        android:id="@+id/signup_checkBox"
-
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14dp"
-        android:layout_gravity="left"
-        android:gravity="center_vertical"
-        android:text=" Terms &amp; Conditions"
-        android:textColor="@color/card_blue"
-        android:fontFamily="@font/poppins_semibold"
-        android:textColorLink="@color/card_blue"/>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="10dp"
-        android:textColor="@color/black"
-        android:text="By clicking, you agree to all T&amp;C and give your consent for communication via WhatsApp, Email, SMS, Call."
-        android:fontFamily="@font/poppins_medium"
-        android:layout_marginTop="5dp"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -150,7 +137,7 @@
 
             <androidx.appcompat.widget.AppCompatButton
 
-                android:id="@+id/signup_continueWithGoogle"
+                android:id="@+id/emailVerification_continueWithGoogle"
 
                 android:layout_marginTop="12dp"
                 android:layout_width="wrap_content"
@@ -169,7 +156,7 @@
 
             <androidx.appcompat.widget.AppCompatButton
 
-                android:id="@+id/signup_continue"
+                android:id="@+id/emailVerification_continue"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
