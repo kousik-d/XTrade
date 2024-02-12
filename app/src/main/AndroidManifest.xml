@@ -16,7 +16,7 @@
         android:theme="@style/Theme.XTrade"
         tools:targetApi="31">
         <activity
-            android:name=".UserDetails"
+            android:name=".SplashActivity"
             android:exported="false" />
         <activity
             android:name=".EmailVerificationOTP"
@@ -49,6 +49,9 @@
             android:name=".FinalPayment"
             android:exported="false" />
         <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".StockScreen"
             android:exported="false" />
         <activity
@@ -66,9 +69,8 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
-        <activity android:name=".MainActivity" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".UserDetails"
             android:exported="true"
             android:parentActivityName=".MainActivity">
             <intent-filter>

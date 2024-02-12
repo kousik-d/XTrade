@@ -42,7 +42,5 @@ class CustListAdapter(val context: Activity ,val listOfStocks : List<StockInfo>)
             StockPercent.setTextColor(ContextCompat.getColor(getContext(),R.color.red))
         }
         return view
-
     }
-
 }

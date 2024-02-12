@@ -10,19 +10,18 @@ import com.intern.xtrade.wishList.WishlistManager
 class SplashActivity:  AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_signup)
+        setContentView(R.layout.actvity_splash_screen)
 
 
 //        if(WishlistManager.isLoggedIn(this)){
-//            Handler().postDelayed({
+//           Handler().postDelayed({
 //                val intent = Intent(this, PANDetails::class.java)
 //                startActivity(intent)
 //            },2000)
 //        }else {
-//            Handler().postDelayed({
-//                val intent = Intent(this, LoginActivity::class.java)
-//                startActivity(intent);
-//            }, 2000)
-//        }
+            Handler().postDelayed({
+                val intent = Intent(this, AppOpenActivity::class.java)
+                startActivity(intent);
+            }, 2000)
     }
 }

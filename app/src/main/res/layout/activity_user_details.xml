@@ -178,7 +178,6 @@
 
 
         <TextView
-
             android:id="@+id/userDetails_text0"
             android:text="   SignUp"
             android:fontFamily="@font/poppins_semibold"
@@ -301,15 +300,15 @@
         android:layout_height="25dp"/>
 
     <ScrollView
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <FrameLayout
-
             android:id="@+id/userDetails_frame"
-
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"/>
+
 
 
     </ScrollView>

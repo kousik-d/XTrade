@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +21,9 @@ class PANDetails : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var userActivity: UserDetails
+
+    lateinit var PanContinueBtn : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +38,15 @@ class PANDetails : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_p_a_n_details, container, false)
+        userActivity = activity as UserDetails
+        val view = inflater.inflate(R.layout.fragment_p_a_n_details, container, false)
+        PanContinueBtn = view.findViewById(R.id.panDetails_continue)
+        PanContinueBtn.setOnClickListener {
+            val bankDetails = BankDetails()
+            userActivity.LoadProgress(bankDetails)
+            userActivity.onNextButtonClick(bankDetails)
+        }
+        return view
     }
 
     companion object {

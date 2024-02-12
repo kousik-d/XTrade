@@ -109,6 +109,7 @@
         android:layout_marginTop="5dp"/>
 
     <RelativeLayout
+        android:id = "@+id/SignUpContinueRelative"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -176,11 +177,11 @@
                 android:text="Continue"
                 android:textSize="14sp"
                 android:padding="16dp"
+                android:clickable="true"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:textAllCaps="false"
-                android:background="@color/grey"
                 android:textColor="@color/white"
 
                 />
