@@ -18,7 +18,6 @@ import androidx.core.widget.addTextChangedListener
 import java.security.AccessController.getContext
 
 class Signup : AppCompatActivity() {
-
     var isMobileNumberValid = false
     lateinit var continueBtn : Button
     lateinit var TermsCheckBox : CheckBox
@@ -82,10 +81,6 @@ class Signup : AppCompatActivity() {
 //            }
 //        }
 //        Log.i("KOUSIKDASA","${continueBtn.isClickable}")
-
-
-
-
 
     }
 

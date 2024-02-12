@@ -10,6 +10,7 @@ import com.intern.xtrade.wishList.WishlistManager
 class SplashActivity:  AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.actvity_splash_screen)
 
 

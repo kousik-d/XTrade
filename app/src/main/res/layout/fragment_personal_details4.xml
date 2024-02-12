@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PANDetails">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Help us understand you better by provinding more information !"
+        android:textColor="@color/card_blue"
+        android:textSize="18dp"
+        android:fontFamily="@font/poppins_semibold"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="Source of income"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textAllCaps="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:scrollHorizontally="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails4_salary"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Salary"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+        <Space
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails4_businessIncome"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Business Income"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails4_gift"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Gift"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+        <Space
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails4_ancestralProperty"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Ancestral Property"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails4_rentalIncome"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Rental Income"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+        <Space
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails4_prizeMoney"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Prize Money"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails4_royality"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Royality"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+        <Space
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails4_others"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Others"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails4_continue"
+
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Proceed"
+            android:textSize="14sp"
+            android:padding="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textAllCaps="false"
+            android:background="@color/grey"
+            android:textColor="@color/white"
+            />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
