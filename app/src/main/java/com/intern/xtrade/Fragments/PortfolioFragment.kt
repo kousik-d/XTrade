@@ -146,9 +146,11 @@ class PortfolioFragment : Fragment() {
                             LinearLayout.LayoutParams.WRAP_CONTENT
                         )
                         layoutParams.setMargins(
+                            resources.getDimensionPixelSize(R.dimen.margin_between_cards)
+                            ,
                             0,
-                            0,
-                            0,
+                            resources.getDimensionPixelSize(R.dimen.margin_between_cards)
+                            ,
                             resources.getDimensionPixelSize(R.dimen.margin_between_cards)
                         )
                         cardView.layoutParams = layoutParams

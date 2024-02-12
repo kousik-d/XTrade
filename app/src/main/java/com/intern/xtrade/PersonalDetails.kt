@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.appcompat.widget.AppCompatButton
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,10 +18,18 @@ private const val ARG_PARAM2 = "param2"
  * Use the [PersonalDetails.newInstance] factory method to
  * create an instance of this fragment.
  */
-class PersonalDetails : Fragment() {
+class PersonalDetails : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var userActivity : UserDetails
+
+    lateinit var PersonalDetailsContinueBtn : AppCompatButton
+    lateinit var MaritalStatusSingle : AppCompatButton
+    lateinit var MaritalStatusMarried : AppCompatButton
+    lateinit var GenderMale : AppCompatButton
+    lateinit var GenderFemale : AppCompatButton
+    lateinit var GenderOthers : AppCompatButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +44,28 @@ class PersonalDetails : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_personal_details, container, false)
+        val view = inflater.inflate(R.layout.fragment_personal_details, container, false)
+        PersonalDetailsContinueBtn = view.findViewById(R.id.personalDetails_continue)
+
+        MaritalStatusSingle = view.findViewById(R.id.personalDetails_single)
+        MaritalStatusMarried = view.findViewById(R.id.personalDetails_married)
+        GenderMale = view.findViewById(R.id.personalDetails_male)
+        GenderFemale = view.findViewById(R.id.personalDetails_female)
+        GenderOthers = view.findViewById(R.id.personalDetails_others)
+
+
+        MaritalStatusSingle.setOnClickListener(this)
+        MaritalStatusMarried.setOnClickListener(this)
+        GenderMale.setOnClickListener(this)
+        GenderFemale.setOnClickListener(this)
+        GenderOthers.setOnClickListener(this)
+
+
+        userActivity = activity as UserDetails
+        PersonalDetailsContinueBtn.setOnClickListener {
+            userActivity.onNextButtonClick(PersonalDetails2())
+        }
+        return view
     }
 
     companion object {
@@ -55,5 +86,29 @@ class PersonalDetails : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onClick(v:View?){
+        when(v?.id){
+            R.id.personalDetails_single ->{
+
+            }
+            R.id.personalDetails_married ->{
+
+            }
+            R.id.personalDetails_male ->{
+
+            }
+            R.id.personalDetails_female ->{
+
+            }
+            R.id.personalDetails_others ->{
+
+            }
+        }
+    }
+
+    fun ChangeBackGroundForButton(selectedButton : Button){
+
     }
 }

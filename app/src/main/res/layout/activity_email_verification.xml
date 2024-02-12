@@ -79,7 +79,7 @@
         android:paddingRight="10dp"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/card_blue"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:textCursorDrawable="@color/card_blue"/>
 
     <TextView

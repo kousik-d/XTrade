@@ -36,7 +36,7 @@
             android:scrollHorizontally="true" />
 
     <androidx.appcompat.widget.AppCompatButton
-
+        android:id = "@+id/AppOpenDematAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Open new Demat Account"
@@ -64,11 +64,12 @@
 
         <TextView
 
-
+            android:id="@+id/AppOpenLoginBtn"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+            android:clickable="true"
             android:text="Login"
             android:fontFamily="@font/poppins_semibold"
             android:textSize="16sp"

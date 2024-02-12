@@ -1,6 +1,8 @@
 package com.intern.xtrade
 
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -9,17 +11,40 @@ import android.util.Log
 import android.view.KeyEvent
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 
 class EmailVerificationOTP : AppCompatActivity() {
     private lateinit var otpFields: Array<EditText>
     private lateinit var confirmButton: Button
+    lateinit var EmailToDisplay : TextView
+    lateinit var EmailEdit : ImageView
+    lateinit var EmailBack : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_email_verification_otp)
+        val emailid = intent.getStringExtra("EMAILID")
+        EmailToDisplay = findViewById(R.id.emailVerificationOTP_email)
+        EmailEdit = findViewById(R.id.emailVerificationOTP_edit)
+        EmailBack = findViewById(R.id.emailVerificationOTP_back)
 
+        EmailEdit.setOnClickListener {
+            finish()
+        }
+
+        EmailBack. setOnClickListener {
+            finish()
+        }
+
+        EmailToDisplay.text = if (emailid.isNullOrEmpty()) "sample@gmail.com" else emailid
         confirmButton = findViewById(R.id.emailVerificationOTP_confirm)
+
+        confirmButton.setOnClickListener {
+            val intent = Intent(this,UserDetails::class.java)
+            startActivity(intent)
+        }
 
         otpFields = arrayOf(
             findViewById(R.id.emailVerification_otp1),

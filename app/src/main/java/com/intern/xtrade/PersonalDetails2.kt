@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatButton
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +22,10 @@ class PersonalDetails2 : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var userActivity : UserDetails
+
+    lateinit var PersonalDetails2ContinueBtn : AppCompatButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,7 +39,13 @@ class PersonalDetails2 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_personal_details2, container, false)
+        val view =  inflater.inflate(R.layout.fragment_personal_details2, container, false)
+        PersonalDetails2ContinueBtn = view.findViewById(R.id.personalDetails2_continue)
+        userActivity = activity as UserDetails
+        PersonalDetails2ContinueBtn.setOnClickListener {
+
+        }
+        return view
     }
 
     companion object {
