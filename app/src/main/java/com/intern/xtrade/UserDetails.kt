@@ -8,13 +8,13 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.intern.xtrade.UserOnBoarding.PersonalDetails
-import com.intern.xtrade.UserOnBoarding.PersonalDetails2
-import com.intern.xtrade.UserOnBoarding.PersonalDetails3
-import com.intern.xtrade.UserOnBoarding.PersonalDetails4
-import com.intern.xtrade.UserOnBoarding.PersonalDetails5
-import com.intern.xtrade.UserOnBoarding.PersonalDetails6
-import com.intern.xtrade.UserOnBoarding.PersonalDetails7
+import com.intern.xtrade.UserOnBoarding_Personal.PersonalDetails
+import com.intern.xtrade.UserOnBoarding_Personal.PersonalDetails2
+import com.intern.xtrade.UserOnBoarding_Personal.PersonalDetails3
+import com.intern.xtrade.UserOnBoarding_Personal.PersonalDetails4
+import com.intern.xtrade.UserOnBoarding_Personal.PersonalDetails5
+import com.intern.xtrade.UserOnBoarding_Personal.PersonalDetails6
+import com.intern.xtrade.UserOnBoarding_Personal.PersonalDetails7
 
 class UserDetails : AppCompatActivity() {
     lateinit var loadFrameLayout : FrameLayout
@@ -25,6 +25,7 @@ class UserDetails : AppCompatActivity() {
     lateinit var UserDetailsPanStep : ImageView
     lateinit var UserDetailsBankTextView : TextView
     lateinit var UserDetailsPersonalTextView :TextView
+    lateinit var UserDetailsBackBtn : ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_details)
@@ -37,6 +38,11 @@ class UserDetails : AppCompatActivity() {
         UserDetailsPanStep = findViewById(R.id.userDetails_step1)
         UserDetailsBankTextView = findViewById(R.id.userDetails_text2)
         UserDetailsPersonalTextView = findViewById(R.id.userDetails_text3)
+        UserDetailsBackBtn = findViewById(R.id.userDetails_back)
+
+        UserDetailsBackBtn.setOnClickListener {
+            finish()
+        }
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.userDetails_frame,PANDetails())

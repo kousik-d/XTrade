@@ -1,4 +1,4 @@
-package com.intern.xtrade.UserOnBoarding
+package com.intern.xtrade.UserOnBoarding_Personal
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,8 @@ import androidx.core.content.ContextCompat
 class PersonalDetails4 : Fragment() {
     private val buttons = mutableListOf<Button>()
     private lateinit var userActivity : UserDetails
-     lateinit var PersonalDetails4ContinueBtn : Button
+    lateinit var PersonalDetails4ContinueBtn : Button
+    var isButtonClicked = false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,6 +52,8 @@ class PersonalDetails4 : Fragment() {
         val drawable2: Drawable = requireContext().getDrawable(R.drawable.buy_sell_background_grey)!!
 
         clickedButton.background = drawable1
+        isButtonClicked = true
+        changeButtonBackground()
         clickedButton.setTextColor(ContextCompat.getColor(requireContext(),R.color.card_blue))
 
         for (button in buttons) {
@@ -59,5 +62,8 @@ class PersonalDetails4 : Fragment() {
                 button.setTextColor(ContextCompat.getColor(requireContext(),R.color.black))
             }
         }
+    }
+    fun changeButtonBackground(){
+        PersonalDetails4ContinueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
     }
 }

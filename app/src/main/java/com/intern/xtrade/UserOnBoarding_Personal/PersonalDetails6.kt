@@ -1,10 +1,12 @@
-package com.intern.xtrade.UserOnBoarding
+package com.intern.xtrade.UserOnBoarding_Personal
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 
 import com.intern.xtrade.R
@@ -22,7 +24,9 @@ class PersonalDetails6 : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var userActivity : UserDetails
+    private val buttons = mutableListOf<Button>()
     lateinit var PersonalDetails6ContinueBtn : Button
+    var isButtonClicked = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,9 +45,11 @@ class PersonalDetails6 : Fragment() {
         userActivity = activity as UserDetails
         PersonalDetails6ContinueBtn = view.findViewById(R.id.personalDetails6_continue)
         PersonalDetails6ContinueBtn.setOnClickListener{
-            userActivity.onNextButtonClick(PersonalDetails7())
+            if(isButtonClicked) {
+                userActivity.onNextButtonClick(PersonalDetails7())
+            }
         }
-
+        initButtons(view)
         return view
     }
 
@@ -65,5 +71,40 @@ class PersonalDetails6 : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    private fun initButtons(view: View) {
+        val buttonIds = arrayOf(
+            R.id.personalDetails6_1exp,
+            R.id.personalDetails6_2exp,
+            R.id.personalDetails6_3exp,
+            R.id.personalDetails6_4exp,
+            R.id.personalDetails6_5exp,
+            R.id.personalDetails6_moreThan5,
+            R.id.personalDetails6_noexp,
+        )
+        for (id in buttonIds) {
+            val button = view.findViewById<Button>(id)
+            button.setOnClickListener { onButtonClick(button) }
+            buttons.add(button)
+        }
+    }
+    private fun onButtonClick(clickedButton: Button) {
+        val drawable1: Drawable = requireContext().getDrawable(R.drawable.buy_sell_background)!!
+        val drawable2: Drawable = requireContext().getDrawable(R.drawable.buy_sell_background_grey)!!
+
+        clickedButton.background = drawable1
+        changeButtonBackground()
+        clickedButton.setTextColor(ContextCompat.getColor(requireContext(),R.color.card_blue))
+
+        for (button in buttons) {
+            if (button.id != clickedButton.id) {
+                button.background = drawable2
+                button.setTextColor(ContextCompat.getColor(requireContext(),R.color.black))
+            }
+        }
+    }
+    fun changeButtonBackground(){
+        isButtonClicked = true
+        PersonalDetails6ContinueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
     }
 }

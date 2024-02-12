@@ -1,12 +1,16 @@
 package com.intern.xtrade
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
-import com.intern.xtrade.UserOnBoarding.PersonalDetails
+import androidx.core.text.isDigitsOnly
+import com.intern.xtrade.UserOnBoarding_Personal.PersonalDetails
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +29,11 @@ class BankDetails : Fragment() {
 
     private lateinit var userActivity: UserDetails
     lateinit var BankContinueBtn : AppCompatButton
+    lateinit var BankAccountNumber: EditText
+    lateinit var BankIFSCCode : EditText
+    var isBankAccountNumberOk = false
+    var isBankIFSCCode = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,10 +52,35 @@ class BankDetails : Fragment() {
         val view = inflater.inflate(R.layout.fragment_bank_details, container, false)
         BankContinueBtn = view.findViewById(R.id.bankDetails_continue)
 
+        BankAccountNumber = view.findViewById(R.id.bankDetails_accountNumber)
+        BankIFSCCode = view.findViewById(R.id.bankDetails_ifscCode)
+
+        BankAccountNumber.addTextChangedListener(object: TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val bankAccountNumber = s.toString()
+                if(bankAccountNumber.isDigitsOnly() && bankAccountNumber.length>10){
+                    isBankAccountNumberOk = true
+                    changeButtonBackground()
+                }else{
+                    changeButtonBackgroundtoGrey()
+                }
+            }
+        })
+
         BankContinueBtn.setOnClickListener {
-            val personalDetails = PersonalDetails()
-            userActivity.LoadProgress(personalDetails)
-            userActivity.onNextButtonClick(personalDetails)
+            if(isBankAccountNumberOk){
+                val personalDetails = PersonalDetails()
+                userActivity.LoadProgress(personalDetails)
+                userActivity.onNextButtonClick(personalDetails)
+            }
         }
         return view
     }
@@ -69,5 +103,14 @@ class BankDetails : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    fun changeButtonBackground(){
+        isBankAccountNumberOk = true
+        BankContinueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
+    }
+
+    fun changeButtonBackgroundtoGrey(){
+        isBankAccountNumberOk =false
+        BankContinueBtn.setBackgroundColor(resources.getColor(R.color.grey))
     }
 }

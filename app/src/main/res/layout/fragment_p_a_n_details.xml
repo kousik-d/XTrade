@@ -13,6 +13,7 @@
         android:textColor="@color/card_blue"
         android:textSize="18dp"
         android:fontFamily="@font/poppins_semibold"/>
+
     <TextView
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
@@ -38,6 +39,7 @@
         android:paddingLeft="10dp"
         android:drawablePadding="10dp"
         android:paddingVertical="10dp"
+        android:inputType="text"
         android:paddingRight="10dp"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/card_blue"
@@ -46,7 +48,7 @@
 
     <TextView
 
-        android:id="@+id/signup_mobileNumberWarning"
+        android:id="@+id/pan_PanNumberWarning"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,17 +69,18 @@
         android:fontFamily="@font/poppins_semibold"
         android:scrollHorizontally="true" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatButton
 
         android:id="@+id/panDetails_dob"
 
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/buy_sell_background_grey"
         android:textSize="16dp"
         android:padding="10dp"
         android:inputType="date"
+        android:text="FEB 12 2024"
+        style="?android:spinnerStyle"
         android:fontFamily="@font/poppins"
         android:textColor="@color/card_blue"/>
 

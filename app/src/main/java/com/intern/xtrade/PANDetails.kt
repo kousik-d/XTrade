@@ -1,11 +1,21 @@
 package com.intern.xtrade
 
+import android.app.DatePickerDialog
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.DatePicker
+import android.widget.EditText
+import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.widget.addTextChangedListener
+import androidx.navigation.fragment.findNavController
+import java.util.Calendar
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,8 +32,13 @@ class PANDetails : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private lateinit var userActivity: UserDetails
+    private lateinit var PanNumber: EditText
 
     lateinit var PanContinueBtn : Button
+    lateinit var PanDetailsDob : Button
+    lateinit var DataPickDialog : DatePickerDialog
+    lateinit var PanNumberWarning : TextView
+    var isButtonClickable = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,11 +56,52 @@ class PANDetails : Fragment() {
         userActivity = activity as UserDetails
         val view = inflater.inflate(R.layout.fragment_p_a_n_details, container, false)
         PanContinueBtn = view.findViewById(R.id.panDetails_continue)
-        PanContinueBtn.setOnClickListener {
-            val bankDetails = BankDetails()
-            userActivity.LoadProgress(bankDetails)
-            userActivity.onNextButtonClick(bankDetails)
+        PanNumber = view.findViewById(R.id.panDetails_panNumber)
+        PanNumberWarning = view.findViewById(R.id.pan_PanNumberWarning)
+
+        PanNumber.addTextChangedListener (object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val panNumber = s.toString()
+                if(panNumber.length<10){
+                    isButtonClickable = false
+                    PanNumberWarning.text = "Enter a valid PAN"
+                    changeButtonBackgroundToGrey()
+                    PanNumberWarning.setTextColor(ContextCompat.getColor(requireContext(),R.color.red))
+                }else if(panNumber.length==10){
+                    changeButtonBackground()
+                    PanNumberWarning.text = "PAN is valid"
+                    PanNumberWarning.setTextColor(ContextCompat.getColor(requireContext(),R.color.green))
+                }else{
+                    changeButtonBackgroundToGrey()
+                    isButtonClickable = false
+                    PanNumberWarning.text = "Enter a valid PAN"
+                    PanNumberWarning.setTextColor(ContextCompat.getColor(requireContext(),R.color.red))
+                }
+            }
+
+        })
+        initDatePicker()
+        PanDetailsDob = view.findViewById(R.id.panDetails_dob)
+        PanDetailsDob.text = getTodaysDate()
+        PanDetailsDob.setOnClickListener{
+            openDatePicker()
         }
+
+            PanContinueBtn.setOnClickListener {
+                if(isButtonClickable) {
+                    val bankDetails = BankDetails()
+                    userActivity.LoadProgress(bankDetails)
+                    userActivity.onNextButtonClick(bankDetails)
+                }
+            }
         return view
     }
 
@@ -67,5 +123,61 @@ class PANDetails : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    fun changeButtonBackground(){
+        isButtonClickable = true
+        PanContinueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
+    }
+    fun changeButtonBackgroundToGrey(){
+        isButtonClickable = false
+        PanContinueBtn.setBackgroundColor(resources.getColor(R.color.grey))
+    }
+    private fun getTodaysDate(): String {
+        val cal = Calendar.getInstance()
+        val year = cal.get(Calendar.YEAR)
+        val month = cal.get(Calendar.MONTH) + 1
+        val day = cal.get(Calendar.DAY_OF_MONTH)
+        return makeDateString(day, month, year)
+    }
+
+    private fun initDatePicker() {
+        val dateSetListener = DatePickerDialog.OnDateSetListener { _: DatePicker, year: Int, month: Int, day: Int ->
+            val formattedDate = makeDateString(day, month + 1, year)
+            PanDetailsDob.text = formattedDate
+        }
+
+        val cal = Calendar.getInstance()
+        val year = cal.get(Calendar.YEAR)
+        val month = cal.get(Calendar.MONTH)
+        val day = cal.get(Calendar.DAY_OF_MONTH)
+
+        DataPickDialog = DatePickerDialog(requireContext(), dateSetListener, year, month, day)
+        DataPickDialog.datePicker.maxDate = System.currentTimeMillis()
+    }
+    private fun makeDateString(day: Int, month: Int, year: Int): String {
+        return "${getMonthFormat(month)} $day $year"
+    }
+
+    private fun getMonthFormat(month: Int): String {
+        return when (month) {
+            1 -> "JAN"
+            2 -> "FEB"
+            3 -> "MAR"
+            4 -> "APR"
+            5 -> "MAY"
+            6 -> "JUN"
+            7 -> "JUL"
+            8 -> "AUG"
+            9 -> "SEP"
+            10 -> "OCT"
+            11 -> "NOV"
+            12 -> "DEC"
+            else -> "JAN"
+        }
+    }
+
+    private fun openDatePicker() {
+        DataPickDialog.show()
     }
 }

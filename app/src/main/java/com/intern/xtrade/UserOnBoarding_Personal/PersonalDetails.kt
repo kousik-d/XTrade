@@ -1,10 +1,12 @@
-package com.intern.xtrade.UserOnBoarding
+package com.intern.xtrade.UserOnBoarding_Personal
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -26,12 +28,16 @@ class PersonalDetails : Fragment(), View.OnClickListener {
     private var param2: String? = null
     private lateinit var userActivity : UserDetails
 
+    var MartialStatusSelected = false
+    var GenderSelected = false
+
     lateinit var PersonalDetailsContinueBtn : AppCompatButton
     lateinit var MaritalStatusSingle : AppCompatButton
     lateinit var MaritalStatusMarried : AppCompatButton
     lateinit var GenderMale : AppCompatButton
     lateinit var GenderFemale : AppCompatButton
     lateinit var GenderOthers : AppCompatButton
+    lateinit var FatherName: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +60,28 @@ class PersonalDetails : Fragment(), View.OnClickListener {
         GenderMale = view.findViewById(R.id.personalDetails_male)
         GenderFemale = view.findViewById(R.id.personalDetails_female)
         GenderOthers = view.findViewById(R.id.personalDetails_others)
+        FatherName = view.findViewById(R.id.personalDetails_fatherName)
+
+
+        //Need to do some fixes
+        FatherName.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val FatherName = s.toString()
+                if(FatherName.isNotEmpty()){
+                    if(MartialStatusSelected && GenderSelected){
+                        changeButtonBackground()
+                    }
+                }
+            }
+        })
 
 
         MaritalStatusSingle.setOnClickListener(this)
@@ -63,9 +91,13 @@ class PersonalDetails : Fragment(), View.OnClickListener {
         GenderOthers.setOnClickListener(this)
 
 
+
+
         userActivity = activity as UserDetails
         PersonalDetailsContinueBtn.setOnClickListener {
-            userActivity.onNextButtonClick(PersonalDetails2())
+            if(MartialStatusSelected && GenderSelected){
+                userActivity.onNextButtonClick(PersonalDetails2())
+            }
         }
         return view
     }
@@ -94,22 +126,29 @@ class PersonalDetails : Fragment(), View.OnClickListener {
         when(v?.id){
             R.id.personalDetails_single ->{
                 resetBackgroundForMartialStatus()
+                MartialStatusSelected = true
+//                changeButtonBackground()
                 ButtonBackgroundChange.ChangeBackgound(MaritalStatusSingle,requireContext())
             }
             R.id.personalDetails_married ->{
                 resetBackgroundForMartialStatus()
+                MartialStatusSelected = true
+//                changeButtonBackground()
                 ButtonBackgroundChange.ChangeBackgound(MaritalStatusMarried,requireContext())
             }
             R.id.personalDetails_male ->{
                 ChangeBackGroundForALlButtons()
+                GenderSelected = true
                 ButtonBackgroundChange.ChangeBackgound(GenderMale,requireContext())
             }
             R.id.personalDetails_female ->{
                 ChangeBackGroundForALlButtons()
+                GenderSelected = true
                 ButtonBackgroundChange.ChangeBackgound(GenderFemale,requireContext())
             }
             R.id.personalDetails_others ->{
                 ChangeBackGroundForALlButtons()
+                GenderSelected = true
                 ButtonBackgroundChange.ChangeBackgound(GenderOthers,requireContext())
             }
         }
@@ -129,5 +168,14 @@ class PersonalDetails : Fragment(), View.OnClickListener {
         GenderFemale.setTextColor(ContextCompat.getColor(requireContext(),R.color.black))
         GenderOthers.setBackgroundResource(R.drawable.buy_sell_background_grey)
         GenderOthers.setTextColor(ContextCompat.getColor(requireContext(),R.color.black))
+    }
+
+    fun changeButtonBackgroundtoGrey(){
+        PersonalDetailsContinueBtn.setBackgroundColor(resources.getColor(R.color.grey))
+    }
+
+
+    fun changeButtonBackground(){
+        PersonalDetailsContinueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
     }
 }

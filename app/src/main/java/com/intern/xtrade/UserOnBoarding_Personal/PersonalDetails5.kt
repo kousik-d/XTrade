@@ -1,4 +1,4 @@
-package com.intern.xtrade.UserOnBoarding
+package com.intern.xtrade.UserOnBoarding_Personal
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -14,18 +14,19 @@ import com.intern.xtrade.UserDetails
 
 /**
  * A simple [Fragment] subclass.
- * Use the [PersonalDetails3.newInstance] factory method to
+ * Use the [PersonalDetails5.newInstance] factory method to
  * create an instance of this fragment.
  */
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-class PersonalDetails3 : Fragment() {
+class PersonalDetails5 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var userActivity : UserDetails
-    lateinit var PersonalDetails3ContinueBtn : Button
     private val buttons = mutableListOf<Button>()
+    private lateinit var userActivity : UserDetails
+    lateinit var PersonalDetails5ContinueBtn : Button
+    var isButtonClicked = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,11 +41,13 @@ class PersonalDetails3 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_personal_details3, container, false)
+        val view = inflater.inflate(R.layout.fragment_personal_details5, container, false)
         userActivity = activity as UserDetails
-        PersonalDetails3ContinueBtn = view.findViewById(R.id.personalDetails3_continue)
-        PersonalDetails3ContinueBtn.setOnClickListener{
-            userActivity.onNextButtonClick(PersonalDetails4())
+        PersonalDetails5ContinueBtn = view.findViewById(R.id.personalDetails5_continue)
+        PersonalDetails5ContinueBtn.setOnClickListener{
+            if(isButtonClicked) {
+                userActivity.onNextButtonClick(PersonalDetails6())
+            }
         }
         initButtons(view)
         return view
@@ -57,12 +60,12 @@ class PersonalDetails3 : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment PersonalDetails3.
+         * @return A new instance of fragment PersonalDetails5.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            PersonalDetails3().apply {
+            PersonalDetails5().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
@@ -71,16 +74,13 @@ class PersonalDetails3 : Fragment() {
     }
     private fun initButtons(view: View) {
         val buttonIds = arrayOf(
-            R.id.personalDetails3_business,
-            R.id.personalDetails3_housewife,
-            R.id.personalDetails3_other,
-            R.id.personalDetails3_forexDealer,
-            R.id.personalDetails3_govService,
-            R.id.personalDetails3_privateSector,
-            R.id.personalDetails3_professional,
-            R.id.personalDetails3_publicSector,
-            R.id.personalDetails3_retired,
-            R.id.personalDetails3_student
+            R.id.personalDetails5_10to25,
+            R.id.personalDetails5_1to5,
+            R.id.personalDetails5_25to50,
+            R.id.personalDetails5_5to10,
+            R.id.personalDetails5_50to1,
+            R.id.personalDetails5_moreThan1,
+            R.id.personalDetails5_upto1,
         )
         for (id in buttonIds) {
             val button = view.findViewById<Button>(id)
@@ -93,6 +93,7 @@ class PersonalDetails3 : Fragment() {
         val drawable2: Drawable = requireContext().getDrawable(R.drawable.buy_sell_background_grey)!!
 
         clickedButton.background = drawable1
+        changeButtonBackground()
         clickedButton.setTextColor(ContextCompat.getColor(requireContext(),R.color.card_blue))
 
         for (button in buttons) {
@@ -103,5 +104,8 @@ class PersonalDetails3 : Fragment() {
         }
     }
 
-
+    fun changeButtonBackground(){
+        isButtonClicked = true
+        PersonalDetails5ContinueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
+    }
 }
