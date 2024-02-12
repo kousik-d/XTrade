@@ -41,9 +41,8 @@
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/card_blue"
         android:textAllCaps="true"
-        android:inputType="number"
+        android:inputType="text"
         android:textCursorDrawable="@color/card_blue"/>
-
 
     <TextView
         android:layout_marginTop="20dp"
@@ -64,8 +63,6 @@
         <androidx.appcompat.widget.AppCompatButton
 
             android:id="@+id/personalDetails_married"
-
-
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -134,10 +131,10 @@
             android:fontFamily="@font/poppins_medium"
             android:textColor="@color/black"
             android:background="@drawable/buy_sell_background_grey"
-            android:padding="10dp"/>
+            android:padding="5dp"/>
 
         <Space
-            android:layout_width="30dp"
+            android:layout_width="20dp"
             android:layout_height="match_parent"/>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -147,7 +144,7 @@
 
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1.2"
             android:drawableLeft="@drawable/details_female"
             android:drawablePadding="8dp"
             android:text="Female"
@@ -155,10 +152,10 @@
             android:fontFamily="@font/poppins_medium"
             android:textColor="@color/black"
             android:background="@drawable/buy_sell_background_grey"
-            android:padding="10dp"/>
+            android:padding="5dp"/>
 
         <Space
-            android:layout_width="30dp"
+            android:layout_width="20dp"
             android:layout_height="match_parent"/>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -167,7 +164,7 @@
 
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1.2"
             android:drawableLeft="@drawable/details_other"
             android:drawablePadding="8dp"
             android:text="Others"
@@ -175,7 +172,7 @@
             android:fontFamily="@font/poppins_medium"
             android:textColor="@color/black"
             android:background="@drawable/buy_sell_background_grey"
-            android:padding="10dp"/>
+            android:padding="5dp"/>
 
 
     </LinearLayout>

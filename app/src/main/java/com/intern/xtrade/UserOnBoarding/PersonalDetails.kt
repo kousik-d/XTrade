@@ -1,23 +1,25 @@
-package com.intern.xtrade
+package com.intern.xtrade.UserOnBoarding
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import com.intern.xtrade.BackGroundChange.ButtonBackgroundChange
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+import com.intern.xtrade.R
+import com.intern.xtrade.UserDetails
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
 /**
  * A simple [Fragment] subclass.
  * Use the [PersonalDetails.newInstance] factory method to
  * create an instance of this fragment.
  */
+
 class PersonalDetails : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -88,27 +90,44 @@ class PersonalDetails : Fragment(), View.OnClickListener {
             }
     }
 
-    override fun onClick(v:View?){
+    override fun onClick(v: View?){
         when(v?.id){
             R.id.personalDetails_single ->{
-
+                resetBackgroundForMartialStatus()
+                ButtonBackgroundChange.ChangeBackgound(MaritalStatusSingle,requireContext())
             }
             R.id.personalDetails_married ->{
-
+                resetBackgroundForMartialStatus()
+                ButtonBackgroundChange.ChangeBackgound(MaritalStatusMarried,requireContext())
             }
             R.id.personalDetails_male ->{
-
+                ChangeBackGroundForALlButtons()
+                ButtonBackgroundChange.ChangeBackgound(GenderMale,requireContext())
             }
             R.id.personalDetails_female ->{
-
+                ChangeBackGroundForALlButtons()
+                ButtonBackgroundChange.ChangeBackgound(GenderFemale,requireContext())
             }
             R.id.personalDetails_others ->{
-
+                ChangeBackGroundForALlButtons()
+                ButtonBackgroundChange.ChangeBackgound(GenderOthers,requireContext())
             }
         }
     }
 
-    fun ChangeBackGroundForButton(selectedButton : Button){
+    fun resetBackgroundForMartialStatus(){
+        MaritalStatusSingle.setBackgroundResource(R.drawable.buy_sell_background_grey)
+        MaritalStatusSingle.setTextColor(ContextCompat.getColor(requireContext(),R.color.black))
+        MaritalStatusMarried.setBackgroundResource(R.drawable.buy_sell_background_grey)
+        MaritalStatusMarried.setTextColor(ContextCompat.getColor(requireContext(),R.color.black))
+    }
 
+    fun ChangeBackGroundForALlButtons(){
+        GenderMale.setBackgroundResource(R.drawable.buy_sell_background_grey)
+        GenderMale.setTextColor(ContextCompat.getColor(requireContext(),R.color.black))
+        GenderFemale.setBackgroundResource(R.drawable.buy_sell_background_grey)
+        GenderFemale.setTextColor(ContextCompat.getColor(requireContext(),R.color.black))
+        GenderOthers.setBackgroundResource(R.drawable.buy_sell_background_grey)
+        GenderOthers.setTextColor(ContextCompat.getColor(requireContext(),R.color.black))
     }
 }
