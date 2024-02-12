@@ -33,7 +33,6 @@ class EmailVerificationOTP : AppCompatActivity() {
         setupOtpFields()
 
 
-
         val emailOtp = StringBuilder()
         for (i in 0 until otpFields.size) {
 
@@ -57,7 +56,6 @@ class EmailVerificationOTP : AppCompatActivity() {
 
                 override fun afterTextChanged(s: Editable?) {
                     if (s?.length == 1) {
-
                         moveFocusToNextField(i)
                     }
                     updateFieldBackground(i)

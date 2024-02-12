@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UserDetails">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Help us understand you better by provinding more information !"
+        android:textColor="@color/card_blue"
+        android:textSize="18dp"
+        android:fontFamily="@font/poppins_semibold"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="Your networth"
+        android:textColor="@color/black"
+        android:textSize="14dp"
+        android:textAllCaps="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:scrollHorizontally="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails7_upto1"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Upto 1 Lac"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+        <Space
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails7_1to5"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1 - 5 Lac"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails7_5to10"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="5 - 10 Lac"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+        <Space
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails7_10to25"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="10 - 25 Lac"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails7_25to50"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="25 - 50 Lac"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+        <Space
+            android:layout_width="40dp"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails7_50to1"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="50 Lac - 1 Cr"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/personalDetails7_moreThan1"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="More than 1 Cr"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:background="@drawable/buy_sell_background_grey"
+            android:padding="10dp"/>
+
+        <Space
+            android:layout_marginLeft="40dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Would you like to add nominee?"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:fontFamily="@font/poppins_semibold" />
+        <Switch
+
+            android:id="@+id/personalDetails6_switch"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:textColor="@color/card_blue"
+            android:thumbTint="@color/card_blue"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="(You can add nominee later also)"
+        android:textColor="@color/details_color"
+        android:textSize="12dp"
+        android:fontFamily="@font/poppins_semibold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true">
+
+            <CheckBox
+
+                android:id="@+id/personalDetails7_checkBox1"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:layout_gravity="top"
+                android:buttonTint="@color/card_blue"
+                android:gravity="top"
+                android:text="I was born in India, my nationality is Indian &amp; my country of tax in India"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:textColorLink="@color/black"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
+            <CheckBox
+
+                android:id="@+id/personalDetails7_checkBox2"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:buttonTint="@color/card_blue"
+                android:layout_gravity="left"
+                android:gravity="top"
+                android:text="I have read and accepted the declaration and I am neither mentally challenged nor a politically exposed person"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:textColorLink="@color/card_blue"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/personalDetails7_continue"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Proceed"
+                android:textSize="14sp"
+                android:padding="16dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textAllCaps="false"
+                android:background="@color/grey"
+                android:textColor="@color/white"
+                />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
