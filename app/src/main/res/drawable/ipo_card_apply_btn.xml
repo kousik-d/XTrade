@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ExtraText">
+    <size android:height="46dp" android:width="86dp" />
+    <solid android:color="@color/card_blue" />
+    <corners android:radius="8dp"/>
+</shape>
