@@ -7,15 +7,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".AppOpenActivity">
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_height="wrap_content">
-        
+
         <ImageView
 
-            android:id="@+id/mobileNumberVerification_back"
+            android:id="@+id/loginOtp_back"
 
             android:layout_width="20dp"
             android:layout_gravity="center"
@@ -23,23 +23,24 @@
             android:layout_height="20dp"
             android:clickable="true"
             android:src="@drawable/back_button"/>
-        
+
         <TextView
 
             android:layout_weight="3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mobile number Verification"
+            android:text="OTP Verification"
             android:textSize="16dp"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
             android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/darkBlack"/>
-        
+
         <ImageView
 
-            android:id="@+id/mobileNumberVerification_help"
+            android:id="@+id/loginOtp_help"
 
+            android:visibility="invisible"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:layout_width="20dp"
@@ -49,14 +50,14 @@
 
 
     </LinearLayout>
-    
-    
+
+
     <TextView
         android:layout_marginTop="25dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        android:text="Please enter the OTP sent to the entered mobile number"
+        android:text="Please enter the OTP sent to the registered mobile number"
         android:textColor="@color/black"
         android:textSize="14dp"
         android:fontFamily="@font/poppins_medium"
@@ -69,7 +70,7 @@
 
         <TextView
 
-            android:id="@+id/mobileNumberVerification_number"
+            android:id="@+id/loginOtp_userID"
 
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
@@ -82,7 +83,7 @@
 
         <ImageView
 
-            android:id="@+id/mobileNumberVerification_edit"
+            android:id="@+id/loginOtp_edit"
 
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -142,7 +143,7 @@
 
         <EditText
 
-            android:id="@+id/mobileNumberVerification_otp1"
+            android:id="@+id/loginOtp_otp1"
 
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -162,7 +163,7 @@
 
         <EditText
 
-            android:id="@+id/mobileNumberVerification_otp2"
+            android:id="@+id/loginOtp_otp2"
 
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -181,7 +182,7 @@
 
         <EditText
 
-            android:id="@+id/mobileNumberVerification_otp3"
+            android:id="@+id/loginOtp_otp3"
 
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -200,7 +201,7 @@
 
         <EditText
 
-            android:id="@+id/mobileNumberVerification_otp4"
+            android:id="@+id/loginOtp_otp4"
 
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -219,7 +220,7 @@
 
         <EditText
 
-            android:id="@+id/mobileNumberVerification_otp5"
+            android:id="@+id/loginOtp_otp5"
 
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -238,7 +239,7 @@
 
         <EditText
 
-            android:id="@+id/mobileNumberVerification_otp6"
+            android:id="@+id/loginOtp_otp6"
 
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -260,7 +261,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
 
-        android:id="@+id/mobileNumberVerification_resendOtp"
+        android:id="@+id/loginOtp_resendOtp"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -282,7 +283,7 @@
 
         <androidx.appcompat.widget.AppCompatButton
 
-            android:id="@+id/mobileNumberVerification_confirm"
+            android:id="@+id/loginOtp_confirm"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

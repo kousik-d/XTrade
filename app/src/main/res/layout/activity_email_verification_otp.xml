@@ -157,7 +157,7 @@
             android:maxLength="1"
             android:gravity="center"
             android:cursorVisible="true"
-            android:textCursorDrawable="@color/card_blue"
+                    android:textCursorDrawable="@drawable/custom_cursor"
             android:padding="8dp"/>
 
 
@@ -177,7 +177,7 @@
             android:layout_marginRight="8dp"
             android:gravity="center"
             android:cursorVisible="true"
-            android:textCursorDrawable="@color/card_blue"
+                    android:textCursorDrawable="@drawable/custom_cursor"
             android:padding="8dp"/>
 
         <EditText
@@ -196,7 +196,7 @@
 
             android:gravity="center"
             android:cursorVisible="true"
-            android:textCursorDrawable="@color/card_blue"
+                    android:textCursorDrawable="@drawable/custom_cursor"
             android:padding="8dp"/>
 
         <EditText
@@ -215,7 +215,7 @@
 
             android:gravity="center"
             android:cursorVisible="true"
-            android:textCursorDrawable="@color/card_blue"
+                    android:textCursorDrawable="@drawable/custom_cursor"
             android:padding="8dp"/>
 
         <EditText
@@ -234,7 +234,7 @@
 
             android:gravity="center"
             android:cursorVisible="true"
-            android:textCursorDrawable="@color/card_blue"
+                    android:textCursorDrawable="@drawable/custom_cursor"
             android:padding="8dp"/>
 
         <EditText
@@ -252,7 +252,7 @@
             android:maxLength="1"
 
             android:cursorVisible="true"
-            android:textCursorDrawable="@color/card_blue"
+                    android:textCursorDrawable="@drawable/custom_cursor"
             android:padding="8dp"/>
 
     </LinearLayout>
