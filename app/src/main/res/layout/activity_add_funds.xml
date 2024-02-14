@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    tools:context=".Funds.AddFundsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <ImageView
+
+            android:id="@+id/addFunds_back"
+
+            android:layout_width="20dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:clickable="true"
+            android:src="@drawable/back_button"/>
+
+        <TextView
+
+            android:layout_weight="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Funds"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/darkBlack"/>
+
+        <ImageView
+
+            android:id="@+id/addFunds_help"
+
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/icons_help"
+            android:clickable="true"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="26dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Available Balance"
+            android:textColor="@color/darkBlack"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="16dp"/>
+
+
+        <TextView
+
+            android:id="@+id/addFunds_balance"
+
+            android:layout_width="match_parent"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:text="3000 Rs."
+            android:textColor="@color/card_blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="16dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="5dp"
+                app:cardCornerRadius="8dp"
+                android:backgroundTint="@color/card_blue">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:padding="16dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="Enter Amount"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:layout_marginBottom="10dp"/>
+
+                    <EditText
+
+                        android:id="@+id/addFunds_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/buy_sell_background_grey"
+                        android:textSize="16dp"
+                        android:layout_marginBottom="10dp"
+                        android:drawableLeft="@drawable/icons_rupee"
+                        android:paddingLeft="10dp"
+                        android:drawablePadding="10dp"
+                        android:paddingVertical="10dp"
+                        android:paddingRight="10dp"
+                        android:inputType="number"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="@color/black"
+                        android:textCursorDrawable="@drawable/custom_cursor"/>
+
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatButton
+
+                            android:id="@+id/addFunds_500"
+
+
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="+ 500"
+                            android:textAllCaps="false"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="@color/black"
+                            android:background="@drawable/buy_sell_background_grey"
+                            android:padding="10dp"/>
+
+                        <Space
+                            android:layout_width="5dp"
+                            android:layout_height="match_parent"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+
+                            android:id="@+id/addFunds_1000"
+
+
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.1"
+                            android:text="+1000"
+                            android:textAllCaps="false"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="@color/black"
+                            android:background="@drawable/buy_sell_background_grey"
+                            android:padding="10dp"/>
+
+                        <Space
+                            android:layout_width="5dp"
+                            android:layout_height="match_parent"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+
+                            android:id="@+id/addFunds_5000"
+
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.1"
+                            android:text="+ 5000"
+                            android:textAllCaps="false"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="@color/black"
+                            android:background="@drawable/buy_sell_background_grey"
+                            android:padding="10dp"/>
+
+                        <Space
+                            android:layout_width="5dp"
+                            android:layout_height="match_parent"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+
+                            android:id="@+id/addFunds_10000"
+
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text="+ 10000"
+                            android:textAllCaps="false"
+                            android:fontFamily="@font/poppins_medium"
+                            android:textColor="@color/black"
+                            android:background="@drawable/buy_sell_background_grey"
+                            android:padding="10dp"/>
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+
+                android:id="@+id/addFunds_warning"
+                android:layout_marginTop="5dp"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="*Amount exceeds the available balance"
+                android:textColor="@color/red"
+                android:textSize="12dp"
+                android:fontFamily="@font/poppins_medium"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+
+            <androidx.appcompat.widget.AppCompatSpinner
+
+                android:id="@+id/addFunds_dropDown"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/buy_sell_background_grey"
+                android:padding="10dp"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:text="*Pay using selecting bank only"
+                android:textColor="@color/red"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginBottom="10dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="1dp"
+                android:background="@color/black"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:text="Payment Methods"
+                android:textColor="@color/card_blue"
+                android:fontFamily="@font/poppins_semibold"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:text="Pay by any UPI app"
+                android:textStyle="italic"
+                android:drawablePadding="6dp"
+                android:drawableLeft="@drawable/upi_icon"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/phonepe_icon"
+                    android:padding="8dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/stock_screen_button_clicked"/>
+
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/google_pay_new"
+                    android:padding="8dp"
+                    android:layout_marginRight="20dp"
+
+                    android:background="@drawable/stock_screen_button_clicked"/>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/paytm_icon"
+                    android:padding="8dp"
+                    android:layout_marginRight="20dp"
+
+                    android:background="@drawable/stock_screen_button_clicked"/>
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/amazon_a_logo_icon"
+                    android:padding="8dp"
+                    android:background="@drawable/stock_screen_button_clicked"/>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="1dp"
+                android:background="@color/transparent_black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:text="UPI ID"
+                android:textStyle="italic"
+                android:drawablePadding="6dp"
+                android:drawableLeft="@drawable/upi_icon"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="1dp"
+                android:background="@color/transparent_black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:text="Net Banking"
+                android:textStyle="italic"
+                android:drawablePadding="10dp"
+                android:paddingLeft="4dp"
+                android:drawableLeft="@drawable/world_globe_line_icon"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="1dp"
+                android:background="@color/transparent_black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:text="IMPS / NEFT / RTGS"
+                android:textStyle="italic"
+                android:drawablePadding="10dp"
+                android:paddingLeft="4dp"
+                android:drawableLeft="@drawable/bank_building_icon"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="1dp"
+                android:background="@color/transparent_black"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

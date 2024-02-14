@@ -15,7 +15,7 @@
         <ImageView
 
             android:id="@+id/emailVerification_back"
-
+            android:visibility="invisible"
             android:layout_width="20dp"
             android:layout_gravity="center"
             android:layout_weight="1"
@@ -63,7 +63,6 @@
         android:scrollHorizontally="true" />
 
     <EditText
-
         android:id="@+id/emailVerification_email"
 
         android:cursorVisible="true"
@@ -84,7 +83,7 @@
 
     <TextView
 
-        android:id="@+id/signup_mobileNumberWarning"
+        android:id="@+id/email_emailIdWarning"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

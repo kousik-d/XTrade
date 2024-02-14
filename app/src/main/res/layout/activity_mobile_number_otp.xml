@@ -111,6 +111,7 @@
             android:textSize="14dp"/>
 
         <TextView
+            android:id="@+id/ResendOtpTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Resend OTP in :"
@@ -121,10 +122,11 @@
             android:textSize="14dp"/>
 
         <TextView
+            android:id="@+id/mobileVerification_CountDown"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"
-            android:text="00:54"
+            android:text="00:30"
             android:layout_weight="0.7"
             android:textColor="@color/black"
             android:fontFamily="@font/poppins_semibold"

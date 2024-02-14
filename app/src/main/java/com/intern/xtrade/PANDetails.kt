@@ -39,6 +39,7 @@ class PANDetails : Fragment() {
     lateinit var DataPickDialog : DatePickerDialog
     lateinit var PanNumberWarning : TextView
     var isButtonClickable = false
+    var isDateSelected = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,16 +72,16 @@ class PANDetails : Fragment() {
             override fun afterTextChanged(s: Editable?) {
                 val panNumber = s.toString()
                 if(panNumber.length<10){
-                    isButtonClickable = false
                     PanNumberWarning.text = "Enter a valid PAN"
-                    changeButtonBackgroundToGrey()
                     PanNumberWarning.setTextColor(ContextCompat.getColor(requireContext(),R.color.red))
                 }else if(panNumber.length==10){
-                    changeButtonBackground()
                     PanNumberWarning.text = "PAN is valid"
+                    isButtonClickable = true
+                    if(isDateSelected==true){
+                        PanContinueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
+                    }
                     PanNumberWarning.setTextColor(ContextCompat.getColor(requireContext(),R.color.green))
                 }else{
-                    changeButtonBackgroundToGrey()
                     isButtonClickable = false
                     PanNumberWarning.text = "Enter a valid PAN"
                     PanNumberWarning.setTextColor(ContextCompat.getColor(requireContext(),R.color.red))
@@ -96,7 +97,7 @@ class PANDetails : Fragment() {
         }
 
             PanContinueBtn.setOnClickListener {
-                if(isButtonClickable) {
+                if(isButtonClickable && isDateSelected) {
                     val bankDetails = BankDetails()
                     userActivity.LoadProgress(bankDetails)
                     userActivity.onNextButtonClick(bankDetails)
@@ -125,14 +126,7 @@ class PANDetails : Fragment() {
             }
     }
 
-    fun changeButtonBackground(){
-        isButtonClickable = true
-        PanContinueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
-    }
-    fun changeButtonBackgroundToGrey(){
-        isButtonClickable = false
-        PanContinueBtn.setBackgroundColor(resources.getColor(R.color.grey))
-    }
+
     private fun getTodaysDate(): String {
         val cal = Calendar.getInstance()
         val year = cal.get(Calendar.YEAR)
@@ -144,6 +138,10 @@ class PANDetails : Fragment() {
     private fun initDatePicker() {
         val dateSetListener = DatePickerDialog.OnDateSetListener { _: DatePicker, year: Int, month: Int, day: Int ->
             val formattedDate = makeDateString(day, month + 1, year)
+            isDateSelected = true
+            if(isButtonClickable==true){
+                PanContinueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
+            }
             PanDetailsDob.text = formattedDate
         }
 
@@ -152,8 +150,9 @@ class PANDetails : Fragment() {
         val month = cal.get(Calendar.MONTH)
         val day = cal.get(Calendar.DAY_OF_MONTH)
 
-        DataPickDialog = DatePickerDialog(requireContext(), dateSetListener, year, month, day)
+        DataPickDialog = DatePickerDialog(requireContext(),R.style.DatePickerDialogStyle, dateSetListener, year, month, day)
         DataPickDialog.datePicker.maxDate = System.currentTimeMillis()
+
     }
     private fun makeDateString(day: Int, month: Int, year: Int): String {
         return "${getMonthFormat(month)} $day $year"

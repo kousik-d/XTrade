@@ -5,6 +5,7 @@ import android.graphics.drawable.ColorDrawable
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -13,6 +14,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 
 class EmailVerificationOTP : AppCompatActivity() {
@@ -21,14 +24,48 @@ class EmailVerificationOTP : AppCompatActivity() {
     lateinit var EmailToDisplay : TextView
     lateinit var EmailEdit : ImageView
     lateinit var EmailBack : ImageView
+    lateinit var EmailResendOtp: TextView
+    lateinit var EmailOtpCountDown : TextView
+    lateinit var EmailResendText : TextView
+    lateinit var EmailResendOtpButton : AppCompatButton
+    var isOtpEntered = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_email_verification_otp)
         val emailid = intent.getStringExtra("EMAILID")
         EmailToDisplay = findViewById(R.id.emailVerificationOTP_email)
+        EmailToDisplay.text = emailid
         EmailEdit = findViewById(R.id.emailVerificationOTP_edit)
         EmailBack = findViewById(R.id.emailVerificationOTP_back)
+        EmailResendOtp = findViewById(R.id.emailVerificationOTP_email)
+        EmailResendText = findViewById(R.id.ResendCountDownText)
+        EmailOtpCountDown = findViewById(R.id.emailVerification_Timer)
+        EmailResendOtpButton = findViewById(R.id.emailVerificationOTP_resendOTP)
+        EmailResendOtpButton.isClickable = false
+
+        object : CountDownTimer(30000,1000){
+            override fun onTick(millisUntilFinished: Long) {
+                Log.i("TIMETODO","${millisUntilFinished}")
+                EmailOtpCountDown.text = "00:${millisUntilFinished/1000}"
+                EmailResendOtpButton.isClickable = false
+            }
+
+            override fun onFinish() {
+                EmailResendText.visibility = TextView.INVISIBLE
+                EmailOtpCountDown.visibility = TextView.INVISIBLE
+                EmailResendOtpButton.isClickable = true
+                EmailResendOtpButton.setBackgroundColor(resources.getColor(R.color.card_blue))
+            }
+        }.start()
+
+        EmailResendOtpButton.setOnClickListener {
+            Toast.makeText(this,"OTP sent Successfully", Toast.LENGTH_SHORT).show()
+            EmailResendOtpButton.visibility = AppCompatButton.INVISIBLE
+        }
+
+
+
 
         EmailEdit.setOnClickListener {
             finish()
@@ -37,13 +74,18 @@ class EmailVerificationOTP : AppCompatActivity() {
         EmailBack. setOnClickListener {
             finish()
         }
-
-        EmailToDisplay.text = if (emailid.isNullOrEmpty()) "sample@gmail.com" else emailid
+        emailid?.let {
+            Log.i("EMAILID",it)
+            EmailToDisplay.text = it
+        }
+        // = if (emailid.isNullOrEmpty()) "sample@gmail.com" else emailid
         confirmButton = findViewById(R.id.emailVerificationOTP_confirm)
 
         confirmButton.setOnClickListener {
-            val intent = Intent(this,UserDetails::class.java)
-            startActivity(intent)
+            if(isOtpEntered) {
+                val intent = Intent(this, UserDetails::class.java)
+                startActivity(intent)
+            }
         }
 
         otpFields = arrayOf(
@@ -67,7 +109,6 @@ class EmailVerificationOTP : AppCompatActivity() {
 
 
         if (emailOtp.length == 6) {
-            confirmButton.isClickable = true
             confirmButton.background = ColorDrawable(ContextCompat.getColor(this, R.color.card_blue))
         }
     }
@@ -80,6 +121,11 @@ class EmailVerificationOTP : AppCompatActivity() {
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
                 override fun afterTextChanged(s: Editable?) {
+                    s?.let {
+                        if(it.isEmpty()){
+                            confirmButton.setBackgroundColor(resources.getColor(R.color.grey))
+                        }
+                    }
                     if (s?.length == 1) {
                         moveFocusToNextField(i)
                     }
@@ -101,6 +147,13 @@ class EmailVerificationOTP : AppCompatActivity() {
     }
 
     private fun moveFocusToNextField(currentIndex: Int) {
+        if(currentIndex == otpFields.size -1){
+            isOtpEntered = true
+            confirmButton.setBackgroundColor(resources.getColor(R.color.card_blue))
+        }else{
+            isOtpEntered = false
+            confirmButton.setBackgroundColor(resources.getColor(R.color.grey))
+        }
         if (currentIndex < otpFields.size - 1) {
             otpFields[currentIndex + 1].requestFocus()
         }

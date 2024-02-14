@@ -31,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"/>
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/YourStocksWishListBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/card_blue"

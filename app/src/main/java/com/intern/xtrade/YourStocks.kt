@@ -8,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 
 
 class YourStocks : AppCompatActivity() {
 
     lateinit var YourStockBackBtn : ImageView
+    lateinit var StocksWishListBtn : AppCompatButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

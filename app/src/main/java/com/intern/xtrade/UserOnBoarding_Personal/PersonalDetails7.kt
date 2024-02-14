@@ -1,5 +1,6 @@
 package com.intern.xtrade.UserOnBoarding_Personal
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,9 +11,11 @@ import android.widget.CheckBox
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.intern.xtrade.MainActivity
 
 import com.intern.xtrade.R
 import com.intern.xtrade.UserDetails
+import com.intern.xtrade.UserOnBoarding_Documents.DocumentsFirst
 
 /**
  * A simple [Fragment] subclass.
@@ -71,9 +74,9 @@ class PersonalDetails7 : Fragment() {
         }
 
         PersonalDetails7ContinueBtn.setOnClickListener {
-            if(isButtonClicked){
-                Toast.makeText(requireContext(),"KOUSIK DASARI",Toast.LENGTH_SHORT).show()
-            }
+            val documentfirst = DocumentsFirst()
+            userActivity.LoadProgress(documentfirst)
+            userActivity.onNextButtonClick(documentfirst)
         }
 
         initButtons(view)

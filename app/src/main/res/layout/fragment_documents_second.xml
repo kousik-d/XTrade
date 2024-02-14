@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UserDetails">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload your documents"
+        android:textColor="@color/card_blue"
+        android:textSize="18dp"
+        android:fontFamily="@font/poppins_semibold"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="*You can only upload jpg ot png files with a size upto 5MB"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:textAllCaps="false"
+        android:fontFamily="@font/poppins_medium"
+        android:scrollHorizontally="true" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ShowCardView"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/transparent_blue">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            android:gravity="left"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/documents_text1"
+
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/icons_upload_file"
+                android:text="Income Proof"
+                android:clickable="true"
+
+                android:gravity="center"
+                android:fontFamily="@font/poppins_semibold"
+                android:drawablePadding="16dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="16dp"
+                android:textColor="@color/darkBlack"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="OR"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_medium"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"/>
+
+            </LinearLayout>
+
+            <TextView
+
+                android:id="@+id/documents_text2"
+
+                android:layout_width="wrap_content"
+                android:clickable="true"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/icons_upload_file"
+                android:text="Fetch your income proof via netbanking"
+                android:gravity="left"
+                android:fontFamily="@font/poppins_semibold"
+                android:drawablePadding="16dp"
+                android:textSize="16dp"
+                android:textColor="@color/darkBlack"/>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/switch_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Would you like to trade in Derivatives?"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:fontFamily="@font/poppins_semibold" />
+            <Switch
+
+                android:id="@+id/documents_switch"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:trackTint="@color/black"
+                android:buttonTint="@color/card_blue"
+                android:thumbTint="@color/card_blue"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="(Income proof will be mandatory)"
+            android:layout_below="@id/switch_layout"
+            android:textColor="@color/details_color"
+            android:textSize="12dp"
+            android:fontFamily="@font/poppins_semibold" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/documents_continue"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hint"
+            android:text="Finish"
+            android:textSize="14sp"
+            android:padding="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textAllCaps="false"
+            android:background="@color/card_blue"
+            android:textColor="@color/white"
+            />
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:backgroundTint="#0063F5"
+        android:backgroundTint="@color/card_blue"
         android:padding="20dp"
         app:cardCornerRadius="10dp">
 
@@ -75,316 +75,418 @@
         android:layout_width="match_parent"
         android:layout_height="16dp"/>
 
-    <LinearLayout
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card2"
+        android:layout_width="match_parent"
+        app:cardElevation="5dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:backgroundTint="@color/white"
+        android:padding="20dp"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Net Available Margin "
+                    android:gravity="left"
+                    android:textColor="@color/darkBlack"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="14dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="+ 16.68"
+                    android:gravity="right"
+                    android:textColor="@color/green"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="16dp"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:id="@+id/buttons_in_portfolio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/addFunds"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Add funds"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/poppins_medium"
+                    android:elevation="4dp"
+                    android:layout_margin="4dp"
+                    android:textSize="14dp"
+
+                    android:drawableEnd="@drawable/icons_add"
+                    android:paddingRight="16dp"
+                    android:background = "@drawable/buy_button_background"
+                    android:textColor="@color/white"
+                    />
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="0dp"
+                    android:id="@+id/withdraw"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Withdraw"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="14dp"
+                    android:elevation="4dp"
+                    android:drawableEnd="@drawable/icons_minus"
+                    android:paddingRight="16dp"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/stroked_button"
+                    android:textColor="@color/card_blue"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical">
 
-        <!--        <androidx.cardview.widget.CardView-->
-        <!--            android:id="@+id/stocks"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="0dp"-->
-        <!--            android:layout_weight="1"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/profile"-->
-        <!--            tools:layout_editor_absoluteX="34dp">-->
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
-            android:id="@+id/yourStocksOpenBtn"
             android:layout_width="match_parent"
-            android:clickable="true"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+            <!--        <androidx.cardview.widget.CardView-->
+            <!--            android:id="@+id/stocks"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="0dp"-->
+            <!--            android:layout_weight="1"-->
+            <!--            app:layout_constraintTop_toBottomOf="@+id/profile"-->
+            <!--            tools:layout_editor_absoluteX="34dp">-->
 
-                android:layout_weight="1"
-                android:src="@drawable/stocks" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/darkBlack"
-                android:layout_gravity="center"
-                android:layout_weight="3"
-                android:fontFamily="@font/poppins_semibold"
-                android:gravity="left"
-                android:text="Your Stocks"
-                android:textAlignment="gravity"
-                android:textSize="16sp" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+            <LinearLayout
+                android:id="@+id/yourStocksOpenBtn"
+                android:layout_width="match_parent"
                 android:clickable="true"
-                android:src="@drawable/forwardarrow"
-                app:tint="#6C757D" />
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:src="@drawable/stocks" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/darkBlack"
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="left"
+                    android:text="Your Stocks"
+                    android:textAlignment="gravity"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:src="@drawable/forwardarrow"
+                    app:tint="#6C757D" />
+            </LinearLayout>
+
+
+            <!--        </androidx.cardview.widget.CardView>-->
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:backgroundTint="@color/darkBlack" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+
+            <LinearLayout
+                android:id="@+id/yourWishlistOpenBtn"
+                android:clickable="true"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/wishlist"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:textColor="@color/darkBlack"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:gravity="left"
+                    android:fontFamily="@font/poppins_semibold"
+
+                    android:text="Wishlist"
+                    android:textAlignment="gravity"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/forwardarrow"
+                    app:tint="#6C757D"
+                    android:clickable="true"
+
+
+                    />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:backgroundTint="@color/darkBlack" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <LinearLayout
+                android:id="@+id/yourNotificationsOpenBtn"
+                android:layout_width="match_parent"
+                android:clickable="true"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/notifications" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/darkBlack"
+                    android:layout_weight="3"
+                    android:gravity="left"
+                    android:fontFamily="@font/poppins_semibold"
+
+                    android:lineHeight="22sp"
+                    android:text="Notifications"
+                    android:textAlignment="gravity"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/forwardarrow"
+                    app:tint="#6C757D"
+                    android:clickable="true"
+
+
+                    />
+            </LinearLayout>
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:backgroundTint="@color/darkBlack" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+
+            <LinearLayout
+                android:id="@+id/yourSecurityOpenBtn"
+                android:clickable="true"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:src="@drawable/security" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="Security"
+                    android:textColor="@color/darkBlack"
+                    android:fontFamily="@font/poppins_semibold"
+
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/forwardarrow"
+                    app:tint="#6C757D"
+                    android:clickable="true"
+                    />
+            </LinearLayout>
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:backgroundTint="@color/darkBlack" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <LinearLayout
+                android:id="@+id/yourHelpandSupportOpenBtn"
+                android:layout_width="match_parent"
+                android:clickable="true"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/help"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:lineHeight="22sp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Help and Support"
+                    android:textColor="@color/darkBlack"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:src="@drawable/forwardarrow"
+                    app:tint="#6C757D" />
+            </LinearLayout>
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:backgroundTint="@color/darkBlack" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <LinearLayout
+                android:id="@+id/yourTermsAndConditionOpenBtn"
+                android:clickable="true"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/terms"
+
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textColor="@color/darkBlack"
+                    android:text="Terms and Conditions"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:src="@drawable/forwardarrow"
+                    app:tint="#6C757D" />
+            </LinearLayout>
+
+
         </LinearLayout>
 
 
-        <!--        </androidx.cardview.widget.CardView>-->
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:backgroundTint="@color/darkBlack" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-
-        <LinearLayout
-            android:id="@+id/yourWishlistOpenBtn"
-            android:clickable="true"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/wishlist"
-
-                />
-
-            <TextView
-                android:layout_width="0dp"
-                android:textColor="@color/darkBlack"
-                android:layout_height="wrap_content"
-
-                android:layout_gravity="center"
-                android:layout_weight="3"
-                android:gravity="left"
-                android:fontFamily="@font/poppins_semibold"
-
-                android:text="Wishlist"
-                android:textAlignment="gravity"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/forwardarrow"
-                app:tint="#6C757D"
-                android:clickable="true"
-
-
-                />
-        </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:backgroundTint="@color/darkBlack" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-        <LinearLayout
-            android:id="@+id/yourNotificationsOpenBtn"
-            android:layout_width="match_parent"
-            android:clickable="true"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/notifications" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="@color/darkBlack"
-                android:layout_weight="3"
-                android:gravity="left"
-                android:fontFamily="@font/poppins_semibold"
-
-                android:lineHeight="22sp"
-                android:text="Notifications"
-                android:textAlignment="gravity"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/forwardarrow"
-                app:tint="#6C757D"
-                android:clickable="true"
-
-
-                />
-        </LinearLayout>
-
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:backgroundTint="@color/darkBlack" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-
-        <LinearLayout
-            android:id="@+id/yourSecurityOpenBtn"
-            android:clickable="true"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-                android:src="@drawable/security" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:text="Security"
-                android:textColor="@color/darkBlack"
-                android:fontFamily="@font/poppins_semibold"
-
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/forwardarrow"
-                app:tint="#6C757D"
-                android:clickable="true"
-                />
-        </LinearLayout>
-
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:backgroundTint="@color/darkBlack" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-        <LinearLayout
-            android:id="@+id/yourHelpandSupportOpenBtn"
-            android:layout_width="match_parent"
-            android:clickable="true"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/help"
-
-                />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:lineHeight="22sp"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="Help and Support"
-                android:textColor="@color/darkBlack"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:src="@drawable/forwardarrow"
-                app:tint="#6C757D" />
-        </LinearLayout>
-
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:backgroundTint="@color/darkBlack" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-        <LinearLayout
-            android:id="@+id/yourTermsAndConditionOpenBtn"
-            android:clickable="true"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/terms"
-
-                />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:fontFamily="@font/poppins_semibold"
-                android:textColor="@color/darkBlack"
-                android:text="Terms and Conditions"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:src="@drawable/forwardarrow"
-                app:tint="#6C757D" />
-        </LinearLayout>
-
-
-    </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>
+

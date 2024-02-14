@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    tools:context=".Funds.WithDrawFunds">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <ImageView
+
+            android:id="@+id/withdraw_back"
+
+            android:layout_width="20dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_height="20dp"
+            android:clickable="true"
+            android:src="@drawable/back_button"/>
+
+        <TextView
+
+            android:layout_weight="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Withdraw"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/darkBlack"/>
+
+        <ImageView
+
+            android:id="@+id/withdraw_help"
+
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/icons_help"
+            android:clickable="true"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="26dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Available Withdraw Amount"
+            android:textColor="@color/darkBlack"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="16dp"/>
+
+
+        <TextView
+
+            android:id="@+id/addFunds_balance"
+
+            android:layout_width="match_parent"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:text="17 Rs."
+            android:textColor="@color/card_blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="16dp"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:text="Enter Amount"
+        android:textColor="@color/card_blue"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_marginBottom="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+
+            android:id="@+id/WithDrawFunds_amount"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buy_sell_background_grey"
+            android:textSize="16dp"
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/icons_rupee"
+            android:paddingLeft="10dp"
+            android:drawablePadding="10dp"
+            android:paddingVertical="10dp"
+            android:paddingRight="10dp"
+            android:inputType="number"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@color/black"/>
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/withDrawButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:elevation="5dp"
+            android:backgroundTint="@color/card_blue"
+            android:textSize="14dp"
+            android:padding="17dp"
+            android:textColor="@color/white"
+            android:text="Withdraw"
+            android:textAllCaps="false"
+            android:gravity="center"
+            android:fontFamily="@font/poppins_semibold"/>
+
+    </LinearLayout>
+
+
+    <TextView
+
+        android:id="@+id/addFunds_warning"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="*Amount exceeds the available balance"
+        android:textColor="@color/red"
+        android:textSize="12dp"
+        android:fontFamily="@font/poppins_medium"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:text="Note :"
+        android:textColor="@color/darkBlack"
+        android:fontFamily="@font/poppins_semibold"/>
+    <TextView
+
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="* Withdrawal requests are processed only once a day from
+Monday - Friday at 3:30PM.\n
+* Withdrawal requests placed from Monday - Friday till 3:30PM
+are processed on the same day.\n
+* Withdrawal requests placed from Monday - Friday after 3:30PM
+are processed on the next working day.\n
+* Withdrawal requests once processed are credited to your
+default Bank A/c by around 6:00PM - 7:30PM.\n
+* Withdrawal requests are not processed on Weekends, Trading
+&amp; Clearing holidays"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:fontFamily="@font/poppins_medium"/>
+
+
+
+
+
+</LinearLayout>

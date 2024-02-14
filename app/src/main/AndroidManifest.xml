@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -19,16 +20,22 @@
         android:theme="@style/Theme.XTrade"
         tools:targetApi="31">
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".EmailVerificationOTP"
+            android:name=".Funds.WithDrawFunds"
+            android:exported="false" />
+        <activity
+            android:name=".UserDetails"
+            android:exported="false" />
+        <activity
+            android:name=".MobileNumberOTP"
             android:exported="false" />
         <activity
             android:name=".EmailVerification"
             android:exported="false" />
         <activity
-            android:name=".MobileNumberOTP"
+            android:name=".EmailVerificationOTP"
             android:exported="false" />
         <activity
             android:name=".AppOpenActivity"
@@ -52,7 +59,7 @@
             android:name=".FinalPayment"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Funds.AddFundsActivity"
             android:exported="false" />
         <activity
             android:name=".StockScreen"
@@ -72,10 +79,11 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
+        <activity android:name=".UserOnBoarding_Documents.SignUpSuccessful"
+            android:exported="false"/>
         <activity
-            android:name=".UserDetails"
-            android:exported="true"
-            android:parentActivityName=".MainActivity">
+            android:name=".SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -42,6 +42,8 @@
         android:drawablePadding="10dp"
         android:paddingVertical="10dp"
         android:paddingRight="10dp"
+        android:inputType="number"
+        android:maxLength="10"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/card_blue"
         android:textCursorDrawable="@color/card_blue"/>
@@ -54,7 +56,6 @@
         android:layout_height="wrap_content"
         android:textSize="10dp"
         android:textColor="@color/red"
-        android:text="Enter a valid Mobile number"
         android:fontFamily="@font/poppins_medium"
         android:layout_marginTop="5dp"/>
 
@@ -72,15 +73,15 @@
     <EditText
 
         android:id="@+id/signup_referralCode"
-
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/buy_sell_background_grey"
         android:hint="Enter Referral Code"
+        android:textCursorDrawable="@color/card_blue"
         android:textSize="16dp"
         android:padding="10dp"
-        android:inputType="date"
+        android:inputType="text"
         android:fontFamily="@font/poppins"
         android:textColor="@color/card_blue"/>
     <CheckBox
@@ -94,6 +95,7 @@
         android:layout_gravity="left"
         android:gravity="center_vertical"
         android:text=" Terms &amp; Conditions"
+        android:buttonTint="@color/card_blue"
         android:textColor="@color/card_blue"
         android:fontFamily="@font/poppins_semibold"
         android:textColorLink="@color/card_blue"/>

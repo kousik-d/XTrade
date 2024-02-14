@@ -18,10 +18,12 @@ import androidx.core.widget.addTextChangedListener
 import java.security.AccessController.getContext
 
 class Signup : AppCompatActivity() {
-    var isMobileNumberValid = false
+
     lateinit var continueBtn : Button
     lateinit var TermsCheckBox : CheckBox
     lateinit var SignUpMobileNumber : EditText
+    var isMobileNumberOk = false
+    var isTermsOk = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
@@ -35,12 +37,13 @@ class Signup : AppCompatActivity() {
         TermsCheckBox = findViewById(R.id.signup_checkBox)
         continueBtn = relativeLayout.findViewById(R.id.signup_continue)
 
-        continueBtn.isClickable = true
 
         continueBtn.setOnClickListener {
-            val intent = Intent(this, MobileNumberOTP::class.java)
-            intent.putExtra("MOBILENUMBER", MobileNumber)
-            startActivity(intent)
+            if(isMobileNumberOk && isTermsOk) {
+                val intent = Intent(this, MobileNumberOTP::class.java)
+                intent.putExtra("MOBILENUMBER", MobileNumber)
+                startActivity(intent)
+            }
         }
 
 
@@ -57,18 +60,35 @@ class Signup : AppCompatActivity() {
                 val Numbertext = s.toString()
                 if(Numbertext.length<10)
                 {
-                    mobileNumberWarning.text = "Enter a valid Mobile number"
+                    isMobileNumberOk= false
+                    continueBtn.setBackgroundColor(resources.getColor(R.color.grey))
+                    mobileNumberWarning.text = "*Mobile Number should be atleast 10 digits"
                     mobileNumberWarning.setTextColor(ContextCompat.getColor(this@Signup,R.color.red))
                 }
                 else
                 {
-                    isMobileNumberValid = true
+                    isMobileNumberOk =true
+                    if(isTermsOk){
+                        continueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
+                    }
                     MobileNumber = s.toString()
                     mobileNumberWarning.text = "Mobile number is valid"
                     mobileNumberWarning.setTextColor(ContextCompat.getColor(this@Signup,R.color.green))
                 }
             }
         })
+
+        TermsCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
+            if(isChecked){
+                isTermsOk = true
+                if(isMobileNumberOk){
+                    continueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
+                }
+            }else{
+                isTermsOk = false
+                continueBtn.setBackgroundColor(resources.getColor(R.color.grey))
+            }
+        }
 
 //
 //
@@ -82,6 +102,9 @@ class Signup : AppCompatActivity() {
 //        }
 //        Log.i("KOUSIKDASA","${continueBtn.isClickable}")
 
+    }
+    fun changeButtonBackground(){
+        continueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
     }
 
 }

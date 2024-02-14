@@ -61,10 +61,12 @@
         android:id="@+id/bankDetails_ifscCode"
 
         android:layout_marginTop="5dp"
+        android:maxLength="11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/buy_sell_background_grey"
         android:textSize="16dp"
+        android:textCursorDrawable="@color/card_blue"
         android:padding="10dp"
         android:textAllCaps="true"
         android:inputType="text"

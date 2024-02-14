@@ -30,6 +30,7 @@ class PersonalDetails : Fragment(), View.OnClickListener {
 
     var MartialStatusSelected = false
     var GenderSelected = false
+    var isFatherNameGiven = false
 
     lateinit var PersonalDetailsContinueBtn : AppCompatButton
     lateinit var MaritalStatusSingle : AppCompatButton
@@ -71,14 +72,18 @@ class PersonalDetails : Fragment(), View.OnClickListener {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
 
+
             }
 
             override fun afterTextChanged(s: Editable?) {
                 val FatherName = s.toString()
                 if(FatherName.isNotEmpty()){
+                    isFatherNameGiven = true
                     if(MartialStatusSelected && GenderSelected){
                         changeButtonBackground()
                     }
+                }else{
+                    isFatherNameGiven = false
                 }
             }
         })
@@ -95,7 +100,7 @@ class PersonalDetails : Fragment(), View.OnClickListener {
 
         userActivity = activity as UserDetails
         PersonalDetailsContinueBtn.setOnClickListener {
-            if(MartialStatusSelected && GenderSelected){
+            if(MartialStatusSelected && GenderSelected && isFatherNameGiven){
                 userActivity.onNextButtonClick(PersonalDetails2())
             }
         }
@@ -127,29 +132,46 @@ class PersonalDetails : Fragment(), View.OnClickListener {
             R.id.personalDetails_single ->{
                 resetBackgroundForMartialStatus()
                 MartialStatusSelected = true
-//                changeButtonBackground()
+                if(isFatherNameGiven && GenderSelected){
+                    changeButtonBackground()
+                }
                 ButtonBackgroundChange.ChangeBackgound(MaritalStatusSingle,requireContext())
             }
             R.id.personalDetails_married ->{
                 resetBackgroundForMartialStatus()
                 MartialStatusSelected = true
-//                changeButtonBackground()
+                if(isFatherNameGiven && GenderSelected){
+                    changeButtonBackground()
+                }
                 ButtonBackgroundChange.ChangeBackgound(MaritalStatusMarried,requireContext())
             }
             R.id.personalDetails_male ->{
                 ChangeBackGroundForALlButtons()
                 GenderSelected = true
+                if(isFatherNameGiven && MartialStatusSelected){
+                    changeButtonBackground()
+                }
                 ButtonBackgroundChange.ChangeBackgound(GenderMale,requireContext())
             }
             R.id.personalDetails_female ->{
                 ChangeBackGroundForALlButtons()
                 GenderSelected = true
+                if(isFatherNameGiven && MartialStatusSelected){
+                    changeButtonBackground()
+                }
                 ButtonBackgroundChange.ChangeBackgound(GenderFemale,requireContext())
             }
             R.id.personalDetails_others ->{
                 ChangeBackGroundForALlButtons()
                 GenderSelected = true
+                if(isFatherNameGiven && MartialStatusSelected){
+                    changeButtonBackground()
+                }
                 ButtonBackgroundChange.ChangeBackgound(GenderOthers,requireContext())
+            }
+            else -> {
+                MartialStatusSelected = false
+                GenderSelected = false
             }
         }
     }
@@ -176,6 +198,7 @@ class PersonalDetails : Fragment(), View.OnClickListener {
 
 
     fun changeButtonBackground(){
+
         PersonalDetailsContinueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
     }
 }

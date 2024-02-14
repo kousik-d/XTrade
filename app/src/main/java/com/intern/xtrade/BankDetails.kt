@@ -55,6 +55,30 @@ class BankDetails : Fragment() {
         BankAccountNumber = view.findViewById(R.id.bankDetails_accountNumber)
         BankIFSCCode = view.findViewById(R.id.bankDetails_ifscCode)
 
+        BankIFSCCode.addTextChangedListener(object :TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val IFSCCode = s.toString()
+                if(IFSCCode.isNotEmpty() && IFSCCode.length==11 && IFSCCode[4]=='0'){
+                    isBankIFSCCode = true
+                    if(isBankAccountNumberOk){
+                        changeButtonBackground()
+                    }
+                }else{
+                    isBankIFSCCode = false
+                    changeButtonBackgroundtoGrey()
+                }
+            }
+
+        })
+
         BankAccountNumber.addTextChangedListener(object: TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
@@ -68,15 +92,18 @@ class BankDetails : Fragment() {
                 val bankAccountNumber = s.toString()
                 if(bankAccountNumber.isDigitsOnly() && bankAccountNumber.length>10){
                     isBankAccountNumberOk = true
-                    changeButtonBackground()
+                    if(isBankIFSCCode){
+                        changeButtonBackground()
+                    }
                 }else{
+                    isBankAccountNumberOk = false
                     changeButtonBackgroundtoGrey()
                 }
             }
         })
 
         BankContinueBtn.setOnClickListener {
-            if(isBankAccountNumberOk){
+            if(isBankAccountNumberOk && isBankIFSCCode){
                 val personalDetails = PersonalDetails()
                 userActivity.LoadProgress(personalDetails)
                 userActivity.onNextButtonClick(personalDetails)
@@ -94,7 +121,6 @@ class BankDetails : Fragment() {
          * @param param2 Parameter 2.
          * @return A new instance of fragment BankDetails.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             BankDetails().apply {
@@ -105,12 +131,13 @@ class BankDetails : Fragment() {
             }
     }
     fun changeButtonBackground(){
-        isBankAccountNumberOk = true
         BankContinueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
     }
 
     fun changeButtonBackgroundtoGrey(){
-        isBankAccountNumberOk =false
         BankContinueBtn.setBackgroundColor(resources.getColor(R.color.grey))
     }
+
+
+
 }
