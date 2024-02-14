@@ -42,7 +42,7 @@
         android:textColor="@color/card_blue"
         android:textAllCaps="true"
         android:inputType="text"
-        android:textCursorDrawable="@color/card_blue"/>
+        android:textCursorDrawable="@drawable/custom_cursor"/>
 
     <TextView
         android:layout_marginTop="20dp"
