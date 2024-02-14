@@ -1,6 +1,8 @@
 package com.intern.xtrade.UserOnBoarding_Documents
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,6 +31,7 @@ class DocumentsSecond : Fragment() {
     lateinit var showCardView : CardView
     lateinit var DocumentsSecondFinishBtn : AppCompatButton
     lateinit var DocumentsSecondSwitch : Switch
+    lateinit var sharedPreferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +50,9 @@ class DocumentsSecond : Fragment() {
         showCardView = view.findViewById(R.id.ShowCardView)
         DocumentsSecondFinishBtn = view.findViewById(R.id.documents_continue)
         DocumentsSecondSwitch = view.findViewById(R.id.documents_switch)
+        sharedPreferences = requireActivity().getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
+        sharedPreferences.edit().putInt("current_step", 4).apply()
+
 
         DocumentsSecondSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){

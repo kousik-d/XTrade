@@ -1,6 +1,8 @@
 package com.intern.xtrade.UserOnBoarding_Personal
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -36,6 +38,7 @@ class PersonalDetails7 : Fragment() {
     var isButtonClicked = false
     lateinit var checkBoxOne : CheckBox
     lateinit var checkBoxTwo : CheckBox
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +59,9 @@ class PersonalDetails7 : Fragment() {
 
         checkBoxOne = view.findViewById(R.id.personalDetails7_checkBox1)
         checkBoxTwo = view.findViewById(R.id.personalDetails7_checkBox2)
+        sharedPreferences = requireActivity().getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
+        sharedPreferences.edit().putInt("current_step", 9).apply()
+
 
         checkBoxOne.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked && checkBoxTwo.isChecked && isButtonClicked){

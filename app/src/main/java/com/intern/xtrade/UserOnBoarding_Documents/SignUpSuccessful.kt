@@ -22,9 +22,8 @@ class SignUpSuccessful : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
         animationView = findViewById(R.id.animation_view)
         startTradingBtn = findViewById(R.id.SignUpCompatButton)
-
+        sharedPreferences.edit().putInt("current_step", 0).apply()
         startTradingBtn.setOnClickListener {
-            sharedPreferences.edit().putInt("current_step", 0).apply()
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }

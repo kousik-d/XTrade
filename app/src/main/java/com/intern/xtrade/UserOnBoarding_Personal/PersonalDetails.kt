@@ -1,5 +1,7 @@
 package com.intern.xtrade.UserOnBoarding_Personal
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -40,6 +42,7 @@ class PersonalDetails : Fragment(), View.OnClickListener {
     lateinit var GenderOthers : AppCompatButton
     lateinit var FatherName: EditText
 
+    lateinit var sharedPreferences : SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -55,6 +58,8 @@ class PersonalDetails : Fragment(), View.OnClickListener {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_personal_details, container, false)
         PersonalDetailsContinueBtn = view.findViewById(R.id.personalDetails_continue)
+        sharedPreferences = requireActivity().getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
+        sharedPreferences.edit().putInt("current_step", 3).apply()
 
         MaritalStatusSingle = view.findViewById(R.id.personalDetails_single)
         MaritalStatusMarried = view.findViewById(R.id.personalDetails_married)

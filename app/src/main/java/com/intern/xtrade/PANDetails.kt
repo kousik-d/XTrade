@@ -1,6 +1,8 @@
 package com.intern.xtrade
 
 import android.app.DatePickerDialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -33,6 +35,7 @@ class PANDetails : Fragment() {
     private var param2: String? = null
     private lateinit var userActivity: UserDetails
     private lateinit var PanNumber: EditText
+    lateinit var sharedPreferences: SharedPreferences
 
     lateinit var PanContinueBtn : Button
     lateinit var PanDetailsDob : Button
@@ -60,6 +63,8 @@ class PANDetails : Fragment() {
         PanNumber = view.findViewById(R.id.panDetails_panNumber)
         PanNumberWarning = view.findViewById(R.id.pan_PanNumberWarning)
 
+        sharedPreferences = requireActivity().getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
+        sharedPreferences.edit().putInt("current_step", 1).apply()
         PanNumber.addTextChangedListener (object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 

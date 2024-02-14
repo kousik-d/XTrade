@@ -1,9 +1,12 @@
 package com.intern.xtrade
 
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -34,12 +37,15 @@ class UserDetails : AppCompatActivity() {
     lateinit var UserDetailsBankTextView : TextView
     lateinit var UserDetailsPersonalTextView :TextView
     lateinit var UserDetailsBackBtn : ImageView
+    lateinit var sharedPreferences: SharedPreferences
 
     var count = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_details)
+        sharedPreferences = getSharedPreferences("APP_STATUS",Context.MODE_PRIVATE)
+        sharedPreferences.edit().putInt("current_status",11)
 
         loadFrameLayout = findViewById(R.id.userDetails_frame)
         UserDetailsTabOne = findViewById(R.id.userDetails_tab1)
@@ -56,13 +62,65 @@ class UserDetails : AppCompatActivity() {
         UserDetailsBackBtn.setOnClickListener {
             createDialog()
 //            finish()
-
         }
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.userDetails_frame,PANDetails())
-            .commit()
-        count++
+        val FragmentToLoad = intent.getIntExtra("FRAGMENTTOLOAD",0)
+
+        when(FragmentToLoad){
+            1 ->{
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.userDetails_frame,PANDetails())
+                    .commit()
+                count++
+            }
+            2-> {
+                val bankdetails = BankDetails()
+                this.LoadProgress(bankdetails)
+                this.onNextButtonClick(bankdetails)
+            }
+            3-> {
+                val persondetails = PersonalDetails()
+                this.LoadProgress(persondetails)
+                this.onNextButtonClick(persondetails)
+            }
+            4-> {
+                this.LoadProgress(PersonalDetails())
+                this.onNextButtonClick(PersonalDetails2())
+            }
+            5->{
+                this.LoadProgress(PersonalDetails())
+                this.onNextButtonClick(PersonalDetails3())
+            }
+            6 ->{
+                this.LoadProgress(PersonalDetails())
+                this.onNextButtonClick(PersonalDetails4())
+            }
+            7->{
+                this.LoadProgress(PersonalDetails())
+                this.onNextButtonClick(PersonalDetails5())
+            }
+            8->{
+                this.LoadProgress(PersonalDetails())
+                this.onNextButtonClick(PersonalDetails6())
+            }
+            9-> {
+                this.LoadProgress(PersonalDetails())
+                this.onNextButtonClick(PersonalDetails7())
+            }
+            10->{
+                val documentFirst = DocumentsFirst()
+                this.LoadProgress(documentFirst)
+                this.onNextButtonClick(documentFirst)
+            }
+            11 ->{
+                this.onNextButtonClick(DocumentsSecond())
+            } else -> {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.userDetails_frame,PANDetails())
+                .commit()
+            count++
+            }
+        }
     }
     private fun loadFragment(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
@@ -90,12 +148,15 @@ class UserDetails : AppCompatActivity() {
         when(currentFragment){
             is BankDetails -> {
                 count++
+                Log.i("USERBANKDETAILS","HERE")
                 UserDetailsPanStep.setImageResource(R.drawable.details_checked)
                 UserDetailsTabOne.setBackgroundResource(R.drawable.details_tab_after)
                 UserDetailsBankStep.setImageResource(R.drawable.details_man)
             }
             is PersonalDetails ->{
                 count++
+                UserDetailsPanStep.setImageResource(R.drawable.details_checked)
+                UserDetailsTabOne.setBackgroundResource(R.drawable.details_tab_after)
                 UserDetailsBankTextView.setTextColor(resources.getColor(R.color.card_blue))
                 UserDetailsBankStep.setImageResource(R.drawable.details_checked)
                 UserDetailsTabTwo.setBackgroundResource(R.drawable.details_tab_after)
@@ -103,6 +164,11 @@ class UserDetails : AppCompatActivity() {
             }
             is DocumentsFirst ->{
                 count++
+                UserDetailsPanStep.setImageResource(R.drawable.details_checked)
+                UserDetailsTabOne.setBackgroundResource(R.drawable.details_tab_after)
+                UserDetailsBankTextView.setTextColor(resources.getColor(R.color.card_blue))
+                UserDetailsBankStep.setImageResource(R.drawable.details_checked)
+                UserDetailsTabTwo.setBackgroundResource(R.drawable.details_tab_after)
                 UserDetailsTabThree.setBackgroundResource(R.drawable.details_tab_after)
                 UserDetailsPersonalTextView.setTextColor(resources.getColor(R.color.card_blue))
                 UserDetailsPersonalStep.setImageResource(R.drawable.details_checked)

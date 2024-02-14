@@ -1,5 +1,7 @@
 package com.intern.xtrade
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -26,6 +28,7 @@ class BankDetails : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var sharedPreferences: SharedPreferences
 
     private lateinit var userActivity: UserDetails
     lateinit var BankContinueBtn : AppCompatButton
@@ -52,6 +55,8 @@ class BankDetails : Fragment() {
         val view = inflater.inflate(R.layout.fragment_bank_details, container, false)
         BankContinueBtn = view.findViewById(R.id.bankDetails_continue)
 
+        sharedPreferences = requireActivity().getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
+        sharedPreferences.edit().putInt("current_step", 2).apply()
         BankAccountNumber = view.findViewById(R.id.bankDetails_accountNumber)
         BankIFSCCode = view.findViewById(R.id.bankDetails_ifscCode)
 

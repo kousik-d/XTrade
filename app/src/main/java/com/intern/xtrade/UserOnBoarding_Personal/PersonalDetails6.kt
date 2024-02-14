@@ -1,5 +1,7 @@
 package com.intern.xtrade.UserOnBoarding_Personal
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -27,6 +29,7 @@ class PersonalDetails6 : Fragment() {
     private val buttons = mutableListOf<Button>()
     lateinit var PersonalDetails6ContinueBtn : Button
     var isButtonClicked = false
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +47,10 @@ class PersonalDetails6 : Fragment() {
         val view = inflater.inflate(R.layout.fragment_personal_details6, container, false)
         userActivity = activity as UserDetails
         PersonalDetails6ContinueBtn = view.findViewById(R.id.personalDetails6_continue)
+
+        sharedPreferences = requireActivity().getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
+        sharedPreferences.edit().putInt("current_step", 8).apply()
+
         PersonalDetails6ContinueBtn.setOnClickListener{
             if(isButtonClicked) {
                 userActivity.onNextButtonClick(PersonalDetails7())

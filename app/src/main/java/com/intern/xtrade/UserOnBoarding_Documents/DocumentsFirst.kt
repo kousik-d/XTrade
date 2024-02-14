@@ -1,5 +1,7 @@
 package com.intern.xtrade.UserOnBoarding_Documents
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -32,6 +34,7 @@ class DocumentsFirst : Fragment() {
     private lateinit var userActivity : UserDetails
     var isPhotoClicked = false
     var isDocumentsSignClicked = false
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +53,10 @@ class DocumentsFirst : Fragment() {
         DocumentFirstContinue = view.findViewById(R.id.documents1_continue)
         DocumentFirstPhoto = view.findViewById(R.id.documents1_photo)
         DocumentsFirstSign = view.findViewById(R.id.documents1_sign)
+
+        sharedPreferences = requireActivity().getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
+        sharedPreferences.edit().putInt("current_step", 10).apply()
+
 
 
         DocumentFirstPhoto.setOnClickListener{
