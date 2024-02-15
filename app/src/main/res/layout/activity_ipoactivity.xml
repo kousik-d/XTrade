@@ -25,33 +25,37 @@
             android:paddingRight="16sp"
             android:gravity="center"
             android:textColor="@color/darkBlack"
-            android:text="Purchase Stock" />
+            android:text="IPO" />
     </LinearLayout>
 
 
 
     <com.google.android.material.tabs.TabLayout
 
-            android:id="@+id/tab_layout"
-            app:tabIndicatorAnimationMode="elastic"
-            android:layout_width="match_parent"
-            app:tabTextColor="@color/card_blue"
-            app:tabIndicatorColor="@color/card_blue"
-            app:tabRippleColor="@color/card_blue"
-            android:layout_height="wrap_content">
+        android:id="@+id/ipo_tabLayout"
+        app:tabIndicatorAnimationMode="elastic"
+        android:layout_width="match_parent"
+        app:tabTextColor="@color/card_blue"
+        app:tabIndicatorColor="@color/card_blue"
+        app:tabRippleColor="@color/card_blue"
+        android:layout_height="wrap_content">
 
         <com.google.android.material.tabs.TabItem
             android:tag="1"
-            android:text="Regular" />
+            android:text="Live IPOs" />
 
         <com.google.android.material.tabs.TabItem
             android:tag="2"
-            android:text="AMO"/>
-        </com.google.android.material.tabs.TabLayout>
+            android:text="Forthcoming"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:tag="2"
+            android:text="Past bids"/>
+    </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id ="@+id/viewPager"
-        android:layout_below="@id/tab_layout"
+        android:id ="@+id/ipo_viewPager"
+        android:backgroundTint="@color/grey"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>

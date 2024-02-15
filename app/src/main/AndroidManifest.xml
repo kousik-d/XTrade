@@ -20,6 +20,9 @@
         android:theme="@style/Theme.XTrade"
         tools:targetApi="31">
         <activity
+            android:name=".IPOActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginOTPVerification"
             android:exported="false" />
         <activity
