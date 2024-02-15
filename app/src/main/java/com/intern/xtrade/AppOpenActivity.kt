@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.intern.xtrade.InitalSignUp.Signup
+import com.intern.xtrade.Login.LoginUserID
 
 class AppOpenActivity : AppCompatActivity() {
 
@@ -16,13 +18,18 @@ class AppOpenActivity : AppCompatActivity() {
 
         OpenDematBtn = findViewById(R.id.AppOpenDematAccount)
         LoginText = findViewById(R.id.AppOpenLoginBtn)
+        LoginText.setOnClickListener {
+            val intent = Intent(this, LoginUserID::class.java)
+            startActivity(intent)
+        }
         OpenDematBtn.setOnClickListener {
-            val intent = Intent(this,Signup::class.java)
+            val intent = Intent(this, Signup::class.java)
             startActivity(intent)
         }
 
         LoginText.setOnClickListener {
-
+            val intent = Intent(this, LoginUserID::class.java)
+            startActivity(intent)
         }
 
     }

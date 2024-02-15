@@ -1,21 +1,17 @@
-package com.intern.xtrade
+package com.intern.xtrade.InitalSignUp
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.RelativeLayout
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
-import androidx.core.widget.addTextChangedListener
-import java.security.AccessController.getContext
+import com.intern.xtrade.R
 
 class Signup : AppCompatActivity() {
 
@@ -63,7 +59,9 @@ class Signup : AppCompatActivity() {
                     isMobileNumberOk= false
                     continueBtn.setBackgroundColor(resources.getColor(R.color.grey))
                     mobileNumberWarning.text = "*Mobile Number should be atleast 10 digits"
-                    mobileNumberWarning.setTextColor(ContextCompat.getColor(this@Signup,R.color.red))
+                    mobileNumberWarning.setTextColor(ContextCompat.getColor(this@Signup,
+                        R.color.red
+                    ))
                 }
                 else
                 {
@@ -73,7 +71,9 @@ class Signup : AppCompatActivity() {
                     }
                     MobileNumber = s.toString()
                     mobileNumberWarning.text = "Mobile number is valid"
-                    mobileNumberWarning.setTextColor(ContextCompat.getColor(this@Signup,R.color.green))
+                    mobileNumberWarning.setTextColor(ContextCompat.getColor(this@Signup,
+                        R.color.green
+                    ))
                 }
             }
         })

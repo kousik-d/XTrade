@@ -1,4 +1,4 @@
-package com.intern.xtrade
+package com.intern.xtrade.UserOnBoarding
 
 import android.app.DatePickerDialog
 import android.content.Context
@@ -15,8 +15,8 @@ import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.core.widget.addTextChangedListener
-import androidx.navigation.fragment.findNavController
+import com.intern.xtrade.R
+import com.intern.xtrade.UserDetails
 import java.util.Calendar
 
 // TODO: Rename parameter arguments, choose names that match
@@ -78,18 +78,24 @@ class PANDetails : Fragment() {
                 val panNumber = s.toString()
                 if(panNumber.length<10){
                     PanNumberWarning.text = "Enter a valid PAN"
-                    PanNumberWarning.setTextColor(ContextCompat.getColor(requireContext(),R.color.red))
+                    PanNumberWarning.setTextColor(ContextCompat.getColor(requireContext(),
+                        R.color.red
+                    ))
                 }else if(panNumber.length==10){
                     PanNumberWarning.text = "PAN is valid"
                     isButtonClickable = true
                     if(isDateSelected==true){
                         PanContinueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
                     }
-                    PanNumberWarning.setTextColor(ContextCompat.getColor(requireContext(),R.color.green))
+                    PanNumberWarning.setTextColor(ContextCompat.getColor(requireContext(),
+                        R.color.green
+                    ))
                 }else{
                     isButtonClickable = false
                     PanNumberWarning.text = "Enter a valid PAN"
-                    PanNumberWarning.setTextColor(ContextCompat.getColor(requireContext(),R.color.red))
+                    PanNumberWarning.setTextColor(ContextCompat.getColor(requireContext(),
+                        R.color.red
+                    ))
                 }
             }
 
@@ -155,7 +161,8 @@ class PANDetails : Fragment() {
         val month = cal.get(Calendar.MONTH)
         val day = cal.get(Calendar.DAY_OF_MONTH)
 
-        DataPickDialog = DatePickerDialog(requireContext(),R.style.DatePickerDialogStyle, dateSetListener, year, month, day)
+        DataPickDialog = DatePickerDialog(requireContext(),
+            R.style.DatePickerDialogStyle, dateSetListener, year, month, day)
         DataPickDialog.datePicker.maxDate = System.currentTimeMillis()
 
     }

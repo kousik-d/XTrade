@@ -112,7 +112,7 @@
             android:textSize="14dp"/>
 
         <TextView
-            android:id="@+id/ResendOtpTextView"
+            android:id="@+id/LoginOtpResendOtpTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Resend OTP in :"
@@ -123,7 +123,7 @@
             android:textSize="14dp"/>
 
         <TextView
-            android:id="@+id/mobileVerification_CountDown"
+            android:id="@+id/loginOtpVerification_CountDown"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"

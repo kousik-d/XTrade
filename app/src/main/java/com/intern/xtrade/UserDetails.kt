@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +14,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.intern.xtrade.UserOnBoarding.BankDetails
+import com.intern.xtrade.UserOnBoarding.PANDetails
 import com.intern.xtrade.UserOnBoarding_Documents.DocumentsFirst
 import com.intern.xtrade.UserOnBoarding_Documents.DocumentsSecond
 import com.intern.xtrade.UserOnBoarding_Personal.PersonalDetails
@@ -45,7 +46,7 @@ class UserDetails : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_details)
         sharedPreferences = getSharedPreferences("APP_STATUS",Context.MODE_PRIVATE)
-        sharedPreferences.edit().putInt("current_status",11)
+        sharedPreferences.edit().putInt("current_status",11).apply()
 
         loadFrameLayout = findViewById(R.id.userDetails_frame)
         UserDetailsTabOne = findViewById(R.id.userDetails_tab1)
@@ -69,7 +70,7 @@ class UserDetails : AppCompatActivity() {
         when(FragmentToLoad){
             1 ->{
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.userDetails_frame,PANDetails())
+                    .replace(R.id.userDetails_frame, PANDetails())
                     .commit()
                 count++
             }
@@ -116,7 +117,7 @@ class UserDetails : AppCompatActivity() {
                 this.onNextButtonClick(DocumentsSecond())
             } else -> {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.userDetails_frame,PANDetails())
+                .replace(R.id.userDetails_frame, PANDetails())
                 .commit()
             count++
             }

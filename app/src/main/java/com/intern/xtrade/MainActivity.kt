@@ -1,6 +1,7 @@
 package com.intern.xtrade
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var rewardsFragment: RewardsFragment
     lateinit var profileFragment: ProfileFragment
     lateinit var bottom_nav : BottomNavigationView
+    lateinit var sharedPreferences: SharedPreferences
 
 
     //R.layout.activity_main
@@ -31,6 +33,11 @@ class MainActivity : AppCompatActivity() {
         rewardsFragment = RewardsFragment()
         profileFragment = ProfileFragment()
         val AmountDeposited = intent.getIntExtra("DEPOSITEDMONEY",0)
+
+        Log.i(TAG,"MAINACTIVITYLOGEDIN")
+
+        sharedPreferences = getSharedPreferences("APP_STATUS",Context.MODE_PRIVATE)
+        sharedPreferences.edit().putInt("current_step",0).apply()
 
 
         bottom_nav = findViewById(R.id.bottom_nav)

@@ -1,4 +1,4 @@
-package com.intern.xtrade
+package com.intern.xtrade.InitalSignUp
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
+import com.intern.xtrade.R
 
 class EmailVerification : AppCompatActivity() {
 

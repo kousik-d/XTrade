@@ -54,7 +54,7 @@
         android:scrollHorizontally="true" />
 
     <EditText
-        android:id="@+id/emailVerification_email"
+        android:id="@+id/LoginUserID_Verification"
 
         android:cursorVisible="true"
         android:layout_marginTop="5dp"

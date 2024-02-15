@@ -53,16 +53,6 @@ class AddFundsActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                val money = s.toString()
-                s?.let {
-                    if(!s.isEmpty()) {
-                        if (s.toString().toInt() > 3000) {
-                            FundsWarning.visibility = TextView.VISIBLE
-                        } else {
-                            FundsWarning.visibility = TextView.GONE
-                        }
-                    }
-                }
             }
 
         })

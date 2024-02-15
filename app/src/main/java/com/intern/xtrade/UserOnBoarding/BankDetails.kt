@@ -1,4 +1,4 @@
-package com.intern.xtrade
+package com.intern.xtrade.UserOnBoarding
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -12,6 +12,8 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.text.isDigitsOnly
+import com.intern.xtrade.R
+import com.intern.xtrade.UserDetails
 import com.intern.xtrade.UserOnBoarding_Personal.PersonalDetails
 
 // TODO: Rename parameter arguments, choose names that match

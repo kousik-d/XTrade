@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.postDelayed
@@ -33,6 +34,7 @@ class SplashActivity:  AppCompatActivity() {
 
         Handler().postDelayed({
             val LoadAct = sharedPreferences.getInt("current_step",-1)
+            Log.i("SPLASHLOADACT","${LoadAct}")
             if(LoadAct == 0){
                 val intent = Intent(this,MainActivity::class.java)
                 startActivity(intent)
@@ -42,7 +44,7 @@ class SplashActivity:  AppCompatActivity() {
                 startActivity(intent)
             }
             else{
-                val intent = Intent(this,Signup::class.java)
+                val intent = Intent(this,AppOpenActivity::class.java)
                 startActivity(intent)
             }},2000)
     }

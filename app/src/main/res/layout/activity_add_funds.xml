@@ -133,7 +133,7 @@
                         android:paddingRight="10dp"
                         android:inputType="number"
                         android:fontFamily="@font/poppins_medium"
-                        android:textColor="@color/black"
+                        android:textColor="@color/darkBlack"
                         android:textCursorDrawable="@drawable/custom_cursor"/>
 
 

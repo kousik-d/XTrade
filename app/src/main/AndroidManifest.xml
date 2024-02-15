@@ -20,13 +20,13 @@
         android:theme="@style/Theme.XTrade"
         tools:targetApi="31">
         <activity
-            android:name=".IPOActivity"
+            android:name=".IPO.IPOActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginOTPVerification"
+            android:name=".Login.LoginOTPVerification"
             android:exported="false" />
         <activity
-            android:name=".LoginUserID"
+            android:name=".Login.LoginUserID"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -38,19 +38,19 @@
             android:name=".UserDetails"
             android:exported="false" />
         <activity
-            android:name=".MobileNumberOTP"
+            android:name=".InitalSignUp.MobileNumberOTP"
             android:exported="false" />
         <activity
-            android:name=".EmailVerification"
+            android:name=".InitalSignUp.EmailVerification"
             android:exported="false" />
         <activity
-            android:name=".EmailVerificationOTP"
+            android:name=".InitalSignUp.EmailVerificationOTP"
             android:exported="false" />
         <activity
             android:name=".AppOpenActivity"
             android:exported="false" />
         <activity
-            android:name=".Signup"
+            android:name=".InitalSignUp.Signup"
             android:exported="false" />
         <activity
             android:name=".PaymentSuccessActivity"
@@ -86,7 +86,7 @@
             android:name=".SearchBarActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Login.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".UserOnBoarding_Documents.SignUpSuccessful"

@@ -1,15 +1,14 @@
-package com.intern.xtrade
+package com.intern.xtrade.Login
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.intern.xtrade.MainActivity
+import com.intern.xtrade.R
 import com.intern.xtrade.wishList.WishlistManager
 
 class LoginActivity : AppCompatActivity() {
@@ -35,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
         loginBtn.setOnClickListener {
             if(emailEdt.text.toString().isNotEmpty() && passEdt.text.toString().isNotEmpty()){
                 WishlistManager.login(this)
-                val intent = Intent(this,MainActivity::class.java)
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }else{
                 Toast.makeText(this,"Fill all the fields",Toast.LENGTH_LONG).show()

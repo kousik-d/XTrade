@@ -1,8 +1,7 @@
-package com.intern.xtrade
+package com.intern.xtrade.InitalSignUp
 
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -17,6 +16,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
+import com.intern.xtrade.R
+import com.intern.xtrade.UserDetails
 
 class EmailVerificationOTP : AppCompatActivity() {
     private lateinit var otpFields: Array<EditText>

@@ -1,7 +1,6 @@
-package com.intern.xtrade
+package com.intern.xtrade.InitalSignUp
 
 import android.content.Intent
-import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -9,14 +8,12 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.KeyEvent
-import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.content.ContextCompat
-import org.w3c.dom.Text
+import com.intern.xtrade.R
 
 class MobileNumberOTP : AppCompatActivity() {
 

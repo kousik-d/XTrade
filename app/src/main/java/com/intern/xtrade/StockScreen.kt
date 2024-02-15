@@ -1,13 +1,16 @@
 package com.intern.xtrade
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.intern.xtrade.RegularAndAMO.Buy_activity
 import com.intern.xtrade.wishList.WishlistManager
 
@@ -23,6 +26,8 @@ class StockScreen : AppCompatActivity() {
     lateinit var stockScreenBack : ImageView
     lateinit var AddToWishList : CheckBox
     lateinit var StockBuyButton : Button
+    private val buttons = mutableListOf<Button>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stock_screen)
@@ -45,6 +50,8 @@ class StockScreen : AppCompatActivity() {
         stockScreenBack = findViewById(R.id.BackButtonImage)
         AddToWishList = findViewById(R.id.AddToWishListCheckBox)
         StockBuyButton = findViewById(R.id.Stock_Screen_BuyButton)
+
+        initButtons()
 
         StockBuyButton.setOnClickListener {
             val intent = Intent(this, Buy_activity::class.java)
@@ -87,6 +94,38 @@ class StockScreen : AppCompatActivity() {
                 WishlistManager.removeFromWishlist(this,stockId)
                 Toast.makeText(this,"Removed from wishlist",Toast.LENGTH_SHORT).show()
 
+            }
+        }
+    }
+
+
+    private fun initButtons() {
+        val buttonIds = arrayOf(
+            R.id.stock_button_1H,
+            R.id.stock_button_24H,
+            R.id.stock_button_1W,
+            R.id.stock_button_1M,
+            R.id.stock_button_6M,
+            R.id.stock_button_1Y,
+            R.id.stock_button_ALL,
+        )
+        for (id in buttonIds) {
+            val button = findViewById<Button>(id)
+            button.setOnClickListener { onButtonClick(button) }
+            buttons.add(button)
+        }
+    }
+    private fun onButtonClick(clickedButton: Button) {
+        val drawable1: Drawable = this.getDrawable(R.drawable.stock_screen_button_clicked)!!
+        val drawable2: Drawable = this.getDrawable(R.drawable.stock_screen_button)!!
+
+        clickedButton.background = drawable1
+        clickedButton.setTextColor(ContextCompat.getColor(this,R.color.card_blue))
+
+        for (button in buttons) {
+            if (button.id != clickedButton.id) {
+                button.background = drawable2
+                button.setTextColor(ContextCompat.getColor(this,R.color.darkBlack))
             }
         }
     }
