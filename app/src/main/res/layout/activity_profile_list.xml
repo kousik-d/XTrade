@@ -292,6 +292,58 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="16dp" />
+            <LinearLayout
+                android:id="@+id/IPOOpenBtn"
+                android:layout_width="match_parent"
+                android:clickable="true"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/trending_ipos" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/darkBlack"
+                    android:layout_weight="3"
+                    android:gravity="left"
+                    android:fontFamily="@font/poppins_semibold"
+
+                    android:lineHeight="22sp"
+                    android:text="IPO"
+                    android:textAlignment="gravity"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/forwardarrow"
+                    app:tint="#6C757D"
+                    android:clickable="true"
+
+
+                    />
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:backgroundTint="@color/darkBlack" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
 
             <LinearLayout
                 android:id="@+id/yourNotificationsOpenBtn"

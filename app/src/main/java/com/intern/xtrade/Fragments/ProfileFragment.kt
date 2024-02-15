@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
 import com.intern.xtrade.Funds.AddFundsActivity
 import com.intern.xtrade.Funds.WithDrawFunds
+import com.intern.xtrade.IPO.IPOActivity
 import com.intern.xtrade.ProfileActivites.Notifications
 import com.intern.xtrade.R
 import com.intern.xtrade.ProfileActivites.SecurityInformation
@@ -39,6 +40,7 @@ class ProfileFragment : Fragment() {
     lateinit var showTermAndConditionBtn : LinearLayout
     lateinit var AddFunds : AppCompatButton
     lateinit var withDrawFunds : AppCompatButton
+    lateinit var IPOBtn : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +65,7 @@ class ProfileFragment : Fragment() {
         showTermAndConditionBtn = view.findViewById(R.id.yourTermsAndConditionOpenBtn)
         AddFunds = view.findViewById(R.id.addFunds)
         withDrawFunds = view.findViewById(R.id.withdraw)
+        IPOBtn = view.findViewById(R.id.IPOOpenBtn)
 
         withDrawFunds.setOnClickListener {
             val intent = Intent(requireContext(),WithDrawFunds::class.java)
@@ -74,8 +77,10 @@ class ProfileFragment : Fragment() {
             startActivity(intent)
         }
 
-
-
+        IPOBtn.setOnClickListener {
+            val intent = Intent(requireContext(),IPOActivity::class.java)
+            startActivity(intent)
+        }
         showStockBtn.setOnClickListener {
             startActivity(Intent(requireContext(),YourStocks::class.java))
         }
