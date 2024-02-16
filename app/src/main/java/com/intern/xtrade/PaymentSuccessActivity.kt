@@ -19,6 +19,7 @@ class PaymentSuccessActivity : AppCompatActivity() {
         PaymentSuccessMessage = findViewById(R.id.PaymentSuccessMessage)
         val depositedMoney = intent.getIntExtra("DEPOSITEDMONEY",-100)
         val stockId = intent.getIntExtra("STOCKID",0)
+        val sellStockId = intent.getIntExtra("SELLSTOCKID",-1)
 
         if(depositedMoney != -100){
             PaymentSuccessMessage.text = "Deposited Successfully"

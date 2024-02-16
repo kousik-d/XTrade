@@ -20,7 +20,10 @@
         android:theme="@style/Theme.XTrade"
         tools:targetApi="31">
         <activity
-            android:name=".SplashActivity"
+            android:name=".IPO.BuyIPO"
+            android:exported="false" />
+        <activity
+            android:name=".RegularAndAMO.SellActivity"
             android:exported="false" />
         <activity
             android:name=".IPO.IPOActivity"
@@ -95,7 +98,7 @@
             android:name=".UserOnBoarding_Documents.SignUpSuccessful"
             android:exported="false" />
         <activity
-            android:name=".IPO.BuyIPO"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

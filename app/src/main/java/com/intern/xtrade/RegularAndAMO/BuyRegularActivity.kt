@@ -321,6 +321,7 @@ class BuyRegularActivity : Fragment() {
          */
 
         var PurchasedStockId = 1
+        var sellStockId = -1
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
