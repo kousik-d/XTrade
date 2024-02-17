@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.text.isDigitsOnly
@@ -18,6 +20,7 @@ class LoginUserID : AppCompatActivity() {
     lateinit var WarningTextView : TextView
     lateinit var UserIdProccedBtn : AppCompatButton
     lateinit var SignUpTextView : TextView
+    lateinit var loginUserIDBack : ImageView
     var isUserIdCorrect = false
     var UserID = "12345678"
 
@@ -29,6 +32,11 @@ class LoginUserID : AppCompatActivity() {
         WarningTextView = findViewById(R.id.loginUserID_warning)
         UserIdProccedBtn = findViewById(R.id.loginUserID_proceed)
         SignUpTextView = findViewById(R.id.loginUserID_signUp)
+        loginUserIDBack = findViewById(R.id.loginUserID_back)
+
+        loginUserIDBack.setOnClickListener {
+            finish()
+        }
 
         SignUpTextView.setOnClickListener {
             val intent = Intent(this, Signup::class.java)
