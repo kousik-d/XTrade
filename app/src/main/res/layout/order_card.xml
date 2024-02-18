@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/order_card"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="5dp"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BUY"
+                android:background="@color/transparent_blue"
+                android:textColor="@color/card_blue"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="12dp"
+                android:paddingVertical="2dp"
+                android:paddingHorizontal="6dp"/>
+
+
+            <TextView
+
+                android:id="@+id/order_numerator"
+
+                android:layout_marginLeft="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1150"
+                android:textColor="@color/darkBlack"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="12dp"/>
+
+
+            <TextView
+
+                android:id="@+id/order_denominator"
+
+                android:layout_marginLeft="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/ 1150"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="10dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true">
+
+
+                    <TextView
+
+                        android:id="@+id/order_time"
+
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="1dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="09:18:47"
+                        android:drawableLeft="@drawable/clock_icon"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins_medium"
+                        android:drawablePadding="4dp"
+                        android:textSize="12dp"/>
+
+                    <TextView
+
+                        android:id="@+id/order_status"
+
+                        android:layout_marginLeft="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Completed"
+                        android:textAllCaps="true"
+                        android:background="@color/transparent_green"
+                        android:textColor="@color/green"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12dp"
+                        android:paddingVertical="2dp"
+                        android:paddingHorizontal="6dp"/>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:id="@+id/order_companyName"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Apxor"
+                android:textColor="@color/darkBlack"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="12dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true">
+
+
+                    <TextView
+
+                        android:id="@+id/order_avg"
+
+                        android:gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Avg."
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12dp"/>
+
+                    <TextView
+
+                        android:id="@+id/order_avgValue"
+
+                        android:layout_marginLeft="4dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="172.11"
+                        android:textColor="@color/darkBlack"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="14dp"/>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:id="@+id/order_stock"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NSE"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="10dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true">
+
+
+                    <TextView
+
+                        android:id="@+id/order_cnc"
+
+                        android:gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="CNC"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12dp"/>
+
+                    <TextView
+
+                        android:id="@+id/order_cncLimit"
+
+                        android:layout_marginLeft="4dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LIMIT"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="12dp"/>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

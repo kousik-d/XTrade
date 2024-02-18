@@ -8,9 +8,12 @@
     <color name="orange">#FF7D26</color>
     <color name="card_blue">#0063F5</color>
     <color name="grey">#2F1C1C1C</color>
-    <color name="green">#3CAC41</color>
+    <color name="green">#2E8F32</color>
+    <color name="transparent_green">#C8CBF8E9</color>
+    <color name="transparent_red">#C8F8CBCB</color>
     <color name="transparent_black">#99F3EFEF</color>
     <color name="details_color">#F8BEBABA</color>
     <color name="transparent_blue">#A8AACAF8</color>
+    <color name="transparent_color">#DAF5F6F8</color>
     <color name="red">#A11414</color>
 </resources>

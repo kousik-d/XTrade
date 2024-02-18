@@ -2,7 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="ExtraText">
-    <size android:height="46dp" android:width="86dp" />
+    <size android:height="14dp" android:width="36dp" />
     <solid android:color="@color/card_blue" />
     <corners android:radius="8dp"/>
 </shape>
