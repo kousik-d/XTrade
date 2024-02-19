@@ -1,10 +1,17 @@
 package com.intern.xtrade.Ideas
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import com.intern.xtrade.IPO.BuyIPO
+import com.intern.xtrade.IPO.IPOActivity
 import com.intern.xtrade.R
 
 /**
@@ -19,6 +26,8 @@ class IdeaEquity : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var IpoEquityViewAll : TextView
+    lateinit var IpoCardView : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +42,19 @@ class IdeaEquity : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_idea_equity, container, false)
+        val view = inflater.inflate(R.layout.fragment_idea_equity, container, false)
+        IpoEquityViewAll = view.findViewById(R.id.ideaEquity_ipoViewAll)
+        IpoCardView = view.findViewById(R.id.ideaEquity_ipoCard)
+
+        IpoCardView.findViewById<Button>(R.id.ipo_apply).setOnClickListener {
+            val intent = Intent(requireContext(),BuyIPO::class.java)
+            startActivity(intent)
+        }
+        IpoEquityViewAll.setOnClickListener {
+            val intent = Intent(requireContext(),IPOActivity::class.java)
+            startActivity(intent)
+        }
+        return view
     }
 
     companion object {

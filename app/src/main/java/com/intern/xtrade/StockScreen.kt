@@ -90,10 +90,10 @@ class StockScreen : AppCompatActivity() {
                     WishlistManager.addToWishlist(this,stockId)
                 }
                 //val wishlist = WishlistManager.getWishlist(this)
-                Toast.makeText(this,"Added to wishlist",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Added to watchlist",Toast.LENGTH_SHORT).show()
             }else{
                 WishlistManager.removeFromWishlist(this,stockId)
-                Toast.makeText(this,"Removed from wishlist",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Removed from watchlist",Toast.LENGTH_SHORT).show()
 
             }
         }

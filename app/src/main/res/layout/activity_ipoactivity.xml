@@ -36,19 +36,28 @@
         app:tabIndicatorAnimationMode="elastic"
         android:layout_width="match_parent"
         app:tabTextColor="@color/card_blue"
+        app:tabGravity="center"
+        app:tabMode="scrollable"
+        android:layout_marginHorizontal="5dp"
         app:tabIndicatorColor="@color/card_blue"
         android:layout_height="wrap_content">
 
         <com.google.android.material.tabs.TabItem
             android:tag="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Live IPOs" />
 
         <com.google.android.material.tabs.TabItem
             android:tag="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Forthcoming"/>
 
         <com.google.android.material.tabs.TabItem
             android:tag="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Past bids"/>
     </com.google.android.material.tabs.TabLayout>
 

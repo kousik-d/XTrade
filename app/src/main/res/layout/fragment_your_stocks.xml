@@ -35,7 +35,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/card_blue"
-        android:text="Your Wishlist"
+        android:text="Watch list"
         android:textColor="@color/white"
         android:fontFamily="@font/poppins_semibold"
         android:padding="16dp"

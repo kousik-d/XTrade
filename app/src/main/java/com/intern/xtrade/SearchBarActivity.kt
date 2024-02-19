@@ -16,7 +16,6 @@ import java.util.Locale
 
 class SearchBarActivity : AppCompatActivity() {
     lateinit var cancelText : ImageView
-    lateinit var yourWishList : TextView
     lateinit var ListtoShow : ListView
     lateinit var SearchView : androidx.appcompat.widget.SearchView
 
@@ -30,7 +29,6 @@ class SearchBarActivity : AppCompatActivity() {
         setContentView(R.layout.activity_search_bar)
 
         cancelText = findViewById(R.id.SearchBarBackBtn)
-        yourWishList = findViewById(R.id.wishListId)
         ListtoShow = findViewById(R.id.ListOfStocksId)
         SearchView = findViewById(R.id.SearchViewToStock)
         Log.i("SEARCHBAR","SEARCH")
@@ -53,7 +51,7 @@ class SearchBarActivity : AppCompatActivity() {
                 searchText?.let {searchText->
                     if(searchText.isNotEmpty()){
                         totalStocks.forEach {
-                            if(it.CompanyName.contains(searchText,ignoreCase = true)){
+                            if(it.StockName.contains(searchText,ignoreCase = true)){
                                 searchStock.add(it)
                             }
                         }
@@ -79,10 +77,7 @@ class SearchBarActivity : AppCompatActivity() {
             }
 
         })
-        yourWishList.setOnClickListener {
-            val intent = Intent(this, YourWishlist::class.java)
-            startActivity(intent)
-        }
+
     }
 
     private fun createListViewAdapter(InputStocks:List<StockInfo>) {

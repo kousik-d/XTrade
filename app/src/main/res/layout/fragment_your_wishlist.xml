@@ -25,7 +25,7 @@
             android:paddingRight="16sp"
             android:gravity="center"
             android:textColor="@color/darkBlack"
-            android:text="Your Wishlist" />
+            android:text="Your Watchlist" />
     </LinearLayout>
     <View
         android:layout_width="match_parent"
