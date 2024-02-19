@@ -31,22 +31,25 @@
             android:textSize="14dp" />
 
         <LinearLayout
+            android:layout_marginTop="6dp"
             android:layout_width="match_parent"
             android:gravity="top"
             android:layout_height="wrap_content">
 
-            <androidx.appcompat.widget.AppCompatButton
+            <TextView
 
-                android:id="@+id/ipo_openButton"
+                android:id="@+id/ipo_open"
 
-                android:layout_width="54dp"
-                android:layout_height="16dp"
-                android:background="@drawable/ipo_card_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/green"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Open"
+                android:paddingVertical="2dp"
+                android:paddingHorizontal="8dp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="8dp"/>
+                android:textSize="8dp" />
 
 
             <TextView

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:background="@color/transparent_color"
+    android:id="@+id/idea_equity_sip_card"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_marginBottom="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/apxor_x_logo"/>
+
+        <LinearLayout
+            android:layout_marginLeft="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+
+                android:id="@+id/sip_stock_title"
+
+                android:layout_marginLeft="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Apxor"
+                android:textColor="@color/darkBlack"
+                android:textSize="14dp" />
+
+
+            <TextView
+
+                android:id="@+id/sip_company_title"
+
+                android:layout_marginLeft="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Apxor pvt. Ltd."
+                android:textColor="@color/black"
+                android:textSize="10dp" />
+
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="141.35"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/darkBlack"/>
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+1.25 (0.12%)"
+                    android:textSize="8dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/green"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp"
+            android:gravity="left"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-2.05%"
+                android:textSize="12dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/red"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 Year Return"
+                android:textSize="10dp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp"
+            android:gravity="left"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+26.09%"
+                android:textSize="12dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/green"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5 Year Return"
+                android:textSize="10dp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"/>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:padding="4dp"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/sip_start"
+
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_medium"
+                android:background="@drawable/ipo_card_apply_btn"
+                android:text="Start SIP"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="10dp"/>
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

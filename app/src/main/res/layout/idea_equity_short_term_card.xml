@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:id="@+id/idea_equity_short_term_card"
+    android:background="@color/transparent_color"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="30 days performance"
+            android:textColor="@color/black"
+            android:textSize="12dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="61%"
+                    android:textSize="14dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/green"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:drawableLeft="@drawable/up_icon"
+                    android:background="@color/transparent_green"
+                    android:layout_marginRight="8dp"
+                    android:drawablePadding="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="39%"
+                    android:textSize="14dp"
+                    android:paddingVertical="4dp"
+
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/red"
+                    android:paddingHorizontal="8dp"
+                    android:drawableLeft="@drawable/down_icon"
+                    android:background="@color/transparent_red"
+                    android:layout_marginRight="8dp"
+                    android:drawablePadding="5dp"/>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/apxor_x_logo"/>
+
+        <TextView
+
+            android:id="@+id/short_term_title"
+
+            android:layout_marginLeft="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Apxor"
+            android:textColor="@color/darkBlack"
+            android:textSize="14dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buy"
+            android:textAllCaps="true"
+            android:textSize="10dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/card_blue"
+            android:paddingVertical="2dp"
+            android:paddingHorizontal="8dp"
+            android:background="@color/transparent_blue"
+            android:layout_marginLeft="8dp"
+            android:drawablePadding="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profit booked"
+            android:textSize="10dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/green"
+            android:paddingVertical="2dp"
+            android:paddingHorizontal="8dp"
+            android:textAllCaps="true"
+            android:background="@color/transparent_green"
+            android:layout_marginLeft="8dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="201.35"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/darkBlack"/>
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-0.25 (0.12%)"
+                    android:textSize="8dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/red"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:background="@color/transparent_black"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter"
+                android:textSize="8dp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="227.75"
+                android:textSize="10dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/darkBlack"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:background="@color/transparent_black"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Target"
+                android:textSize="8dp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="239.00"
+                android:textSize="10dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/darkBlack"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@color/transparent_black"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stop Loss"
+                android:textSize="8dp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="220.00"
+                android:textSize="10dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/darkBlack"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <LinearLayout
+
+        android:id="@+id/hidden_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:background="@color/transparent_black"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expt. Return"
+                android:textSize="8dp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.9%"
+                android:textSize="10dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/darkBlack"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:layout_weight="1"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:background="@color/transparent_black"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Max. Profit"
+                android:textSize="8dp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11.25"
+                android:textSize="10dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/darkBlack"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@color/transparent_black"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Max. Loss"
+                android:textSize="8dp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/black"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7.75"
+                android:textSize="10dp"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/darkBlack"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+
+    <ImageView
+
+        android:id="@+id/hidden_arrow_button"
+
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/line_angle_down_icon"
+        android:layout_margin="6dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buy_sell_background_grey">
+
+            <EditText
+
+                android:id="@+id/Quantity"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent_blue"
+                android:hint="Quantity"
+                android:textColorHint="@color/card_blue"
+                android:textCursorDrawable="@drawable/custom_cursor"
+                android:textSize="12dp"
+                android:paddingVertical="6dp"
+                android:paddingHorizontal="10dp"
+                android:inputType="number"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/card_blue"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="8dp"
+                android:background="@color/transparent_color"
+                android:src="@drawable/icons_add"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/grey"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="8dp"
+                android:background="@color/transparent_color"
+                android:src="@drawable/icons_minus"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/shortTerm_buy"
+
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/poppins_medium"
+                android:background="@drawable/ipo_card_apply_btn"
+                android:text="Buy"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="10dp"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

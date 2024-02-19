@@ -8,27 +8,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:context=".IPO.LiveIPOS">
+        tools:context=".OrdersOpen">
 
         <include
-            android:id="@+id/liveIposCard"
-            layout="@layout/live_ipo_card"
+            android:id="@+id/ordersCard"
+            layout="@layout/order_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"/>
 
 
         <include
-            android:id="@+id/liveIposCard1"
-            layout="@layout/live_ipo_card"
+            android:id="@+id/ordersCard1"
+            layout="@layout/order_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"/>
 
 
         <include
-            android:id="@+id/liveIposCard2"
-            layout="@layout/live_ipo_card"
+            android:id="@+id/ordersCard2"
+            layout="@layout/order_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"/>

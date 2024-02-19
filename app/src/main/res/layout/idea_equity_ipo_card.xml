@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:id="@+id/idea_equity_ipo_card"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent_color"
+    android:orientation="vertical"
+    android:padding="16dp">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/apxor_x_logo"/>
+
+        <TextView
+
+            android:id="@+id/ipo_title"
+
+            android:layout_marginLeft="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Apxor private Limited"
+            android:textColor="@color/card_blue"
+            android:textSize="14dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+
+                android:id="@+id/ipo_open"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/green"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Open"
+                android:paddingVertical="2dp"
+                android:paddingHorizontal="8dp"
+                android:layout_alignParentRight="true"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="8dp" />
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Min Investment"
+            android:layout_marginRight="6dp"
+            android:textColor="@color/black"
+            android:textSize="8dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+
+                android:id="@+id/ipo_minInvestments"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="₹13569 / "
+                android:textColor="@color/darkBlack"
+                android:textSize="10dp" />
+
+
+            <TextView
+
+                android:id="@+id/ipo_noOfShares"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="99 Shares"
+                android:textColor="@color/black"
+                android:textSize="9dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top">
+
+        <TextView
+            android:layout_gravity="top"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Bidding Dates"
+            android:layout_marginRight="6dp"
+            android:textColor="@color/black"
+            android:textSize="8dp" />
+
+        <TextView
+
+            android:id="@+id/ipo_date"
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/poppins_medium"
+            android:text="13 Feb, 24 - 15 Feb, 24"
+            android:textColor="@color/darkBlack"
+            android:textSize="10dp"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatButton
+
+                android:id="@+id/ipo_apply"
+
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:fontFamily="@font/poppins_medium"
+                android:background="@drawable/ipo_card_apply_btn"
+                android:text="Apply now"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="10dp"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
