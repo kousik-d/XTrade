@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Welcome,"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppins"
                 />
@@ -30,28 +30,28 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="Vikram"
+                android:text="Alice"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Make your Investment today"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_semibold"
             />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/InvestTodayId"
             android:layout_marginTop="10dp"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
             android:background="@drawable/rectangle_for_portfolio"
             android:text="Invest Today"
             android:textColor="@color/card_blue"
-            android:textSize="16sp"
-            android:fontFamily="@font/poppins_semibold"
+            android:textSize="12sp"
+            android:fontFamily="@font/poppins_medium"
             android:textAllCaps="false"
             android:backgroundTint="@color/white"/>
     </LinearLayout>

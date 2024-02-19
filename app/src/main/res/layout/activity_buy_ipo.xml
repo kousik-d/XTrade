@@ -85,6 +85,7 @@
                 android:background="@color/black"
                 android:layout_height="match_parent"/>
             <Spinner
+                android:id="@+id/InvestorTypeSpinner"
                 android:layout_width="wrap_content"
                 android:paddingLeft="5dp"
                 android:layout_weight="3"
@@ -335,15 +336,20 @@
                             android:orientation="horizontal">
 
                             <EditText
+                                android:id="@+id/bid1Quantity"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1.39"
-                                android:fontFamily="@font/poppins_semibold"
+                                android:fontFamily="@font/poppins_bold"
                                 android:gravity="left"
-                                android:text="198"
+                                android:maxLength="7"
+                                android:backgroundTint="@color/card_blue"
+                                android:textCursorDrawable="@drawable/custom_cursor"
+                                android:text="99"
+                                android:inputType="number"
                                 android:drawableRight="@drawable/plus_sign"
                                 android:textColor="@color/darkBlack"
-                                android:textSize="12dp" />
+                                android:textSize="14dp" />
 
 
                         </LinearLayout>
@@ -406,19 +412,24 @@
                                 android:layout_height="5dp"/>
 
                             <EditText
+                                android:id="@+id/bid1Price"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1.27"
                                 android:fontFamily="@font/poppins_semibold"
                                 android:gravity="left"
-                                android:text="₹"
+                                android:inputType="number"
+                                android:paddingLeft="10dp"
+                                android:backgroundTint="@color/card_blue"
+                                android:textCursorDrawable="@drawable/custom_cursor"
                                 android:textColor="@color/darkBlack"
-                                android:textSize="12dp" />
+                                android:textSize="14dp" />
 
                         </LinearLayout>
                             <CheckBox
                                 android:layout_width="match_parent"
                                 android:text="Cut-off"
+                                android:backgroundTint="@color/card_blue"
                                 android:layout_height="24dp"/>
                     </LinearLayout>
                 </LinearLayout>
@@ -451,6 +462,7 @@
      </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/AddMultiplebidsBtn"
         android:layout_width="match_parent"
         android:backgroundTint="@color/white"
         android:text="Add Multiple Bids"

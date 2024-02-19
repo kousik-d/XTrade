@@ -24,9 +24,6 @@ class PaymentSuccessActivity : AppCompatActivity() {
         if(depositedMoney != -100){
             PaymentSuccessMessage.text = "Deposited Successfully"
         }
-
-        WishlistManager.addToYourStocks(this,stockId)
-
         DoneButton.setOnClickListener {
             val intent = Intent(this,MainActivity::class.java)
             intent.putExtra("DEPOSITEDMONEY",depositedMoney)

@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.intern.xtrade.RegularAndAMO.BuyRegularActivity
 import com.intern.xtrade.RegularAndAMO.Buy_activity
 import com.intern.xtrade.RegularAndAMO.SellActivity
 import com.intern.xtrade.wishList.WishlistManager
@@ -55,7 +56,7 @@ class StockScreen : AppCompatActivity() {
         initButtons()
 
         StockBuyButton.setOnClickListener {
-            val intent = Intent(this, SellActivity::class.java)
+            val intent = Intent(this, Buy_activity::class.java)
             intent.putExtra("STOCKID",stockId)
             startActivity(intent)
         }

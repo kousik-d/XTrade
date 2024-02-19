@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:padding="5dp"
         android:layout_height="wrap_content"
-        tools:context=".IdeaFnO">
+        tools:context=".Ideas.IdeaFnO">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

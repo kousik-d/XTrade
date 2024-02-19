@@ -3,6 +3,7 @@ package com.intern.xtrade.RegularAndAMO
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -13,11 +14,14 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import com.intern.xtrade.Fragments.TagsFragment
+import com.intern.xtrade.Orders.OrderConfirmed
+import com.intern.xtrade.Orders.OrdersExecuted
 import com.intern.xtrade.PaymentSuccessActivity
 import com.intern.xtrade.R
 
@@ -51,6 +55,7 @@ class BuyRegularActivity : Fragment() {
 
     lateinit var DiscQtyqt : EditText
     lateinit var DiscQtSpinner : Spinner
+    lateinit var PurchaseProgressBar : ProgressBar
 
     //Flags
 
@@ -74,11 +79,19 @@ class BuyRegularActivity : Fragment() {
         PriceAmount = view.findViewById(R.id.buy_Price)
         StockQuantity = view.findViewById(R.id.buy_TotalQuantity)
         PurchaseButton = view.findViewById(R.id.PurchaseButtonId)
+        PurchaseProgressBar = view.findViewById(R.id.PurchaseLoadBtn)
+
+        PurchaseProgressBar.visibility = ProgressBar.INVISIBLE
 
         PurchaseButton.setOnClickListener {
-            val intent = Intent(requireContext(),PaymentSuccessActivity::class.java)
-            intent.putExtra("STOCKID",BuyRegularActivity.PurchasedStockId)
-            startActivity(intent)
+            PurchaseButton.text =""
+            PurchaseProgressBar.visibility = ProgressBar.VISIBLE
+            PurchaseButton.isEnabled = false
+            Handler().postDelayed({
+                val intent = Intent(requireContext(),OrderConfirmed::class.java)
+                intent.putExtra("STOCKID",BuyRegularActivity.PurchasedStockId)
+                startActivity(intent)
+            },3000)
         }
 
         PriceAmount.addTextChangedListener(object : TextWatcher {

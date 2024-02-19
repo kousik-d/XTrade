@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <ImageView
-            android:id="@+id/BuyActivityBackBtn"
+            android:id="@+id/IPOActivityBack"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_gravity="center"
@@ -37,7 +37,6 @@
         android:layout_width="match_parent"
         app:tabTextColor="@color/card_blue"
         app:tabIndicatorColor="@color/card_blue"
-        app:tabRippleColor="@color/card_blue"
         android:layout_height="wrap_content">
 
         <com.google.android.material.tabs.TabItem

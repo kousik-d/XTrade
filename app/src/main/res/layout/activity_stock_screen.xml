@@ -360,7 +360,7 @@
                 android:fontFamily="@font/poppins_semibold"
                 android:gravity="center"
                 android:text="$5,329.75"
-                android:textSize="28sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/stock_screen_percentage"
@@ -371,7 +371,7 @@
                 android:gravity="center"
                 android:text="+1700.254(9.77%)"
                 android:textColor="@color/green"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
 
         </LinearLayout>
@@ -387,14 +387,14 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Stock_Screen_BuyButton"
                 android:layout_width="0dp"
-                android:layout_height="55dp"
+                android:layout_height="45dp"
                 android:layout_weight="1"
                 android:background="@drawable/rectangle_for_portfolio"
                 android:elevation="4dp"
-                android:fontFamily="@font/poppins_semibold"
+                android:fontFamily="@font/poppins_medium"
                 android:text="BUY"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="14sp" />
 
             <Space
                 android:layout_width="20dp"
@@ -404,14 +404,14 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/Stock_Screen_SellButton"
                 android:layout_width="0dp"
-                android:layout_height="55dp"
+                android:layout_height="45dp"
                 android:layout_weight="1"
                 android:background="@drawable/stroked_button"
                 android:elevation="4dp"
-                android:fontFamily="@font/poppins_semibold"
+                android:fontFamily="@font/poppins_medium"
                 android:text="SELL"
                 android:textColor="@color/card_blue"
-                android:textSize="15sp" />
+                android:textSize="14sp" />
         </LinearLayout>
 
 

@@ -11,12 +11,14 @@ import com.intern.xtrade.Fragments.HomeFragment
 import com.intern.xtrade.Fragments.PortfolioFragment
 import com.intern.xtrade.Fragments.ProfileFragment
 import com.intern.xtrade.Fragments.RewardsFragment
+import com.intern.xtrade.Ideas.Idea
 
 
 class MainActivity : AppCompatActivity() {
 
     private var TAG = "MAIN_ACTIVITY"
     lateinit var homeFragment: HomeFragment
+    lateinit var ideaFragment : Idea
     lateinit var portfolioFragment: PortfolioFragment
     lateinit var rewardsFragment: RewardsFragment
     lateinit var profileFragment: ProfileFragment
@@ -32,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         portfolioFragment = PortfolioFragment()
         rewardsFragment = RewardsFragment()
         profileFragment = ProfileFragment()
+        ideaFragment = Idea()
         val AmountDeposited = intent.getIntExtra("DEPOSITEDMONEY",0)
 
         Log.i(TAG,"MAINACTIVITYLOGEDIN")
@@ -56,8 +59,8 @@ class MainActivity : AppCompatActivity() {
                     Log.i(TAG,"PORTFOLIO")
                     true
                 }
-                R.id.nav_rewards ->{
-                    setCurrentFragment(rewardsFragment)
+                R.id.nav_idea ->{
+                    setCurrentFragment(ideaFragment)
                     Log.i(TAG,"REWARD")
                     true
                 }

@@ -11,6 +11,7 @@ import androidx.appcompat.widget.AppCompatButton
 import com.intern.xtrade.Funds.AddFundsActivity
 import com.intern.xtrade.Funds.WithDrawFunds
 import com.intern.xtrade.IPO.IPOActivity
+import com.intern.xtrade.Orders.YourOrders
 import com.intern.xtrade.ProfileActivites.Notifications
 import com.intern.xtrade.R
 import com.intern.xtrade.ProfileActivites.SecurityInformation
@@ -41,6 +42,7 @@ class ProfileFragment : Fragment() {
     lateinit var AddFunds : AppCompatButton
     lateinit var withDrawFunds : AppCompatButton
     lateinit var IPOBtn : LinearLayout
+    lateinit var Ordersbtn : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +68,13 @@ class ProfileFragment : Fragment() {
         AddFunds = view.findViewById(R.id.addFunds)
         withDrawFunds = view.findViewById(R.id.withdraw)
         IPOBtn = view.findViewById(R.id.IPOOpenBtn)
+        Ordersbtn = view.findViewById(R.id.yourOrdersOpenBtn)
+
+
+        Ordersbtn.setOnClickListener {
+            val intent = Intent(requireContext(),YourOrders::class.java)
+            startActivity(intent)
+        }
 
         withDrawFunds.setOnClickListener {
             val intent = Intent(requireContext(),WithDrawFunds::class.java)

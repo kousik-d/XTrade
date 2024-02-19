@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_margin="5dp"
+
+    android:background="@drawable/bottom_corner_radius"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/bidId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textColor="@color/darkBlack"
+                android:padding="8dp"
+                android:text="BID 1"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:padding="8dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/bidLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.9"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:gravity="left"
+                                android:text="Quantity"
+                                android:textColor="@color/black"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.39"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:gravity="left"
+                                android:text="198"
+                                android:backgroundTint="@color/card_blue"
+                                android:textCursorDrawable="@drawable/custom_cursor"
+                                android:drawableRight="@drawable/plus_sign"
+                                android:textColor="@color/darkBlack"
+                                android:textSize="14dp" />
+
+
+                        </LinearLayout>
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.39"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:gravity="left"
+                                android:text="(Lot size: 99)"
+                                android:textColor="@color/black"
+                                android:textSize="12dp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="22dp"
+                        android:layout_height="match_parent" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.95"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:gravity="left"
+                                android:text="Price"
+                                android:textColor="@color/black"
+                                android:textSize="12dp" />
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <Space
+                                android:layout_width="match_parent"
+                                android:layout_height="5dp"/>
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.27"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:backgroundTint="@color/card_blue"
+                                android:textCursorDrawable="@drawable/custom_cursor"
+                                android:gravity="left"
+                                android:textColor="@color/darkBlack"
+                                android:textSize="14dp" />
+
+                        </LinearLayout>
+                        <CheckBox
+                            android:layout_width="match_parent"
+                            android:text="Cut-off"
+                            android:backgroundTint="@color/card_blue" android:layout_height="24dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>

@@ -512,5 +512,17 @@
         android:textAllCaps="false"
         android:fontFamily="@font/poppins_bold"
         android:textColor="@color/white" />
+
    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/PurchaseLoadBtn"
+        android:progressTint="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/white"
+        android:layout_gravity="center"/>
 </RelativeLayout>

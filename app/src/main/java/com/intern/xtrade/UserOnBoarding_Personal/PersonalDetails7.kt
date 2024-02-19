@@ -80,9 +80,11 @@ class PersonalDetails7 : Fragment() {
         }
 
         PersonalDetails7ContinueBtn.setOnClickListener {
-            val documentfirst = DocumentsFirst()
-            userActivity.LoadProgress(documentfirst)
-            userActivity.onNextButtonClick(documentfirst)
+            if(isButtonClicked && checkBoxOne.isChecked && checkBoxTwo.isChecked) {
+                val documentfirst = DocumentsFirst()
+                userActivity.LoadProgress(documentfirst)
+                userActivity.onNextButtonClick(documentfirst)
+            }
         }
 
         initButtons(view)

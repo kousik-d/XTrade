@@ -6,22 +6,45 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/OrdersBackBtn"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:src="@drawable/back_icon" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="18sp"
+            android:paddingRight="16sp"
+            android:gravity="center"
+            android:textColor="@color/darkBlack"
+            android:text="Orders" />
+    </LinearLayout>
+
     <com.google.android.material.tabs.TabLayout
 
-        android:id="@+id/ipo_tabLayout"
+        android:id="@+id/order_tabLayout"
         app:tabIndicatorAnimationMode="elastic"
         android:layout_width="match_parent"
         app:tabTextColor="@color/card_blue"
         app:tabIndicatorColor="@color/card_blue"
-        app:tabRippleColor="@color/card_blue"
         android:layout_height="wrap_content">
 
         <com.google.android.material.tabs.TabItem
-            android:tag="1"
+            android:tag="0"
             android:text="Open" />
 
         <com.google.android.material.tabs.TabItem
-            android:tag="2"
+            android:tag="1"
             android:text="Executed"/>
 
 
@@ -30,6 +53,7 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id ="@+id/orders_viewPager"
         android:backgroundTint="@color/grey"
+        android:paddingTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>

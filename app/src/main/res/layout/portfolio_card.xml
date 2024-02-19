@@ -19,9 +19,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Portfolio"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:textColor="@color/white"
-            android:fontFamily="@font/poppins_bold"
+            android:fontFamily="@font/poppins_semibold"
             />
         <TextView
             android:id="@+id/holdingValue"
@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$2,509.75"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppins_semibold"
                 />
@@ -53,7 +53,7 @@
                 android:fontFamily="@font/poppins"
                 android:text="+9.77%"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
         </LinearLayout>
         <LinearLayout
             android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                     android:fontFamily="@font/poppins_semibold"
                     android:text="$1,768.75"
                     android:textColor="@color/white"
-                    android:textSize="24sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
             <View
                 android:padding="5dp"
@@ -107,7 +107,7 @@
                     android:fontFamily="@font/poppins_semibold"
                     android:text="1589"
                     android:textColor="@color/white"
-                    android:textSize="24sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -1,9 +1,13 @@
 package com.intern.xtrade.IPO
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.appcompat.widget.AppCompatButton
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 
 import com.intern.xtrade.R
@@ -21,6 +25,8 @@ class LiveIPOS : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var IPOCardView:CardView
+    lateinit var ApplyNowBtn : AppCompatButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +41,15 @@ class LiveIPOS : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_live_i_p_o_s, container, false)
+        val view = inflater.inflate(R.layout.fragment_live_i_p_o_s, container, false)
+        IPOCardView = view.findViewById(R.id.liveIposCard)
+        ApplyNowBtn = IPOCardView.findViewById(R.id.ipo_apply)
+
+        ApplyNowBtn.setOnClickListener {
+            val intent = Intent(requireContext(),BuyIPO::class.java)
+            startActivity(intent)
+        }
+        return view
     }
 
     companion object {

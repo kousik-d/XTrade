@@ -20,7 +20,7 @@
         android:theme="@style/Theme.XTrade"
         tools:targetApi="31">
         <activity
-            android:name=".OrderConfirmed"
+            android:name=".Orders.OrderConfirmed"
             android:exported="false" />
         <activity
             android:name=".IPO.BuyIPO"
@@ -36,6 +36,9 @@
             android:exported="false" />
         <activity
             android:name=".Login.LoginUserID"
+            android:exported="false" />
+        <activity
+            android:name=".Orders.YourOrders"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

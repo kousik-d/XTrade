@@ -53,9 +53,11 @@ class DocumentsSecond : Fragment() {
         sharedPreferences = requireActivity().getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
         sharedPreferences.edit().putInt("current_step", 4).apply()
 
+        DocumentsSecondFinishBtn.setBackgroundColor(resources.getColor(R.color.grey))
 
         DocumentsSecondSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
+                DocumentsSecondFinishBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
                 showCardView.visibility = CardView.VISIBLE
             }else{
                 showCardView.visibility = CardView.INVISIBLE
@@ -63,8 +65,10 @@ class DocumentsSecond : Fragment() {
         }
 
         DocumentsSecondFinishBtn.setOnClickListener {
-            val intent = Intent(requireContext(),SignUpSuccessful::class.java)
-            startActivity(intent)
+            if(DocumentsSecondSwitch.isChecked) {
+                val intent = Intent(requireContext(), SignUpSuccessful::class.java)
+                startActivity(intent)
+            }
         }
         return view
     }

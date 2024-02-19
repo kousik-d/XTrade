@@ -6,31 +6,44 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+
     <com.google.android.material.tabs.TabLayout
 
-        android:id="@+id/ipo_tabLayout"
+        android:id="@+id/idea_tabLayout"
+        app:tabMode="scrollable"
         app:tabIndicatorAnimationMode="elastic"
         android:layout_width="match_parent"
         app:tabTextColor="@color/card_blue"
+        app:tabGravity="center"
+        android:layout_marginHorizontal="8dp"
         app:tabIndicatorColor="@color/card_blue"
-        app:tabRippleColor="@color/card_blue"
         android:layout_height="wrap_content">
 
         <com.google.android.material.tabs.TabItem
-            android:tag="1"
+            android:tag="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Equity" />
 
         <com.google.android.material.tabs.TabItem
-            android:tag="2"
+            android:tag="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="F&amp;O"/>
 
         <com.google.android.material.tabs.TabItem
-            android:tag="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="2"
             android:text="Currency"/>
 
 
         <com.google.android.material.tabs.TabItem
-            android:tag="4"
+            android:layout_width="wrap_content"
+            android:layout_gravity="right"
+            android:layout_height="wrap_content"
+            android:tag="3"
             android:text="Commodity"/>
 
     </com.google.android.material.tabs.TabLayout>
@@ -39,5 +52,6 @@
         android:id ="@+id/idea_viewPager"
         android:backgroundTint="@color/grey"
         android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
         android:layout_height="match_parent"/>
 </LinearLayout>
