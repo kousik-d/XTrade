@@ -406,11 +406,11 @@
                 android:layout_width="0dp"
                 android:layout_height="45dp"
                 android:layout_weight="1"
-                android:background="@drawable/stroked_button"
+                android:background="@drawable/sell_stock_button"
                 android:elevation="4dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="SELL"
-                android:textColor="@color/card_blue"
+                android:textColor="@color/SellColor"
                 android:textSize="14sp" />
         </LinearLayout>
 

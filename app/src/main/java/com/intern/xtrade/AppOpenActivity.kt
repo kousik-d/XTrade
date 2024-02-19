@@ -33,4 +33,10 @@ class AppOpenActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onBackPressed() {
+        if(false) {
+            super.onBackPressed()
+        }
+    }
 }

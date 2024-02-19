@@ -53,6 +53,16 @@ class StockScreen : AppCompatActivity() {
         AddToWishList = findViewById(R.id.AddToWishListCheckBox)
         StockBuyButton = findViewById(R.id.Stock_Screen_BuyButton)
 
+        stockScreenSellButton.setOnClickListener {
+            if(checkStockInHoldingsStock(stockId)){
+                val intent = Intent(this,SellActivity::class.java)
+                intent.putExtra("SELLSTOCKID",stockId)
+                startActivity(intent)
+            }else{
+                Toast.makeText(this,"You cannot sell this stock",Toast.LENGTH_SHORT).show()
+            }
+        }
+
         initButtons()
 
         StockBuyButton.setOnClickListener {
@@ -97,6 +107,16 @@ class StockScreen : AppCompatActivity() {
 
             }
         }
+    }
+
+    private fun checkStockInHoldingsStock(stockId : Int): Boolean {
+        val holdings = WishlistManager.getYourStocks(this)
+        for(i in holdings){
+            if(i==stockId){
+                return true
+            }
+        }
+        return false
     }
 
 

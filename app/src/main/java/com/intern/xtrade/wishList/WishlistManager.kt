@@ -68,6 +68,12 @@ object WishlistManager {
         wishlist.remove(stockId)
         saveWishlist(context, wishlist)
     }
+
+    fun removeFromYourStocks(context: Context,stockId: Int){
+        val stocks = getYourStocks(context)
+        stocks.remove(stockId)
+        saveYourStocks(context,stocks)
+    }
     private fun saveWishlist(context: Context, wishlist: MutableList<Int>) {
         val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()

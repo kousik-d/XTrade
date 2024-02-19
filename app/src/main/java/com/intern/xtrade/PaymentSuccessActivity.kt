@@ -21,6 +21,10 @@ class PaymentSuccessActivity : AppCompatActivity() {
         val stockId = intent.getIntExtra("STOCKID",0)
         val sellStockId = intent.getIntExtra("SELLSTOCKID",-1)
 
+        if(sellStockId!=-1){
+            WishlistManager.removeFromYourStocks(this,sellStockId)
+        }
+
         if(depositedMoney != -100){
             PaymentSuccessMessage.text = "Deposited Successfully"
         }

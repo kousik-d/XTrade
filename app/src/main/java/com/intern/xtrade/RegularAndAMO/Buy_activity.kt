@@ -27,10 +27,6 @@ class Buy_activity : AppCompatActivity() {
              finish()
          }
         val stockId= intent.getIntExtra("STOCKID",-1)
-        val sellStockId = intent.getIntExtra("STOCKIDSELL",-1)
-        if(sellStockId!=-1){
-            BuyRegularActivity.sellStockId = sellStockId
-        }
         if(stockId!=-1) {
             BuyRegularActivity.PurchasedStockId = stockId
         }

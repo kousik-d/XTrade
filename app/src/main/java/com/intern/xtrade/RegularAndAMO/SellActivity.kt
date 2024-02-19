@@ -4,15 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.intern.xtrade.Adapters.FragmentPageAdapter
+import com.intern.xtrade.Adapters.FragmentPageAdapterSell
 import com.intern.xtrade.R
 
 class SellActivity : AppCompatActivity() {
     lateinit var viewPager: ViewPager2
     lateinit var tabLayout: TabLayout
-    lateinit var adapter : FragmentPageAdapter
+    lateinit var adapter : FragmentPageAdapterSell
     lateinit var purchaseStockBackBtn : ImageView
     //    lateinit var BuyToolBar : Toolbar
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,10 +26,9 @@ class SellActivity : AppCompatActivity() {
         purchaseStockBackBtn.setOnClickListener {
             finish()
         }
-        val stockId= intent.getIntExtra("STOCKID",1)
-        BuyRegularActivity.PurchasedStockId = stockId
-        adapter = FragmentPageAdapter(supportFragmentManager ,lifecycle)
-
+        val stockId= intent.getIntExtra("SELLSTOCKID",1)
+        sellRegular.sellStockId = stockId
+        adapter = FragmentPageAdapterSell(supportFragmentManager ,lifecycle)
         viewPager.adapter = adapter
         Log.i("TABCHECK","${10}")
 

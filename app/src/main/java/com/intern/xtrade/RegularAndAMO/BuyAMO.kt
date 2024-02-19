@@ -1,7 +1,6 @@
 package com.intern.xtrade.RegularAndAMO
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -17,7 +16,6 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
-import com.intern.xtrade.Fragments.TagsFragment
 import com.intern.xtrade.PaymentSuccessActivity
 import com.intern.xtrade.R
 
@@ -277,7 +275,7 @@ class BuyAMO : Fragment() {
 
     private fun LoadTrigger() {
         childFragmentManager.beginTransaction()
-            .replace(R.id.FrameTrigger,TriggerFragment())
+            .replace(R.id.FrameTrigger,sellRegular())
             .commit()
     }
 

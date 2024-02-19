@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +18,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import com.intern.xtrade.Orders.OrderConfirmed
+import com.intern.xtrade.PaymentSuccessActivity
 import com.intern.xtrade.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -28,10 +28,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [BuyRegularActivity.newInstance] factory method to
+ * Use the [sellRegular.newInstance] factory method to
  * create an instance of this fragment.
  */
-class BuyRegularActivity : Fragment() {
+class sellRegular : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -53,14 +53,11 @@ class BuyRegularActivity : Fragment() {
     lateinit var DiscQtSpinner : Spinner
     lateinit var PurchaseProgressBar : ProgressBar
 
-    //Flags
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
-            Log.i("KOUSIKDASARIFRAG","ISOKONCREATE")
         }
     }
 
@@ -69,13 +66,11 @@ class BuyRegularActivity : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_buy_regular_activity, container, false)
-
-
-        PriceAmount = view.findViewById(R.id.buy_Price)
-        StockQuantity = view.findViewById(R.id.buy_TotalQuantity)
-        PurchaseButton = view.findViewById(R.id.PurchaseButtonId)
-        PurchaseProgressBar = view.findViewById(R.id.PurchaseLoadBtn)
+        val view =  inflater.inflate(R.layout.fragment_sell_regularamo, container, false)
+        PriceAmount = view.findViewById(R.id.sell_price)
+        StockQuantity = view.findViewById(R.id.sell_TotalQuantity)
+        PurchaseButton = view.findViewById(R.id.SellButtonId)
+        PurchaseProgressBar = view.findViewById(R.id.SellLoadProgressBar)
 
         PurchaseProgressBar.visibility = ProgressBar.INVISIBLE
 
@@ -84,8 +79,8 @@ class BuyRegularActivity : Fragment() {
             PurchaseProgressBar.visibility = ProgressBar.VISIBLE
             PurchaseButton.isEnabled = false
             Handler().postDelayed({
-                val intent = Intent(requireContext(),OrderConfirmed::class.java)
-                intent.putExtra("STOCKID",BuyRegularActivity.PurchasedStockId)
+                val intent = Intent(requireContext(), PaymentSuccessActivity::class.java)
+                intent.putExtra("SELLSTOCKID",sellRegular.sellStockId)
                 startActivity(intent)
             },3000)
         }
@@ -114,15 +109,15 @@ class BuyRegularActivity : Fragment() {
             }
         })
 
-        ProductIntraDay = view.findViewById(R.id.product_intraday)
-        ProductLongTerm = view.findViewById(R.id.product_longterm)
-        TypeMarket = view.findViewById(R.id.type_market)
-        TypeLimit = view.findViewById(R.id.type_limit)
-        TypeSL = view.findViewById(R.id.type_sl)
-        TypeSLM = view.findViewById(R.id.type_slm)
-        ValidityDay = view.findViewById(R.id.validity_day)
-        ValidityIOC = view.findViewById(R.id.validity_ioc)
-        ValidityMin = view.findViewById(R.id.validity_minutes)
+        ProductIntraDay = view.findViewById(R.id.sell_product_intraday)
+        ProductLongTerm = view.findViewById(R.id.sell_product_longterm)
+        TypeMarket = view.findViewById(R.id.sell_type_market)
+        TypeLimit = view.findViewById(R.id.sell_type_limit)
+        TypeSL = view.findViewById(R.id.sell_type_sl)
+        TypeSLM = view.findViewById(R.id.sell_type_slm)
+        ValidityDay = view.findViewById(R.id.sell_validity_day)
+        ValidityIOC = view.findViewById(R.id.sell_validity_ioc)
+        ValidityMin = view.findViewById(R.id.sell_validity_minutes)
         DiscQtyqt = view.findViewById(R.id.validity_left_value)
         DiscQtSpinner =view.findViewById(R.id.validity_dropdown)
 
@@ -285,9 +280,9 @@ class BuyRegularActivity : Fragment() {
     }
 
     private fun LoadTrigger() {
-       childFragmentManager.beginTransaction()
-           .replace(R.id.FrameTrigger,TriggerFragment())
-           .commit()
+        childFragmentManager.beginTransaction()
+            .replace(R.id.FrameTrigger,TriggerFragment())
+            .commit()
     }
 
 
@@ -303,22 +298,6 @@ class BuyRegularActivity : Fragment() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-
-
-        super.onViewCreated(view, savedInstanceState)
-    }
-
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -326,14 +305,14 @@ class BuyRegularActivity : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment BuyRegularActivity.
+         * @return A new instance of fragment TriggerFragment.
          */
-
-        var PurchasedStockId = 1
         // TODO: Rename and change types and number of parameters
+
+        var sellStockId = -1
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            BuyRegularActivity().apply {
+            sellRegular().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

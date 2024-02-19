@@ -30,7 +30,7 @@
             android:layout_weight="1"
             android:textColor="@color/darkBlack"
             android:gravity="center"
-            android:text="Stock bought sucessfully"
+            android:text="Stock Sold sucessfully"
             android:textSize="28sp"
             android:textStyle="bold"/>
 

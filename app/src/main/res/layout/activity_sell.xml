@@ -35,17 +35,20 @@
         android:id="@+id/tab_layout"
         app:tabIndicatorAnimationMode="elastic"
         android:layout_width="match_parent"
-        app:tabTextColor="@color/orange"
-        app:tabIndicatorColor="@color/orange"
-        app:tabRippleColor="@color/orange"
+        app:tabTextColor="@color/SellColor"
+        app:tabIndicatorColor="@color/SellColor"
         android:layout_height="wrap_content">
 
         <com.google.android.material.tabs.TabItem
-            android:tag="1"
+            android:tag="0"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:text="Regular" />
 
         <com.google.android.material.tabs.TabItem
-            android:tag="2"
+            android:tag="1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:text="AMO"/>
     </com.google.android.material.tabs.TabLayout>
 

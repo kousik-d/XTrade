@@ -1,6 +1,8 @@
 package com.intern.xtrade.Fragments
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
+import com.intern.xtrade.AppOpenActivity
 import com.intern.xtrade.Funds.AddFundsActivity
 import com.intern.xtrade.Funds.WithDrawFunds
 import com.intern.xtrade.IPO.IPOActivity
@@ -17,6 +20,7 @@ import com.intern.xtrade.R
 import com.intern.xtrade.ProfileActivites.SecurityInformation
 import com.intern.xtrade.YourStocks
 import com.intern.xtrade.ProfileActivites.YourWishlist
+import com.intern.xtrade.wishList.WishlistManager
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,6 +47,8 @@ class ProfileFragment : Fragment() {
     lateinit var withDrawFunds : AppCompatButton
     lateinit var IPOBtn : LinearLayout
     lateinit var Ordersbtn : LinearLayout
+    lateinit var LogOutbtn :LinearLayout
+    lateinit var sharedPreferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,6 +65,9 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.activity_profile_list, container, false)
 
+        sharedPreferences = requireActivity().getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
+
+
         showStockBtn = view.findViewById(R.id.yourStocksOpenBtn)
         showWishlist = view.findViewById(R.id.yourWishlistOpenBtn)
         showNotificationBtn = view.findViewById(R.id.yourNotificationsOpenBtn)
@@ -69,6 +78,15 @@ class ProfileFragment : Fragment() {
         withDrawFunds = view.findViewById(R.id.withdraw)
         IPOBtn = view.findViewById(R.id.IPOOpenBtn)
         Ordersbtn = view.findViewById(R.id.yourOrdersOpenBtn)
+        LogOutbtn = view.findViewById(R.id.LogoutOpenBtn)
+
+
+        LogOutbtn.setOnClickListener {
+            sharedPreferences.edit().putInt("current_step", -1).apply()
+            val intent = Intent(requireContext(),AppOpenActivity::class.java)
+            startActivity(intent)
+
+        }
 
 
         Ordersbtn.setOnClickListener {
