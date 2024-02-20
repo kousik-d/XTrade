@@ -1,310 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    android:orientation="vertical"
-    tools:context=".IPO.BuyIPO">
     <LinearLayout
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        tools:context=".IPO.BuyIPO">
 
-        <ImageView
-
-            android:id="@+id/IPO_back"
-
-            android:layout_width="20dp"
-            android:layout_gravity="center"
-            android:layout_weight="0.9"
-            android:layout_height="20dp"
-            android:clickable="true"
-            android:src="@drawable/back_button"/>
-        <Space
-            android:layout_width="20dp"
-            android:layout_weight="5"
-            android:layout_height="match_parent"/>
-        <ImageView
-
-            android:id="@+id/IPO_help"
-            android:layout_weight="2"
-            android:gravity="right"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/info"
-            android:clickable="true"/>
-
-
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="15dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:text="Apxor Technologies Private Limited"
-        android:textSize="16dp"
-        android:paddingLeft="15dp"
-        android:textColor="@color/darkBlack"
-        android:fontFamily="@font/poppins_medium"
-        android:layout_height="wrap_content"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="15dp"/>
-    <androidx.cardview.widget.CardView
-        android:layout_margin="5dp"
-        android:layout_width="match_parent"
-        android:background="@drawable/bottom_corner_radius"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            android:background="@drawable/buy_sell_background_grey"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:text="Select investor type"
-                android:layout_height="wrap_content"
-                android:textColor="@color/darkBlack"
-                android:fontFamily="@font/poppins_medium"
-                android:layout_weight="2"/>
-            <View
-                android:layout_width="2dp"
-                android:background="@color/black"
-                android:layout_height="match_parent"/>
-            <Spinner
-                android:id="@+id/InvestorTypeSpinner"
-                android:layout_width="wrap_content"
-                android:paddingLeft="5dp"
-                android:layout_weight="3"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="25dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            >
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/QuantityLayout"
+            <ImageView
+                android:id="@+id/IPO_back"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.5"
+                android:clickable="true"
+                android:src="@drawable/back_icon" />
+
+            <ImageView
+
+                android:id="@+id/IPO_logo"
+
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.9"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:gravity="left"
-                        android:text="Open Date"
-                        android:textColor="@color/black"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/poppins"
-                        android:gravity="right"
-                        android:text="13th Feb, 24"
-                        android:textColor="@color/darkBlack"
-                        android:textSize="12dp" />
-                </LinearLayout>
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="5dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.39"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:gravity="left"
-                        android:text="Min.Price"
-                        android:textColor="@color/black"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/poppins"
-                        android:gravity="right"
-                        android:text="₹ 141.00"
-                        android:textColor="@color/darkBlack"
-                        android:textSize="12dp" />
-                </LinearLayout>
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="5dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.39"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:gravity="left"
-                        android:text="Lot size"
-                        android:textColor="@color/black"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/poppins"
-                        android:gravity="right"
-                        android:text="99"
-                        android:textColor="@color/darkBlack"
-                        android:textSize="12dp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <Space
-                android:layout_width="22dp"
-                android:layout_height="match_parent" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.95"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:gravity="left"
-                        android:text="Close Date"
-                        android:textColor="@color/black"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/poppins"
-                        android:gravity="right"
-                        android:text="25th Feb, 24"
-                        android:textColor="@color/darkBlack"
-                        android:textSize="12dp" />
-                </LinearLayout>
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="5dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.27"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:gravity="left"
-                        android:text="Max.Price"
-                        android:textColor="@color/black"
-                        android:textSize="12dp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/poppins"
-                        android:gravity="right"
-                        android:text="₹ 151.00"
-                        android:textColor="@color/darkBlack"
-                        android:textSize="12dp" />
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="15dp"/>
-
-    <LinearLayout
-        android:id="@+id/AddLinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_margin="5dp"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
+                android:layout_weight="0.8"
+                android:paddingLeft="5dp"
+                android:src="@drawable/apxor_x_logo" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/IPO_name"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
+                android:layout_weight="4"
+                android:fontFamily="@font/poppins_semibold"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:text="APXOR Technology solutions Pvt. Limited."
+                android:textAllCaps="false"
                 android:textColor="@color/darkBlack"
-                android:padding="8dp"
-                android:text="BID 1"/>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp"/>
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/IPO_help"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0.5"
+                android:clickable="true"
+                android:src="@drawable/icons_help" />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:elevation="5dp"
+            app:cardCornerRadius="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:padding="8dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Select investor type"
+                        android:textColor="@color/darkBlack"
+                        android:textSize="14dp" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="16dp"
+                        android:background="@color/black" />
+
+                    <Spinner
+                        android:id="@+id/InvestorTypeSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/buy_sell_background_grey"
+                        android:paddingVertical="4dp"
+                        android:tooltipText="Choose" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
 
                     <LinearLayout
-                        android:id="@+id/bidLayout"
+                        android:id="@+id/QuantityLayout"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -321,41 +139,27 @@
                                 android:layout_weight="0.9"
                                 android:fontFamily="@font/poppins_semibold"
                                 android:gravity="left"
-                                android:text="Quantity"
+                                android:text="Open Date"
                                 android:textColor="@color/black"
                                 android:textSize="12dp" />
 
-                        </LinearLayout>
+                            <TextView
+                                android:id="@+id/IPO_openDate"
 
-                        <Space
-                            android:layout_width="match_parent"
-                            android:layout_height="5dp"/>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <EditText
-                                android:id="@+id/bid1Quantity"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1.39"
-                                android:fontFamily="@font/poppins_bold"
-                                android:gravity="left"
-                                android:maxLength="7"
-                                android:backgroundTint="@color/card_blue"
-                                android:textCursorDrawable="@drawable/custom_cursor"
-                                android:text="99"
-                                android:inputType="number"
-                                android:drawableRight="@drawable/plus_sign"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="right"
+                                android:text="13th Feb, 24"
                                 android:textColor="@color/darkBlack"
-                                android:textSize="14dp" />
-
-
+                                android:textSize="12dp" />
                         </LinearLayout>
+
                         <Space
                             android:layout_width="match_parent"
-                            android:layout_height="5dp"/>
+                            android:layout_height="5dp" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -367,8 +171,52 @@
                                 android:layout_weight="1.39"
                                 android:fontFamily="@font/poppins_semibold"
                                 android:gravity="left"
-                                android:text="(Lot size: 99)"
+                                android:text="Min.Price"
                                 android:textColor="@color/black"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/IPO_MinPrice"
+
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="right"
+                                android:text="₹ 141.00"
+                                android:textColor="@color/darkBlack"
+                                android:textSize="12dp" />
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.39"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:gravity="left"
+                                android:text="Lot size"
+                                android:textColor="@color/black"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/IPO_lotSize"
+
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="right"
+                                android:text="99"
+                                android:textColor="@color/darkBlack"
                                 android:textSize="12dp" />
                         </LinearLayout>
 
@@ -395,136 +243,182 @@
                                 android:layout_weight="0.95"
                                 android:fontFamily="@font/poppins_semibold"
                                 android:gravity="left"
-                                android:text="Price"
+                                android:text="Close Date"
                                 android:textColor="@color/black"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/IPO_closeDate"
+
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="right"
+                                android:text="25th Feb, 24"
+                                android:textColor="@color/darkBlack"
                                 android:textSize="12dp" />
                         </LinearLayout>
 
                         <Space
                             android:layout_width="match_parent"
-                            android:layout_height="5dp"/>
+                            android:layout_height="5dp" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                            <Space
-                                android:layout_width="match_parent"
-                                android:layout_height="5dp"/>
+                            android:orientation="horizontal">
 
-                            <EditText
-                                android:id="@+id/bid1Price"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1.27"
                                 android:fontFamily="@font/poppins_semibold"
                                 android:gravity="left"
-                                android:inputType="number"
-                                android:paddingLeft="10dp"
-                                android:backgroundTint="@color/card_blue"
-                                android:textCursorDrawable="@drawable/custom_cursor"
-                                android:textColor="@color/darkBlack"
-                                android:textSize="14dp" />
+                                android:text="Max.Price"
+                                android:textColor="@color/black"
+                                android:textSize="12dp" />
 
+                            <TextView
+                                android:id="@+id/IPO_maxPrice"
+
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins"
+                                android:gravity="right"
+                                android:text="₹ 151.00"
+                                android:textColor="@color/darkBlack"
+                                android:textSize="12dp" />
                         </LinearLayout>
-                            <CheckBox
-                                android:layout_width="match_parent"
-                                android:text="Cut-off"
-                                android:backgroundTint="@color/card_blue"
-                                android:layout_height="24dp"/>
+
+
                     </LinearLayout>
+
                 </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <include layout="@layout/ipo_bid_card"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/bidContainer">
+
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:layout_marginHorizontal="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Total BID Value"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/totalBid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="right"
+                android:text="$ 23,7819.00"
+                android:textColor="@color/darkBlack" />
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/AddMultiplebidsBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:text="Add Multiple Bids"
+            android:textAllCaps="false"
+            android:elevation="5dp"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_margin="8dp"
+            android:textColor="@color/card_blue"
+            android:textSize="12dp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:elevation="5dp"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Block Funds Via"
+                        android:textColor="@color/darkBlack" />
+
+                    <ImageView
+                        android:layout_marginLeft="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/upi_icon" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Enter UPI ID"
+                    android:textSize="10dp" />
+
+                <EditText
+                    android:id="@+id/upiId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Click to check UPI App &amp; Sponsor Banks live  IPO."
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/Apply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/card_blue"
+            android:text="Apply"
+            android:textAllCaps="false"
+            android:elevation="8dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_marginVertical="20dp"
+            android:layout_marginHorizontal="8dp"
+            android:textColor="@color/white"
+            android:textSize="12dp" />
 
     </LinearLayout>
-
-     <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_margin="5dp"
-         android:padding="5dp"
-         android:layout_height="wrap_content">
-         <TextView
-             android:layout_width="0dp"
-             android:layout_weight="1"
-             android:text="Total BID Value"
-             android:fontFamily="@font/poppins_medium"
-             android:textColor="@color/darkBlack"
-             android:layout_height="wrap_content"/>
-         <TextView
-             android:layout_width="0dp"
-             android:layout_weight="1"
-             android:text="$ 23,7819.00"
-             android:gravity="right"
-             android:fontFamily="@font/poppins_medium"
-             android:textColor="@color/darkBlack"
-             android:layout_height="wrap_content"/>
-     </LinearLayout>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/AddMultiplebidsBtn"
-        android:layout_width="match_parent"
-        android:backgroundTint="@color/white"
-        android:text="Add Multiple Bids"
-        android:textSize="10dp"
-        android:textAllCaps="false"
-        android:textColor="@color/card_blue"
-        android:layout_height="wrap_content"/>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_margin="5dp"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:text="Block Funds Via"
-                android:textColor="@color/darkBlack"
-                android:fontFamily="@font/poppins_semibold"
-                android:layout_height="wrap_content"/>
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:src="@drawable/upi_icon"
-                android:layout_height="28dp"/>
-
-        </LinearLayout>
-            <TextView
-                android:layout_width="match_parent"
-                android:text="Enter UPI ID"
-                android:textSize="10dp"
-                android:layout_height="wrap_content"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:textSize="10dp"
-                android:text="Click to check UPI App &amp; Sponsor Banks live  IPO."
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp"/>
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:text="Apply"
-        android:background="@color/card_blue"
-        android:textColor="@color/white"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
 
 </ScrollView>
