@@ -15,6 +15,8 @@ import com.intern.xtrade.RegularAndAMO.BuyRegularActivity
 import com.intern.xtrade.RegularAndAMO.Buy_activity
 import com.intern.xtrade.RegularAndAMO.SellActivity
 import com.intern.xtrade.wishList.WishlistManager
+import java.util.ArrayList
+import java.util.Calendar
 
 
 class StockScreen : AppCompatActivity() {
@@ -28,6 +30,8 @@ class StockScreen : AppCompatActivity() {
     lateinit var stockScreenBack : ImageView
     lateinit var AddToWishList : CheckBox
     lateinit var StockBuyButton : Button
+    lateinit var graph : ImageView
+
     private val buttons = mutableListOf<Button>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +45,33 @@ class StockScreen : AppCompatActivity() {
         val stockBoolean = intent.getBooleanExtra("GRAPHBOOLEAN",false)
         val stockId = intent.getIntExtra("STOCKID",0)
 
+        graph = findViewById(R.id.graph_view)
+
+        val graphIds = arrayOf(
+            R.drawable.graph_2,
+            R.drawable.graph_3,
+            R.drawable.graph_1,
+            R.drawable.graph_4,
+            R.drawable.graph_5,
+            R.drawable.stock_graph
+        )
+
+        var graphID = arrayListOf<Int>()
+
+        if(stockBoolean) {
+            graph.setImageResource(R.drawable.stock_graph)
+            graphID.add(R.drawable.stock_graph)
+        }
+        else{
+            graph.setImageResource(R.drawable.graph_5)
+            graphID.add(R.drawable.graph_5)
+        }
+
+        for (i in 1..6)
+        {
+            val randomIndex = (0 until graphIds.size).random()
+            graphID.add(graphIds[randomIndex])
+        }
 
 
         stockName = findViewById(R.id.stock_name)
@@ -63,7 +94,7 @@ class StockScreen : AppCompatActivity() {
             }
         }
 
-        initButtons()
+        initButtons(graphID)
 
         StockBuyButton.setOnClickListener {
             val intent = Intent(this, Buy_activity::class.java)
@@ -120,7 +151,8 @@ class StockScreen : AppCompatActivity() {
     }
 
 
-    private fun initButtons() {
+
+    private fun initButtons(graphID : ArrayList<Int>) {
         val buttonIds = arrayOf(
             R.id.stock_button_1H,
             R.id.stock_button_24H,
@@ -130,13 +162,46 @@ class StockScreen : AppCompatActivity() {
             R.id.stock_button_1Y,
             R.id.stock_button_ALL,
         )
-        for (id in buttonIds) {
-            val button = findViewById<Button>(id)
-            button.setOnClickListener { onButtonClick(button) }
+
+        val cal = Calendar.getInstance()
+        val year = cal.get(Calendar.YEAR)
+        val month = cal.get(Calendar.MONTH) + 1
+        val dayOfMonth = cal.get(Calendar.DAY_OF_MONTH)
+        var hour = cal.get(Calendar.HOUR_OF_DAY)
+        val minute = cal.get(Calendar.MINUTE)
+
+        val textArray = arrayOf(
+            R.id.text1,
+            R.id.text2,
+            R.id.text3,
+            R.id.text4,
+            R.id.text5,
+            )
+
+        for (i in 0..6) {
+            val button = findViewById<Button>(buttonIds[i])
+            button.setOnClickListener {
+                graph.setImageResource(graphID[i])
+                if(i==0)
+                {
+                    if(hour==0)
+                        hour=23
+                    var min = 0
+                    for(i in textArray)
+                    {
+                        min +=12
+                        val text = findViewById<TextView>(i)
+                        text.text = (hour-1).toString() + ":" + min.toString()
+                    }
+                }
+                onButtonClick(button)
+            }
             buttons.add(button)
         }
     }
     private fun onButtonClick(clickedButton: Button) {
+
+
         val drawable1: Drawable = this.getDrawable(R.drawable.stock_screen_button_clicked)!!
         val drawable2: Drawable = this.getDrawable(R.drawable.stock_screen_button)!!
 
