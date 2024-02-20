@@ -32,7 +32,14 @@
             android:exported="false" />
         <activity
             android:name=".IPO.IPOActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="ipoactivity" android:scheme="xtrade" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Login.LoginOTPVerification"
             android:exported="false" />
@@ -83,7 +90,14 @@
             android:exported="false" />
         <activity
             android:name=".Funds.AddFundsActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="addfundsactivity" android:scheme="xtrade"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".StockScreen"
             android:exported="false" />
