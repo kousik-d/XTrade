@@ -116,7 +116,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="92.08%%"
+                android:text="92.08%"
                 android:textSize="12dp"
                 android:fontFamily="@font/poppins_medium"
                 android:textColor="@color/green"/>

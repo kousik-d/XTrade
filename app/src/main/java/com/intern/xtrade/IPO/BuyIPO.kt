@@ -25,6 +25,7 @@ class BuyIPO : AppCompatActivity() {
     lateinit var addBidsLayout : LinearLayout
     lateinit var BidOneQunatity : EditText
     lateinit var BidOnePrice : EditText
+    lateinit var BidOneCardview : CardView
     var count = 2
     var priceToDisplay = 1
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,9 +34,10 @@ class BuyIPO : AppCompatActivity() {
         IPOBackImage = findViewById(R.id.IPO_back)
         inverstortypeSpinner = findViewById(R.id.InvestorTypeSpinner)
         addMultipleBidsBtn = findViewById(R.id.AddMultiplebidsBtn)
-        addBidsLayout = findViewById(R.id.AddLinearLayout)
-        BidOneQunatity = findViewById(R.id.bid1Quantity)
-        BidOnePrice = findViewById(R.id.bid1Price)
+        BidOneCardview = findViewById(R.id.Bid1)
+        addBidsLayout = findViewById(R.id.bidContainer)
+        BidOneQunatity = BidOneCardview.findViewById(R.id.Quantity)
+        BidOnePrice = BidOneCardview.findViewById(R.id.Price)
 
         BidOneQunatity.addTextChangedListener(object :TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -70,8 +72,8 @@ class BuyIPO : AppCompatActivity() {
     }
 
     private fun createABidView(count: Int): View {
-        val view = layoutInflater.inflate(R.layout.bid_layout_file,null)
-        view.findViewById<TextView>(R.id.bidId).text = "BID ${count}"
+        val view = layoutInflater.inflate(R.layout.ipo_bid_card,null)
+        view.findViewById<TextView>(R.id.bidTextView).text = "BID ${count}"
         val layoutParams = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT

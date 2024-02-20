@@ -134,20 +134,18 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.9"
-                                android:fontFamily="@font/poppins_semibold"
-                                android:gravity="left"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_medium"
                                 android:text="Open Date"
                                 android:textColor="@color/black"
-                                android:textSize="12dp" />
+                                android:textSize="10dp" />
 
                             <TextView
                                 android:id="@+id/IPO_openDate"
 
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/poppins"
                                 android:gravity="right"
@@ -169,11 +167,11 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1.39"
-                                android:fontFamily="@font/poppins_semibold"
+                                android:fontFamily="@font/poppins_medium"
                                 android:gravity="left"
                                 android:text="Min.Price"
                                 android:textColor="@color/black"
-                                android:textSize="12dp" />
+                                android:textSize="10dp" />
 
                             <TextView
                                 android:id="@+id/IPO_MinPrice"
@@ -201,11 +199,11 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1.39"
-                                android:fontFamily="@font/poppins_semibold"
+                                android:fontFamily="@font/poppins_medium"
                                 android:gravity="left"
                                 android:text="Lot size"
                                 android:textColor="@color/black"
-                                android:textSize="12dp" />
+                                android:textSize="10dp" />
 
                             <TextView
                                 android:id="@+id/IPO_lotSize"
@@ -238,21 +236,19 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.95"
-                                android:fontFamily="@font/poppins_semibold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_medium"
                                 android:gravity="left"
                                 android:text="Close Date"
                                 android:textColor="@color/black"
-                                android:textSize="12dp" />
+                                android:textSize="10dp" />
 
                             <TextView
                                 android:id="@+id/IPO_closeDate"
 
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins"
                                 android:gravity="right"
                                 android:text="25th Feb, 24"
@@ -273,11 +269,11 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1.27"
-                                android:fontFamily="@font/poppins_semibold"
+                                android:fontFamily="@font/poppins_medium"
                                 android:gravity="left"
                                 android:text="Max.Price"
                                 android:textColor="@color/black"
-                                android:textSize="12dp" />
+                                android:textSize="10dp" />
 
                             <TextView
                                 android:id="@+id/IPO_maxPrice"
@@ -299,11 +295,14 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <include layout="@layout/ipo_bid_card"/>
+        <include
+            android:id="@+id/Bid1"
+            layout="@layout/ipo_bid_card"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:orientation="vertical"
             android:id="@+id/bidContainer">
 

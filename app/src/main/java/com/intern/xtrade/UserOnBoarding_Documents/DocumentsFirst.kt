@@ -2,7 +2,9 @@ package com.intern.xtrade.UserOnBoarding_Documents
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -35,6 +37,7 @@ class DocumentsFirst : Fragment() {
     var isPhotoClicked = false
     var isDocumentsSignClicked = false
     lateinit var sharedPreferences: SharedPreferences
+    lateinit var warning : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,8 +61,14 @@ class DocumentsFirst : Fragment() {
         sharedPreferences.edit().putInt("current_step", 10).apply()
 
 
+        warning = view.findViewById(R.id.textWarning)
+
+
 
         DocumentFirstPhoto.setOnClickListener{
+            warning.text = "Photo uploaded successfully !"
+            Log.i("DOCUMENTS","CLICLED ${warning.text}")
+            warning.setTextColor(resources.getColor(R.color.green))
             isPhotoClicked = true
             if(isPhotoClicked && isDocumentsSignClicked) {
                 changeButtonBackground()
@@ -68,14 +77,26 @@ class DocumentsFirst : Fragment() {
 
         DocumentsFirstSign.setOnClickListener{
             isDocumentsSignClicked = true
+            warning.text = "Signature uploaded successfully !"
+            warning.setTextColor(resources.getColor(R.color.green))
+
             if(isPhotoClicked && isDocumentsSignClicked) {
                 changeButtonBackground()
             }
         }
 
         userActivity = activity as UserDetails
-
         DocumentFirstContinue.setOnClickListener {
+            if(isPhotoClicked && isDocumentsSignClicked==false)
+            {
+                warning.text = "*Please upload your Signature"
+                warning.setTextColor(resources.getColor(R.color.red))
+            }
+            else if(isPhotoClicked==false && isDocumentsSignClicked)
+            {
+                warning.text = "*Please upload your Photo"
+                warning.setTextColor(resources.getColor(R.color.red))
+            }
             if(isPhotoClicked && isDocumentsSignClicked) {
                 userActivity.onNextButtonClick(DocumentsSecond())
             }

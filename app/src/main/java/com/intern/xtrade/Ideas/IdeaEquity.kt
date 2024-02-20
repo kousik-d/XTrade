@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
@@ -28,6 +29,7 @@ class IdeaEquity : Fragment() {
     private var param2: String? = null
     lateinit var IpoEquityViewAll : TextView
     lateinit var IpoCardView : LinearLayout
+    lateinit var ShortTermCard : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +55,13 @@ class IdeaEquity : Fragment() {
         IpoEquityViewAll.setOnClickListener {
             val intent = Intent(requireContext(),IPOActivity::class.java)
             startActivity(intent)
+        }
+
+        ShortTermCard = view.findViewById(R.id.equity_shortTermInclude)
+
+        ShortTermCard.findViewById<ImageView>(R.id.hidden_arrow_button).setOnClickListener {
+            ShortTermCard.findViewById<LinearLayout>(R.id.hidden_layout).visibility = LinearLayout.VISIBLE
+            it.visibility = ImageView.GONE
         }
         return view
     }

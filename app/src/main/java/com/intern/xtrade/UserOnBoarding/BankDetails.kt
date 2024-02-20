@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.text.isDigitsOnly
 import com.intern.xtrade.R
@@ -36,6 +37,9 @@ class BankDetails : Fragment() {
     lateinit var BankContinueBtn : AppCompatButton
     lateinit var BankAccountNumber: EditText
     lateinit var BankIFSCCode : EditText
+    lateinit var warning1 : TextView
+    lateinit var warning2 : TextView
+
     var isBankAccountNumberOk = false
     var isBankIFSCCode = false
 
@@ -61,6 +65,8 @@ class BankDetails : Fragment() {
         sharedPreferences.edit().putInt("current_step", 2).apply()
         BankAccountNumber = view.findViewById(R.id.bankDetails_accountNumber)
         BankIFSCCode = view.findViewById(R.id.bankDetails_ifscCode)
+        warning1 = view.findViewById(R.id.account_warning)
+        warning2 = view.findViewById(R.id.ifsc_warning)
 
         BankIFSCCode.addTextChangedListener(object :TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -73,13 +79,19 @@ class BankDetails : Fragment() {
 
             override fun afterTextChanged(s: Editable?) {
                 val IFSCCode = s.toString()
-                if(IFSCCode.isNotEmpty() && IFSCCode.length==11 && IFSCCode[4]=='0'){
+                if(IFSCCode.isNotEmpty() && IFSCCode.length==11 && IFSCCode[4]=='0' && !IFSCCode.contains(" ")){
                     isBankIFSCCode = true
+                    warning2.text = "IFSC code is valid !"
+                    warning2.setTextColor(resources.getColor(R.color.green))
+
                     if(isBankAccountNumberOk){
                         changeButtonBackground()
                     }
                 }else{
                     isBankIFSCCode = false
+                    warning2.text = "Enter a valid IFSC code"
+                    warning2.setTextColor(resources.getColor(R.color.red))
+
                     changeButtonBackgroundtoGrey()
                 }
             }
@@ -97,13 +109,19 @@ class BankDetails : Fragment() {
 
             override fun afterTextChanged(s: Editable?) {
                 val bankAccountNumber = s.toString()
-                if(bankAccountNumber.isDigitsOnly() && bankAccountNumber.length>10){
+                if(bankAccountNumber.isDigitsOnly() && bankAccountNumber.length>10 && !bankAccountNumber.contains(" ")){
                     isBankAccountNumberOk = true
+                    warning1.text = "Account number is valid !"
+                    warning1.setTextColor(resources.getColor(R.color.green))
+
                     if(isBankIFSCCode){
                         changeButtonBackground()
                     }
                 }else{
                     isBankAccountNumberOk = false
+                    warning1.text = "Enter a valid Account number"
+                    warning1.setTextColor(resources.getColor(R.color.red))
+
                     changeButtonBackgroundtoGrey()
                 }
             }

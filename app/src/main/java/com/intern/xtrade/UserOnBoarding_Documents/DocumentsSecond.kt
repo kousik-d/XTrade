@@ -4,11 +4,13 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Switch
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
 import com.intern.xtrade.R
@@ -32,6 +34,10 @@ class DocumentsSecond : Fragment() {
     lateinit var DocumentsSecondFinishBtn : AppCompatButton
     lateinit var DocumentsSecondSwitch : Switch
     lateinit var sharedPreferences : SharedPreferences
+    lateinit var warning : TextView
+    lateinit var firstDocument : TextView
+    lateinit var SecondDocument : TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,29 +52,63 @@ class DocumentsSecond : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        var isfirstClicked = false
+        var isSecondClicked = false
+
         val view = inflater.inflate(R.layout.fragment_documents_second, container, false)
         showCardView = view.findViewById(R.id.ShowCardView)
         DocumentsSecondFinishBtn = view.findViewById(R.id.documents_continue)
         DocumentsSecondSwitch = view.findViewById(R.id.documents_switch)
         sharedPreferences = requireActivity().getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
-        sharedPreferences.edit().putInt("current_step", 4).apply()
+        sharedPreferences.edit().putInt("current_step", 11).apply()
 
-        DocumentsSecondFinishBtn.setBackgroundColor(resources.getColor(R.color.grey))
+        warning = view.findViewById(R.id.TextWarning)
+        firstDocument = view.findViewById(R.id.documents_text1)
+        SecondDocument = view.findViewById(R.id.documents_text2)
+
 
         DocumentsSecondSwitch.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
-                DocumentsSecondFinishBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
+                DocumentsSecondFinishBtn.setBackgroundColor(resources.getColor(R.color.grey))
+                warning.visibility = TextView.VISIBLE
                 showCardView.visibility = CardView.VISIBLE
+                firstDocument.setOnClickListener{
+                    warning.text = "Income proof uploaded successfully !"
+                    Log.i("DOCUMENTS","CLICLED ${warning.text}")
+                    warning.setTextColor(resources.getColor(R.color.green))
+                    isfirstClicked = true
+                    if(isfirstClicked || isSecondClicked) {
+                        DocumentsSecondFinishBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
+                    }
+                }
+
+                SecondDocument.setOnClickListener{
+                    isSecondClicked = true
+                    warning.text = "Income proof fetched successfully !"
+                    warning.setTextColor(resources.getColor(R.color.green))
+                    if(isfirstClicked || isSecondClicked) {
+                        DocumentsSecondFinishBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
+                    }
+                }
             }else{
                 showCardView.visibility = CardView.INVISIBLE
             }
         }
 
         DocumentsSecondFinishBtn.setOnClickListener {
-            if(DocumentsSecondSwitch.isChecked) {
+            if(!DocumentsSecondSwitch.isChecked) {
                 val intent = Intent(requireContext(), SignUpSuccessful::class.java)
                 startActivity(intent)
             }
+            else
+            {
+                if(isfirstClicked || isSecondClicked)
+                {
+                    val intent = Intent(requireContext(), SignUpSuccessful::class.java)
+                    startActivity(intent)
+                }
+            }
+
         }
         return view
     }
