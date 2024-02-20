@@ -1,0 +1,20 @@
+{
+  "plugins": [
+    {
+      "name": "rtm",
+      "class": "com.apxor.androidsdk.plugins.realtimeui.ApxorRealtimeUIPlugin"
+    },
+    {
+      "name": "push-v2",
+      "class": "com.apxor.androidsdk.plugins.push.v2.PushPlugin"
+    },
+    {
+      "name": "surveys",
+      "class": "com.apxor.androidsdk.plugins.survey.SurveyPlugin"
+    },
+    {
+      "name": "wysiwyg",
+      "class": "com.apxor.androidsdk.plugins.wysiwyg.WYSIWYGPlugin"
+    }
+  ]
+}

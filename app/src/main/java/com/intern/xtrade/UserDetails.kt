@@ -61,8 +61,7 @@ class UserDetails : AppCompatActivity() {
         UserDetailsDocumentsStep = findViewById(R.id.userDetails_step4)
 
         UserDetailsBackBtn.setOnClickListener {
-            createDialog()
-//            finish()
+            finishAffinity()
         }
 
         val FragmentToLoad = intent.getIntExtra("FRAGMENTTOLOAD",0)

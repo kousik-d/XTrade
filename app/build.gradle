@@ -50,6 +50,18 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
 
+    implementation 'com.apxor.androidx:apxor-android-sdk-core:2.9.9@aar'
+
+
+    // Add these for Realtime Actions and Surveys
+    implementation 'com.apxor.androidx:apxor-android-sdk-qe:1.6.2@aar'
+    implementation 'com.apxor.androidx:apxor-android-sdk-rtm:2.3.4@aar'
+    implementation 'com.apxor.androidx:surveys:2.0.9@aar'
+
+
+    // Helper plugin to create walkthroughs
+    implementation 'com.apxor.androidx:wysiwyg:1.4.6@aar'
+
 
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
