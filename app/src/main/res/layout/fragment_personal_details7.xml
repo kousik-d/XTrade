@@ -204,6 +204,8 @@
             android:gravity="right"
             android:textColor="@color/card_blue"
             android:thumbTint="@color/card_blue"
+            android:buttonTint="@color/card_blue"
+            android:trackTint="@color/black"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     </LinearLayout>

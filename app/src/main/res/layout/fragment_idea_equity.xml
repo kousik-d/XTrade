@@ -112,6 +112,7 @@
                     android:background="@color/transparent_black"/>
 
                 <include layout="@layout/idea_equity_short_term_card"
+                    android:id="@+id/equity_shortTermInclude"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 

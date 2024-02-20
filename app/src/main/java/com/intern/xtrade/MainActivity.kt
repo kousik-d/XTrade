@@ -84,6 +84,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        finishAffinity()
         if(false){
             super.onBackPressed()
         }

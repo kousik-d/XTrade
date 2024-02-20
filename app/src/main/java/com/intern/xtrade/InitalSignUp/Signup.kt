@@ -18,12 +18,18 @@ class Signup : AppCompatActivity() {
     lateinit var continueBtn : Button
     lateinit var TermsCheckBox : CheckBox
     lateinit var SignUpMobileNumber : EditText
+    lateinit var name : EditText
+    lateinit var nameWarning : TextView
+    var isNameOk = false
     var isMobileNumberOk = false
     var isTermsOk = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
         var MobileNumber : String = "123456789"
+
+        name = findViewById(R.id.signup_name)
+        nameWarning = findViewById(R.id.signup_NameWarning)
 
         SignUpMobileNumber = findViewById(R.id.signup_mobileNumber)
         val relativeLayout = findViewById<RelativeLayout>(R.id.SignUpContinueRelative)
@@ -35,12 +41,39 @@ class Signup : AppCompatActivity() {
 
 
         continueBtn.setOnClickListener {
-            if(isMobileNumberOk && isTermsOk) {
+            if(isMobileNumberOk && isTermsOk && isNameOk) {
                 val intent = Intent(this, MobileNumberOTP::class.java)
                 intent.putExtra("MOBILENUMBER", MobileNumber)
                 startActivity(intent)
             }
         }
+
+        name.addTextChangedListener(object :TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                var fullname = s.toString()
+                if(fullname.isNotEmpty() && fullname !=" ")
+                {
+                    nameWarning.visibility = TextView.INVISIBLE
+                    isNameOk = true
+                    if(isMobileNumberOk && isTermsOk){
+                        continueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
+                    }
+                }
+                else
+                {
+                    nameWarning.visibility = TextView.VISIBLE
+                    isNameOk = false
+                }
+            }
+
+        })
 
 
         SignUpMobileNumber.addTextChangedListener(object :TextWatcher{
@@ -66,7 +99,7 @@ class Signup : AppCompatActivity() {
                 else
                 {
                     isMobileNumberOk =true
-                    if(isTermsOk){
+                    if(isTermsOk && isNameOk){
                         continueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
                     }
                     MobileNumber = s.toString()
@@ -81,7 +114,7 @@ class Signup : AppCompatActivity() {
         TermsCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
                 isTermsOk = true
-                if(isMobileNumberOk){
+                if(isMobileNumberOk && isNameOk){
                     continueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
                 }
             }else{

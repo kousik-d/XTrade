@@ -17,10 +17,10 @@
 
             android:id="@+id/withdraw_back"
 
-            android:layout_width="20dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
             android:clickable="true"
             android:src="@drawable/back_button"/>
 
@@ -40,7 +40,7 @@
 
             android:id="@+id/withdraw_help"
 
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:layout_gravity="center"
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -116,7 +116,7 @@
             android:inputType="number"
             android:fontFamily="@font/poppins_medium"
             android:textColor="@color/black"
-            android:textCursorDrawable="@color/black"/>
+            android:textCursorDrawable="@drawable/custom_cursor"/>
 
         <Space
             android:layout_width="10dp"

@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content" />
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/pushSwitch"
-                android:backgroundTint="#80429CE5"
+                android:backgroundTint="@color/card_blue"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:paddingRight="10dp"

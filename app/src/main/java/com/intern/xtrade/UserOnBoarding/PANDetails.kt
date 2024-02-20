@@ -76,12 +76,12 @@ class PANDetails : Fragment() {
 
             override fun afterTextChanged(s: Editable?) {
                 val panNumber = s.toString()
-                if(panNumber.length<10){
+                if(panNumber.length<10 && !panNumber.contains(" ")){
                     PanNumberWarning.text = "Enter a valid PAN"
                     PanNumberWarning.setTextColor(ContextCompat.getColor(requireContext(),
                         R.color.red
                     ))
-                }else if(panNumber.length==10){
+                }else if(panNumber.length==10 && !panNumber.contains(" ")){
                     PanNumberWarning.text = "PAN is valid"
                     isButtonClickable = true
                     if(isDateSelected==true){

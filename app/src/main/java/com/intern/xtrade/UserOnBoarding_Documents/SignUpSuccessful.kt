@@ -32,4 +32,10 @@ class SignUpSuccessful : AppCompatActivity() {
         animationView.playAnimation()
 
     }
+
+    override fun onBackPressed() {
+        if(false) {
+            super.onBackPressed()
+        }
+    }
 }
