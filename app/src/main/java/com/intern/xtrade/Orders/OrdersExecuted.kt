@@ -1,11 +1,23 @@
 package com.intern.xtrade.Orders
 
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.lifecycleScope
+import com.intern.xtrade.DataBases.StockDataBase
+import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.R
+import com.intern.xtrade.Repositories.StockRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +33,8 @@ class OrdersExecuted : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var stockRepository: StockRepository
+    lateinit var addtoOrderExecuted : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +49,14 @@ class OrdersExecuted : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_orders_executed, container, false)
+        val view = inflater.inflate(R.layout.fragment_orders_executed, container, false)
+        addtoOrderExecuted = view.findViewById(R.id.AddtoOrderExecuted)
+        stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
+        stockRepository.stockOrdersExecuted.asLiveData().observe(requireActivity()){
+            CreateListAndAppendToLayout(it)
+        }
+
+        return view
     }
 
     companion object {
@@ -56,5 +77,32 @@ class OrdersExecuted : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    private fun CreateListAndAppendToLayout(totalStockList: List<StockInfo>) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            for (stock in totalStockList) {
+                val cardView = layoutInflater.inflate(R.layout.order_card, null)
+                cardView.findViewById<TextView>(R.id.order_numerator).text = "${(0..1150).random()}"
+                cardView.findViewById<TextView>(R.id.order_avgValue).text = "${stock.StockPrice}".substring(0, 3) + ""
+                cardView.findViewById<TextView>(R.id.order_companyName).text = stock.CompanyName
+                cardView.findViewById<TextView>(R.id.order_status).text = "COMPLETED"
+                cardView.findViewById<TextView>(R.id.order_status).setTextColor(resources.getColor(R.color.green))
+                cardView.findViewById<TextView>(R.id.order_status).setBackgroundColor(resources.getColor(R.color.transparent_green))
+                withContext(Dispatchers.Main) {
+                    // Set margin for card view
+                    val layoutParams = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                    )
+                    layoutParams.setMargins(resources.getDimensionPixelSize(R.dimen.Ordermargin_between_cards),
+                        resources.getDimensionPixelSize(R.dimen.Ordermargin_Top_cards),
+                        resources.getDimensionPixelSize(R.dimen.Ordermargin_between_cards),
+                        resources.getDimensionPixelSize(R.dimen.Ordermargin_between_cards))
+                    cardView.layoutParams = layoutParams
+                    // Add card view to linear layout
+                    addtoOrderExecuted.addView(cardView)
+                }
+            }
+        }
     }
 }

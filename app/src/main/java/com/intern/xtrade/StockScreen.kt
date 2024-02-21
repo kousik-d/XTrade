@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import com.apxor.androidsdk.core.ApxorSDK
 import com.apxor.androidsdk.core.Attributes

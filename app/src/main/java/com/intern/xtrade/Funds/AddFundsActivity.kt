@@ -1,6 +1,8 @@
 package com.intern.xtrade.Funds
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -18,6 +20,8 @@ import com.intern.xtrade.BackGroundChange.ButtonBackgroundChange
 import com.intern.xtrade.FinalPayment
 import com.intern.xtrade.Fragments.DepositINRActivity
 import com.intern.xtrade.R
+import java.text.NumberFormat
+import java.util.Locale
 
 class AddFundsActivity : AppCompatActivity() {
     lateinit var FundAmount: EditText
@@ -30,6 +34,7 @@ class AddFundsActivity : AppCompatActivity() {
     lateinit var FundsBalance : TextView
     lateinit var FundsWarning : TextView
     lateinit var xPayBtn : ImageView
+    lateinit var sharedPreferences: SharedPreferences
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +42,10 @@ class AddFundsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_funds)
         BankSelection = findViewById(R.id.addFunds_dropDown)
         InitalizeSpinner()
+
+        sharedPreferences = getSharedPreferences("MONEY",Context.MODE_PRIVATE)
+        val funds = sharedPreferences.getInt("AVAILABLEINR",0)
+
 
         FundAmount = findViewById(R.id.addFunds_amount)
         FundsAddFiveHund = findViewById(R.id.addFunds_500)
@@ -47,6 +56,9 @@ class AddFundsActivity : AppCompatActivity() {
         FundsBalance = findViewById(R.id.addFunds_balance)
         FundsWarning = findViewById(R.id.addFunds_warning)
         xPayBtn = findViewById(R.id.xPay)
+
+        val indiLocal = Locale("en", "in")
+        FundsBalance.text = NumberFormat.getCurrencyInstance(indiLocal).format(funds)
 
         FundsBackButton.setOnClickListener {
             finish()

@@ -30,7 +30,7 @@ interface StockDao {
     fun getAllStockOrdersOpen():Flow<MutableList<StockInfo>>
 
     @Query("SELECT * FROM StockInfo s WHERE s.isInOrders = 2 ")
-    fun getAllStockOrdersExecuted():Flow<List<StockInfo>>
+    fun getAllStockOrdersExecuted():Flow<MutableList<StockInfo>>
 
     @Update
     fun updateStock(stock: StockInfo)

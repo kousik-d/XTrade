@@ -1,6 +1,8 @@
 package com.intern.xtrade.Fragments
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -13,6 +15,8 @@ import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.lifecycle.Observer
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import com.intern.xtrade.DataBases.StockDataBase
 import com.intern.xtrade.DataClasses.StockInfo
@@ -28,6 +32,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.text.NumberFormat
 import java.util.Locale
+import kotlin.random.Random
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,6 +56,14 @@ class PortfolioFragment : Fragment() {
     lateinit var PortfolioCardContainer : LinearLayout
     public var totalStockList : List<StockInfo> = listOf()
     lateinit var stockRepository: StockRepository
+    lateinit var InvestedValue : TextView
+    lateinit var sharedPreferences: SharedPreferences
+    lateinit var holdingText : TextView
+    lateinit var percentIncrease : TextView
+    var holdingValue = 0.0f
+    var initalInvested = 0.0f
+    val indiLocal = Locale("en", "in")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -65,14 +78,24 @@ class PortfolioFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_portfolio, container, false)
+        sharedPreferences = requireContext().getSharedPreferences("MONEY",Context.MODE_PRIVATE)
+
+        initalInvested = 0.0f
+
         DepositINRbtn = view.findViewById(R.id.DepositINRId)
         WithDrawINRbtn = view.findViewById(R.id.WithDrawINRId)
-        availabeINR = view.findViewById<CardView>(R.id.portfolio_rectangle).findViewById(R.id.portfolio_available_inr)
+        PortfolioCard = view.findViewById<CardView>(R.id.portfolio_rectangle)
+        availabeINR = PortfolioCard.findViewById(R.id.portfolio_available_inr)
         PortfolioCardContainer = view.findViewById(R.id.portfolio_cardsContainer)
+        InvestedValue = PortfolioCard.findViewById(R.id.portfolio_invested_value)
+        holdingText = PortfolioCard.findViewById(R.id.portfolio_value)
+        percentIncrease = PortfolioCard.findViewById(R.id.portfolio_percentage)
 
+
+        percentIncrease.text = "+ ${Random.nextFloat() * 10.00f}".dropLast(4)+"%"
         stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
 
-        stockRepository.allStocks.observe(requireActivity()){
+        stockRepository.allStocks.observe(requireActivity(), Observer{
             totalStockList = it
             var holdings = mutableListOf<Int>()
             for(i in it) {
@@ -80,28 +103,36 @@ class PortfolioFragment : Fragment() {
                     holdings.add(i.StockId)
                 }
             }
+            Log.i("All HOLDINGS","${holdings}")
             CreateListAndAppendToLayout(holdings)
-        }
-
-        Log.i("ALLHOLDINGS","${WishlistManager.getYourStocks(requireContext())}")
-
+        })
+        Log.i("INVESTEDVALUE","${initalInvested}")
 
 
-
+        var invested = sharedPreferences.getFloat("INVESTEDVALUE",initalInvested)
         val moneyPresent = availabeINR.text.toString().toInt()
-        val indiLocal = Locale("en", "in")
-        val totalMoney =  (moneyPresent + PortfolioFragment.AmountToAddToDeposit)
+        val buffer = 1000
+        val totalMoney =  (moneyPresent + sharedPreferences.getInt("AVAILABLEINR",0))
         availabeINR.text = NumberFormat.getCurrencyInstance(indiLocal).format(totalMoney)
         DepositINRbtn.setOnClickListener {
             val intent :Intent = Intent(requireContext(),AddFundsActivity::class.java)
             startActivity(intent)
         }
+        if(invested ==0.0f){
+            invested = 1000f
+        }
+        invested+=totalMoney
+        sharedPreferences.edit().putFloat("HOLDINGVALUE",invested).apply()
+        holdingText.text = NumberFormat.getCurrencyInstance(indiLocal).format(invested)
+
         WithDrawINRbtn.setOnClickListener {
             val intent: Intent = Intent(requireContext(),WithDrawFunds::class.java)
             Log.i("KOUSIKDASARI",availabeINR.text.toString())
             //intent.putExtra("AVAILABLEINR",availabeINR.text.toString().drop(1))
             startActivity(intent)
         }
+        Log.i("PRICE","$initalInvested")
+
 
         return view
     }
@@ -159,6 +190,10 @@ class PortfolioFragment : Fragment() {
                         navigationationToStockScreen(stock)
                     }
                     withContext(Dispatchers.Main) {
+                        initalInvested += (stock.StockPrice.toFloat())
+                        Log.i("PRICE","$initalInvested")
+                        InvestedValue.text = NumberFormat.getCurrencyInstance(indiLocal).format(initalInvested)
+                        sharedPreferences.edit().putFloat("INVESTEDVALUE",initalInvested).apply()
                         // Set margin for card view
                         val layoutParams = LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.MATCH_PARENT,

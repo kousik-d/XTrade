@@ -5,33 +5,13 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/AddtoOrderExecuted"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context=".Orders.OrdersExecuted">
 
-        <include
-            android:id="@+id/ordersCard"
-            layout="@layout/order_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"/>
 
-
-        <include
-            android:id="@+id/ordersCard1"
-            layout="@layout/order_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"/>
-
-
-        <include
-            android:id="@+id/ordersCard2"
-            layout="@layout/order_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"/>
 
 
     </LinearLayout>

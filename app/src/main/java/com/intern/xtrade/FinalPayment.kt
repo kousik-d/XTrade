@@ -1,6 +1,7 @@
 package com.intern.xtrade
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
@@ -47,6 +48,7 @@ class FinalPayment : AppCompatActivity() {
         }
         MoneyButton.setOnClickListener {
             val intent : Intent = Intent(this, AddFundsSuccessfull::class.java)
+            intent.putExtra("FUNDTOADD",funds)
             startActivity(intent)
         }
 

@@ -10,6 +10,8 @@ import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.postDelayed
+import androidx.lifecycle.Observer
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import com.intern.xtrade.DataBases.IPODataBase
 import com.intern.xtrade.DataBases.StockDataBase
@@ -43,9 +45,15 @@ class SplashActivity:  AppCompatActivity() {
             }
         }
 
-        stockRepository.allStocks.observe(this){
-            WishlistManager.StocksToAdd = it
-        }
+        stockRepository.allStocks.observe(this, Observer{
+            val stocks = mutableListOf<StockInfo>()
+            for(stock in it){
+                if(stock.isInHoldings != true){
+                    stocks.add(stock)
+                }
+            }
+            WishlistManager.StocksToAdd = stocks
+        })
         sharedPreferences.edit().putInt("DBSTEP",100).apply()
 
     }

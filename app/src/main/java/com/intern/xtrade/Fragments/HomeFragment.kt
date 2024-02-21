@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.DataBases.StockDataBase
@@ -64,8 +65,6 @@ class HomeFragment : Fragment() {
         ApxorSDK.logAppEvent("Homepage_launched")
     }
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -86,16 +85,8 @@ class HomeFragment : Fragment() {
         TrendingLinearLayout = view.findViewById<LinearLayout>(R.id.home_cardsContainer)
         stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
 
-        stockRepository.allStocks.observe(requireActivity()){
-            val list = mutableListOf<StockInfo>()
-            for(i in it){
-                if(i.isInHoldings!=true){
-                    list.add(i)
-                }
-            }
-            list.shuffle()
-            CreateListAndAppendToLayout(list)
-        }
+        val list = WishlistManager.StocksToAdd.shuffle()
+        CreateListAndAppendToLayout(WishlistManager.StocksToAdd)
         return view
     }
 

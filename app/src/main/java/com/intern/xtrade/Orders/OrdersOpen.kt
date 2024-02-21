@@ -1,6 +1,8 @@
 package com.intern.xtrade.Orders
 
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import com.intern.xtrade.DataBases.StockDataBase
@@ -15,6 +18,7 @@ import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.R
 import com.intern.xtrade.Repositories.StockRepository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -53,9 +57,10 @@ class OrdersOpen : Fragment() {
         stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
 
         stockRepository.stockOrdersOpen.asLiveData().observe(requireActivity()){
+            Toast.makeText(requireContext(),"${it}",Toast.LENGTH_SHORT).show()
+
             CreateListAndAppendToLayout(it)
         }
-
         return view
     }
 
@@ -95,6 +100,18 @@ class OrdersOpen : Fragment() {
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
                     )
+                    object : CountDownTimer(60000,1000){
+                        override fun onTick(millisUntilFinished: Long) {
+                            Log.i("TIMETODO","${millisUntilFinished}")
+                            cardView.findViewById<TextView>(R.id.order_time).text = "00:00:${millisUntilFinished/1000}"
+                        }
+
+                        override fun onFinish() {
+                            stock.isInOrders = 2
+                            stock.isInHoldings = true
+                            UpdateOrder(stock)
+                        }
+                    }.start()
                     layoutParams.setMargins(resources.getDimensionPixelSize(R.dimen.Ordermargin_between_cards),
                         resources.getDimensionPixelSize(R.dimen.Ordermargin_Top_cards),
                         resources.getDimensionPixelSize(R.dimen.Ordermargin_between_cards),
@@ -106,4 +123,12 @@ class OrdersOpen : Fragment() {
             }
         }
     }
+
+    fun UpdateOrder(stockInfo: StockInfo){
+        lifecycleScope.launch(IO) {
+            stockRepository.updateStock(stockInfo)
+
+        }
+    }
+
 }
