@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.apxor.androidsdk.core.ApxorSDK
 import com.google.android.material.tabs.TabLayout
 import com.intern.xtrade.Adapters.FragmentPageAdapterIPO
 import com.intern.xtrade.Adapters.FragmentPageAdapterIdea
@@ -37,6 +38,12 @@ class Idea : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.logAppEvent("Idea_page_launched")
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -95,8 +102,4 @@ class Idea : Fragment() {
             }
     }
 
-    override fun onResume() {
-        super.onResume()
-
-    }
 }

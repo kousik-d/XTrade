@@ -19,7 +19,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.XTrade"
         tools:targetApi="31">
-        <meta-data android:name="APXOR_APP_ID" android:value="c0192e5d-a118-44b1-a28a-ff88513ab87a"/>
+        <meta-data
+            android:name="APXOR_APP_ID"
+            android:value="c0192e5d-a118-44b1-a28a-ff88513ab87a" />
+        <activity
+            android:name=".AddFundsSuccessfull"
+            android:exported="false" />
+
+
+
         <activity
             android:name=".Orders.OrderConfirmed"
             android:exported="false" />
@@ -34,10 +42,13 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:host="ipoactivity" android:scheme="xtrade" />
+                <data
+                    android:host="ipoactivity"
+                    android:scheme="xtrade" />
             </intent-filter>
         </activity>
         <activity
@@ -93,10 +104,13 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:host="addfundsactivity" android:scheme="xtrade"/>
+                <data
+                    android:host="addfundsactivity"
+                    android:scheme="xtrade" />
             </intent-filter>
         </activity>
         <activity

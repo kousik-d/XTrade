@@ -6,6 +6,7 @@ import android.provider.ContactsContract.CommonDataKinds.Im
 import android.util.Log
 import android.widget.ImageView
 import androidx.viewpager2.widget.ViewPager2
+import com.apxor.androidsdk.core.ApxorSDK
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.intern.xtrade.Adapters.FragmentPageAdapter

@@ -18,21 +18,6 @@
             android:layout_margin="10dp"/>
 
 
-        <include
-            android:id="@+id/liveIposCard1"
-            layout="@layout/live_ipo_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"/>
-
-
-        <include
-            android:id="@+id/liveIposCard2"
-            layout="@layout/live_ipo_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"/>
-
 
     </LinearLayout>
 

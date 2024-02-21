@@ -36,7 +36,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:paddingLeft="5dp"
-                android:src="@drawable/apxor_x_logo" />
+                android:src="@drawable/juniper_hotels_logo_image" />
 
             <TextView
                 android:id="@+id/IPO_name"
@@ -46,7 +46,7 @@
                 android:fontFamily="@font/poppins_semibold"
                 android:paddingLeft="10dp"
                 android:paddingTop="5dp"
-                android:text="APXOR Technology solutions Pvt. Limited."
+                android:text="Juniper Hotels"
                 android:textAllCaps="false"
                 android:textColor="@color/darkBlack"
                 android:textSize="14sp" />

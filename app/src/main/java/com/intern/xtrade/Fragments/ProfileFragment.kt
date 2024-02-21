@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.AppOpenActivity
 import com.intern.xtrade.Funds.AddFundsActivity
 import com.intern.xtrade.Funds.WithDrawFunds
@@ -106,6 +107,7 @@ class ProfileFragment : Fragment() {
 
         IPOBtn.setOnClickListener {
             val intent = Intent(requireContext(),IPOActivity::class.java)
+            ApxorSDK.logAppEvent("IPO_clicked")
             startActivity(intent)
         }
         showStockBtn.setOnClickListener {

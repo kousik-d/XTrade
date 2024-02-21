@@ -16,6 +16,8 @@ import androidx.cardview.widget.CardView
 import androidx.lifecycle.lifecycleScope
 import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.FinalPayment
+import com.intern.xtrade.Funds.AddFundsActivity
+import com.intern.xtrade.Funds.WithDrawFunds
 import com.intern.xtrade.R
 import com.intern.xtrade.StockScreen
 import com.intern.xtrade.wishList.WishlistManager
@@ -74,13 +76,13 @@ class PortfolioFragment : Fragment() {
         val totalMoney =  (moneyPresent + PortfolioFragment.AmountToAddToDeposit)
         availabeINR.text = NumberFormat.getCurrencyInstance(indiLocal).format(totalMoney)
         DepositINRbtn.setOnClickListener {
-            val intent :Intent = Intent(requireContext(),DepositINRActivity::class.java)
+            val intent :Intent = Intent(requireContext(),AddFundsActivity::class.java)
             startActivity(intent)
         }
         WithDrawINRbtn.setOnClickListener {
-            val intent: Intent = Intent(requireContext(),FinalPayment::class.java)
+            val intent: Intent = Intent(requireContext(),WithDrawFunds::class.java)
             Log.i("KOUSIKDASARI",availabeINR.text.toString())
-            intent.putExtra("AVAILABLEINR",availabeINR.text.toString().drop(1))
+            //intent.putExtra("AVAILABLEINR",availabeINR.text.toString().drop(1))
             startActivity(intent)
         }
 

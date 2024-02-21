@@ -14,6 +14,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
 import androidx.core.view.setMargins
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.R
 
 class BuyIPO : AppCompatActivity() {
@@ -84,5 +85,10 @@ class BuyIPO : AppCompatActivity() {
             resources.getDimensionPixelSize(R.dimen.IPOmargin_between_cards))
         view.layoutParams = layoutParams
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.logAppEvent("IPO_apply_now_clicked")
     }
 }
