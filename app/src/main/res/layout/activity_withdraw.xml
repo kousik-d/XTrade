@@ -67,12 +67,12 @@
 
         <TextView
 
-            android:id="@+id/addFunds_balance"
+            android:id="@+id/withDraw_balance"
 
             android:layout_width="match_parent"
             android:gravity="right"
             android:layout_height="wrap_content"
-            android:text="17 Rs."
+            android:text="17"
             android:textColor="@color/card_blue"
             android:fontFamily="@font/poppins_semibold"
             android:textSize="16dp"/>
@@ -114,6 +114,7 @@
             android:paddingVertical="10dp"
             android:paddingRight="10dp"
             android:inputType="number"
+            android:maxLength="7"
             android:fontFamily="@font/poppins_medium"
             android:textColor="@color/black"
             android:textCursorDrawable="@drawable/custom_cursor"/>
@@ -142,7 +143,7 @@
 
     <TextView
 
-        android:id="@+id/addFunds_warning"
+        android:id="@+id/withDraw_warning"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

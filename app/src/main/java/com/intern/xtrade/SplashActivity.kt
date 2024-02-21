@@ -19,6 +19,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
+
 class SplashActivity:  AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
     lateinit var stockRepository : StockRepository
