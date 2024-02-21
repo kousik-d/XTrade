@@ -6,6 +6,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.R
+import java.sql.Time
 import kotlin.random.Random
 object StockSharedPreferences {
     private const val PREF_NAME = "stock_pref"
@@ -89,7 +90,10 @@ object StockSharedPreferences {
                 GraphBoolean = random.nextBoolean(),
                 StockPrice = i * 1234 + i * 10 + Random.nextDouble(0.01),
                 StockPercentage = 5.0 + i * 0.5,
-                StockId = i
+                StockId = i,
+                isInWatchList = false,
+                isInHoldings = false,
+                isInOrders = false,
             )
             sampleStockData.add(stock)
         }

@@ -173,11 +173,11 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@drawable/buy_sell_background"
+                        android:background="@drawable/sell_stock_button"
                         android:fontFamily="@font/poppins_medium"
                         android:text="Intraday MIS"
                         android:textAllCaps="false"
-                        android:textColor="@color/card_blue"
+                        android:textColor="@color/SellColor"
                         android:textSize="12sp" />
 
                     <Space
@@ -244,11 +244,11 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1.2"
-                        android:background="@drawable/buy_sell_background"
+                        android:background="@drawable/sell_stock_button"
                         android:fontFamily="@font/poppins_medium"
                         android:text="Market"
                         android:textAllCaps="false"
-                        android:textColor="@color/card_blue"
+                        android:textColor="@color/SellColor"
                         android:textSize="12sp" />
 
                     <Space
@@ -481,7 +481,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Margin : "
-                android:textColor="@color/card_blue" />
+                android:textColor="@color/SellColor" />
 
 
             <TextView
@@ -498,7 +498,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Charges : "
-                android:textColor="@color/card_blue" />
+                android:textColor="@color/SellColor" />
 
 
             <TextView

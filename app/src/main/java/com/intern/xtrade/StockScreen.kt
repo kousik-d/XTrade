@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
@@ -11,10 +12,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
+import com.intern.xtrade.Daos.StockDao
+import com.intern.xtrade.DataBases.StockDataBase
+import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.RegularAndAMO.BuyRegularActivity
 import com.intern.xtrade.RegularAndAMO.Buy_activity
 import com.intern.xtrade.RegularAndAMO.SellActivity
+import com.intern.xtrade.Repositories.StockRepository
 import com.intern.xtrade.wishList.WishlistManager
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
 import java.util.ArrayList
 import java.util.Calendar
 
@@ -31,6 +39,8 @@ class StockScreen : AppCompatActivity() {
     lateinit var AddToWishList : CheckBox
     lateinit var StockBuyButton : Button
     lateinit var graph : ImageView
+    lateinit var stockRepository: StockRepository
+    lateinit var totalStocks : MutableList<StockInfo>
 
     private val buttons = mutableListOf<Button>()
 
@@ -38,12 +48,20 @@ class StockScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stock_screen)
 
+        stockRepository = StockRepository(StockDataBase.invoke(this))
+
+
         val companyName = intent.getStringExtra("STOCKNAME")
         val companyLogo= intent.getIntExtra("COMPANYLOGO",R.drawable.apxor_x_logo)
         val stockPrice = intent.getDoubleExtra("STOCKPRICE",0.00)
         val stockPercentage = intent.getDoubleExtra("STOCKPERCENTAGE",0.00)
         val stockBoolean = intent.getBooleanExtra("GRAPHBOOLEAN",false)
         val stockId = intent.getIntExtra("STOCKID",0)
+
+        stockRepository.allStocks.observe(this){
+            totalStocks = it
+            updateWishListInStockScreen(it,stockId)
+        }
 
         graph = findViewById(R.id.graph_view)
 
@@ -119,21 +137,32 @@ class StockScreen : AppCompatActivity() {
             stockLogoImage.setImageResource(companyLogo)
         }
 
-        val wishlist = WishlistManager.getWishlist(this)
-        if(wishlist.contains(stockId)){
-            AddToWishList.isChecked = true
-        }
-        val wishlistManager = WishlistManager.getWishlist(this)
 
         AddToWishList.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
                 companyName?.let {
-                    WishlistManager.addToWishlist(this,stockId)
+                    val index = totalStocks.indexOfFirst{ it.StockId == stockId }
+
+                    if(index!=-1) {
+                        val newStock = totalStocks[index]
+                        if (newStock.isInWatchList != true) {
+                            newStock.isInWatchList = true
+                            lifecycleScope.launch(IO) {
+                                updateStock(newStock)
+                            }
+                            Toast.makeText(this,"Added to watchlist",Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 }
-                //val wishlist = WishlistManager.getWishlist(this)
-                Toast.makeText(this,"Added to watchlist",Toast.LENGTH_SHORT).show()
             }else{
-                WishlistManager.removeFromWishlist(this,stockId)
+                val index = totalStocks.indexOfFirst{ it.StockId == stockId }
+                if(index!=-1){
+                    val newStock = totalStocks[index]
+                    newStock.isInWatchList = false
+                    lifecycleScope.launch(IO) {
+                        updateStock(newStock)
+                    }
+                }
                 Toast.makeText(this,"Removed from watchlist",Toast.LENGTH_SHORT).show()
 
             }
@@ -213,6 +242,19 @@ class StockScreen : AppCompatActivity() {
                 button.background = drawable2
                 button.setTextColor(ContextCompat.getColor(this,R.color.darkBlack))
             }
+        }
+    }
+    suspend fun updateStock(stockInfo: StockInfo){
+        stockRepository.updateStock(stockInfo)
+    }
+
+    fun updateWishListInStockScreen(stockList : MutableList<StockInfo>, stockIdToCheck : Int){
+        val index = stockList.indexOfFirst{ it.StockId == stockIdToCheck }
+        if(index != -1){
+            if(totalStocks[index].isInWatchList == true)
+                AddToWishList.isChecked = true
+            else
+                AddToWishList.isChecked = false
         }
     }
 }

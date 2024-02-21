@@ -45,7 +45,7 @@ class PortfolioFragment : Fragment() {
     lateinit var availabeINR : TextView
     lateinit var PortfolioCard : CardView
     lateinit var PortfolioCardContainer : LinearLayout
-    public var totalStockList : List<StockInfo> = HomeFragment().getSampleStockData()
+    public var totalStockList : List<StockInfo> = WishlistManager.StocksToAdd
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

@@ -143,8 +143,8 @@ class sellRegular : Fragment() {
 
         ValidityDay.setOnClickListener {
             SetValidityBackground()
-            it.setBackgroundResource(R.drawable.buy_sell_background)
-            ValidityDay.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+            it.setBackgroundResource(R.drawable.sell_stock_button)
+            ValidityDay.setTextColor(ContextCompat.getColor(requireContext(), R.color.SellColor))
 
             DiskVisibility()
             TypeVisibility()
@@ -153,8 +153,8 @@ class sellRegular : Fragment() {
 
         ValidityMin.setOnClickListener {
             SetValidityBackground()
-            it.setBackgroundResource(R.drawable.buy_sell_background)
-            ValidityMin.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+            it.setBackgroundResource(R.drawable.sell_stock_button)
+            ValidityMin.setTextColor(ContextCompat.getColor(requireContext(), R.color.SellColor))
 
             DiskVisibility()
             TypeVisibility()
@@ -162,8 +162,8 @@ class sellRegular : Fragment() {
 
         ValidityIOC.setOnClickListener {
             SetValidityBackground()
-            it.setBackgroundResource(R.drawable.buy_sell_background)
-            ValidityIOC.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+            it.setBackgroundResource(R.drawable.sell_stock_button)
+            ValidityIOC.setTextColor(ContextCompat.getColor(requireContext(), R.color.SellColor))
 
             TypeSL.visibility = Button.INVISIBLE
             TypeSLM.visibility = Button.INVISIBLE
@@ -175,24 +175,24 @@ class sellRegular : Fragment() {
 
         ProductIntraDay.setOnClickListener {
 
-            it.setBackgroundResource(R.drawable.buy_sell_background)
-            ProductIntraDay.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
-            ProductLongTerm.setBackgroundResource(R.drawable.buy_sell_background_grey)
+            it.setBackgroundResource(R.drawable.sell_stock_button)
+            ProductIntraDay.setTextColor(ContextCompat.getColor(requireContext(), R.color.SellColor))
+            ProductLongTerm.setBackgroundResource(R.drawable.buy_sell_background)
             ProductLongTerm.setTextColor(ContextCompat.getColor(requireContext(), R.color.darkBlack))
 
         }
         ProductLongTerm.setOnClickListener {
             ProductIntraDay.setBackgroundResource(R.drawable.buy_sell_background_grey)
             ProductIntraDay.setTextColor(ContextCompat.getColor(requireContext(), R.color.darkBlack))
-            it.setBackgroundResource(R.drawable.buy_sell_background)
-            ProductLongTerm.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+            it.setBackgroundResource(R.drawable.sell_stock_button)
+            ProductLongTerm.setTextColor(ContextCompat.getColor(requireContext(), R.color.SellColor))
         }
 
         TypeMarket.setOnClickListener {
             ReplaceTriggerLayout()
             ReplaceAlltheBackGroundtoGrey()
-            it.setBackgroundResource(R.drawable.buy_sell_background)
-            TypeMarket.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+            it.setBackgroundResource(R.drawable.sell_stock_button)
+            TypeMarket.setTextColor(ContextCompat.getColor(requireContext(), R.color.SellColor))
 
 
             AllVisibility()
@@ -201,16 +201,16 @@ class sellRegular : Fragment() {
         TypeLimit.setOnClickListener {
             ReplaceTriggerLayout()
             ReplaceAlltheBackGroundtoGrey()
-            it.setBackgroundResource(R.drawable.buy_sell_background)
-            TypeLimit.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+            it.setBackgroundResource(R.drawable.sell_stock_button)
+            TypeLimit.setTextColor(ContextCompat.getColor(requireContext(), R.color.SellColor))
 
             AllVisibility()
         }
         TypeSL.setOnClickListener {
             LoadTrigger()
             ReplaceAlltheBackGroundtoGrey()
-            it.setBackgroundResource(R.drawable.buy_sell_background)
-            TypeSL.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+            it.setBackgroundResource(R.drawable.sell_stock_button)
+            TypeSL.setTextColor(ContextCompat.getColor(requireContext(), R.color.SellColor))
 
             AllVisibility()
             ValidityIOC.visibility =  Button.INVISIBLE
@@ -218,8 +218,8 @@ class sellRegular : Fragment() {
         TypeSLM.setOnClickListener {
             LoadTrigger()
             ReplaceAlltheBackGroundtoGrey()
-            it.setBackgroundResource(R.drawable.buy_sell_background)
-            TypeSLM.setTextColor(ContextCompat.getColor(requireContext(), R.color.card_blue))
+            it.setBackgroundResource(R.drawable.sell_stock_button)
+            TypeSLM.setTextColor(ContextCompat.getColor(requireContext(), R.color.SellColor))
 
             AllVisibility()
             PriceAmount.visibility = EditText.INVISIBLE

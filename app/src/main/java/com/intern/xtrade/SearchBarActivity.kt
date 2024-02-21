@@ -12,6 +12,7 @@ import com.intern.xtrade.Adapters.CustListAdapter
 import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.Fragments.HomeFragment
 import com.intern.xtrade.ProfileActivites.YourWishlist
+import com.intern.xtrade.wishList.WishlistManager
 import java.util.Locale
 
 class SearchBarActivity : AppCompatActivity() {
@@ -19,7 +20,7 @@ class SearchBarActivity : AppCompatActivity() {
     lateinit var ListtoShow : ListView
     lateinit var SearchView : androidx.appcompat.widget.SearchView
 
-    private var totalStocks = HomeFragment().getSampleStockData()
+    private var totalStocks = WishlistManager.StocksToAdd
     private var searchStock = arrayListOf<StockInfo>()
 
 

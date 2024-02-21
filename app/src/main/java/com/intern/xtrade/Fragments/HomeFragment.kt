@@ -15,14 +15,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.lifecycleScope
+import com.intern.xtrade.DataBases.StockDataBase
 import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.R
+import com.intern.xtrade.Repositories.StockRepository
 import com.intern.xtrade.SearchBarActivity
 import com.intern.xtrade.StockScreen
 import com.intern.xtrade.wishList.StockSharedPreferences
+import com.intern.xtrade.wishList.WishlistManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.sql.Time
 import kotlin.random.Random
 
 // TODO: Rename parameter arguments, choose names that match
@@ -39,11 +43,12 @@ class HomeFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    var stocksToAdd :List<StockInfo> = listOf()
 
     private lateinit var searchIcon : ImageView
     private lateinit var TrendingLinearLayout : LinearLayout
     lateinit var investToday: CardView
-    public var totalStockList : List<StockInfo> = getSampleStockData()
+    lateinit var stockRepository: StockRepository
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,9 +76,10 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
         TrendingLinearLayout = view.findViewById<LinearLayout>(R.id.home_cardsContainer)
-        CreateListAndAppendToLayout(totalStockList)
+        stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
 
-        //Log.i("KOUSIKFILE","${singleton.singleValueFileManager.readDataFromFile("WISH.txt")}")
+         val list = WishlistManager.StocksToAdd.shuffle()
+        CreateListAndAppendToLayout(WishlistManager.StocksToAdd)
         return view
     }
 
@@ -146,82 +152,5 @@ class HomeFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
-    }
-    fun getSampleStockData(): List<StockInfo> {
-        val sampleStockData = mutableListOf<StockInfo>()
-
-
-        var companyNames = listOf(
-            "ABC Corporation",
-            "XYZ Inc.",
-            "Tech Innovators",
-            "Global Traders",
-            "Green Energy Co.",
-            "Silver Enterprises",
-            "Star Solutions",
-            "Alpha Investments",
-            "Infinite Dynamics",
-            "Future Tech",
-            "Sunrise Holdings",
-            "Quantum Systems",
-            "Oceanic Ventures",
-            "Pinnacle Innovations",
-            "Blue Sky Investments"
-        )
-
-        val companyLogo = listOf<Int>(
-            R.drawable.img1,
-            R.drawable.img2,
-                    R.drawable.img3,
-                    R.drawable.img4,
-                    R.drawable.img5,
-                    R.drawable.img6,
-                    R.drawable.img7,
-                    R.drawable.img8,
-                    R.drawable.img9,
-                    R.drawable.img10,
-                    R.drawable.img11,
-                    R.drawable.img12,
-                    R.drawable.img13,
-                    R.drawable.img14,
-            R.drawable.img15
-        )
-
-
-
-        val stockNames = listOf(
-            "TechStock",
-            "GlobalTraders",
-            "GreenEnergy",
-            "SilverStock",
-            "StarSolutions",
-            "AlphaInvest",
-            "InfiniteDynamics",
-            "FutureTech",
-            "SunriseHoldings",
-            "QuantumSystems",
-            "OceanVentures",
-            "PinnacleInnovations",
-            "BlueSkyStock",
-            "EcoFutures",
-            "DynamicVisions"
-        )
-
-        val random = Random.Default
-
-        for (i in 1..14) {
-            val companyNam = "R.Drawable.img${i}"
-            val stock = StockInfo(
-                CompanyName = companyNames[i-1],
-                CompanyLogo = companyLogo[i-1], // Replace with actual drawable resource
-                StockName = stockNames[i-1],
-                GraphBoolean = random.nextBoolean(),
-                StockPrice = i * 1234 + i * 10 + Random.nextDouble(0.01),
-                StockPercentage = 5.0 + i * 0.5,
-                StockId = i
-            )
-            sampleStockData.add(stock)
-        }
-        return sampleStockData
     }
 }

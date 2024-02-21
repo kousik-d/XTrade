@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <meta-data android:name="APXOR_APP_ID" android:value="75fd2416-ca6d-4bdb-8a96-7793205c73e6"/>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -21,6 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.XTrade"
         tools:targetApi="31">
+        <meta-data android:name="APXOR_APP_ID" android:value="c0192e5d-a118-44b1-a28a-ff88513ab87a"/>
         <activity
             android:name=".Orders.OrderConfirmed"
             android:exported="false" />
@@ -37,6 +36,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:host="ipoactivity" android:scheme="xtrade" />
             </intent-filter>
         </activity>
@@ -95,6 +95,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:host="addfundsactivity" android:scheme="xtrade"/>
             </intent-filter>
         </activity>
