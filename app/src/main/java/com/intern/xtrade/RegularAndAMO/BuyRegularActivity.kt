@@ -18,8 +18,14 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
+import com.intern.xtrade.DataBases.StockDataBase
+import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.Orders.OrderConfirmed
 import com.intern.xtrade.R
+import com.intern.xtrade.Repositories.StockRepository
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -52,6 +58,7 @@ class BuyRegularActivity : Fragment() {
     lateinit var DiscQtyqt : EditText
     lateinit var DiscQtSpinner : Spinner
     lateinit var PurchaseProgressBar : ProgressBar
+    lateinit var stockRepository: StockRepository
 
     //Flags
 
@@ -63,6 +70,8 @@ class BuyRegularActivity : Fragment() {
             Log.i("KOUSIKDASARIFRAG","ISOKONCREATE")
         }
     }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -77,6 +86,7 @@ class BuyRegularActivity : Fragment() {
         PurchaseButton = view.findViewById(R.id.PurchaseButtonId)
         PurchaseProgressBar = view.findViewById(R.id.PurchaseLoadBtn)
 
+        stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
         PurchaseProgressBar.visibility = ProgressBar.INVISIBLE
 
         PurchaseButton.setOnClickListener {
@@ -84,7 +94,9 @@ class BuyRegularActivity : Fragment() {
             PurchaseProgressBar.visibility = ProgressBar.VISIBLE
             PurchaseButton.isEnabled = false
             Handler().postDelayed({
+                UpdateStockinDb(BuyRegularActivity.PurchasedStockId)
                 val intent = Intent(requireContext(),OrderConfirmed::class.java)
+
                 intent.putExtra("STOCKID",BuyRegularActivity.PurchasedStockId)
                 startActivity(intent)
             },3000)
@@ -339,5 +351,23 @@ class BuyRegularActivity : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    fun UpdateStockinDb(stockId: Int) {
+        stockRepository.allStocks.observe(requireActivity()){
+            val list = it
+            val index = list.indexOfFirst{ it.StockId == stockId }
+            if(index!=-1){
+                val newStock = list[index]
+                newStock.isInOrders = 1
+                updateDb(newStock)
+            }
+        }
+    }
+
+    fun updateDb(newStock : StockInfo){
+        lifecycleScope.launch(IO) {
+            stockRepository.updateStock(newStock)
+        }
     }
 }

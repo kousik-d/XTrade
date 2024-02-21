@@ -11,8 +11,11 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.postDelayed
 import androidx.lifecycle.lifecycleScope
+import com.intern.xtrade.DataBases.IPODataBase
 import com.intern.xtrade.DataBases.StockDataBase
+import com.intern.xtrade.DataClasses.IPOData
 import com.intern.xtrade.DataClasses.StockInfo
+import com.intern.xtrade.Repositories.IPORepository
 import com.intern.xtrade.Repositories.StockRepository
 import com.intern.xtrade.wishList.WishlistManager
 import kotlinx.coroutines.Dispatchers
@@ -23,11 +26,13 @@ import kotlin.random.Random
 class SplashActivity:  AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
     lateinit var stockRepository : StockRepository
+    lateinit var ipoRepository: IPORepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedPreferences=getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
         setContentView(R.layout.actvity_splash_screen)
         stockRepository = StockRepository(StockDataBase.invoke(this))
+        ipoRepository = IPORepository(IPODataBase.invoke(this))
 
         val curr = sharedPreferences.getInt("DBSTEP",-1)
 
@@ -45,13 +50,26 @@ class SplashActivity:  AppCompatActivity() {
 
     }
 
-    private fun doNothing() {
 
-    }
     suspend fun insertIntoDb(stocks:List<StockInfo> ){
         for (i in stocks){
             stockRepository.insertStock(i)
         }
+    }
+
+
+    fun getSampleIPOData() : List<IPOData>{
+        var IPOName = listOf(
+            "Exicom Tele-Systems",
+            "Platinum Industries",
+            "Vibhor Steel Tubes",
+            "Entero Healthcare Solutions",
+            "Capital SFB",
+            "Rashi Peripherals",
+            "EPACK Durable"
+        )
+        var MinAndMaxPrice = 
+        return listOf()
     }
 
     fun getSampleStockData(): List<StockInfo> {
@@ -116,20 +134,24 @@ class SplashActivity:  AppCompatActivity() {
 
         val random = Random.Default
 
-        for (i in 1..14) {
+        for (i in 1..15) {
             val companyNam = "R.Drawable.img${i}"
             val stock = StockInfo(
-                CompanyName = companyNames[i-1],
-                CompanyLogo = companyLogo[i-1], // Replace with actual drawable resource
-                StockName = stockNames[i-1],
+                CompanyName = companyNames[i - 1],
+                CompanyLogo = companyLogo[i - 1], // Replace with actual drawable resource
+                StockName = stockNames[i - 1],
                 GraphBoolean = random.nextBoolean(),
                 StockPrice = i * 1234 + i * 10 + Random.nextDouble(0.01),
                 StockPercentage = 5.0 + i * 0.5,
                 StockId = i,
                 isInWatchList = false,
                 isInHoldings = false,
-                isInOrders = false,
+                isInOrders = 0,
             )
+            if (i % 5 == 0) {
+                Log.i("STOCKS","${stock}")
+                stock.isInHoldings = true
+            }
             sampleStockData.add(stock)
         }
         return sampleStockData

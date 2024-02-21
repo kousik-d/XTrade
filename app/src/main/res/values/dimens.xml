@@ -3,7 +3,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="margin_between_cards">16dp</dimen>
     <dimen name="IPOmargin_between_cards">5dp</dimen>
-
+    <dimen name="Ordermargin_between_cards">8dp</dimen>
+    <dimen name="Ordermargin_Top_cards">8dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 </resources>

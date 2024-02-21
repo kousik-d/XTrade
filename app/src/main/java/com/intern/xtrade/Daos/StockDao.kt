@@ -26,8 +26,11 @@ interface StockDao {
     @Query("SELECT * FROM StockInfo s WHERE s.isInWatchList = True")
     fun getAllStockWatchlist():Flow<List<StockInfo>>
 
-    @Query("SELECT * FROM StockInfo s WHERE s.isInOrders = True")
-    fun getAllStockOrders():Flow<List<StockInfo>>
+    @Query("SELECT * FROM StockInfo s WHERE s.isInOrders = 1 ")
+    fun getAllStockOrdersOpen():Flow<MutableList<StockInfo>>
+
+    @Query("SELECT * FROM StockInfo s WHERE s.isInOrders = 2 ")
+    fun getAllStockOrdersExecuted():Flow<List<StockInfo>>
 
     @Update
     fun updateStock(stock: StockInfo)

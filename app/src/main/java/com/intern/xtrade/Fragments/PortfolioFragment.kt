@@ -14,9 +14,11 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.lifecycleScope
+import com.intern.xtrade.DataBases.StockDataBase
 import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.FinalPayment
 import com.intern.xtrade.R
+import com.intern.xtrade.Repositories.StockRepository
 import com.intern.xtrade.StockScreen
 import com.intern.xtrade.wishList.WishlistManager
 import kotlinx.coroutines.Dispatchers
@@ -45,7 +47,8 @@ class PortfolioFragment : Fragment() {
     lateinit var availabeINR : TextView
     lateinit var PortfolioCard : CardView
     lateinit var PortfolioCardContainer : LinearLayout
-    public var totalStockList : List<StockInfo> = WishlistManager.StocksToAdd
+    public var totalStockList : List<StockInfo> = listOf()
+    lateinit var stockRepository: StockRepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -65,9 +68,23 @@ class PortfolioFragment : Fragment() {
         availabeINR = view.findViewById<CardView>(R.id.portfolio_rectangle).findViewById(R.id.portfolio_available_inr)
         PortfolioCardContainer = view.findViewById(R.id.portfolio_cardsContainer)
 
+        stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
+
+        stockRepository.allStocks.observe(requireActivity()){
+            totalStockList = it
+            var holdings = mutableListOf<Int>()
+            for(i in it) {
+                if (i.isInHoldings == true) {
+                    holdings.add(i.StockId)
+                }
+            }
+            CreateListAndAppendToLayout(holdings)
+        }
+
         Log.i("ALLHOLDINGS","${WishlistManager.getYourStocks(requireContext())}")
 
-        CreateListAndAppendToLayout(WishlistManager.getYourStocks(requireContext()))
+
+
 
         val moneyPresent = availabeINR.text.toString().toInt()
         val indiLocal = Locale("en", "in")
@@ -115,7 +132,7 @@ class PortfolioFragment : Fragment() {
                 if (givenStockIds.contains(stock.StockId)) {
                     val cardView = layoutInflater.inflate(R.layout.stock_card, null)
                     cardView.findViewById<TextView>(R.id.card_stock_name).text =
-                        "${stock.StockName.substring(0, 7)}.."
+                        "${stock.StockName.substring(0, 6)}.."
                     cardView.findViewById<TextView>(R.id.card_stock_inr).text =
                         "₹ ${stock.StockPrice}".substring(0, 7) + ".."
                     cardView.findViewById<TextView>(R.id.card_stock_company).text =

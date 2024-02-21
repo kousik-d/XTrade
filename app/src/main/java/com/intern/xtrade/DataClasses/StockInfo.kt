@@ -16,5 +16,5 @@ data class StockInfo(
     var StockPercentage: Double,
     var isInWatchList : Boolean,
     var isInHoldings : Boolean,
-    var isInOrders : Boolean,
+    var isInOrders : Int,
 )

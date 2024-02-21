@@ -11,6 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 
 import com.intern.xtrade.R
+import com.intern.xtrade.Repositories.IPORepository
 
 /**
  * A simple [Fragment] subclass.

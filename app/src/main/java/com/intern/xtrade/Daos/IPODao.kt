@@ -14,7 +14,7 @@ interface IPODao {
     suspend fun insertIPO(ipoData : IPOData)
 
     @Query("SELECT * FROM IPOData")
-    fun getIPOs(): Flow<List<IPOData>>
+    fun getIPOs(): Flow<MutableList<IPOData>>
 
 
 }

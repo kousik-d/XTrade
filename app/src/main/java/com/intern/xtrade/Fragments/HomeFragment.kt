@@ -78,8 +78,16 @@ class HomeFragment : Fragment() {
         TrendingLinearLayout = view.findViewById<LinearLayout>(R.id.home_cardsContainer)
         stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
 
-         val list = WishlistManager.StocksToAdd.shuffle()
-        CreateListAndAppendToLayout(WishlistManager.StocksToAdd)
+        stockRepository.allStocks.observe(requireActivity()){
+            val list = mutableListOf<StockInfo>()
+            for(i in it){
+                if(i.isInHoldings!=true){
+                    list.add(i)
+                }
+            }
+            list.shuffle()
+            CreateListAndAppendToLayout(list)
+        }
         return view
     }
 
@@ -87,7 +95,7 @@ class HomeFragment : Fragment() {
         lifecycleScope.launch(Dispatchers.IO) {
             for (stock in totalStockList) {
                 val cardView = layoutInflater.inflate(R.layout.stock_card, null)
-                cardView.findViewById<TextView>(R.id.card_stock_name).text = "${stock.StockName.substring(0, 7)}.."
+                cardView.findViewById<TextView>(R.id.card_stock_name).text = "${stock.StockName.substring(0, 6)}.."
                 cardView.findViewById<TextView>(R.id.card_stock_inr).text = "₹ ${stock.StockPrice}".substring(0, 7) + ".."
                 cardView.findViewById<TextView>(R.id.card_stock_company).text = " ${stock.CompanyName}"
                 cardView.findViewById<ImageView>(R.id.card_stock_logo).setImageResource(stock.CompanyLogo)

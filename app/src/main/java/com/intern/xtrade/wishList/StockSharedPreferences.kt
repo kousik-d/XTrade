@@ -93,7 +93,7 @@ object StockSharedPreferences {
                 StockId = i,
                 isInWatchList = false,
                 isInHoldings = false,
-                isInOrders = false,
+                isInOrders = 0,
             )
             sampleStockData.add(stock)
         }

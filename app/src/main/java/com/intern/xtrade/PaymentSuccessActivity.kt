@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.Fragments.PortfolioFragment
 import com.intern.xtrade.wishList.WishlistManager
 

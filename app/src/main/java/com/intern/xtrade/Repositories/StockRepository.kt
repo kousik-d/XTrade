@@ -12,7 +12,7 @@ class StockRepository(private val stockDataBase: StockDataBase) {
 
     var stockWatchlist: Flow<List<StockInfo>> = stockDataBase.getStockDao().getAllStockWatchlist()
 
-    var stockOrders : Flow<List<StockInfo>> = stockDataBase.getStockDao().getAllStockOrders()
+    var stockOrdersOpen : Flow<MutableList<StockInfo>> = stockDataBase.getStockDao().getAllStockOrdersOpen()
 
     suspend fun insertStock(stockInfo: StockInfo) = stockDataBase.getStockDao().insertStock(stockInfo)
 
