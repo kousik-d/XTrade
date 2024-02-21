@@ -42,7 +42,11 @@
     <!-- contains all the list of stocks -->
     <ListView
         android:id="@+id/ListOfStocksId"
+        android:background="@color/white"
         tools:listitem="@layout/stock_item"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:divider="@color/white"
+        android:dividerHeight="16dp"
+        android:padding="16dp"/>
 </LinearLayout>
