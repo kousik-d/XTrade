@@ -81,25 +81,23 @@ class SearchBarActivity : AppCompatActivity() {
 
     }
 
-    private fun createListViewAdapter(InputStocks:List<StockInfo>) {
-        val userAdapter :ArrayAdapter<StockInfo> = ArrayAdapter(
-            this,R.layout.stock_card,InputStocks
-        )
-        ListtoShow.adapter = CustListAdapter(this,InputStocks)
+    private fun createListViewAdapter(InputStocks: List<StockInfo>) {
+        val userAdapter = CustListAdapter(this, InputStocks)
+        ListtoShow.adapter = userAdapter
 
         ListtoShow.isClickable = true
         ListtoShow.setOnItemClickListener { parent, view, position, id ->
-            val intent = Intent(this,StockScreen::class.java)
-            Log.i("KOUSIKHOMEFRAG","${InputStocks[position]}")
-            intent.putExtra("STOCKNAME",InputStocks[position].StockName)
-            intent.putExtra("COMPANYLOGO",InputStocks[position].CompanyLogo)
-            intent.putExtra("STOCKPRICE",InputStocks[position].StockPrice)
-            intent.putExtra("STOCKPERCENTAGE",InputStocks[position].StockPercentage)
-            intent.putExtra("GRAPHBOOLEAN",InputStocks[position].GraphBoolean)
-            intent.putExtra("STOCKID",InputStocks[position].StockId)
+            val intent = Intent(this, StockScreen::class.java)
+            intent.putExtra("STOCKNAME", InputStocks[position].StockName)
+            intent.putExtra("COMPANYLOGO", InputStocks[position].CompanyLogo)
+            intent.putExtra("STOCKPRICE", InputStocks[position].StockPrice)
+            intent.putExtra("STOCKPERCENTAGE", InputStocks[position].StockPercentage)
+            intent.putExtra("GRAPHBOOLEAN", InputStocks[position].GraphBoolean)
+            intent.putExtra("STOCKID", InputStocks[position].StockId)
             startActivity(intent)
         }
     }
+
     private fun searchInUserAdapter(StockName : String?): Int {
         StockName?.let {
             for(i in 1..13){
