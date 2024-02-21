@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/apxor_x_logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.XTrade"
+        android:theme="@style/AppTheme"
         tools:targetApi="31">
         <meta-data
             android:name="APXOR_APP_ID"

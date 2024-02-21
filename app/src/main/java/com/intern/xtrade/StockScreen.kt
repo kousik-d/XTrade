@@ -157,6 +157,10 @@ class StockScreen : AppCompatActivity() {
                                 updateStock(newStock)
                             }
                             Toast.makeText(this,"Added to watchlist",Toast.LENGTH_SHORT).show()
+
+                            val attrs1 = Attributes();
+                            attrs.putAttribute("Stock Name",companyName.toString())
+                            ApxorSDK.logAppEvent("Add _to_watchlist",attrs1)
                         }
                     }
                 }
@@ -170,6 +174,9 @@ class StockScreen : AppCompatActivity() {
                     }
                 }
                 Toast.makeText(this,"Removed from watchlist",Toast.LENGTH_SHORT).show()
+                val attrs2 = Attributes();
+                attrs.putAttribute("Stock Name",companyName.toString())
+                ApxorSDK.logAppEvent("Remove _from_watchlist",attrs2)
 
             }
         }
