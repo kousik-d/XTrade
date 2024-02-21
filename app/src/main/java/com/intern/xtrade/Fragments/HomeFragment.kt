@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.lifecycleScope
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.DataBases.StockDataBase
 import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.R
@@ -58,6 +59,12 @@ class HomeFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.logAppEvent("Homepage_launched")
+    }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -65,6 +72,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
         searchIcon = view.findViewById(R.id.SearchIconId)
         investToday = view.findViewById(R.id.home_rectangle)
         investToday.findViewById<AppCompatButton>(R.id.InvestTodayId).setOnClickListener {

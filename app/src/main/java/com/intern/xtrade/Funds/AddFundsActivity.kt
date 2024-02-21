@@ -1,16 +1,22 @@
 package com.intern.xtrade.Funds
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatSpinner
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.intern.xtrade.BackGroundChange.ButtonBackgroundChange
+import com.intern.xtrade.FinalPayment
+import com.intern.xtrade.Fragments.DepositINRActivity
 import com.intern.xtrade.R
 
 class AddFundsActivity : AppCompatActivity() {
@@ -23,6 +29,7 @@ class AddFundsActivity : AppCompatActivity() {
     lateinit var FundsBackButton : ImageView
     lateinit var FundsBalance : TextView
     lateinit var FundsWarning : TextView
+    lateinit var xPayBtn : ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,11 +46,13 @@ class AddFundsActivity : AppCompatActivity() {
         FundsBackButton = findViewById(R.id.addFunds_back)
         FundsBalance = findViewById(R.id.addFunds_balance)
         FundsWarning = findViewById(R.id.addFunds_warning)
+        xPayBtn = findViewById(R.id.xPay)
 
         FundsBackButton.setOnClickListener {
             finish()
         }
 
+        var FundAmountToAdd = ""
         FundAmount.addTextChangedListener(object :TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
@@ -53,6 +62,11 @@ class AddFundsActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
+                s?.toString().let {
+                    it?.let {
+                        FundAmountToAdd = it
+                    }
+                }
             }
 
         })
@@ -84,7 +98,19 @@ class AddFundsActivity : AppCompatActivity() {
             ButtonBackgroundChange.ChangeBackgound(FundsAddTenThousand,this)
             FundAmount.text = Editable.Factory.getInstance().newEditable(modifyAmount.toString())
         }
+
+
+        xPayBtn.setOnClickListener {
+            val intent : Intent = Intent(this, FinalPayment::class.java)
+            if(FundAmountToAdd == ""){
+                Toast.makeText(this,"Amount should not be zero",Toast.LENGTH_SHORT).show()
+            }else {
+                intent.putExtra("FUNDAMOUNT", FundAmountToAdd)
+                startActivity(intent)
+            }
+        }
     }
+
 
 
     fun InitalizeSpinner(){

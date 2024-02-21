@@ -54,6 +54,7 @@
 
 
         <EditText
+            android:textCursorDrawable="@drawable/custom_cursor"
             android:id="@+id/payment_amount"
             android:layout_width="wrap_content"
             android:layout_height="57dp"

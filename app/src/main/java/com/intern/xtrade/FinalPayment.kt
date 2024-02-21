@@ -11,6 +11,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
 import com.intern.xtrade.Fragments.PortfolioFragment
+import java.text.NumberFormat
+import java.util.Locale
 
 
 class FinalPayment : AppCompatActivity() {
@@ -21,7 +23,8 @@ class FinalPayment : AppCompatActivity() {
     lateinit var FinalPaymentHeading : TextView
     lateinit var FinalPaymentBackbtn : ImageView
 
-    private var isFromWithDrawl = 0
+    var funds = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,25 +35,20 @@ class FinalPayment : AppCompatActivity() {
         FinalPaymentHeading = findViewById(R.id.FinalPaymentTextView)
         FinalPaymentBackbtn = findViewById(R.id.FinalPaymentBackId)
 
+        intent.getStringExtra("FUNDAMOUNT").toString().let {
+            funds = it.toInt()
+
+        }
+        val indiLocal = Locale("en", "in")
+
+        moneyToshow.text = "${NumberFormat.getCurrencyInstance(indiLocal).format(funds)}"
         FinalPaymentBackbtn.setOnClickListener{
-            if(isFromWithDrawl==1){
-                finish()
-            }
+           finish()
+        }
+        MoneyButton.setOnClickListener {
+            val intent : Intent = Intent(this, AddFundsSuccessfull::class.java)
+            startActivity(intent)
         }
 
-        val value = intent.getStringExtra("AVAILABLEINR")
-        value?.apply {
-            isFromWithDrawl = 1
-            changeMoneyFromWithDrawl(value)
-        }
-        when(isFromWithDrawl){
-            1 -> FinalPaymentHeading.text = "Withdraw Amount"
-        }
-    }
-
-    private fun changeMoneyFromWithDrawl(money:String) {
-        MoneyText.text = "AVAILABLE MONEY"
-        moneyToshow.text = "₹ ${money}"
-        MoneyButton.text = "WITHDRAW"
     }
 }

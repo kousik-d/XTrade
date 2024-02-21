@@ -11,7 +11,10 @@ import android.widget.EditText
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.core.Attributes
 import com.intern.xtrade.R
+import org.w3c.dom.Attr
 
 class Signup : AppCompatActivity() {
 
@@ -44,6 +47,9 @@ class Signup : AppCompatActivity() {
             if(isMobileNumberOk && isTermsOk && isNameOk) {
                 val intent = Intent(this, MobileNumberOTP::class.java)
                 intent.putExtra("MOBILENUMBER", MobileNumber)
+                val attrs = Attributes();
+                attrs.putAttribute("name",name.text.toString())
+                ApxorSDK.setUserCustomInfo(attrs)
                 startActivity(intent)
             }
         }

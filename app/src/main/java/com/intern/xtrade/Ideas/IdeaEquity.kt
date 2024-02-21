@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.IPO.BuyIPO
 import com.intern.xtrade.IPO.IPOActivity
 import com.intern.xtrade.R
@@ -54,6 +55,7 @@ class IdeaEquity : Fragment() {
         }
         IpoEquityViewAll.setOnClickListener {
             val intent = Intent(requireContext(),IPOActivity::class.java)
+            ApxorSDK.logAppEvent("IPO_clicked")
             startActivity(intent)
         }
 

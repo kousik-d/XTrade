@@ -15,7 +15,8 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_semibold"
         android:padding="15dp"
-        android:text="Buy Stock"
+
+        android:text="Add funds"
         android:textSize="16dp" />
 
     <ImageView
@@ -51,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/poppins"
-            android:text="ESTIMATED BUYING PRICE"
+            android:text="Amount"
             android:textAlignment="center"
             android:textSize="12sp" />
 
@@ -62,8 +63,9 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/poppins_medium"
-            android:text="₹ 235.62"
-            android:textSize="48sp" />
+            android:text="₹ 0"
+            android:maxLength="13"
+            android:textSize="38sp" />
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -78,7 +80,7 @@
         android:layout_marginBottom="50dp"
         android:background="@drawable/buy_button_background"
         android:gravity="center"
-        android:text="BUY"
+        android:text="Add"
         android:textColor="@color/white" />
 
 </RelativeLayout>

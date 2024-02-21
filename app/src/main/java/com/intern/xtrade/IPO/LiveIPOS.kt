@@ -9,6 +9,7 @@ import android.widget.Button
 import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import com.apxor.androidsdk.core.ApxorSDK
 
 import com.intern.xtrade.R
 import com.intern.xtrade.Repositories.IPORepository
@@ -36,6 +37,12 @@ class LiveIPOS : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.logAppEvent("Live_IPO_launched")
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
+import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.core.Attributes
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.intern.xtrade.DataBases.StockDataBase
 import com.intern.xtrade.DataClasses.StockInfo
@@ -86,6 +88,8 @@ class MainActivity : AppCompatActivity() {
                 else ->  false
             }
         }
+
+
 
 
 
