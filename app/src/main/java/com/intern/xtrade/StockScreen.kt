@@ -262,6 +262,8 @@ class StockScreen : AppCompatActivity() {
         stockRepository.updateStock(stockInfo)
     }
 
+
+
     fun updateWishListInStockScreen(stockList : MutableList<StockInfo>, stockIdToCheck : Int){
         val index = stockList.indexOfFirst{ it.StockId == stockIdToCheck }
         if(index != -1){

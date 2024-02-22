@@ -91,7 +91,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun CreateListAndAppendToLayout(totalStockList: List<StockInfo>) {
-        lifecycleScope.launch(Dispatchers.IO) {
             for (stock in totalStockList) {
                 val cardView = layoutInflater.inflate(R.layout.stock_card, null)
                 cardView.findViewById<TextView>(R.id.card_stock_name).text = "${stock.StockName.substring(0, 6)}.."
@@ -113,8 +112,6 @@ class HomeFragment : Fragment() {
                 cardView.setOnClickListener {
                     navigationationToStockScreen(stock)
                 }
-                withContext(Dispatchers.Main) {
-                    // Set margin for card view
                     val layoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
@@ -124,8 +121,6 @@ class HomeFragment : Fragment() {
                     // Add card view to linear layout
                     TrendingLinearLayout.addView(cardView)
                 }
-            }
-        }
     }
 
     private fun navigationationToStockScreen(Stock:StockInfo) {
