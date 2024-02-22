@@ -5,7 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatButton
+import androidx.cardview.widget.CardView
+import com.intern.xtrade.DataClasses.IPOData
 import com.intern.xtrade.R
+import com.intern.xtrade.wishList.WishlistManager
+import java.text.NumberFormat
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +31,11 @@ class ForthComing : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    val indiLocal = Locale("en", "in")
+    lateinit var forthComingCardView: CardView
+    lateinit var forthComingCardView1: CardView
+    val inputFormat = SimpleDateFormat("EEE MMM dd HH:mm:ss 'GMT'Z yyyy", Locale.ENGLISH)
+    val outputFormat = SimpleDateFormat("dd MMM, yy", Locale.ENGLISH)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +50,34 @@ class ForthComing : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_forth_coming, container, false)
+       val view = inflater.inflate(R.layout.fragment_forth_coming, container, false)
+
+        forthComingCardView = view.findViewById(R.id.forthcomingCard)
+        forthComingCardView1 = view.findViewById(R.id.forthcomingCard1)
+        val Indate = outputFormat.format(inputFormat.parse(WishlistManager.IPoData[5].IPOOpenDate))
+        val Outdate = outputFormat.format(inputFormat.parse(WishlistManager.IPoData[5].IPOCloseDate))
+
+        val Indate2 = outputFormat.format(inputFormat.parse(WishlistManager.IPoData[6].IPOOpenDate))
+        val Outdate2 = outputFormat.format(inputFormat.parse(WishlistManager.IPoData[6].IPOCloseDate))
+
+
+        forthComingCardView.findViewById<TextView>(R.id.forthcoming_title).text = WishlistManager.IPoData[5].IPOName
+        forthComingCardView.findViewById<TextView>(R.id.forthcoming_lotSize).text = WishlistManager.IPoData[5].IPOLotsize.toString()
+        forthComingCardView.findViewById<TextView>(R.id.forthcoming_issuePrice).text =
+            "₹${WishlistManager.IPoData[5].IPOMinPrice} - ${WishlistManager.IPoData[5].IPOMaxPrice}"
+        forthComingCardView.findViewById<TextView>(R.id.forthcoming_date).text = "${Indate} - ${Outdate}"
+        forthComingCardView.findViewById<TextView>(R.id.forthcoming_lotSize).text = WishlistManager.IPoData[5].IPOLotsize.toString()
+
+        forthComingCardView1.findViewById<TextView>(R.id.forthcoming_title).text = WishlistManager.IPoData[6].IPOName
+        forthComingCardView1.findViewById<TextView>(R.id.forthcoming_lotSize).text = WishlistManager.IPoData[6].IPOLotsize.toString()
+        forthComingCardView1.findViewById<TextView>(R.id.forthcoming_issuePrice).text =
+            "₹${WishlistManager.IPoData[5].IPOMinPrice} - ${WishlistManager.IPoData[6].IPOMaxPrice}"
+        forthComingCardView1.findViewById<TextView>(R.id.forthcoming_date).text = "${Indate2} - ${Outdate2}"
+        forthComingCardView1.findViewById<TextView>(R.id.forthcoming_lotSize).text = WishlistManager.IPoData[6].IPOLotsize.toString()
+
+        return view
     }
+
 
     companion object {
         /**

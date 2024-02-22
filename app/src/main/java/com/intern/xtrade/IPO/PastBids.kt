@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.cardview.widget.CardView
 import com.intern.xtrade.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -21,6 +23,9 @@ class PastBids : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var pastBidCardView: CardView
+    lateinit var pastBidCardView1: CardView
+    lateinit var pastBidCardView2: CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +40,32 @@ class PastBids : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_past_bids, container, false)
+        val view = inflater.inflate(R.layout.fragment_past_bids, container, false)
+        pastBidCardView = view.findViewById(R.id.pastBidsCard)
+        pastBidCardView1 = view.findViewById(R.id.pastBidsCard1)
+        pastBidCardView2 = view.findViewById(R.id.pastBidsCard2)
+
+        pastBidCardView.findViewById<TextView>(R.id.pastBids_status).text = "Accepted"
+        pastBidCardView.findViewById<TextView>(R.id.pastBids_status).setTextColor(requireContext().resources.getColor(
+            R.color.green
+        ))
+
+        pastBidCardView2.findViewById<TextView>(R.id.pastBids_title).text ="Capital Finance Bank Ltd."
+        pastBidCardView2.findViewById<TextView>(R.id.pastBids_status).text = "Accepted"
+        pastBidCardView2.findViewById<TextView>(R.id.pastBids_appNumber).text ="800003623"
+        pastBidCardView2.findViewById<TextView>(R.id.pastBids_status).setTextColor(requireContext().resources.getColor(
+            R.color.green
+        ))
+
+
+        pastBidCardView1.findViewById<TextView>(R.id.pastBids_title).text ="Exicom Tele-Systems Ltd."
+        pastBidCardView1.findViewById<TextView>(R.id.pastBids_appNumber).text ="800003781"
+
+        pastBidCardView1.findViewById<TextView>(R.id.pastBids_status).text = "Rejected"
+        pastBidCardView1.findViewById<TextView>(R.id.pastBids_status).setTextColor(requireContext().resources.getColor(
+            R.color.red
+        ))
+        return view
     }
 
     companion object {

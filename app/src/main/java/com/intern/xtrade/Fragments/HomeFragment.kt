@@ -26,6 +26,7 @@ import com.intern.xtrade.StockScreen
 import com.intern.xtrade.wishList.StockSharedPreferences
 import com.intern.xtrade.wishList.WishlistManager
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.sql.Time
@@ -45,10 +46,10 @@ class HomeFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    var stocksToAdd :List<StockInfo> = listOf()
+    var stocksToAdd: List<StockInfo> = listOf()
 
-    private lateinit var searchIcon : ImageView
-    private lateinit var TrendingLinearLayout : LinearLayout
+    private lateinit var searchIcon: ImageView
+    private lateinit var TrendingLinearLayout: LinearLayout
     lateinit var investToday: CardView
     lateinit var stockRepository: StockRepository
 
@@ -60,6 +61,7 @@ class HomeFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
+
     override fun onResume() {
         super.onResume()
         ApxorSDK.logAppEvent("Homepage_launched")
@@ -75,52 +77,68 @@ class HomeFragment : Fragment() {
         searchIcon = view.findViewById(R.id.SearchIconId)
         investToday = view.findViewById(R.id.home_rectangle)
         investToday.findViewById<AppCompatButton>(R.id.InvestTodayId).setOnClickListener {
-            val intent = Intent(requireContext(),SearchBarActivity::class.java)
+            val intent = Intent(requireContext(), SearchBarActivity::class.java)
             startActivity(intent)
         }
         searchIcon.setOnClickListener {
-            val intent = Intent(requireContext(),SearchBarActivity::class.java)
+            val intent = Intent(requireContext(), SearchBarActivity::class.java)
             startActivity(intent)
         }
         TrendingLinearLayout = view.findViewById<LinearLayout>(R.id.home_cardsContainer)
         stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
 
         val list = WishlistManager.StocksToAdd.shuffle()
-        CreateListAndAppendToLayout(WishlistManager.StocksToAdd)
+
+
         return view
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        CreateListAndAppendToLayout(WishlistManager.StocksToAdd)
     }
 
     private fun CreateListAndAppendToLayout(totalStockList: List<StockInfo>) {
-            for (stock in totalStockList) {
-                val cardView = layoutInflater.inflate(R.layout.stock_card, null)
-                cardView.findViewById<TextView>(R.id.card_stock_name).text = "${stock.StockName.substring(0, 6)}.."
-                cardView.findViewById<TextView>(R.id.card_stock_inr).text = "₹ ${stock.StockPrice}".substring(0, 7) + ".."
-                cardView.findViewById<TextView>(R.id.card_stock_company).text = " ${stock.CompanyName}"
-                cardView.findViewById<ImageView>(R.id.card_stock_logo).setImageResource(stock.CompanyLogo)
-                val stockPercent = cardView.findViewById<TextView>(R.id.card_stock_percentage)
-                if (stock.GraphBoolean) {
-                    val v1 = listOf<Int>(R.drawable.up_graph, R.drawable.upgraph_2)
-                    cardView.findViewById<ImageView>(R.id.card_growth_image).setImageResource(v1.random())
-                    stockPercent.text = "+ ${stock.StockPercentage}"
-                    stockPercent.setTextColor(resources.getColor(R.color.green))
-                } else {
-                    val v2 = listOf<Int>(R.drawable.downgraph_1, R.drawable.downgraph_2)
-                    cardView.findViewById<ImageView>(R.id.card_growth_image).setImageResource(v2.random())
-                    stockPercent.text = "- ${stock.StockPercentage}"
-                    stockPercent.setTextColor(resources.getColor(R.color.red))
-                }
-                cardView.setOnClickListener {
-                    navigationationToStockScreen(stock)
-                }
-                    val layoutParams = LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                    )
-                    layoutParams.setMargins(resources.getDimensionPixelSize(R.dimen.margin_between_cards), 0, resources.getDimensionPixelSize(R.dimen.margin_between_cards), resources.getDimensionPixelSize(R.dimen.margin_between_cards))
-                    cardView.layoutParams = layoutParams
-                    // Add card view to linear layout
-                    TrendingLinearLayout.addView(cardView)
-                }
+        for (stock in totalStockList) {
+            val cardView = layoutInflater.inflate(R.layout.stock_card, null)
+            cardView.findViewById<TextView>(R.id.card_stock_name).text =
+                "${stock.StockName.substring(0, 6)}.."
+            cardView.findViewById<TextView>(R.id.card_stock_inr).text =
+                "₹ ${stock.StockPrice}".substring(0, 7) + ".."
+            cardView.findViewById<TextView>(R.id.card_stock_company).text =
+                " ${stock.CompanyName}"
+            cardView.findViewById<ImageView>(R.id.card_stock_logo)
+                .setImageResource(stock.CompanyLogo)
+            val stockPercent = cardView.findViewById<TextView>(R.id.card_stock_percentage)
+            if (stock.GraphBoolean) {
+                val v1 = listOf<Int>(R.drawable.up_graph, R.drawable.upgraph_2)
+                cardView.findViewById<ImageView>(R.id.card_growth_image)
+                    .setImageResource(v1.random())
+                stockPercent.text = "+ ${stock.StockPercentage}"
+                stockPercent.setTextColor(resources.getColor(R.color.green))
+            } else {
+                val v2 = listOf<Int>(R.drawable.downgraph_1, R.drawable.downgraph_2)
+                cardView.findViewById<ImageView>(R.id.card_growth_image)
+                    .setImageResource(v2.random())
+                stockPercent.text = "- ${stock.StockPercentage}"
+                stockPercent.setTextColor(resources.getColor(R.color.red))
+            }
+            cardView.setOnClickListener {
+                navigationationToStockScreen(stock)
+            }
+            val layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            layoutParams.setMargins(
+                resources.getDimensionPixelSize(R.dimen.margin_between_cards),
+                0,
+                resources.getDimensionPixelSize(R.dimen.margin_between_cards),
+                resources.getDimensionPixelSize(R.dimen.margin_between_cards)
+            )
+            cardView.layoutParams = layoutParams
+            // Add card view to linear layout
+            TrendingLinearLayout.addView(cardView)
+        }
     }
 
     private fun navigationationToStockScreen(Stock:StockInfo) {

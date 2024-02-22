@@ -1,6 +1,8 @@
 package com.intern.xtrade.RegularAndAMO
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
@@ -55,6 +57,7 @@ class BuyRegularActivity : Fragment() {
     lateinit var ValidityIOC : AppCompatButton
     lateinit var ValidityMin : AppCompatButton
     lateinit var PurchaseButton : AppCompatButton
+    lateinit var sharedPreferences: SharedPreferences
 
     lateinit var DiscQtyqt : EditText
     lateinit var DiscQtSpinner : Spinner
@@ -80,7 +83,7 @@ class BuyRegularActivity : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_buy_regular_activity, container, false)
-
+        sharedPreferences = requireContext().getSharedPreferences("MONEY",Context.MODE_PRIVATE)
 
         PriceAmount = view.findViewById(R.id.buy_Price)
         StockQuantity = view.findViewById(R.id.buy_TotalQuantity)
@@ -99,6 +102,8 @@ class BuyRegularActivity : Fragment() {
                 val intent = Intent(requireContext(),OrderConfirmed::class.java)
 
                 intent.putExtra("STOCKID",BuyRegularActivity.PurchasedStockId)
+                val invested = sharedPreferences.getFloat("INVESTEDVALUE",0.0f)
+                sharedPreferences.edit().putFloat("INVESTEDVALUE",invested+(BuyRegularActivity.stockPrice)).apply()
                 startActivity(intent)
             },3000)
         }
@@ -343,6 +348,7 @@ class BuyRegularActivity : Fragment() {
          */
 
         var PurchasedStockId = 1
+        var stockPrice = 0.0f
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =

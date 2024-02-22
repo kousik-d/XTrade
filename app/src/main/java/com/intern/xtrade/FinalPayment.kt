@@ -49,7 +49,7 @@ class FinalPayment : AppCompatActivity() {
         }
         MoneyButton.setOnClickListener {
             val intent : Intent = Intent(this, AddFundsSuccessfull::class.java)
-            ApxorSDK.logAppEvent("Funds added")
+            ApxorSDK.logAppEvent("Funds_added")
             intent.putExtra("FUNDTOADD",funds)
             startActivity(intent)
         }

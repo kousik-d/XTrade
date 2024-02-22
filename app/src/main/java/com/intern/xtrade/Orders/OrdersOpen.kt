@@ -56,8 +56,9 @@ class OrdersOpen : Fragment() {
         AddOrdersLinearLayout = view.findViewById(R.id.AddOrdersLinear)
         stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
 
+
         stockRepository.stockOrdersOpen.asLiveData().observe(requireActivity()){
-            Toast.makeText(requireContext(),"${it}",Toast.LENGTH_SHORT).show()
+            //Toast.makeText(requireContext(),"${it}",Toast.LENGTH_SHORT).show()
 
             CreateListAndAppendToLayout(it)
         }
@@ -85,10 +86,11 @@ class OrdersOpen : Fragment() {
     }
 
     private fun CreateListAndAppendToLayout(totalStockList: List<StockInfo>) {
+        AddOrdersLinearLayout.removeAllViews()
         lifecycleScope.launch(Dispatchers.IO) {
             for (stock in totalStockList) {
                 val cardView = layoutInflater.inflate(R.layout.order_card, null)
-                cardView.findViewById<TextView>(R.id.order_numerator).text = "${(0..1150).random()}"
+                cardView.findViewById<TextView>(R.id.order_numerator).text = "${1150}"
                 cardView.findViewById<TextView>(R.id.order_avgValue).text = "${stock.StockPrice}".substring(0, 3) + ""
                 cardView.findViewById<TextView>(R.id.order_companyName).text = stock.CompanyName
                 cardView.findViewById<TextView>(R.id.order_status).text = "PENDING"
@@ -100,7 +102,7 @@ class OrdersOpen : Fragment() {
                         LinearLayout.LayoutParams.MATCH_PARENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
                     )
-                    object : CountDownTimer(60000,1000){
+                    object : CountDownTimer(10000,1000){
                         override fun onTick(millisUntilFinished: Long) {
                             Log.i("TIMETODO","${millisUntilFinished}")
                             cardView.findViewById<TextView>(R.id.order_time).text = "00:00:${millisUntilFinished/1000}"

@@ -37,7 +37,6 @@
             android:layout_width="match_parent"
             app:tabTextColor="@color/card_blue"
             app:tabIndicatorColor="@color/card_blue"
-            app:tabRippleColor="@color/card_blue"
             android:layout_height="wrap_content">
 
         <com.google.android.material.tabs.TabItem

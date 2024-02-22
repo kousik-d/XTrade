@@ -58,9 +58,7 @@ dependencies {
     // Add these for Realtime Actions and Surveys
     implementation 'com.apxor.androidx:apxor-android-sdk-qe:1.6.2@aar'
     implementation 'com.apxor.androidx:apxor-android-sdk-rtm:2.3.4@aar'
-    implementation 'com.apxor.androidx:surveys:2.0.9@aar'
-
-
+    implementation 'com.apxor.androidx:surveys:2.0.9-qa1@aar'
     // Helper plugin to create walkthroughs
     implementation 'com.apxor.androidx:wysiwyg:1.4.6@aar'
 

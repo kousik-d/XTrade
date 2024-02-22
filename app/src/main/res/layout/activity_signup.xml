@@ -43,7 +43,6 @@
         android:paddingVertical="10dp"
         android:paddingRight="10dp"
         android:inputType="text"
-        android:maxLength="10"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/card_blue"
         android:textCursorDrawable="@drawable/custom_cursor"/>

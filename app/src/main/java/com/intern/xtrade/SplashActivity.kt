@@ -30,11 +30,17 @@ import kotlin.random.Random
 
 class SplashActivity:  AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
+    lateinit var sharedPreferences1: SharedPreferences
     lateinit var stockRepository : StockRepository
     lateinit var ipoRepository: IPORepository
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedPreferences=getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
+        sharedPreferences1 = getSharedPreferences("MONEY",Context.MODE_PRIVATE)
+
+
+
+
         setContentView(R.layout.actvity_splash_screen)
         stockRepository = StockRepository(StockDataBase.invoke(this))
         ipoRepository = IPORepository(IPODataBase.invoke(this))
@@ -46,11 +52,11 @@ class SplashActivity:  AppCompatActivity() {
                 Log.i("ONETIMETAKE","EXECUTINGONE")
                 insertIntoDbStocks(getSampleStockData())
             }
-//            lifecycleScope.launch(IO){
-//                insertIntoDbIPO(RandomIPOData())
-//            }
+            sharedPreferences1.edit().putFloat("HOLDINGVALUE",37320.02f).apply()
+            sharedPreferences1.edit().putFloat("INVESTEDVALUE",37320.02f).apply()
+            sharedPreferences1.edit().putInt("AVAILABLEINR",0).apply()
         }
-
+        WishlistManager.IPoData = RandomIPOData()
         stockRepository.allStocks.observe(this, Observer{
             val stocks = mutableListOf<StockInfo>()
             for(stock in it){
@@ -217,7 +223,7 @@ class SplashActivity:  AppCompatActivity() {
 
         for(i in 0..6){
             val ipodata = IPOData(
-                IPOId = 0,
+                IPOId = i,
                 IPOName = IPONames[i],
                 IPOImage = IPOLogos[i],
                 IPOOpenDate = startDate[i].toString(),
@@ -227,7 +233,8 @@ class SplashActivity:  AppCompatActivity() {
                 IPOLotsize = LotSize[i],
                 isIPOOpen = false,
                 isApplied = false,
-                isForthComing = false
+                isForthComing = false,
+                MinInvestments = Random.nextInt(9000,15000)
             )
             IPODataList.add(ipodata)
         }
@@ -243,7 +250,7 @@ class SplashActivity:  AppCompatActivity() {
     fun generateRandomEndDate(startDate: Date): Date {
         val calendar = Calendar.getInstance()
         calendar.time = startDate
-        calendar.add(Calendar.DATE, Random.nextInt(4, 9))
+        calendar.add(Calendar.DATE, Random.nextInt(6, 9))
         return calendar.time
     }
     override fun onResume() {

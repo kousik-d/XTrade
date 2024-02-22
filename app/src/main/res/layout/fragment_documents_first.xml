@@ -47,7 +47,7 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/icons_photo"
+                android:drawableLeft="@drawable/upload_24px"
                 android:text="Upload Photo"
                 android:clickable="true"
 
@@ -84,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:clickable="true"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/icons_sign"
+                android:drawableLeft="@drawable/upload_24px"
                 android:text="Upload Signature"
                 android:gravity="center"
                 android:fontFamily="@font/poppins_semibold"

@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.intern.xtrade.DataClasses.IPOData
 import com.intern.xtrade.DataClasses.StockInfo
 
 
@@ -12,6 +13,7 @@ object WishlistManager {
     private const val YOUR_STOCK_KEY = "YOUR_STOCKS"
 
     var StocksToAdd : MutableList<StockInfo> = mutableListOf()
+    var IPoData : MutableList<IPOData> = mutableListOf()
 
     fun login(context: Context){
         Log.i("LOGINFUNC","INITALIZED")

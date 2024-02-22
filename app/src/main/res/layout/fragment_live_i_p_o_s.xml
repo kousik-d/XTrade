@@ -5,17 +5,14 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id='@+id/AddLiveIPO'
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="8dp"
         tools:context=".IPO.LiveIPOS">
 
-        <include
-            android:id="@+id/liveIposCard"
-            layout="@layout/live_ipo_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"/>
+
 
 
 

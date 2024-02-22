@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
+    android:padding="12dp"
     android:orientation="vertical"
     tools:context=".YourStocks">
     <LinearLayout
@@ -45,7 +45,10 @@
         android:layout_height="20dp"/>
     <ListView
         android:id="@+id/yourStocksListview"
+        android:background="@color/white"
+        tools:listitem="@layout/stock_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/stock_item" />
+        android:divider="@color/white"
+        android:dividerHeight="16dp"/>
 </LinearLayout>

@@ -1,8 +1,12 @@
 package com.intern.xtrade.Orders
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.SharedMemory
 import android.util.Log
+import android.view.DisplayShape
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +22,7 @@ import com.intern.xtrade.Repositories.StockRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.text.NumberFormat
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +40,8 @@ class OrdersExecuted : Fragment() {
     private var param2: String? = null
     lateinit var stockRepository: StockRepository
     lateinit var addtoOrderExecuted : LinearLayout
+    lateinit var sharedPreferences: SharedPreferences
+    var value = 0.0f;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,8 +59,11 @@ class OrdersExecuted : Fragment() {
         val view = inflater.inflate(R.layout.fragment_orders_executed, container, false)
         addtoOrderExecuted = view.findViewById(R.id.AddtoOrderExecuted)
         stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
+        sharedPreferences = requireContext().getSharedPreferences("MONEY", Context.MODE_PRIVATE)
+        val inital  = sharedPreferences.getFloat("INVESTEDVALUE",0.0f)
         stockRepository.stockOrdersExecuted.asLiveData().observe(requireActivity()){
             CreateListAndAppendToLayout(it)
+
         }
 
         return view
@@ -78,16 +88,20 @@ class OrdersExecuted : Fragment() {
                 }
             }
     }
+
+
     private fun CreateListAndAppendToLayout(totalStockList: List<StockInfo>) {
         lifecycleScope.launch(Dispatchers.IO) {
             for (stock in totalStockList) {
                 val cardView = layoutInflater.inflate(R.layout.order_card, null)
-                cardView.findViewById<TextView>(R.id.order_numerator).text = "${(0..1150).random()}"
+                cardView.findViewById<TextView>(R.id.order_numerator).text = "1150"
                 cardView.findViewById<TextView>(R.id.order_avgValue).text = "${stock.StockPrice}".substring(0, 3) + ""
                 cardView.findViewById<TextView>(R.id.order_companyName).text = stock.CompanyName
                 cardView.findViewById<TextView>(R.id.order_status).text = "COMPLETED"
+                cardView.findViewById<TextView>(R.id.order_time).visibility = TextView.INVISIBLE
                 cardView.findViewById<TextView>(R.id.order_status).setTextColor(resources.getColor(R.color.green))
                 cardView.findViewById<TextView>(R.id.order_status).setBackgroundColor(resources.getColor(R.color.transparent_green))
+
                 withContext(Dispatchers.Main) {
                     // Set margin for card view
                     val layoutParams = LinearLayout.LayoutParams(

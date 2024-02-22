@@ -39,6 +39,7 @@
             <category android:name="android.intent.category.BROWSABLE" />
 
             <data
+                android:pathPrefix="/ipo"
                 android:host="buyipoactivity"
                 android:scheme="xtrade" />
         </intent-filter>

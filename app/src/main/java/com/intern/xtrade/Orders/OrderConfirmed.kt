@@ -34,8 +34,8 @@ class OrderConfirmed : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if(false) {
-            super.onBackPressed()
-        }
+        super.onBackPressed()
+        val intent = Intent(this,MainActivity::class.java)
+        startActivity(intent)
     }
 }

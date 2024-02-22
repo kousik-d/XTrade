@@ -77,9 +77,17 @@ class PortfolioFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        var invested = sharedPreferences.getFloat("INVESTEDVALUE",0.0f)
         val totalMoney =  sharedPreferences.getInt("AVAILABLEINR",0)
-        availabeINR.text = NumberFormat.getCurrencyInstance(indiLocal).format(totalMoney)
+        Log.i("INITALINVES","${invested}")
+        sharedPreferences.edit().putFloat("INVESTEDVALUE",invested)
+        sharedPreferences.edit().putInt("AVAILABLEINR",totalMoney)
 
+        holdingText.text = NumberFormat.getCurrencyInstance(indiLocal).format(invested+totalMoney)
+        sharedPreferences.edit().putFloat("HOLDINGVALUE",invested+totalMoney).apply()
+
+        InvestedValue.text = NumberFormat.getCurrencyInstance(indiLocal).format(invested)
+        availabeINR.text = NumberFormat.getCurrencyInstance(indiLocal).format(totalMoney)
     }
 
     override fun onCreateView(
@@ -89,9 +97,6 @@ class PortfolioFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_portfolio, container, false)
         sharedPreferences = requireContext().getSharedPreferences("MONEY",Context.MODE_PRIVATE)
-
-        initalInvested = 0.0f
-
         DepositINRbtn = view.findViewById(R.id.DepositINRId)
         WithDrawINRbtn = view.findViewById(R.id.WithDrawINRId)
         PortfolioCard = view.findViewById<CardView>(R.id.portfolio_rectangle)
@@ -100,30 +105,16 @@ class PortfolioFragment : Fragment() {
         InvestedValue = PortfolioCard.findViewById(R.id.portfolio_invested_value)
         holdingText = PortfolioCard.findViewById(R.id.portfolio_value)
         percentIncrease = PortfolioCard.findViewById(R.id.portfolio_percentage)
+        PortfolioCardContainer.removeAllViews()
 
 
         percentIncrease.text = "+ ${9}"+"."+ "${Random.nextInt(0..9)}" + "${Random.nextInt(0..9)}" + "%"
         stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
 
-        stockRepository.allStocks.observe(requireActivity(), Observer{
-            totalStockList = it
-            var holdings = mutableListOf<Int>()
-            for(i in it) {
-                if (i.isInHoldings == true) {
-                    holdings.add(i.StockId)
-                }
-            }
-            Log.i("All HOLDINGS","${holdings}")
-            CreateListAndAppendToLayout(holdings)
-        })
+
         Log.i("INVESTEDVALUE","${initalInvested}")
 
 
-        var invested = sharedPreferences.getFloat("INVESTEDVALUE",initalInvested)
-        val moneyPresent = availabeINR.text.toString().toInt()
-        val buffer = 0
-        val totalMoney =  (moneyPresent + sharedPreferences.getInt("AVAILABLEINR",0))
-        availabeINR.text = NumberFormat.getCurrencyInstance(indiLocal).format(totalMoney)
 
 
         DepositINRbtn.setOnClickListener {
@@ -133,22 +124,12 @@ class PortfolioFragment : Fragment() {
             ApxorSDK.logAppEvent("Add_funds_clicked",attrs)
             startActivity(intent)
         }
-        if(invested ==0.0f){
-            invested = 37320.02f
-        }
-        invested+=totalMoney
-        sharedPreferences.edit().putFloat("HOLDINGVALUE",invested).apply()
-        holdingText.text = NumberFormat.getCurrencyInstance(indiLocal).format(invested)
-
         WithDrawINRbtn.setOnClickListener {
             val intent: Intent = Intent(requireContext(),WithDrawFunds::class.java)
             Log.i("KOUSIKDASARI",availabeINR.text.toString())
             //intent.putExtra("AVAILABLEINR",availabeINR.text.toString().drop(1))
             startActivity(intent)
         }
-        Log.i("PRICE","$initalInvested")
-
-
         return view
     }
 
@@ -173,60 +154,72 @@ class PortfolioFragment : Fragment() {
         var AmountToAddToDeposit = 0
     }
 
-
-    private fun CreateListAndAppendToLayout(givenStockIds: MutableList<Int>) {
-        lifecycleScope.launch(Dispatchers.IO) {
-            for (stock in totalStockList) {
-                if (givenStockIds.contains(stock.StockId)) {
-                    val cardView = layoutInflater.inflate(R.layout.stock_card, null)
-                    cardView.findViewById<TextView>(R.id.card_stock_name).text =
-                        "${stock.StockName.substring(0, 6)}.."
-                    cardView.findViewById<TextView>(R.id.card_stock_inr).text =
-                        "₹ ${stock.StockPrice}".substring(0, 7) + ".."
-                    cardView.findViewById<TextView>(R.id.card_stock_company).text =
-                        " ${stock.CompanyName}"
-                    cardView.findViewById<ImageView>(R.id.card_stock_logo)
-                        .setImageResource(stock.CompanyLogo)
-                    val stockPercent = cardView.findViewById<TextView>(R.id.card_stock_percentage)
-                    if (stock.GraphBoolean) {
-                        val v1 = listOf<Int>(R.drawable.up_graph, R.drawable.upgraph_2)
-                        cardView.findViewById<ImageView>(R.id.card_growth_image)
-                            .setImageResource(v1.random())
-                        stockPercent.text = "+ ${stock.StockPercentage}"
-                        stockPercent.setTextColor(resources.getColor(R.color.green))
-                    } else {
-                        val v2 = listOf<Int>(R.drawable.downgraph_1, R.drawable.downgraph_2)
-                        cardView.findViewById<ImageView>(R.id.card_growth_image)
-                            .setImageResource(v2.random())
-                        stockPercent.text = "- ${stock.StockPercentage}"
-                        stockPercent.setTextColor(resources.getColor(R.color.red))
-                    }
-                    cardView.setOnClickListener {
-                        navigationationToStockScreen(stock)
-                    }
-                    withContext(Dispatchers.Main) {
-                        initalInvested += (stock.StockPrice.toFloat())
-                        Log.i("PRICE","$initalInvested")
-                        InvestedValue.text = NumberFormat.getCurrencyInstance(indiLocal).format(initalInvested)
-                        sharedPreferences.edit().putFloat("INVESTEDVALUE",initalInvested).apply()
-                        // Set margin for card view
-                        val layoutParams = LinearLayout.LayoutParams(
-                            LinearLayout.LayoutParams.MATCH_PARENT,
-                            LinearLayout.LayoutParams.WRAP_CONTENT
-                        )
-                        layoutParams.setMargins(
-                            resources.getDimensionPixelSize(R.dimen.margin_between_cards)
-                            ,
-                            0,
-                            resources.getDimensionPixelSize(R.dimen.margin_between_cards)
-                            ,
-                            resources.getDimensionPixelSize(R.dimen.margin_between_cards)
-                        )
-                        cardView.layoutParams = layoutParams
-                        // Add card view to linear layout
-                        PortfolioCardContainer.addView(cardView)
-                    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val inflater = LayoutInflater.from(requireActivity())
+        PortfolioCardContainer.removeAllViews()
+        stockRepository.allStocks.observe(requireActivity(), Observer{
+            totalStockList = it
+            var holdings = mutableListOf<Int>()
+            for(i in it) {
+                if (i.isInHoldings == true ) {
+                    holdings.add(i.StockId)
                 }
+            }
+            CreateListAndAppendToLayout(inflater, holdings)
+            Log.i("All HOLDINGS","${holdings}")
+        })
+    }
+    private fun CreateListAndAppendToLayout(inflater: LayoutInflater, givenStockIds: MutableList<Int>) {
+        PortfolioCardContainer.removeAllViews()
+        if (!isAdded) {
+            return
+        }
+        for (stock in totalStockList) {
+            if (givenStockIds.contains(stock.StockId)) {
+                val cardView = inflater.inflate(R.layout.stock_card, null)
+                cardView.findViewById<TextView>(R.id.card_stock_name).text =
+                    "${stock.StockName.substring(0, 6)}.."
+                cardView.findViewById<TextView>(R.id.card_stock_inr).text =
+                    "₹ ${stock.StockPrice}".substring(0, 7) + ".."
+                cardView.findViewById<TextView>(R.id.card_stock_company).text =
+                    " ${stock.CompanyName}"
+                cardView.findViewById<ImageView>(R.id.card_stock_logo)
+                    .setImageResource(stock.CompanyLogo)
+                if(stock.isInOrders == 2){
+                    cardView.findViewById<TextView>(R.id.stock_t0_t1).visibility = TextView.VISIBLE
+                }
+                val stockPercent = cardView.findViewById<TextView>(R.id.card_stock_percentage)
+                if (stock.GraphBoolean) {
+                    val v1 = listOf<Int>(R.drawable.up_graph, R.drawable.upgraph_2)
+                    cardView.findViewById<ImageView>(R.id.card_growth_image)
+                        .setImageResource(v1.random())
+                    stockPercent.text = "+ ${stock.StockPercentage}"
+                    stockPercent.setTextColor(resources.getColor(R.color.green))
+                } else {
+                    val v2 = listOf<Int>(R.drawable.downgraph_1, R.drawable.downgraph_2)
+                    cardView.findViewById<ImageView>(R.id.card_growth_image)
+                        .setImageResource(v2.random())
+                    stockPercent.text = "- ${stock.StockPercentage}"
+                    stockPercent.setTextColor(resources.getColor(R.color.red))
+                }
+                cardView.setOnClickListener {
+                    navigationationToStockScreen(stock)
+                }
+                // Set margin for card view
+                val layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                )
+                layoutParams.setMargins(
+                    resources.getDimensionPixelSize(R.dimen.margin_between_cards),
+                    0,
+                    resources.getDimensionPixelSize(R.dimen.margin_between_cards),
+                    resources.getDimensionPixelSize(R.dimen.margin_between_cards)
+                )
+                cardView.layoutParams = layoutParams
+                // Add card view to linear layout
+                PortfolioCardContainer.addView(cardView)
             }
         }
     }

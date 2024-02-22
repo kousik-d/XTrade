@@ -27,8 +27,10 @@ class Buy_activity : AppCompatActivity() {
              finish()
          }
         val stockId= intent.getIntExtra("STOCKID",-1)
+        val stockPrice = intent.getFloatExtra("STOCKPRICE",0.0f)
         if(stockId!=-1) {
             BuyRegularActivity.PurchasedStockId = stockId
+            BuyRegularActivity.stockPrice = stockPrice
         }
         adapter = FragmentPageAdapter(supportFragmentManager ,lifecycle)
 

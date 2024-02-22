@@ -124,6 +124,7 @@ class StockScreen : AppCompatActivity() {
         StockBuyButton.setOnClickListener {
             val intent = Intent(this, Buy_activity::class.java)
             intent.putExtra("STOCKID",stockId)
+            intent.putExtra("STOCKPRICE",stockPrice.toFloat())
             startActivity(intent)
         }
         stockScreenBack.setOnClickListener {
@@ -184,13 +185,13 @@ class StockScreen : AppCompatActivity() {
     }
 
     private fun checkStockInHoldingsStock(stockId : Int): Boolean {
-        val holdings = WishlistManager.getYourStocks(this)
+        val holdings = WishlistManager.StocksToAdd
         for(i in holdings){
-            if(i==stockId){
-                return true
+            if(i.StockId==stockId){
+                return false
             }
         }
-        return false
+        return true
     }
 
 
