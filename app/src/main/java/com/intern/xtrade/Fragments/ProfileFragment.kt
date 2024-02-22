@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
 import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.core.Attributes
 import com.intern.xtrade.AppOpenActivity
 import com.intern.xtrade.Funds.AddFundsActivity
 import com.intern.xtrade.Funds.WithDrawFunds
@@ -102,6 +103,9 @@ class ProfileFragment : Fragment() {
 
         AddFunds.setOnClickListener {
             val intent = Intent(requireContext(),AddFundsActivity::class.java)
+            val attrs = Attributes();
+            attrs.putAttribute("Source","Profile")
+            ApxorSDK.logAppEvent("Add_funds_clicked",attrs)
             startActivity(intent)
         }
 

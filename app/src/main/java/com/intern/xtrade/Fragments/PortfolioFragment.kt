@@ -18,6 +18,8 @@ import androidx.cardview.widget.CardView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
+import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.core.Attributes
 import com.intern.xtrade.DataBases.StockDataBase
 import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.FinalPayment
@@ -73,6 +75,13 @@ class PortfolioFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        val totalMoney =  sharedPreferences.getInt("AVAILABLEINR",0)
+        availabeINR.text = NumberFormat.getCurrencyInstance(indiLocal).format(totalMoney)
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -115,8 +124,13 @@ class PortfolioFragment : Fragment() {
         val buffer = 1000
         val totalMoney =  (moneyPresent + sharedPreferences.getInt("AVAILABLEINR",0))
         availabeINR.text = NumberFormat.getCurrencyInstance(indiLocal).format(totalMoney)
+
+
         DepositINRbtn.setOnClickListener {
             val intent :Intent = Intent(requireContext(),AddFundsActivity::class.java)
+            val attrs = Attributes()
+            attrs.putAttribute("Source","Portfolio")
+            ApxorSDK.logAppEvent("Add_funds_clicked",attrs)
             startActivity(intent)
         }
         if(invested ==0.0f){
