@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:padding="16dp"
+        android:padding="10dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <ImageView
@@ -61,6 +61,7 @@
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
+        android:layout_marginVertical="16dp"
         android:id ="@+id/ipo_viewPager"
         android:backgroundTint="@color/grey"
         android:layout_width="match_parent"
