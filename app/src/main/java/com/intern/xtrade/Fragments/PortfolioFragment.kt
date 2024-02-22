@@ -121,7 +121,7 @@ class PortfolioFragment : Fragment() {
 
         var invested = sharedPreferences.getFloat("INVESTEDVALUE",initalInvested)
         val moneyPresent = availabeINR.text.toString().toInt()
-        val buffer = 1000
+        val buffer = 0
         val totalMoney =  (moneyPresent + sharedPreferences.getInt("AVAILABLEINR",0))
         availabeINR.text = NumberFormat.getCurrencyInstance(indiLocal).format(totalMoney)
 
@@ -134,7 +134,7 @@ class PortfolioFragment : Fragment() {
             startActivity(intent)
         }
         if(invested ==0.0f){
-            invested = 1000f
+            invested = 37320.02f
         }
         invested+=totalMoney
         sharedPreferences.edit().putFloat("HOLDINGVALUE",invested).apply()
