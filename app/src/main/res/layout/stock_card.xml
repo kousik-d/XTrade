@@ -51,6 +51,7 @@
                     android:id="@+id/stock_t0_t1"
                     android:gravity="top"
                     android:paddingTop="3dp"
+                    android:visibility="invisible"
                     android:layout_marginStart="10sp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

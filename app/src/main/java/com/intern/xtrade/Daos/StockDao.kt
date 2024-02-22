@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface StockDao {
-    @Insert()
+    @Insert
     suspend fun insertStock(stock : StockInfo)
 
     @Query("SELECT * FROM StockInfo")

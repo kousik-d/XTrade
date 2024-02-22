@@ -21,7 +21,10 @@ import com.intern.xtrade.Repositories.IPORepository
 import com.intern.xtrade.Repositories.StockRepository
 import com.intern.xtrade.wishList.WishlistManager
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
+import java.util.Calendar
+import java.util.Date
 import kotlin.random.Random
 
 
@@ -41,8 +44,11 @@ class SplashActivity:  AppCompatActivity() {
         if(curr == -1){
             lifecycleScope.launch(Dispatchers.IO) {
                 Log.i("ONETIMETAKE","EXECUTINGONE")
-                insertIntoDb(getSampleStockData())
+                insertIntoDbStocks(getSampleStockData())
             }
+//            lifecycleScope.launch(IO){
+//                insertIntoDbIPO(RandomIPOData())
+//            }
         }
 
         stockRepository.allStocks.observe(this, Observer{
@@ -54,31 +60,28 @@ class SplashActivity:  AppCompatActivity() {
             }
             WishlistManager.StocksToAdd = stocks
         })
+        Log.i("IPODATAINSPLASH","${RandomIPOData()}")
+        ipoRepository.allIPOs.asLiveData().observe(this){
+            Log.i("IPOFROMDB","${it}")
+        }
         sharedPreferences.edit().putInt("DBSTEP",100).apply()
 
     }
 
 
-    suspend fun insertIntoDb(stocks:List<StockInfo> ){
+    suspend fun insertIntoDbIPO(IPOS: List<IPOData>){
+        for(i in IPOS){
+            ipoRepository.insertIPO(i)
+        }
+    }
+    suspend fun insertIntoDbStocks(stocks:List<StockInfo> ){
         for (i in stocks){
             stockRepository.insertStock(i)
         }
     }
 
 
-    fun getSampleIPOData() : List<IPOData>{
-        var IPOName = listOf(
-            "Exicom Tele-Systems",
-            "Platinum Industries",
-            "Vibhor Steel Tubes",
-            "Entero Healthcare Solutions",
-            "Capital SFB",
-            "Rashi Peripherals",
-            "EPACK Durable"
-        )
-        var MinAndMaxPrice = 
-        return listOf()
-    }
+
 
     fun getSampleStockData(): List<StockInfo> {
         val sampleStockData = mutableListOf<StockInfo>()
@@ -164,7 +167,85 @@ class SplashActivity:  AppCompatActivity() {
         }
         return sampleStockData
     }
+    fun RandomIPOData(): MutableList<IPOData> {
+        val IPODataList = mutableListOf<IPOData>()
+        val IPONames = arrayOf("Juniper Hotels","GPT Healthcare","Platinum Industries","Vibhor Steel Tubes","Rashi Peripherals","Nova AgriTech", "BLS E-Services")
+        val BSEorNSE = arrayOf("NSE","BSE","BSE","NSE","NSE","BSE","NSE")
+        val MinPrice = arrayOf(340.00,177.00,150.00,280.00,414.00,370.00,41.00)
+        val MaxPrice = arrayOf(362.00,182.00,159.00,292.00,424.00,380.00,47.00)
+        val LotSize = arrayOf(99,80,45,36,70,96,66)
+        val IPOLogos = arrayOf(
+            R.drawable.juniper_hotels_logo_image,
+            R.drawable.gpt_healthcare_logo,
+            R.drawable.platinum_logo,
+            R.drawable.vibhor_steel_tubes_logo,
+            R.drawable.rashi_peripherals_logo,
+            R.drawable.nova_agritech_ipo,
+            R.drawable.bls_e_services_ipo_gmp)
 
+        val startDate = arrayListOf<Date>()
+        val endDate = arrayListOf<Date>()
+
+        val calendar = Calendar.getInstance()
+        val currentDate = calendar.time
+        calendar.add(Calendar.DATE, -5)
+        val fiveDaysBefore = calendar.time
+
+        repeat(3) {
+            val randomStartDate = generateRandomDate(fiveDaysBefore, currentDate)
+            startDate.add(randomStartDate)
+        }
+
+        calendar.time = currentDate
+        calendar.add(Calendar.DATE, 5)
+        val fiveDaysAfter = calendar.time
+
+        repeat(4) {
+            val randomStartDate = generateRandomDate(currentDate, fiveDaysAfter)
+            startDate.add(randomStartDate)
+        }
+
+        startDate.forEach { start ->
+            val randomEndDate = generateRandomEndDate(start)
+            endDate.add(randomEndDate)
+        }
+
+        startDate.forEachIndexed { index, date ->
+            val message = "Entry ${index + 1}: Start Date: $date, End Date: ${endDate[index]}"
+            Log.d("DateGeneration", message) // Log the message
+        }
+
+        for(i in 0..6){
+            val ipodata = IPOData(
+                IPOId = 0,
+                IPOName = IPONames[i],
+                IPOImage = IPOLogos[i],
+                IPOOpenDate = startDate[i].toString(),
+                IPOCloseDate = endDate[i].toString(),
+                IPOMinPrice = MinPrice[i].toString(),
+                IPOMaxPrice = MaxPrice[i].toString(),
+                IPOLotsize = LotSize[i],
+                isIPOOpen = false,
+                isApplied = false,
+                isForthComing = false
+            )
+            IPODataList.add(ipodata)
+        }
+        return IPODataList
+    }
+    fun generateRandomDate(startDate: Date, endDate: Date): Date {
+        val startMillis = startDate.time
+        val endMillis = endDate.time
+        val randomMillisSinceEpoch = Random.nextLong(startMillis, endMillis)
+        return Date(randomMillisSinceEpoch)
+    }
+
+    fun generateRandomEndDate(startDate: Date): Date {
+        val calendar = Calendar.getInstance()
+        calendar.time = startDate
+        calendar.add(Calendar.DATE, Random.nextInt(4, 9))
+        return calendar.time
+    }
     override fun onResume() {
         super.onResume()
 

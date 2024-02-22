@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "IPOData")
 data class IPOData(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     val IPOId : Int,
     val IPOName : String,
     val IPOImage : Int,

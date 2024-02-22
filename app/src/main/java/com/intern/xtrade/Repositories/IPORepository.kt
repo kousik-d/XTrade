@@ -9,6 +9,6 @@ class IPORepository(private val ipoDataBase: IPODataBase) {
     var allIPOs: Flow<MutableList<IPOData>> = ipoDataBase.getIPODao().getIPOs()
 
     val allLiveIPO = allIPOs.asLiveData()
-    suspend fun insertExpense(ipo : IPOData) = ipoDataBase.getIPODao().insertIPO(ipo)
+    suspend fun insertIPO(ipo : IPOData) = ipoDataBase.getIPODao().insertIPO(ipo)
 
 }
