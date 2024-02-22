@@ -33,6 +33,7 @@ import kotlinx.coroutines.withContext
 import java.text.NumberFormat
 import java.util.Locale
 import kotlin.random.Random
+import kotlin.random.nextInt
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -92,7 +93,7 @@ class PortfolioFragment : Fragment() {
         percentIncrease = PortfolioCard.findViewById(R.id.portfolio_percentage)
 
 
-        percentIncrease.text = "+ ${Random.nextFloat() * 10.00f}".dropLast(4)+"%"
+        percentIncrease.text = "+ ${9}"+"."+ "${Random.nextInt(0..9)}" + "${Random.nextInt(0..9)}" + "%"
         stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
 
         stockRepository.allStocks.observe(requireActivity(), Observer{

@@ -32,9 +32,12 @@
         android:layout_height="20dp"/>
     <ListView
         android:id="@+id/totalwishList"
+        android:background="@color/white"
+        tools:listitem="@layout/stock_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/stock_item" />
+        android:divider="@color/white"
+        android:dividerHeight="16dp" />
 </LinearLayout>
 
 

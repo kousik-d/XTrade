@@ -43,10 +43,11 @@ class WithDrawFunds : AppCompatActivity() {
 
 
 
-
-
         warning.visibility = TextView.GONE
 
+
+        withDrawButton.isClickable = false
+        withDrawButton.setBackgroundColor(resources.getColor(R.color.grey))
 
         withDrawFundsAmount.addTextChangedListener(object :TextWatcher
         {
@@ -57,24 +58,41 @@ class WithDrawFunds : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                if(s!=null) {
 
+                if(s!=null && s.toString()!="") {
+                    val amount = s.toString().toInt()
+                    if (amount > availableMoney) {
+                        warning.visibility = TextView.VISIBLE
+                        withDrawButton.isClickable = false
+                        withDrawButton.setBackgroundColor(resources.getColor(R.color.grey))
+                    }
+                    else if ( amount==0) {
+                        warning.visibility = TextView.GONE
+                        withDrawButton.isClickable = false
+                        withDrawButton.setBackgroundColor(resources.getColor(R.color.grey))
+                    }
+                    else{
+                        warning.visibility = TextView.GONE
+                        withDrawButton.isClickable = true
+                        withDrawButton.setBackgroundColor(resources.getColor(R.color.card_blue))
+                    }
+                }
+                else
+                {
+                    withDrawButton.isClickable = false
+                    withDrawButton.setBackgroundColor(resources.getColor(R.color.grey))
                 }
 
             }
 
         })
-        if(withDrawFundsAmount.text.toString().isNotEmpty()){
-            withDrawAmount = withDrawFundsAmount.text.toString().toInt()
-        }
+
         withDrawButton.setOnClickListener {
             if(withDrawAmount>availableMoney){
                 Toast.makeText(this,"Funds not sufficient",Toast.LENGTH_SHORT).show()
-            }else if(withDrawAmount<availableMoney){
+            }else{
                 sharedPreferences.edit().putInt("AVAILABLEINR",availableMoney-withDrawAmount).apply()
                 Toast.makeText(this,"WithDraw Successful ${availableMoney-withDrawAmount}",Toast.LENGTH_SHORT).show()
-            }else{
-                Toast.makeText(this,"WithDraw money should be less than available money",Toast.LENGTH_SHORT).show()
             }
         }
 
