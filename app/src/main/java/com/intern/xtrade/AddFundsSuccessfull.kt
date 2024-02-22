@@ -30,8 +30,4 @@ class AddFundsSuccessfull : AppCompatActivity() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        ApxorSDK.logAppEvent("Funds added")
-    }
 }

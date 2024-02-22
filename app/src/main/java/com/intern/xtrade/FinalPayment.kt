@@ -11,6 +11,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.AppBarConfiguration
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.Fragments.PortfolioFragment
 import java.text.NumberFormat
 import java.util.Locale
@@ -48,6 +49,7 @@ class FinalPayment : AppCompatActivity() {
         }
         MoneyButton.setOnClickListener {
             val intent : Intent = Intent(this, AddFundsSuccessfull::class.java)
+            ApxorSDK.logAppEvent("Funds added")
             intent.putExtra("FUNDTOADD",funds)
             startActivity(intent)
         }
