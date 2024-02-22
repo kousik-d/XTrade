@@ -6,11 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatSpinner
 import com.intern.xtrade.R
 import java.text.NumberFormat
 import java.util.Locale
@@ -23,12 +26,16 @@ class WithDrawFunds : AppCompatActivity() {
     lateinit var balance : TextView
     lateinit var warning : TextView
     lateinit var sharedPreferences: SharedPreferences
+    lateinit var BankSelection : AppCompatSpinner
     var withDrawAmount =0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_withdraw)
+
+        BankSelection = findViewById(R.id.addFunds_dropDown)
+        InitalizeSpinner()
 
         withDrawBack = findViewById(R.id.withdraw_back)
         withDrawFundsAmount = findViewById(R.id.WithDrawFunds_amount)
@@ -43,10 +50,12 @@ class WithDrawFunds : AppCompatActivity() {
 
 
 
-
-
         warning.visibility = TextView.GONE
 
+
+        withDrawButton.isClickable = false
+        withDrawButton.setBackgroundColor(resources.getColor(R.color.grey))
+        var amountfinal = 0
 
         withDrawFundsAmount.addTextChangedListener(object :TextWatcher
         {
@@ -57,25 +66,39 @@ class WithDrawFunds : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                if(s!=null) {
 
+                if(s!=null && s.toString()!="") {
+                    val amount = s.toString().toInt()
+                    if (amount > availableMoney) {
+                        warning.visibility = TextView.VISIBLE
+                        withDrawButton.isClickable = false
+                        withDrawButton.setBackgroundColor(resources.getColor(R.color.grey))
+                    }
+                    else if ( amount==0) {
+                        warning.visibility = TextView.GONE
+                        withDrawButton.isClickable = false
+                        withDrawButton.setBackgroundColor(resources.getColor(R.color.grey))
+                    }
+                    else{
+                        amountfinal = amount
+                        warning.visibility = TextView.GONE
+                        withDrawButton.isClickable = true
+                        withDrawButton.setBackgroundColor(resources.getColor(R.color.card_blue))
+                    }
+                }
+                else
+                {
+                    withDrawButton.isClickable = false
+                    withDrawButton.setBackgroundColor(resources.getColor(R.color.grey))
                 }
 
             }
 
         })
-        if(withDrawFundsAmount.text.toString().isNotEmpty()){
-            withDrawAmount = withDrawFundsAmount.text.toString().toInt()
-        }
+
         withDrawButton.setOnClickListener {
-            if(withDrawAmount>availableMoney){
-                Toast.makeText(this,"Funds not sufficient",Toast.LENGTH_SHORT).show()
-            }else if(withDrawAmount<availableMoney){
-                sharedPreferences.edit().putInt("AVAILABLEINR",availableMoney-withDrawAmount).apply()
-                Toast.makeText(this,"WithDraw Successful ${availableMoney-withDrawAmount}",Toast.LENGTH_SHORT).show()
-            }else{
-                Toast.makeText(this,"WithDraw money should be less than available money",Toast.LENGTH_SHORT).show()
-            }
+                sharedPreferences.edit().putInt("AVAILABLEINR",availableMoney-amountfinal).apply()
+                Toast.makeText(this,"Transaction will be processed shortly !",Toast.LENGTH_SHORT).show()
         }
 
 
@@ -84,5 +107,16 @@ class WithDrawFunds : AppCompatActivity() {
         }
 
 
+    }
+    fun InitalizeSpinner(){
+        var BankOptions = arrayOf(
+            "ICICI",
+            "IOB",
+            "AXIS",
+            "HDFC",
+        )
+        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, BankOptions)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        BankSelection.adapter = adapter
     }
 }

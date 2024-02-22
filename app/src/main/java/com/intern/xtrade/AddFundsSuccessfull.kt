@@ -6,6 +6,8 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatButton
+import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.core.Attributes
 
 class AddFundsSuccessfull : AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
@@ -27,4 +29,5 @@ class AddFundsSuccessfull : AppCompatActivity() {
 
 
     }
+
 }

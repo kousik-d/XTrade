@@ -38,7 +38,6 @@
         app:tabTextColor="@color/card_blue"
         app:tabGravity="center"
         app:tabMode="scrollable"
-        android:layout_marginHorizontal="5dp"
         app:tabIndicatorColor="@color/card_blue"
         android:layout_height="wrap_content">
 

@@ -26,7 +26,6 @@ class IPOActivity : AppCompatActivity() {
         setContentView(R.layout.activity_ipoactivity)
 
 
-
         IPOviewPager = findViewById(R.id.ipo_viewPager)
         IPOtabLayout = findViewById(R.id.ipo_tabLayout)
         IPOActivityBackbtn = findViewById(R.id.IPOActivityBack)

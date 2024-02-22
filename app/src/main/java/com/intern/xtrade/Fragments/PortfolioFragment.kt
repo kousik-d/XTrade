@@ -18,6 +18,8 @@ import androidx.cardview.widget.CardView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
+import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.core.Attributes
 import com.intern.xtrade.DataBases.StockDataBase
 import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.FinalPayment
@@ -33,6 +35,7 @@ import kotlinx.coroutines.withContext
 import java.text.NumberFormat
 import java.util.Locale
 import kotlin.random.Random
+import kotlin.random.nextInt
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,6 +75,13 @@ class PortfolioFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        val totalMoney =  sharedPreferences.getInt("AVAILABLEINR",0)
+        availabeINR.text = NumberFormat.getCurrencyInstance(indiLocal).format(totalMoney)
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -92,7 +102,7 @@ class PortfolioFragment : Fragment() {
         percentIncrease = PortfolioCard.findViewById(R.id.portfolio_percentage)
 
 
-        percentIncrease.text = "+ ${Random.nextFloat() * 10.00f}".dropLast(4)+"%"
+        percentIncrease.text = "+ ${9}"+"."+ "${Random.nextInt(0..9)}" + "${Random.nextInt(0..9)}" + "%"
         stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
 
         stockRepository.allStocks.observe(requireActivity(), Observer{
@@ -114,8 +124,13 @@ class PortfolioFragment : Fragment() {
         val buffer = 1000
         val totalMoney =  (moneyPresent + sharedPreferences.getInt("AVAILABLEINR",0))
         availabeINR.text = NumberFormat.getCurrencyInstance(indiLocal).format(totalMoney)
+
+
         DepositINRbtn.setOnClickListener {
             val intent :Intent = Intent(requireContext(),AddFundsActivity::class.java)
+            val attrs = Attributes()
+            attrs.putAttribute("Source","Portfolio")
+            ApxorSDK.logAppEvent("Add_funds_clicked",attrs)
             startActivity(intent)
         }
         if(invested ==0.0f){
