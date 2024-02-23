@@ -92,6 +92,7 @@ class DocumentsSecond : Fragment() {
                 }
             }else{
                 showCardView.visibility = CardView.INVISIBLE
+                DocumentsSecondFinishBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
             }
         }
 
