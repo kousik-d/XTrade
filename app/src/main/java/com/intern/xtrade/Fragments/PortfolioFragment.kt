@@ -17,6 +17,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.asLiveData
+import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.lifecycleScope
 import com.apxor.androidsdk.core.ApxorSDK
 import com.apxor.androidsdk.core.Attributes
@@ -158,7 +159,7 @@ class PortfolioFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val inflater = LayoutInflater.from(requireActivity())
         PortfolioCardContainer.removeAllViews()
-        stockRepository.allStocks.observe(requireActivity(), Observer{
+        stockRepository.allStocks.distinctUntilChanged().observe(requireActivity(), Observer{
             totalStockList = it
             var holdings = mutableListOf<Int>()
             for(i in it) {

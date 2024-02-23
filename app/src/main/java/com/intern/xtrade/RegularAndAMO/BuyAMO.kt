@@ -1,7 +1,10 @@
 package com.intern.xtrade.RegularAndAMO
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -12,12 +15,19 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
+import com.intern.xtrade.DataClasses.StockInfo
+import com.intern.xtrade.Orders.OrderConfirmed
 import com.intern.xtrade.PaymentSuccessActivity
 import com.intern.xtrade.R
+import com.intern.xtrade.Repositories.StockRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,6 +59,9 @@ class BuyAMO : Fragment() {
 
     lateinit var DiscQtyqt : EditText
     lateinit var DiscQtSpinner : Spinner
+    lateinit var PurchaseProgressBar : ProgressBar
+    lateinit var stockRepository: StockRepository
+    lateinit var sharedPreferences: SharedPreferences
 
     //Flags
 
@@ -67,16 +80,25 @@ class BuyAMO : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_buy_regular_activity, container, false)
-
+        sharedPreferences = requireContext().getSharedPreferences("MONEY", Context.MODE_PRIVATE)
 
         PriceAmount = view.findViewById(R.id.buy_Price)
         StockQuantity = view.findViewById(R.id.buy_TotalQuantity)
         PurchaseButton = view.findViewById(R.id.PurchaseButtonId)
 
         PurchaseButton.setOnClickListener {
-            val intent = Intent(requireContext(),PaymentSuccessActivity::class.java)
-            intent.putExtra("STOCKID",BuyRegularActivity.PurchasedStockId)
-            startActivity(intent)
+            PurchaseButton.text =""
+            PurchaseProgressBar.visibility = ProgressBar.VISIBLE
+            PurchaseButton.isEnabled = false
+            Handler().postDelayed({
+                UpdateStockinDb(BuyRegularActivity.PurchasedStockId)
+                val intent = Intent(requireContext(), OrderConfirmed::class.java)
+
+                intent.putExtra("STOCKID",BuyRegularActivity.PurchasedStockId)
+                val invested = sharedPreferences.getFloat("INVESTEDVALUE",0.0f)
+                sharedPreferences.edit().putFloat("INVESTEDVALUE",invested+(BuyRegularActivity.stockPrice)).apply()
+                startActivity(intent)
+            },3000)
         }
 
         PriceAmount.addTextChangedListener(object : TextWatcher {
@@ -328,5 +350,22 @@ class BuyAMO : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    fun UpdateStockinDb(stockId: Int) {
+        stockRepository.allStocks.observe(requireActivity()){
+            val list = it
+            val index = list.indexOfFirst{ it.StockId == stockId }
+            if(index!=-1){
+                val newStock = list[index]
+                newStock.isInOrders = 1
+                updateDb(newStock)
+            }
+        }
+    }
+
+    fun updateDb(newStock : StockInfo){
+        lifecycleScope.launch(Dispatchers.IO) {
+            stockRepository.updateStock(newStock)
+        }
     }
 }

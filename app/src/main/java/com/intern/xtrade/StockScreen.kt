@@ -188,6 +188,7 @@ class StockScreen : AppCompatActivity() {
         val holdings = WishlistManager.StocksToAdd
         for(i in holdings){
             if(i.StockId==stockId){
+                Log.i("STOCKSELL","${i}")
                 return false
             }
         }

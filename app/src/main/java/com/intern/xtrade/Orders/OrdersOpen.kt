@@ -12,6 +12,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.asLiveData
+import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.lifecycleScope
 import com.intern.xtrade.DataBases.StockDataBase
 import com.intern.xtrade.DataClasses.StockInfo
@@ -57,7 +58,7 @@ class OrdersOpen : Fragment() {
         stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
 
 
-        stockRepository.stockOrdersOpen.asLiveData().observe(requireActivity()){
+        stockRepository.stockOrdersOpen.asLiveData().distinctUntilChanged().observe(requireActivity()){
             //Toast.makeText(requireContext(),"${it}",Toast.LENGTH_SHORT).show()
 
             CreateListAndAppendToLayout(it)

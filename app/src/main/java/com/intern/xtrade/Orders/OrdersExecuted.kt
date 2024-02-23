@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.lifecycle.asLiveData
+import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.lifecycleScope
 import com.intern.xtrade.DataBases.StockDataBase
 import com.intern.xtrade.DataClasses.StockInfo
@@ -61,7 +62,7 @@ class OrdersExecuted : Fragment() {
         stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
         sharedPreferences = requireContext().getSharedPreferences("MONEY", Context.MODE_PRIVATE)
         val inital  = sharedPreferences.getFloat("INVESTEDVALUE",0.0f)
-        stockRepository.stockOrdersExecuted.asLiveData().observe(requireActivity()){
+        stockRepository.stockOrdersExecuted.asLiveData().distinctUntilChanged().observe(requireActivity()){
             CreateListAndAppendToLayout(it)
 
         }

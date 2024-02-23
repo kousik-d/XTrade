@@ -1,10 +1,13 @@
 package com.intern.xtrade.RegularAndAMO
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,9 +20,16 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.distinctUntilChanged
+import androidx.lifecycle.lifecycleScope
+import com.intern.xtrade.DataBases.StockDataBase
+import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.Orders.OrderConfirmed
 import com.intern.xtrade.PaymentSuccessActivity
 import com.intern.xtrade.R
+import com.intern.xtrade.Repositories.StockRepository
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.launch
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,10 +58,11 @@ class sellRegular : Fragment() {
     lateinit var ValidityIOC : AppCompatButton
     lateinit var ValidityMin : AppCompatButton
     lateinit var PurchaseButton : AppCompatButton
-
+    lateinit var stockRepository: StockRepository
     lateinit var DiscQtyqt : EditText
     lateinit var DiscQtSpinner : Spinner
     lateinit var PurchaseProgressBar : ProgressBar
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,19 +82,38 @@ class sellRegular : Fragment() {
         StockQuantity = view.findViewById(R.id.sell_TotalQuantity)
         PurchaseButton = view.findViewById(R.id.SellButtonId)
         PurchaseProgressBar = view.findViewById(R.id.SellLoadProgressBar)
-
+        stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
         PurchaseProgressBar.visibility = ProgressBar.INVISIBLE
-
+        sharedPreferences = requireContext().getSharedPreferences("MONEY",Context.MODE_PRIVATE)
+        var investedValue = sharedPreferences.getFloat("INVESTEDVALUE",0.0f)
+        var sellPrice = 0.0f
         PurchaseButton.setOnClickListener {
             PurchaseButton.text =""
             PurchaseProgressBar.visibility = ProgressBar.VISIBLE
             PurchaseButton.isEnabled = false
+            stockRepository.allStocks.distinctUntilChanged().observe(requireActivity()){
+                val totalList = it
+                for(i in it){
+                    if(i.StockId == sellRegular.sellStockId){
+                        i.isInHoldings = false
+                        sellPrice = i.StockPrice.toFloat()
+                        investedValue -= sellPrice
+                        sharedPreferences.edit().putFloat("INVESTEDVALUE", investedValue).apply()
+                        Log.i("InvestedValueSell","${investedValue} ${sellPrice} ")
+                        UpdateSoldStockInDb(i)
+                    }
+                }
+            }
             Handler().postDelayed({
                 val intent = Intent(requireContext(), PaymentSuccessActivity::class.java)
                 intent.putExtra("SELLSTOCKID",sellRegular.sellStockId)
                 startActivity(intent)
             },3000)
         }
+
+//        Log.i("InvestedValueSellOut","${investedValue} ${sellPrice}")
+//        investedValue-=sellPrice
+//        sharedPreferences.edit().putFloat("INVESTEDVALUE",investedValue).apply()
 
         PriceAmount.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -318,5 +348,11 @@ class sellRegular : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    fun UpdateSoldStockInDb(stockInfo: StockInfo){
+        lifecycleScope.launch(IO) {
+            stockRepository.updateStock(stockInfo)
+        }
     }
 }

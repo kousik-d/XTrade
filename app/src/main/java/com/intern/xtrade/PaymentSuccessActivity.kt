@@ -12,26 +12,12 @@ import com.intern.xtrade.wishList.WishlistManager
 
 class PaymentSuccessActivity : AppCompatActivity() {
     lateinit var DoneButton :AppCompatButton
-    lateinit var PaymentSuccessMessage : TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment_success)
-        DoneButton = findViewById(R.id.DoneButtonId)
-        PaymentSuccessMessage = findViewById(R.id.PaymentSuccessMessage)
-        val depositedMoney = intent.getIntExtra("DEPOSITEDMONEY",-100)
-        val stockId = intent.getIntExtra("STOCKID",0)
-        val sellStockId = intent.getIntExtra("SELLSTOCKID",-1)
-
-        if(sellStockId!=-1){
-            WishlistManager.removeFromYourStocks(this,sellStockId)
-        }
-
-        if(depositedMoney != -100){
-            PaymentSuccessMessage.text = "Deposited Successfully"
-        }
+        DoneButton = findViewById(R.id.CloseCompatButton)
         DoneButton.setOnClickListener {
             val intent = Intent(this,MainActivity::class.java)
-            intent.putExtra("DEPOSITEDMONEY",depositedMoney)
             startActivity(intent)
         }
     }
