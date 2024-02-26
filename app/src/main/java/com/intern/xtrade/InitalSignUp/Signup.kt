@@ -129,18 +129,11 @@ class Signup : AppCompatActivity() {
             }
         }
 
-//
-//
-//        TermsCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
-//            if(isChecked && isMobileNumberValid){
-//                Log.i("KOUSIKDASAINCHECK","${isMobileNumberValid}")
-//                continueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
-//            }else{
-//
-//            }
-//        }
-//        Log.i("KOUSIKDASA","${continueBtn.isClickable}")
 
+    }
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.logAppEvent("Signup_page_launched")
     }
     fun changeButtonBackground(){
         continueBtn.setBackgroundColor(resources.getColor(R.color.card_blue))
