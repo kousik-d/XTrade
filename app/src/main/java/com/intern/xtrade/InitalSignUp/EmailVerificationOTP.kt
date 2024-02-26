@@ -16,6 +16,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
+import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.core.Attributes
 import com.intern.xtrade.R
 import com.intern.xtrade.UserDetails
 
@@ -61,6 +63,9 @@ class EmailVerificationOTP : AppCompatActivity() {
         }.start()
 
         EmailResendOtpButton.setOnClickListener {
+
+            ApxorSDK.logAppEvent("Resend_OTP_Clicked")
+
             Toast.makeText(this,"OTP sent Successfully", Toast.LENGTH_SHORT).show()
             EmailResendOtpButton.visibility = AppCompatButton.INVISIBLE
         }
@@ -84,6 +89,11 @@ class EmailVerificationOTP : AppCompatActivity() {
 
         confirmButton.setOnClickListener {
             if(isOtpEntered) {
+
+                val attrs1 = Attributes();
+                attrs1.putAttribute("Source","email")
+                ApxorSDK.logAppEvent("OTP_Submitted",attrs1)
+
                 val intent = Intent(this, UserDetails::class.java)
                 startActivity(intent)
             }

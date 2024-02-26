@@ -63,6 +63,7 @@ class StockScreen : AppCompatActivity() {
 
         val attrs = Attributes();
         attrs.putAttribute("Stock Name",companyName.toString())
+        attrs.putAttribute("Stock Value",stockPrice)
         ApxorSDK.logAppEvent("Stocks_clicked",attrs)
 
         stockRepository.allStocks.observe(this){
@@ -111,6 +112,12 @@ class StockScreen : AppCompatActivity() {
 
         stockScreenSellButton.setOnClickListener {
             if(checkStockInHoldingsStock(stockId)){
+
+                val attrs2 = Attributes();
+                attrs2.putAttribute("Stock Name",companyName.toString())
+                attrs2.putAttribute("Stock Value",stockPrice)
+                ApxorSDK.logAppEvent("Sell_clicked",attrs2)
+
                 val intent = Intent(this,SellActivity::class.java)
                 intent.putExtra("SELLSTOCKID",stockId)
                 startActivity(intent)
@@ -122,6 +129,13 @@ class StockScreen : AppCompatActivity() {
         initButtons(graphID)
 
         StockBuyButton.setOnClickListener {
+
+
+            val attrs1 = Attributes();
+            attrs1.putAttribute("Stock Name",companyName.toString())
+            attrs1.putAttribute("Stock Value",stockPrice)
+            ApxorSDK.logAppEvent("Buy_Clicked",attrs1)
+
             val intent = Intent(this, Buy_activity::class.java)
             intent.putExtra("STOCKID",stockId)
             intent.putExtra("STOCKPRICE",stockPrice.toFloat())

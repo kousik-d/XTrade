@@ -77,10 +77,16 @@ class HomeFragment : Fragment() {
         searchIcon = view.findViewById(R.id.SearchIconId)
         investToday = view.findViewById(R.id.home_rectangle)
         investToday.findViewById<AppCompatButton>(R.id.InvestTodayId).setOnClickListener {
+
+            ApxorSDK.logAppEvent("Invest_today_clicked")
+
             val intent = Intent(requireContext(), SearchBarActivity::class.java)
             startActivity(intent)
         }
         searchIcon.setOnClickListener {
+
+            ApxorSDK.logAppEvent("Search_clicked")
+
             val intent = Intent(requireContext(), SearchBarActivity::class.java)
             startActivity(intent)
         }

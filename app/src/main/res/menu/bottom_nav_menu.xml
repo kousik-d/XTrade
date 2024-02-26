@@ -8,16 +8,16 @@
     <item
         android:id="@+id/nav_portfolio"
         android:icon="@drawable/portfolio_selector"
-        android:title="Portfolio"/>
+        android:title="@string/Portfolio"/>
 
     <item
         android:id="@+id/nav_idea"
         android:icon="@drawable/idea_selector"
-        android:title="Idea"/>
+        android:title="@string/Idea"/>
 
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/profile_selector"
-        android:title="Profile"/>
+        android:title="@string/Profile"/>
 
 </menu>

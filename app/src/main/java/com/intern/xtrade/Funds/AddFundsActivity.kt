@@ -126,13 +126,9 @@ class AddFundsActivity : AppCompatActivity() {
 
 
     fun InitalizeSpinner(){
-        var BankOptions = arrayOf(
-            "ICICI",
-            "IOB",
-            "AXIS",
-            "HDFC",
-        )
-        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, BankOptions)
+
+
+        val adapter = ArrayAdapter.createFromResource(this, R.array.BankOptions,android.R.layout.simple_spinner_item)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         BankSelection.adapter = adapter
     }

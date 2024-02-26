@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatButton
 import com.airbnb.lottie.LottieAnimationView
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.MainActivity
 import com.intern.xtrade.R
 
@@ -24,6 +25,9 @@ class SignUpSuccessful : AppCompatActivity() {
         startTradingBtn = findViewById(R.id.SignUpCompatButton)
         sharedPreferences.edit().putInt("current_step", 0).apply()
         startTradingBtn.setOnClickListener {
+
+            ApxorSDK.logAppEvent("Start_tradingnow_clicked")
+
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
@@ -31,6 +35,11 @@ class SignUpSuccessful : AppCompatActivity() {
         animationView.setAnimation("animationCompleted.json")
         animationView.playAnimation()
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.logAppEvent("Onboarding_completed")
     }
 
     override fun onBackPressed() {

@@ -72,6 +72,9 @@ class PortfolioFragment : Fragment() {
     }
     override fun onResume() {
         super.onResume()
+
+        ApxorSDK.logAppEvent("Portfolio_page_launched")
+
         var invested = sharedPreferences.getFloat("INVESTEDVALUE",0.0f)
         val totalMoney =  sharedPreferences.getInt("AVAILABLEINR",0)
         Log.i("INITALINVES","${invested}")
@@ -101,6 +104,7 @@ class PortfolioFragment : Fragment() {
         percentIncrease.text = "+ ${9}"+"."+ "${Random.nextInt(0..9)}" + "${Random.nextInt(0..9)}" + "%"
         stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
         Log.i("INVESTEDVALUE","${initalInvested}")
+
         DepositINRbtn.setOnClickListener {
             val intent :Intent = Intent(requireContext(),AddFundsActivity::class.java)
             val attrs = Attributes()
@@ -108,8 +112,13 @@ class PortfolioFragment : Fragment() {
             ApxorSDK.logAppEvent("Add_funds_clicked",attrs)
             startActivity(intent)
         }
+
         WithDrawINRbtn.setOnClickListener {
             val intent: Intent = Intent(requireContext(),WithDrawFunds::class.java)
+
+            val attrs = Attributes()
+            attrs.putAttribute("Source","Portfolio")
+            ApxorSDK.logAppEvent("Withdraw_funds_clicked",attrs)
             Log.i("KOUSIKDASARI",availabeINR.text.toString())
             //intent.putExtra("AVAILABLEINR",availabeINR.text.toString().drop(1))
             startActivity(intent)

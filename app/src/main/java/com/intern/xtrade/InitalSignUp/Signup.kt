@@ -10,6 +10,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.apxor.androidsdk.core.ApxorSDK
 import com.apxor.androidsdk.core.Attributes
@@ -23,6 +24,7 @@ class Signup : AppCompatActivity() {
     lateinit var SignUpMobileNumber : EditText
     lateinit var name : EditText
     lateinit var nameWarning : TextView
+    lateinit var referrelCode : EditText
     var isNameOk = false
     var isMobileNumberOk = false
     var isTermsOk = false
@@ -37,7 +39,7 @@ class Signup : AppCompatActivity() {
         SignUpMobileNumber = findViewById(R.id.signup_mobileNumber)
         val relativeLayout = findViewById<RelativeLayout>(R.id.SignUpContinueRelative)
         var mobileNumberWarning : TextView = findViewById(R.id.signup_mobileNumberWarning)
-
+        referrelCode = findViewById(R.id.signup_referralCode)
 
         TermsCheckBox = findViewById(R.id.signup_checkBox)
         continueBtn = relativeLayout.findViewById(R.id.signup_continue)
@@ -50,6 +52,19 @@ class Signup : AppCompatActivity() {
                 val attrs = Attributes();
                 attrs.putAttribute("name",name.text.toString())
                 ApxorSDK.setUserCustomInfo(attrs)
+                val inputText = referrelCode.text.toString().trim()
+
+                val result = if (inputText.isEmpty() || inputText.isBlank()) {
+                    "NA"
+                } else {
+                    inputText
+                }
+
+                val attrs1 = Attributes();
+                attrs1.putAttribute("Mobile_number",MobileNumber)
+                attrs1.putAttribute("Referrel_code",result)
+                ApxorSDK.logAppEvent("Signup_Details_entered",attrs1)
+
                 startActivity(intent)
             }
         }

@@ -15,6 +15,8 @@ import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.core.Attributes
 import com.intern.xtrade.R
 import com.intern.xtrade.UserDetails
 import java.util.Calendar
@@ -109,6 +111,11 @@ class PANDetails : Fragment() {
 
             PanContinueBtn.setOnClickListener {
                 if(isButtonClickable && isDateSelected) {
+
+                    val attrs1 = Attributes();
+                    attrs1.putAttribute("Pan card",PanNumber.text.toString())
+                    ApxorSDK.logAppEvent("Pancard_submitted",attrs1)
+
                     val bankDetails = BankDetails()
                     userActivity.LoadProgress(bankDetails)
                     userActivity.onNextButtonClick(bankDetails)

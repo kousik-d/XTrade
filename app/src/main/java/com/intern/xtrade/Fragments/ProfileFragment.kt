@@ -60,6 +60,11 @@ class ProfileFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.logAppEvent("Profilepage_launched")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -98,6 +103,10 @@ class ProfileFragment : Fragment() {
 
         withDrawFunds.setOnClickListener {
             val intent = Intent(requireContext(),WithDrawFunds::class.java)
+
+            val attrs = Attributes()
+            attrs.putAttribute("Source","Profile")
+            ApxorSDK.logAppEvent("Withdraw_funds_clicked",attrs)
             startActivity(intent)
         }
 
@@ -115,9 +124,11 @@ class ProfileFragment : Fragment() {
             startActivity(intent)
         }
         showStockBtn.setOnClickListener {
+            ApxorSDK.logAppEvent("YourStocks_page_clicked")
             startActivity(Intent(requireContext(),YourStocks::class.java))
         }
         showWishlist.setOnClickListener {
+            ApxorSDK.logAppEvent("Watchlist_clicked")
             startActivity(Intent(requireContext(), YourWishlist::class.java))
         }
         showNotificationBtn.setOnClickListener {

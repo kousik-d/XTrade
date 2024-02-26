@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.DataClasses.IPOData
 import com.intern.xtrade.R
 import com.intern.xtrade.wishList.WishlistManager
@@ -43,6 +44,11 @@ class ForthComing : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.logAppEvent("Forthcoming_IPO_launched")
     }
 
     override fun onCreateView(

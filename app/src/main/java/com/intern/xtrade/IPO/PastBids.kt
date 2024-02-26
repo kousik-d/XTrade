@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -33,6 +34,10 @@ class PastBids : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+    }
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.logAppEvent("Past_bids_launched")
     }
 
     override fun onCreateView(

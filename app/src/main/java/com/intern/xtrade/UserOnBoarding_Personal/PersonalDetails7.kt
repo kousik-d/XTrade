@@ -13,6 +13,7 @@ import android.widget.CheckBox
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.MainActivity
 
 import com.intern.xtrade.R
@@ -81,6 +82,8 @@ class PersonalDetails7 : Fragment() {
 
         PersonalDetails7ContinueBtn.setOnClickListener {
             if(isButtonClicked && checkBoxOne.isChecked && checkBoxTwo.isChecked) {
+
+                ApxorSDK.logAppEvent("Personal_details_page_submitted")
                 val documentfirst = DocumentsFirst()
                 userActivity.LoadProgress(documentfirst)
                 userActivity.onNextButtonClick(documentfirst)

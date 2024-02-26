@@ -13,6 +13,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.core.Attributes
 import com.intern.xtrade.R
 
 class MobileNumberOTP : AppCompatActivity() {
@@ -59,6 +61,9 @@ class MobileNumberOTP : AppCompatActivity() {
         }.start()
 
             MobileResendOtp.setOnClickListener {
+
+                ApxorSDK.logAppEvent("Resend_OTP_Clicked")
+
                 Toast.makeText(this, "OTP Sent Successfully", Toast.LENGTH_SHORT).show()
                 MobileResendOtp.visibility = AppCompatButton.INVISIBLE
             }
@@ -93,6 +98,11 @@ class MobileNumberOTP : AppCompatActivity() {
 
         MobileNumberContinueBtn.setOnClickListener {
             if(isOtpEntered) {
+
+                val attrs1 = Attributes();
+                attrs1.putAttribute("Source","mobile")
+                ApxorSDK.logAppEvent("OTP_Submitted",attrs1)
+
                 val intent = Intent(this, EmailVerification::class.java)
                 startActivity(intent)
             }
