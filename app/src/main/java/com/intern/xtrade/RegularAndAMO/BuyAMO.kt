@@ -21,6 +21,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import com.intern.xtrade.DataBases.StockDataBase
 import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.Orders.OrderConfirmed
 import com.intern.xtrade.PaymentSuccessActivity
@@ -81,11 +82,12 @@ class BuyAMO : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_buy_regular_activity, container, false)
         sharedPreferences = requireContext().getSharedPreferences("MONEY", Context.MODE_PRIVATE)
-
+        stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
         PriceAmount = view.findViewById(R.id.buy_Price)
         StockQuantity = view.findViewById(R.id.buy_TotalQuantity)
         PurchaseButton = view.findViewById(R.id.PurchaseButtonId)
-
+        PurchaseProgressBar = view.findViewById(R.id.PurchaseLoadBtn)
+        PurchaseProgressBar.visibility = ProgressBar.INVISIBLE
         PurchaseButton.setOnClickListener {
             PurchaseButton.text =""
             PurchaseProgressBar.visibility = ProgressBar.VISIBLE

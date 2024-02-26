@@ -100,7 +100,7 @@ class SearchBarActivity : AppCompatActivity() {
 
     private fun searchInUserAdapter(StockName : String?): Int {
         StockName?.let {
-            for(i in 1..13){
+            for(i in 0..(totalStocks.size-1)){
                 if(totalStocks[i].CompanyName.contains(StockName,ignoreCase = true)){
                         return i;
                 }

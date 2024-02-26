@@ -1,5 +1,4 @@
 package com.intern.xtrade.Fragments
-
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -37,12 +36,10 @@ import java.text.NumberFormat
 import java.util.Locale
 import kotlin.random.Random
 import kotlin.random.nextInt
-
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
 /**
  * A simple [Fragment] subclass.
  * Use the [PortfolioFragment.newInstance] factory method to
@@ -52,7 +49,6 @@ class PortfolioFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
     lateinit var DepositINRbtn : Button
     lateinit var WithDrawINRbtn : Button
     lateinit var availabeINR : TextView
@@ -67,7 +63,6 @@ class PortfolioFragment : Fragment() {
     var holdingValue = 0.0f
     var initalInvested = 0.0f
     val indiLocal = Locale("en", "in")
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -75,7 +70,6 @@ class PortfolioFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
-
     override fun onResume() {
         super.onResume()
         var invested = sharedPreferences.getFloat("INVESTEDVALUE",0.0f)
@@ -83,14 +77,11 @@ class PortfolioFragment : Fragment() {
         Log.i("INITALINVES","${invested}")
         sharedPreferences.edit().putFloat("INVESTEDVALUE",invested)
         sharedPreferences.edit().putInt("AVAILABLEINR",totalMoney)
-
         holdingText.text = NumberFormat.getCurrencyInstance(indiLocal).format(invested+totalMoney)
         sharedPreferences.edit().putFloat("HOLDINGVALUE",invested+totalMoney).apply()
-
         InvestedValue.text = NumberFormat.getCurrencyInstance(indiLocal).format(invested)
         availabeINR.text = NumberFormat.getCurrencyInstance(indiLocal).format(totalMoney)
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -107,17 +98,9 @@ class PortfolioFragment : Fragment() {
         holdingText = PortfolioCard.findViewById(R.id.portfolio_value)
         percentIncrease = PortfolioCard.findViewById(R.id.portfolio_percentage)
         PortfolioCardContainer.removeAllViews()
-
-
         percentIncrease.text = "+ ${9}"+"."+ "${Random.nextInt(0..9)}" + "${Random.nextInt(0..9)}" + "%"
         stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
-
-
         Log.i("INVESTEDVALUE","${initalInvested}")
-
-
-
-
         DepositINRbtn.setOnClickListener {
             val intent :Intent = Intent(requireContext(),AddFundsActivity::class.java)
             val attrs = Attributes()
@@ -133,7 +116,6 @@ class PortfolioFragment : Fragment() {
         }
         return view
     }
-
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -154,7 +136,6 @@ class PortfolioFragment : Fragment() {
             }
         var AmountToAddToDeposit = 0
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val inflater = LayoutInflater.from(requireActivity())
