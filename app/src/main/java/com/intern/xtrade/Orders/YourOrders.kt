@@ -11,11 +11,13 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Index.Order
 import androidx.viewpager2.widget.ViewPager2
+import com.apxor.androidsdk.core.ApxorSDK
 import com.google.android.material.tabs.TabLayout
 import com.intern.xtrade.Adapters.FragmentPageAdapter
 import com.intern.xtrade.Adapters.FragmentPageAdapterOrders
 import com.intern.xtrade.MainActivity
 import com.intern.xtrade.R
+import java.util.jar.Attributes
 
 class YourOrders : AppCompatActivity() {
 
@@ -26,6 +28,9 @@ class YourOrders : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_your_orders)
+
+        val source = intent.getStringExtra("Source")
+        var order = "Open"
 
         yourOrdersBack = findViewById(R.id.OrdersBackBtn)
         OrderViewPager = findViewById(R.id.orders_viewPager)
@@ -43,7 +48,15 @@ class YourOrders : AppCompatActivity() {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 tab?.let {
                     Log.i("TABCHECK","${it.position}")
-                    OrderViewPager.currentItem = it.position;
+                    if(it.position == 0)
+                        order = "Open"
+                    else
+                        order = "Executed"
+                    OrderViewPager.currentItem = it.position
+                    val attrs = com.apxor.androidsdk.core.Attributes()
+                    attrs.putAttribute("Source",source)
+                    attrs.putAttribute("Order",order)
+                    ApxorSDK.logAppEvent("Order_page_launched",attrs)
                 }
             }
 
