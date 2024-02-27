@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.R
 
 /**
@@ -26,6 +27,10 @@ class IdeaFnO : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+    }
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.logAppEvent("Fno_clicked")
     }
 
     override fun onCreateView(

@@ -10,6 +10,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
+import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.core.Attributes
 import com.intern.xtrade.R
 
 class EmailVerification : AppCompatActivity() {
@@ -61,6 +63,11 @@ class EmailVerification : AppCompatActivity() {
 
         EmailVerificationContinueBtn.setOnClickListener {
             if(canContinue) {
+
+                val attrs1 = Attributes()
+                attrs1.putAttribute("Email",EmailEditText.text.toString())
+                ApxorSDK.logAppEvent("Email_Entered",attrs1)
+
                 val intent = Intent(this, EmailVerificationOTP::class.java)
                 intent.putExtra("EMAILID",emailToSend)
                 startActivity(intent)

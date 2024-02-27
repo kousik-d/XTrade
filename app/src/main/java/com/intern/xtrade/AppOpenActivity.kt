@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.InitalSignUp.Signup
 import com.intern.xtrade.Login.LoginUserID
 
@@ -24,11 +25,17 @@ class AppOpenActivity : AppCompatActivity() {
         }
         OpenDematBtn.setOnClickListener {
             val intent = Intent(this, Signup::class.java)
+
+            ApxorSDK.logAppEvent("Opendemtaccount_clicked")
+
             startActivity(intent)
         }
 
         LoginText.setOnClickListener {
             val intent = Intent(this, LoginUserID::class.java)
+
+            ApxorSDK.logAppEvent("Login_clicked")
+
             startActivity(intent)
         }
 

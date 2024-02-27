@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.core.Attributes
 import com.intern.xtrade.IPO.BuyIPO
 import com.intern.xtrade.IPO.IPOActivity
 import com.intern.xtrade.R
@@ -40,6 +41,11 @@ class IdeaEquity : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.logAppEvent("Equity_clicked")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,6 +61,11 @@ class IdeaEquity : Fragment() {
         }
         IpoEquityViewAll.setOnClickListener {
             val intent = Intent(requireContext(),IPOActivity::class.java)
+
+            val attrs = Attributes()
+            attrs.putAttribute("Type","IPO")
+            ApxorSDK.logAppEvent("Viewall_clicked")
+
             ApxorSDK.logAppEvent("IPO_clicked")
             startActivity(intent)
         }

@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.text.isDigitsOnly
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.InitalSignUp.Signup
 import com.intern.xtrade.R
 
@@ -45,6 +46,7 @@ class LoginUserID : AppCompatActivity() {
 
         UserIdProccedBtn.setOnClickListener {
             if(isUserIdCorrect){
+                ApxorSDK.logAppEvent("Userid_entered")
                 val intent = Intent(this, LoginOTPVerification::class.java)
                 intent.putExtra("USERID",UserID)
                 startActivity(intent)

@@ -21,6 +21,20 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <string-array name="BankOptions">
+        <item>ICICI</item>
+        <item>IOB</item>
+        <item>AXIS</item>
+        <item>HDFC</item>
+
+    </string-array>
+
+    <string name="Portfolio">Portfolio</string>
+    <string name="Idea">Idea</string>
+    <string name="Profile">Profile</string>
+
+
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

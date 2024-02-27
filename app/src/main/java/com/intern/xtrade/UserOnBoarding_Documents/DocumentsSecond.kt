@@ -13,6 +13,7 @@ import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -98,6 +99,9 @@ class DocumentsSecond : Fragment() {
 
         DocumentsSecondFinishBtn.setOnClickListener {
             if(!DocumentsSecondSwitch.isChecked) {
+
+                ApxorSDK.logAppEvent("Documents_page_submitted")
+
                 val intent = Intent(requireContext(), SignUpSuccessful::class.java)
                 startActivity(intent)
             }
@@ -105,6 +109,8 @@ class DocumentsSecond : Fragment() {
             {
                 if(isfirstClicked || isSecondClicked)
                 {
+                    ApxorSDK.logAppEvent("Documents_page_submitted")
+
                     val intent = Intent(requireContext(), SignUpSuccessful::class.java)
                     startActivity(intent)
                 }

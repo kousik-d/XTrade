@@ -14,6 +14,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.UserOnBoarding.BankDetails
 import com.intern.xtrade.UserOnBoarding.PANDetails
 import com.intern.xtrade.UserOnBoarding_Documents.DocumentsFirst
@@ -201,6 +202,11 @@ class UserDetails : AppCompatActivity() {
         if(false) {
             super.onBackPressed()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.logAppEvent("User_details_page_launched")
     }
 
 }

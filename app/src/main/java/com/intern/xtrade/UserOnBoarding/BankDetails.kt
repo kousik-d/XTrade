@@ -13,6 +13,8 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.text.isDigitsOnly
+import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.core.Attributes
 import com.intern.xtrade.R
 import com.intern.xtrade.UserDetails
 import com.intern.xtrade.UserOnBoarding_Personal.PersonalDetails
@@ -39,6 +41,8 @@ class BankDetails : Fragment() {
     lateinit var BankIFSCCode : EditText
     lateinit var warning1 : TextView
     lateinit var warning2 : TextView
+    lateinit var dontknow : TextView
+
 
     var isBankAccountNumberOk = false
     var isBankIFSCCode = false
@@ -67,6 +71,11 @@ class BankDetails : Fragment() {
         BankIFSCCode = view.findViewById(R.id.bankDetails_ifscCode)
         warning1 = view.findViewById(R.id.account_warning)
         warning2 = view.findViewById(R.id.ifsc_warning)
+        dontknow = view.findViewById(R.id.bankDetails_getIFSCCode)
+
+        dontknow.setOnClickListener {
+            ApxorSDK.logAppEvent("IFSC_Code_Dk_clicked")
+        }
 
         BankIFSCCode.addTextChangedListener(object :TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -130,6 +139,12 @@ class BankDetails : Fragment() {
         BankContinueBtn.setOnClickListener {
             if(isBankAccountNumberOk && isBankIFSCCode){
                 val personalDetails = PersonalDetails()
+
+                val attrs1 = Attributes();
+                attrs1.putAttribute("Account",BankAccountNumber.text.toString())
+                attrs1.putAttribute("IFSC Code",BankIFSCCode.text.toString())
+                ApxorSDK.logAppEvent("Bank_details_page_submitted",attrs1)
+
                 userActivity.LoadProgress(personalDetails)
                 userActivity.onNextButtonClick(personalDetails)
             }
