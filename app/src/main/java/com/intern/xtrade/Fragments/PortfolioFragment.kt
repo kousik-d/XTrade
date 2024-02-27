@@ -217,6 +217,7 @@ class PortfolioFragment : Fragment() {
     private fun navigationationToStockScreen(Stock:StockInfo) {
         val intent = Intent(requireContext(), StockScreen::class.java)
         Log.i("KOUSIKHOMEFRAG","${Stock}")
+        intent.putExtra("COMPANYNAME",Stock.CompanyName)
         intent.putExtra("STOCKNAME",Stock.StockName)
         intent.putExtra("COMPANYLOGO",Stock.CompanyLogo)
         intent.putExtra("STOCKPRICE",Stock.StockPrice)

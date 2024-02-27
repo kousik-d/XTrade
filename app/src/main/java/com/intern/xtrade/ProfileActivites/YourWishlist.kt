@@ -52,6 +52,7 @@ class YourWishlist : AppCompatActivity() {
 
         WishlistListView.setOnItemClickListener { parent, view, position, id ->
             val intent = Intent(this, StockScreen::class.java)
+            intent.putExtra("COMPANYNAME",stocksToDisplay[position].CompanyName)
             intent.putExtra("STOCKNAME",stocksToDisplay[position].StockName)
             intent.putExtra("COMPANYLOGO",stocksToDisplay[position].CompanyLogo)
             intent.putExtra("STOCKPRICE",stocksToDisplay[position].StockPrice)
@@ -60,7 +61,6 @@ class YourWishlist : AppCompatActivity() {
             intent.putExtra("STOCKID",stocksToDisplay[position].StockId)
             startActivity(intent)
         }
-
     }
     fun CheckWishListDataInTotalData(infunctotalStocks : MutableList<StockInfo>) : MutableList<StockInfo>{
         var stocksToDisplay = mutableListOf<StockInfo>()

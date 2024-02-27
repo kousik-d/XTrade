@@ -22,6 +22,8 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.lifecycleScope
+import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.core.Attributes
 import com.intern.xtrade.DataBases.StockDataBase
 import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.Orders.OrderConfirmed
@@ -78,6 +80,27 @@ class sellRegular : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_sell_regularamo, container, false)
+
+        var eventProduct = "NA"
+        var eventType = "NA"
+        var eventValidity = "NA"
+        var eventScreen = "Regular"
+        var eventQty = "0"
+        var eventPrice = 0.0f
+
+        ProductIntraDay = view.findViewById(R.id.sell_product_intraday)
+        ProductLongTerm = view.findViewById(R.id.sell_product_longterm)
+        TypeMarket = view.findViewById(R.id.sell_type_market)
+        TypeLimit = view.findViewById(R.id.sell_type_limit)
+        TypeSL = view.findViewById(R.id.sell_type_sl)
+        TypeSLM = view.findViewById(R.id.sell_type_slm)
+        ValidityDay = view.findViewById(R.id.sell_validity_day)
+        ValidityIOC = view.findViewById(R.id.sell_validity_ioc)
+        ValidityMin = view.findViewById(R.id.sell_validity_minutes)
+        DiscQtyqt = view.findViewById(R.id.validity_left_value)
+        DiscQtSpinner =view.findViewById(R.id.validity_dropdown)
+
+
         PriceAmount = view.findViewById(R.id.sell_price)
         StockQuantity = view.findViewById(R.id.sell_TotalQuantity)
         PurchaseButton = view.findViewById(R.id.SellButtonId)
@@ -88,6 +111,8 @@ class sellRegular : Fragment() {
         var investedValue = sharedPreferences.getFloat("INVESTEDVALUE",0.0f)
         var sellPrice = 0.0f
         PurchaseButton.setOnClickListener {
+            eventQty = StockQuantity.text.toString()
+
             PurchaseButton.text =""
             PurchaseProgressBar.visibility = ProgressBar.VISIBLE
             PurchaseButton.isEnabled = false
@@ -106,6 +131,16 @@ class sellRegular : Fragment() {
             }
             Handler().postDelayed({
                 val intent = Intent(requireContext(), PaymentSuccessActivity::class.java)
+
+                val attr = Attributes()
+                attr.putAttribute("Product",eventProduct)
+                attr.putAttribute("Type",eventType)
+                attr.putAttribute("Validity",eventValidity)
+                attr.putAttribute("Quantity",eventQty)
+                attr.putAttribute("Price",eventPrice)
+                attr.putAttribute("Screen",eventScreen)
+                ApxorSDK.logAppEvent("Sell_stock",attr)
+
                 intent.putExtra("SELLSTOCKID",sellRegular.sellStockId)
                 startActivity(intent)
             },3000)
@@ -135,21 +170,13 @@ class sellRegular : Fragment() {
                         // Clear the EditText or perform any other action
                         PriceAmount.text.clear()
                     }
+                    else if (value != null) {
+                        eventPrice = value.toFloat()
+                    }
                 }
             }
         })
 
-        ProductIntraDay = view.findViewById(R.id.sell_product_intraday)
-        ProductLongTerm = view.findViewById(R.id.sell_product_longterm)
-        TypeMarket = view.findViewById(R.id.sell_type_market)
-        TypeLimit = view.findViewById(R.id.sell_type_limit)
-        TypeSL = view.findViewById(R.id.sell_type_sl)
-        TypeSLM = view.findViewById(R.id.sell_type_slm)
-        ValidityDay = view.findViewById(R.id.sell_validity_day)
-        ValidityIOC = view.findViewById(R.id.sell_validity_ioc)
-        ValidityMin = view.findViewById(R.id.sell_validity_minutes)
-        DiscQtyqt = view.findViewById(R.id.validity_left_value)
-        DiscQtSpinner =view.findViewById(R.id.validity_dropdown)
 
 
 // Define the options
@@ -172,6 +199,7 @@ class sellRegular : Fragment() {
         DiscQtSpinner.adapter = adapter
 
         ValidityDay.setOnClickListener {
+            eventValidity = "Day"
             SetValidityBackground()
             it.setBackgroundResource(R.drawable.sell_stock_button)
             ValidityDay.setTextColor(ContextCompat.getColor(requireContext(), R.color.SellColor))
@@ -182,6 +210,8 @@ class sellRegular : Fragment() {
         }
 
         ValidityMin.setOnClickListener {
+            eventValidity = "Minutes"
+
             SetValidityBackground()
             it.setBackgroundResource(R.drawable.sell_stock_button)
             ValidityMin.setTextColor(ContextCompat.getColor(requireContext(), R.color.SellColor))
@@ -191,6 +221,8 @@ class sellRegular : Fragment() {
         }
 
         ValidityIOC.setOnClickListener {
+            eventValidity = "IOC"
+
             SetValidityBackground()
             it.setBackgroundResource(R.drawable.sell_stock_button)
             ValidityIOC.setTextColor(ContextCompat.getColor(requireContext(), R.color.SellColor))
@@ -204,6 +236,8 @@ class sellRegular : Fragment() {
 
 
         ProductIntraDay.setOnClickListener {
+            eventProduct = "Intraday"
+
 
             it.setBackgroundResource(R.drawable.sell_stock_button)
             ProductIntraDay.setTextColor(ContextCompat.getColor(requireContext(), R.color.SellColor))
@@ -212,6 +246,8 @@ class sellRegular : Fragment() {
 
         }
         ProductLongTerm.setOnClickListener {
+            eventProduct = "Long term CNC"
+
             ProductIntraDay.setBackgroundResource(R.drawable.buy_sell_background_grey)
             ProductIntraDay.setTextColor(ContextCompat.getColor(requireContext(), R.color.darkBlack))
             it.setBackgroundResource(R.drawable.sell_stock_button)
@@ -219,6 +255,8 @@ class sellRegular : Fragment() {
         }
 
         TypeMarket.setOnClickListener {
+            eventType = "Market"
+
             ReplaceTriggerLayout()
             ReplaceAlltheBackGroundtoGrey()
             it.setBackgroundResource(R.drawable.sell_stock_button)
@@ -229,6 +267,8 @@ class sellRegular : Fragment() {
             PriceAmount.visibility = EditText.INVISIBLE
         }
         TypeLimit.setOnClickListener {
+            eventType = "Limit"
+
             ReplaceTriggerLayout()
             ReplaceAlltheBackGroundtoGrey()
             it.setBackgroundResource(R.drawable.sell_stock_button)
@@ -237,6 +277,8 @@ class sellRegular : Fragment() {
             AllVisibility()
         }
         TypeSL.setOnClickListener {
+            eventType = "SL"
+
             LoadTrigger()
             ReplaceAlltheBackGroundtoGrey()
             it.setBackgroundResource(R.drawable.sell_stock_button)
@@ -246,6 +288,8 @@ class sellRegular : Fragment() {
             ValidityIOC.visibility =  Button.INVISIBLE
         }
         TypeSLM.setOnClickListener {
+            eventType = "SL-M"
+
             LoadTrigger()
             ReplaceAlltheBackGroundtoGrey()
             it.setBackgroundResource(R.drawable.sell_stock_button)

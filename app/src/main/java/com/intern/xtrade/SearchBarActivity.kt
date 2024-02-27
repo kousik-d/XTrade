@@ -61,6 +61,7 @@ class SearchBarActivity : AppCompatActivity() {
                         ListtoShow.setOnItemClickListener { parent, view, position, id ->
                             val intent = Intent(this@SearchBarActivity,StockScreen::class.java)
                             Log.i("KOUSIKHOMEFRAG","${searchStock[position]}")
+                            intent.putExtra("COMPANYNAME",searchStock[position].CompanyName)
                             intent.putExtra("STOCKNAME",searchStock[position].StockName)
                             intent.putExtra("COMPANYLOGO",searchStock[position].CompanyLogo)
                             intent.putExtra("STOCKPRICE",searchStock[position].StockPrice)

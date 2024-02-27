@@ -41,11 +41,15 @@
 
         <com.google.android.material.tabs.TabItem
             android:tag="0"
-            android:text="Open" />
+            android:text="Open"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <com.google.android.material.tabs.TabItem
             android:tag="1"
-            android:text="Executed"/>
+            android:text="Executed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
 
     </com.google.android.material.tabs.TabLayout>

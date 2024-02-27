@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
 import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.core.Attributes
 import com.intern.xtrade.R
 
 /**
@@ -38,7 +41,32 @@ class IdeaFnO : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_idea_fn_o, container, false)
+        var nifty = "Bearish"
+        var bankNifty = "Bearish"
+        val view = inflater.inflate(R.layout.fragment_idea_fn_o, container, false)
+
+        val radioGroup = view.findViewById<RadioGroup>(R.id.radioGroup)
+        val selectedRadioButtonId = radioGroup.checkedRadioButtonId
+
+        if (selectedRadioButtonId != -1) {
+            val selectedRadioButton = selectedRadioButtonId.let { view.findViewById<RadioButton>(it) }
+            nifty = selectedRadioButton.text.toString()
+        }
+
+        val radioGroup2 = view.findViewById<RadioGroup>(R.id.radioGroup2)
+        val selectedRadioButtonId2 = radioGroup.checkedRadioButtonId
+
+        if (selectedRadioButtonId2 != -1) {
+            val selectedRadioButton = selectedRadioButtonId2.let { view.findViewById<RadioButton>(it) }
+            bankNifty = selectedRadioButton.text.toString()
+        }
+
+        val attrs = Attributes()
+        attrs.putAttribute("Nifty",nifty)
+        attrs.putAttribute("Bank Nifty",bankNifty)
+        ApxorSDK.logAppEvent("Quick_option_selected",attrs)
+
+        return view
     }
 
     companion object {

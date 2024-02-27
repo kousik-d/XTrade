@@ -53,7 +53,7 @@ class StockScreen : AppCompatActivity() {
 
         stockRepository = StockRepository(StockDataBase.invoke(this))
 
-
+        val companyNameActual = intent.getStringExtra("COMPANYNAME")
         val companyName = intent.getStringExtra("STOCKNAME")
         val companyLogo= intent.getIntExtra("COMPANYLOGO",R.drawable.apxor_x_logo)
         val stockPrice = intent.getDoubleExtra("STOCKPRICE",0.00)
@@ -65,6 +65,10 @@ class StockScreen : AppCompatActivity() {
         attrs.putAttribute("Stock Name",companyName.toString())
         attrs.putAttribute("Stock Value",stockPrice)
         ApxorSDK.logAppEvent("Stocks_clicked",attrs)
+
+        val attrs4 = Attributes()
+        attrs4.putAttribute("Company",companyNameActual.toString())
+        ApxorSDK.logAppEvent("Stock_detailspage_launched",attrs4)
 
         stockRepository.allStocks.observe(this){
             totalStocks = it

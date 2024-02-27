@@ -24,6 +24,7 @@ class OrderConfirmed : AppCompatActivity() {
 
         goToOrderbtn.setOnClickListener {
             val intent = Intent(this,YourOrders::class.java)
+            intent.putExtra("Source","order_bottom_bar")
             startActivity(intent)
         }
 
