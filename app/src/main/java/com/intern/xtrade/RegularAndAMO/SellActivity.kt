@@ -27,7 +27,9 @@ class SellActivity : AppCompatActivity() {
             finish()
         }
         val stockId= intent.getIntExtra("SELLSTOCKID",1)
+        val stockPrice = intent.getFloatExtra("SELLSTOCKPRICE",0.0f)
         sellRegular.sellStockId = stockId
+        sellRegular.sellStockPrice = stockPrice
         adapter = FragmentPageAdapterSell(supportFragmentManager ,lifecycle)
         viewPager.adapter = adapter
         Log.i("TABCHECK","${10}")

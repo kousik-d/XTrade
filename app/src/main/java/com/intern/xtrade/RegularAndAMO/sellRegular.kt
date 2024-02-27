@@ -63,6 +63,8 @@ class sellRegular : Fragment() {
     lateinit var DiscQtSpinner : Spinner
     lateinit var PurchaseProgressBar : ProgressBar
     lateinit var sharedPreferences: SharedPreferences
+    lateinit var sharedPreferencesAttr: SharedPreferences
+    var count = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,13 +86,28 @@ class sellRegular : Fragment() {
         PurchaseProgressBar = view.findViewById(R.id.SellLoadProgressBar)
         stockRepository = StockRepository(StockDataBase.invoke(requireContext()))
         PurchaseProgressBar.visibility = ProgressBar.INVISIBLE
+
+
         sharedPreferences = requireContext().getSharedPreferences("MONEY",Context.MODE_PRIVATE)
+        sharedPreferencesAttr = requireContext().getSharedPreferences("USERATTR",Context.MODE_PRIVATE)
+
+
+        val totalMoney = sharedPreferencesAttr.getFloat("TOTALSTOCKMONEY",0.0f)
+        count = sharedPreferencesAttr.getInt("STOCKSELLCOUNT",0)
+        Log.i("COUNTSELLOT","${count}")
+
         var investedValue = sharedPreferences.getFloat("INVESTEDVALUE",0.0f)
         var sellPrice = 0.0f
         PurchaseButton.setOnClickListener {
             PurchaseButton.text =""
             PurchaseProgressBar.visibility = ProgressBar.VISIBLE
             PurchaseButton.isEnabled = false
+            count= count+1
+            Log.i("COUNTSELL","${count}")
+            sharedPreferencesAttr.edit().putInt("STOCKSELLCOUNT",count).apply()
+            var sellPrice = sharedPreferencesAttr.getFloat("STOCKSELLMoney",0.0f)
+            sellPrice = sellPrice+sellRegular.sellStockPrice
+            sharedPreferencesAttr.edit().putFloat("STOCKSELLMoney",sellPrice).apply()
             stockRepository.allStocks.distinctUntilChanged().observe(requireActivity()){
                 val totalList = it
                 for(i in it){
@@ -98,7 +115,7 @@ class sellRegular : Fragment() {
                         i.isInHoldings = false
                         sellPrice = i.StockPrice.toFloat()
                         investedValue -= sellPrice
-                        sharedPreferences.edit().putFloat("INVESTEDVALUE", investedValue).apply()
+                        sharedPreferences.edit().putFloat("INVESTEDVALUE",investedValue).apply()
                         Log.i("InvestedValueSell","${investedValue} ${sellPrice} ")
                         UpdateSoldStockInDb(i)
                     }
@@ -340,6 +357,7 @@ class sellRegular : Fragment() {
         // TODO: Rename and change types and number of parameters
 
         var sellStockId = -1
+        var sellStockPrice = 0.0f
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             sellRegular().apply {

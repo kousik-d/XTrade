@@ -1,5 +1,6 @@
 package com.intern.xtrade
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -25,10 +26,9 @@ class FinalPayment : AppCompatActivity() {
     lateinit var MoneyButton : Button
     lateinit var FinalPaymentHeading : TextView
     lateinit var FinalPaymentBackbtn : ImageView
+    lateinit var sharedPreferences: SharedPreferences
 
     var funds = 0
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_final_payment)
@@ -37,6 +37,11 @@ class FinalPayment : AppCompatActivity() {
         MoneyButton = findViewById(R.id.MoneyButtonId)
         FinalPaymentHeading = findViewById(R.id.FinalPaymentTextView)
         FinalPaymentBackbtn = findViewById(R.id.FinalPaymentBackId)
+        sharedPreferences = getSharedPreferences("USERATTR",Context.MODE_PRIVATE)
+
+        var count = sharedPreferences.getInt("ADDFUNDCOUNT",0)
+
+
 
         intent.getStringExtra("FUNDAMOUNT").toString().let {
             funds = it.toInt()
@@ -50,9 +55,16 @@ class FinalPayment : AppCompatActivity() {
         }
         MoneyButton.setOnClickListener {
             val intent : Intent = Intent(this, AddFundsSuccessfull::class.java)
-            val attrs = Attributes()
-            attrs.putAttribute("Amount",funds)
-            ApxorSDK.logAppEvent("Funds_added",attrs)
+            count = count+1
+            sharedPreferences.edit().putInt("ADDFUNDCOUNT",count).apply()
+
+            val attrs = Attributes();
+            attrs.putAttribute("Funds_added",funds)
+            ApxorSDK.setUserCustomInfo(attrs)
+
+            val attrs2 = Attributes()
+            attrs2.putAttribute("Amount",funds)
+            ApxorSDK.logAppEvent("Funds_added",attrs2)
             intent.putExtra("FUNDTOADD",funds)
             startActivity(intent)
         }

@@ -90,6 +90,7 @@ class EmailVerificationOTP : AppCompatActivity() {
         confirmButton.setOnClickListener {
             if(isOtpEntered) {
 
+
                 val attrs1 = Attributes();
                 attrs1.putAttribute("Source","email")
                 ApxorSDK.logAppEvent("OTP_Submitted",attrs1)

@@ -13,6 +13,8 @@ import androidx.core.os.postDelayed
 import androidx.lifecycle.Observer
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
+import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.core.Attributes
 import com.intern.xtrade.DataBases.IPODataBase
 import com.intern.xtrade.DataBases.StockDataBase
 import com.intern.xtrade.DataClasses.IPOData
@@ -31,12 +33,22 @@ import kotlin.random.Random
 class SplashActivity:  AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
     lateinit var sharedPreferences1: SharedPreferences
+    lateinit var sharedPrefereneForUserAttributes : SharedPreferences
+    lateinit var sharedPreferencesMoney: SharedPreferences
     lateinit var stockRepository : StockRepository
     lateinit var ipoRepository: IPORepository
+    var totalMoney = 0.0f
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedPreferences=getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
         sharedPreferences1 = getSharedPreferences("MONEY",Context.MODE_PRIVATE)
+        sharedPreferencesMoney = getSharedPreferences("MONEY",Context.MODE_PRIVATE)
+
+        var investedValue = sharedPreferences1.getFloat("INVESTEDVALUE",0.0f)
+        sharedPrefereneForUserAttributes = getSharedPreferences("USERATTR",Context.MODE_PRIVATE)
+
+
+
 
 
 
@@ -150,7 +162,7 @@ class SplashActivity:  AppCompatActivity() {
         )
 
         val random = Random.Default
-
+        var totalPrice =0.0f
         for (i in 1..15) {
             val companyNam = "R.Drawable.img${i}"
             val stock = StockInfo(
@@ -165,6 +177,7 @@ class SplashActivity:  AppCompatActivity() {
                 isInHoldings = false,
                 isInOrders = 0,
             )
+            totalPrice += stock.StockPrice.toFloat()
             if (i % 5 == 0) {
                 Log.i("STOCKS","${stock}")
                 stock.isInHoldings = true

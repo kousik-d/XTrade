@@ -1,6 +1,8 @@
 package com.intern.xtrade.InitalSignUp
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -28,6 +30,7 @@ class Signup : AppCompatActivity() {
     var isNameOk = false
     var isMobileNumberOk = false
     var isTermsOk = false
+    lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
@@ -35,6 +38,7 @@ class Signup : AppCompatActivity() {
 
         name = findViewById(R.id.signup_name)
         nameWarning = findViewById(R.id.signup_NameWarning)
+        sharedPreferences = getSharedPreferences("USERATTR",Context.MODE_PRIVATE)
 
         SignUpMobileNumber = findViewById(R.id.signup_mobileNumber)
         val relativeLayout = findViewById<RelativeLayout>(R.id.SignUpContinueRelative)
@@ -49,8 +53,9 @@ class Signup : AppCompatActivity() {
             if(isMobileNumberOk && isTermsOk && isNameOk) {
                 val intent = Intent(this, MobileNumberOTP::class.java)
                 intent.putExtra("MOBILENUMBER", MobileNumber)
+                sharedPreferences.edit().putString("USERNAME",name.text.toString()).apply()
                 val attrs = Attributes();
-                attrs.putAttribute("name",name.text.toString())
+                attrs.putAttribute("Name",name.text.toString())
                 ApxorSDK.setUserCustomInfo(attrs)
                 val inputText = referrelCode.text.toString().trim()
 
@@ -95,6 +100,8 @@ class Signup : AppCompatActivity() {
             }
 
         })
+
+
 
 
         SignUpMobileNumber.addTextChangedListener(object :TextWatcher{

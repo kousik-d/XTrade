@@ -60,6 +60,7 @@ class PortfolioFragment : Fragment() {
     lateinit var sharedPreferences: SharedPreferences
     lateinit var holdingText : TextView
     lateinit var percentIncrease : TextView
+    lateinit var sharedPreferencesUserAttr: SharedPreferences
     var holdingValue = 0.0f
     var initalInvested = 0.0f
     val indiLocal = Locale("en", "in")
@@ -77,11 +78,14 @@ class PortfolioFragment : Fragment() {
 
         var invested = sharedPreferences.getFloat("INVESTEDVALUE",0.0f)
         val totalMoney =  sharedPreferences.getInt("AVAILABLEINR",0)
+
+        sharedPreferencesUserAttr.edit().putFloat("STOCKBUYMoney",invested).apply()
         Log.i("INITALINVES","${invested}")
-        sharedPreferences.edit().putFloat("INVESTEDVALUE",invested)
-        sharedPreferences.edit().putInt("AVAILABLEINR",totalMoney)
+        sharedPreferences.edit().putFloat("INVESTEDVALUE",invested).apply()
+        sharedPreferences.edit().putInt("AVAILABLEINR",totalMoney).apply()
         holdingText.text = NumberFormat.getCurrencyInstance(indiLocal).format(invested+totalMoney)
         sharedPreferences.edit().putFloat("HOLDINGVALUE",invested+totalMoney).apply()
+
         InvestedValue.text = NumberFormat.getCurrencyInstance(indiLocal).format(invested)
         availabeINR.text = NumberFormat.getCurrencyInstance(indiLocal).format(totalMoney)
     }
@@ -92,7 +96,9 @@ class PortfolioFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_portfolio, container, false)
         sharedPreferences = requireContext().getSharedPreferences("MONEY",Context.MODE_PRIVATE)
+        sharedPreferencesUserAttr = requireContext().getSharedPreferences("USERATTR",Context.MODE_PRIVATE)
         DepositINRbtn = view.findViewById(R.id.DepositINRId)
+
         WithDrawINRbtn = view.findViewById(R.id.WithDrawINRId)
         PortfolioCard = view.findViewById<CardView>(R.id.portfolio_rectangle)
         availabeINR = PortfolioCard.findViewById(R.id.portfolio_available_inr)
@@ -166,6 +172,8 @@ class PortfolioFragment : Fragment() {
         if (!isAdded) {
             return
         }
+
+
         for (stock in totalStockList) {
             if (givenStockIds.contains(stock.StockId)) {
                 val cardView = inflater.inflate(R.layout.stock_card, null)

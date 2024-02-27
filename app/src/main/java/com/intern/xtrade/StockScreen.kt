@@ -120,6 +120,7 @@ class StockScreen : AppCompatActivity() {
 
                 val intent = Intent(this,SellActivity::class.java)
                 intent.putExtra("SELLSTOCKID",stockId)
+                intent.putExtra("SELLSTOCKPRICE",stockPrice.toFloat())
                 startActivity(intent)
             }else{
                 Toast.makeText(this,"You cannot sell this stock",Toast.LENGTH_SHORT).show()

@@ -132,6 +132,7 @@ class ProfileFragment : Fragment() {
             startActivity(Intent(requireContext(), YourWishlist::class.java))
         }
         showNotificationBtn.setOnClickListener {
+
             startActivity(Intent(requireContext(), Notifications::class.java))
         }
         showSecurityBtn.setOnClickListener {
