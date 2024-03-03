@@ -55,12 +55,21 @@ dependencies {
     implementation 'com.apxor.androidx:apxor-android-sdk-core:2.9.9@aar'
 
 
-    // Add these for Realtime Actions and Surveys
-    implementation 'com.apxor.androidx:apxor-android-sdk-qe:1.6.2@aar'
-    implementation 'com.apxor.androidx:apxor-android-sdk-rtm:2.3.4@aar'
-    implementation 'com.apxor.androidx:surveys:2.0.9-qa1@aar'
-    // Helper plugin to create walkthroughs
-    implementation 'com.apxor.androidx:wysiwyg:1.4.6@aar'
+    implementation 'com.apxor.androidx:apxor-android-sdk-core:3.0.2@aar'
+    implementation 'com.apxor.androidx:apxor-android-sdk-qe:1.6.4-qa1@aar'
+    implementation 'com.apxor.androidx:apxor-android-sdk-rtm:2.3.6-qa1@aar'
+    implementation 'com.apxor.androidx:surveys:2.1.0@aar'
+    implementation 'com.apxor.androidx:wysiwyg:1.4.7-qa1@aar'
+
+//    // Add these for Realtime Actions and Surveys
+//    implementation 'com.apxor.androidx:apxor-android-sdk-qe:1.6.2@aar'
+//    implementation 'com.apxor.androidx:apxor-android-sdk-rtm:2.3.4@aar'
+//    implementation 'com.apxor.androidx:surveys:2.0.9-qa1@aar'
+//    // Helper plugin to create walkthroughs
+//    implementation 'com.apxor.androidx:wysiwyg:1.4.6@aar'
+
+    implementation "com.android.installreferrer:installreferrer:2.2"
+
 
 
     implementation 'androidx.core:core-ktx:1.12.0'

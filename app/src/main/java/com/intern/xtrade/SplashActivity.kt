@@ -33,72 +33,76 @@ import kotlin.random.Random
 class SplashActivity:  AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
     lateinit var sharedPreferences1: SharedPreferences
-    lateinit var sharedPrefereneForUserAttributes : SharedPreferences
+    lateinit var sharedPrefereneForUserAttributes: SharedPreferences
     lateinit var sharedPreferencesMoney: SharedPreferences
-    lateinit var stockRepository : StockRepository
+    lateinit var stockRepository: StockRepository
     lateinit var ipoRepository: IPORepository
+    lateinit var XtradeImageView: ImageView
     var totalMoney = 0.0f
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        sharedPreferences=getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
-        sharedPreferences1 = getSharedPreferences("MONEY",Context.MODE_PRIVATE)
-        sharedPreferencesMoney = getSharedPreferences("MONEY",Context.MODE_PRIVATE)
-
-        var investedValue = sharedPreferences1.getFloat("INVESTEDVALUE",0.0f)
-        sharedPrefereneForUserAttributes = getSharedPreferences("USERATTR",Context.MODE_PRIVATE)
-
-
-
-
-
-
-
         setContentView(R.layout.actvity_splash_screen)
+
+        XtradeImageView = findViewById(R.id.imageView)
+
+        sharedPreferences = getSharedPreferences("APP_STATUS", Context.MODE_PRIVATE)
+        sharedPreferences1 = getSharedPreferences("MONEY", Context.MODE_PRIVATE)
+        sharedPreferencesMoney = getSharedPreferences("MONEY", Context.MODE_PRIVATE)
+
+        var investedValue = sharedPreferences1.getFloat("INVESTEDVALUE", 0.0f)
+        sharedPrefereneForUserAttributes = getSharedPreferences("USERATTR", Context.MODE_PRIVATE)
+
+
+
+
+
+
+
+
         stockRepository = StockRepository(StockDataBase.invoke(this))
         ipoRepository = IPORepository(IPODataBase.invoke(this))
 
-        val curr = sharedPreferences.getInt("DBSTEP",-1)
+        val curr = sharedPreferences.getInt("DBSTEP", -1)
 
-        if(curr == -1){
+        if (curr == -1) {
             lifecycleScope.launch(Dispatchers.IO) {
-                Log.i("ONETIMETAKE","EXECUTINGONE")
+                Log.i("ONETIMETAKE", "EXECUTINGONE")
                 insertIntoDbStocks(getSampleStockData())
             }
-            sharedPreferences1.edit().putFloat("HOLDINGVALUE",37320.02f).apply()
-            sharedPreferences1.edit().putFloat("INVESTEDVALUE",37320.02f).apply()
-            sharedPreferences1.edit().putInt("AVAILABLEINR",0).apply()
+            sharedPreferences1.edit().putFloat("HOLDINGVALUE", 37320.02f).apply()
+            sharedPreferences1.edit().putFloat("INVESTEDVALUE", 37320.02f).apply()
+            sharedPreferences1.edit().putInt("AVAILABLEINR", 0).apply()
         }
         WishlistManager.IPoData = RandomIPOData()
-        stockRepository.allStocks.observe(this, Observer{
+        stockRepository.allStocks.observe(this, Observer {
             val stocks = mutableListOf<StockInfo>()
-            for(stock in it){
-                if(stock.isInHoldings != true){
+            for (stock in it) {
+                if (stock.isInHoldings != true) {
                     stocks.add(stock)
                 }
             }
             WishlistManager.StocksToAdd = stocks
         })
-        Log.i("IPODATAINSPLASH","${RandomIPOData()}")
-        ipoRepository.allIPOs.asLiveData().observe(this){
-            Log.i("IPOFROMDB","${it}")
+        Log.i("IPODATAINSPLASH", "${RandomIPOData()}")
+        ipoRepository.allIPOs.asLiveData().observe(this) {
+            Log.i("IPOFROMDB", "${it}")
         }
-        sharedPreferences.edit().putInt("DBSTEP",100).apply()
+        sharedPreferences.edit().putInt("DBSTEP", 100).apply()
 
     }
 
 
-    suspend fun insertIntoDbIPO(IPOS: List<IPOData>){
-        for(i in IPOS){
+    suspend fun insertIntoDbIPO(IPOS: List<IPOData>) {
+        for (i in IPOS) {
             ipoRepository.insertIPO(i)
         }
     }
-    suspend fun insertIntoDbStocks(stocks:List<StockInfo> ){
-        for (i in stocks){
+
+    suspend fun insertIntoDbStocks(stocks: List<StockInfo>) {
+        for (i in stocks) {
             stockRepository.insertStock(i)
         }
     }
-
-
 
 
     fun getSampleStockData(): List<StockInfo> {
@@ -142,7 +146,6 @@ class SplashActivity:  AppCompatActivity() {
         )
 
 
-
         val stockNames = listOf(
             "TechStock",
             "GlobalTraders",
@@ -162,7 +165,7 @@ class SplashActivity:  AppCompatActivity() {
         )
 
         val random = Random.Default
-        var totalPrice =0.0f
+        var totalPrice = 0.0f
         for (i in 1..15) {
             val companyNam = "R.Drawable.img${i}"
             val stock = StockInfo(
@@ -179,20 +182,29 @@ class SplashActivity:  AppCompatActivity() {
             )
             totalPrice += stock.StockPrice.toFloat()
             if (i % 5 == 0) {
-                Log.i("STOCKS","${stock}")
+                Log.i("STOCKS", "${stock}")
                 stock.isInHoldings = true
             }
             sampleStockData.add(stock)
         }
         return sampleStockData
     }
+
     fun RandomIPOData(): MutableList<IPOData> {
         val IPODataList = mutableListOf<IPOData>()
-        val IPONames = arrayOf("Juniper Hotels","GPT Healthcare","Platinum Industries","Vibhor Steel Tubes","Rashi Peripherals","Nova AgriTech", "BLS E-Services")
-        val BSEorNSE = arrayOf("NSE","BSE","BSE","NSE","NSE","BSE","NSE")
-        val MinPrice = arrayOf(340.00,177.00,150.00,280.00,414.00,370.00,41.00)
-        val MaxPrice = arrayOf(362.00,182.00,159.00,292.00,424.00,380.00,47.00)
-        val LotSize = arrayOf(99,80,45,36,70,96,66)
+        val IPONames = arrayOf(
+            "Juniper Hotels",
+            "GPT Healthcare",
+            "Platinum Industries",
+            "Vibhor Steel Tubes",
+            "Rashi Peripherals",
+            "Nova AgriTech",
+            "BLS E-Services"
+        )
+        val BSEorNSE = arrayOf("NSE", "BSE", "BSE", "NSE", "NSE", "BSE", "NSE")
+        val MinPrice = arrayOf(340.00, 177.00, 150.00, 280.00, 414.00, 370.00, 41.00)
+        val MaxPrice = arrayOf(362.00, 182.00, 159.00, 292.00, 424.00, 380.00, 47.00)
+        val LotSize = arrayOf(99, 80, 45, 36, 70, 96, 66)
         val IPOLogos = arrayOf(
             R.drawable.juniper_hotels_logo_image,
             R.drawable.gpt_healthcare_logo,
@@ -200,7 +212,8 @@ class SplashActivity:  AppCompatActivity() {
             R.drawable.vibhor_steel_tubes_logo,
             R.drawable.rashi_peripherals_logo,
             R.drawable.nova_agritech_ipo,
-            R.drawable.bls_e_services_ipo_gmp)
+            R.drawable.bls_e_services_ipo_gmp
+        )
 
         val startDate = arrayListOf<Date>()
         val endDate = arrayListOf<Date>()
@@ -234,7 +247,7 @@ class SplashActivity:  AppCompatActivity() {
             Log.d("DateGeneration", message) // Log the message
         }
 
-        for(i in 0..6){
+        for (i in 0..6) {
             val ipodata = IPOData(
                 IPOId = i,
                 IPOName = IPONames[i],
@@ -247,12 +260,13 @@ class SplashActivity:  AppCompatActivity() {
                 isIPOOpen = false,
                 isApplied = false,
                 isForthComing = false,
-                MinInvestments = Random.nextInt(9000,15000)
+                MinInvestments = Random.nextInt(9000, 15000)
             )
             IPODataList.add(ipodata)
         }
         return IPODataList
     }
+
     fun generateRandomDate(startDate: Date, endDate: Date): Date {
         val startMillis = startDate.time
         val endMillis = endDate.time
@@ -266,23 +280,26 @@ class SplashActivity:  AppCompatActivity() {
         calendar.add(Calendar.DATE, Random.nextInt(6, 9))
         return calendar.time
     }
+
     override fun onResume() {
         super.onResume()
-
-        Handler().postDelayed({
-            val LoadAct = sharedPreferences.getInt("current_step",-1)
-            Log.i("SPLASHLOADACT","${LoadAct}")
-            if(LoadAct == 0){
-                val intent = Intent(this,MainActivity::class.java)
+        XtradeImageView.setOnClickListener {
+            val LoadAct = sharedPreferences.getInt("current_step", -1)
+            Log.i("SPLASHLOADACT", "${LoadAct}")
+            if (LoadAct == 0) {
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
-            }else if(arrayListOf<Int>(1,2,3,4,5,6,7,8,9,10,11).contains(LoadAct)){
-                val intent = Intent(this,UserDetails::class.java)
-                intent.putExtra("FRAGMENTTOLOAD",LoadAct)
+            } else if (arrayListOf<Int>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11).contains(LoadAct)) {
+                val intent = Intent(this, UserDetails::class.java)
+                intent.putExtra("FRAGMENTTOLOAD", LoadAct)
+                startActivity(intent)
+            } else {
+                val intent = Intent(this, AppOpenActivity::class.java)
                 startActivity(intent)
             }
-            else{
-                val intent = Intent(this,AppOpenActivity::class.java)
-                startActivity(intent)
-            }},2000)
+//        Handler().postDelayed({
+//
+//            }},2000)
+        }
     }
 }
