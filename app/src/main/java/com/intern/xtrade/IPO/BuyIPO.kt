@@ -110,7 +110,7 @@ class BuyIPO : AppCompatActivity() {
 
         }
 
-
+        ApxorSDK.logAppEvent("IPO_apply_now_clicked")
         BidOneQunatity.addTextChangedListener(object :TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
@@ -176,8 +176,6 @@ class BuyIPO : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
-
         ApxorSDK.logAppEvent("IPO_apply_now_clicked")
     }
     fun RandomIPOData(): MutableList<IPOData> {

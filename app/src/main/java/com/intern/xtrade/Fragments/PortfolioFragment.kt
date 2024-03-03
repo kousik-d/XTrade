@@ -14,6 +14,7 @@ import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.distinctUntilChanged
@@ -73,9 +74,9 @@ class PortfolioFragment : Fragment() {
     }
     override fun onResume() {
         super.onResume()
-
+        Log.i("PORTFOLIOFRAG","ONRESUME")
+        ApxorSDK.trackScreen("Portfolio_page_launched",true)
         ApxorSDK.logAppEvent("Portfolio_page_launched")
-
         var invested = sharedPreferences.getFloat("INVESTEDVALUE",0.0f)
         val totalMoney =  sharedPreferences.getInt("AVAILABLEINR",0)
 
@@ -93,6 +94,7 @@ class PortfolioFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.i("PORTFOLIOFRAG","ONCREATE")
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_portfolio, container, false)
         sharedPreferences = requireContext().getSharedPreferences("MONEY",Context.MODE_PRIVATE)
@@ -118,6 +120,7 @@ class PortfolioFragment : Fragment() {
             ApxorSDK.logAppEvent("Add_funds_clicked",attrs)
             startActivity(intent)
         }
+
 
         WithDrawINRbtn.setOnClickListener {
             val intent: Intent = Intent(requireContext(),WithDrawFunds::class.java)
@@ -153,6 +156,7 @@ class PortfolioFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+//        ApxorSDK.logAppEvent("Portfolio_page_launched")
         val inflater = LayoutInflater.from(requireActivity())
         PortfolioCardContainer.removeAllViews()
         stockRepository.allStocks.distinctUntilChanged().observe(requireActivity(), Observer{
@@ -233,5 +237,10 @@ class PortfolioFragment : Fragment() {
         intent.putExtra("GRAPHBOOLEAN",Stock.GraphBoolean)
         intent.putExtra("STOCKID",Stock.StockId)
         startActivity(intent)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("PORTFOLIOFRAG","ONPAUSE")
     }
 }

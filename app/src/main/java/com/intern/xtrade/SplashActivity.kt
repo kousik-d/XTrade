@@ -268,7 +268,6 @@ class SplashActivity:  AppCompatActivity() {
     }
     override fun onResume() {
         super.onResume()
-
         Handler().postDelayed({
             val LoadAct = sharedPreferences.getInt("current_step",-1)
             Log.i("SPLASHLOADACT","${LoadAct}")

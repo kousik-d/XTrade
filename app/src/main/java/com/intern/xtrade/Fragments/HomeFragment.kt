@@ -17,6 +17,7 @@ import androidx.cardview.widget.CardView
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import com.apxor.androidsdk.core.ApxorSDK
+import com.apxor.androidsdk.plugins.realtimeui.ApxorWidget
 import com.intern.xtrade.DataBases.StockDataBase
 import com.intern.xtrade.DataClasses.StockInfo
 import com.intern.xtrade.R
@@ -52,6 +53,7 @@ class HomeFragment : Fragment() {
     private lateinit var TrendingLinearLayout: LinearLayout
     lateinit var investToday: CardView
     lateinit var stockRepository: StockRepository
+    lateinit var apxorWidget: ApxorWidget
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,6 +75,9 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        apxorWidget = view.findViewById(R.id.AVEmbed1)
+        apxorWidget.setViewTag("AVEmbed1")
 
         searchIcon = view.findViewById(R.id.SearchIconId)
         investToday = view.findViewById(R.id.home_rectangle)
