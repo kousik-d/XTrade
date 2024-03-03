@@ -10,9 +10,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven {
-            url "https://repo.apxor.com/artifactory/list/libs-release-android/"
-        }
+//        maven {
+//            url "https://repo.apxor.com/artifactory/list/libs-release-android/"
+//        }
         maven {
             url "https://repo.apxor.com/artifactory/list/libs-qa-android/"
         }

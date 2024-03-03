@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.nav_idea ->{
                     setCurrentFragment(ideaFragment)
-                    Log.i(TAG,"REWARD")
+                    Log.i(TAG,"IDEA")
                     true
                 }
                 R.id.nav_profile ->{
