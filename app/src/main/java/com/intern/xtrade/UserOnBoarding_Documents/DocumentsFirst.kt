@@ -13,6 +13,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.navigation.fragment.findNavController
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.R
 import com.intern.xtrade.UserDetails
 
@@ -45,6 +46,10 @@ class DocumentsFirst : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+    }
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Documents_first")
     }
 
     override fun onCreateView(

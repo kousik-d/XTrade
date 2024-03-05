@@ -49,6 +49,7 @@ class ForthComing : Fragment() {
     override fun onResume() {
         super.onResume()
         ApxorSDK.logAppEvent("Forthcoming_IPO_launched")
+        ApxorSDK.trackScreen("Forthcoming_IPO_launched")
     }
 
     override fun onCreateView(

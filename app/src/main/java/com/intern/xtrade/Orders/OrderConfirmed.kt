@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatButton
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.MainActivity
 import com.intern.xtrade.R
 import com.intern.xtrade.wishList.WishlistManager
@@ -16,6 +17,11 @@ class OrderConfirmed : AppCompatActivity() {
     lateinit var OrderConfirmBack :ImageView
     lateinit var DoneButton :AppCompatButton
     lateinit var sharedPrefereneForUserAttributes : SharedPreferences
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Orders_Confirmed");
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order_confirmed)

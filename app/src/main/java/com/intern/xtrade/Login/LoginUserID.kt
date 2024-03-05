@@ -25,6 +25,11 @@ class LoginUserID : AppCompatActivity() {
     var isUserIdCorrect = false
     var UserID = "12345678"
 
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Login_page")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_user_id)

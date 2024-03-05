@@ -28,6 +28,11 @@ class FinalPayment : AppCompatActivity() {
     lateinit var FinalPaymentBackbtn : ImageView
     lateinit var sharedPreferences: SharedPreferences
 
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Final_payment")
+    }
+
     var funds = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

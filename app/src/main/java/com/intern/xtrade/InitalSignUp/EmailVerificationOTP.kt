@@ -33,6 +33,11 @@ class EmailVerificationOTP : AppCompatActivity() {
     lateinit var EmailResendOtpButton : AppCompatButton
     var isOtpEntered = false
 
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Email_verification_otp")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_email_verification_otp)

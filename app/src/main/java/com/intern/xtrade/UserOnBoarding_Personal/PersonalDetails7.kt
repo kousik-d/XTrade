@@ -41,6 +41,11 @@ class PersonalDetails7 : Fragment() {
     lateinit var checkBoxTwo : CheckBox
     lateinit var sharedPreferences: SharedPreferences
 
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Personal_details7")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

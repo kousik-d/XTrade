@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.Adapters.CustListAdapter
 import com.intern.xtrade.DataBases.StockDataBase
 import com.intern.xtrade.DataClasses.StockInfo
@@ -25,6 +26,11 @@ class YourStocks : AppCompatActivity() {
     lateinit var StocksWishListBtn : AppCompatButton
     lateinit var YourStocksListView : ListView
     lateinit var stockRepository: StockRepository
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("your_stocks_page")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

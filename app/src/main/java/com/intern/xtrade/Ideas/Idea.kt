@@ -43,6 +43,7 @@ class Idea : Fragment() {
     override fun onResume() {
         super.onResume()
         ApxorSDK.logAppEvent("Idea_page_launched")
+        ApxorSDK.trackScreen("Idea_page_launched")
     }
 
 

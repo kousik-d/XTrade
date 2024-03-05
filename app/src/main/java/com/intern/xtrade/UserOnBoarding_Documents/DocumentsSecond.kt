@@ -39,6 +39,11 @@ class DocumentsSecond : Fragment() {
     lateinit var firstDocument : TextView
     lateinit var SecondDocument : TextView
 
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Documents_second")
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

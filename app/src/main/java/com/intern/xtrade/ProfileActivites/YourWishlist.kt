@@ -8,6 +8,7 @@ import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.distinctUntilChanged
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.Adapters.CustListAdapter
 import com.intern.xtrade.DataBases.StockDataBase
 import com.intern.xtrade.DataClasses.StockInfo
@@ -28,6 +29,11 @@ class YourWishlist : AppCompatActivity() {
     var stocksToDisplay = mutableListOf<StockInfo>()
 
     lateinit var stockRepository: StockRepository
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.logAppEvent("your_wishlist")
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_your_wishlist)

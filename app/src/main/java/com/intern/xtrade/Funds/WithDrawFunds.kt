@@ -33,6 +33,10 @@ class WithDrawFunds : AppCompatActivity() {
     lateinit var BankSelection : AppCompatSpinner
     var withDrawAmount =0
 
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("With_Draw_funds")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

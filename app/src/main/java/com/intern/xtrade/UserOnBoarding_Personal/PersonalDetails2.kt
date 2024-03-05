@@ -11,6 +11,7 @@ import android.widget.Button
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.R
 import com.intern.xtrade.UserDetails
 
@@ -34,6 +35,10 @@ class PersonalDetails2 : Fragment(){
     var isButtonClicked = false
 
     lateinit var sharedPreferences : SharedPreferences
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Personal_details2")
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

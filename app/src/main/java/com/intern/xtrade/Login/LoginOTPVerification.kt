@@ -13,6 +13,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.MainActivity
 import com.intern.xtrade.R
 
@@ -26,6 +27,11 @@ class LoginOTPVerification : AppCompatActivity() {
     lateinit var loginResendOtpButton : AppCompatButton
     lateinit var loginCountDown : TextView
     lateinit var sharedPreferences : SharedPreferences
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Login_otp_verification")
+    }
 
 
     var isOtpEntered = false

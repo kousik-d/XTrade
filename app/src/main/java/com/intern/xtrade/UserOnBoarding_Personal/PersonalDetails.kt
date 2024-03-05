@@ -12,6 +12,7 @@ import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.BackGroundChange.ButtonBackgroundChange
 
 import com.intern.xtrade.R
@@ -49,6 +50,11 @@ class PersonalDetails : Fragment(), View.OnClickListener {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Personal_details")
     }
 
     override fun onCreateView(

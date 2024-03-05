@@ -67,6 +67,7 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         ApxorSDK.logAppEvent("Homepage_launched")
+        ApxorSDK.trackScreen("Homepage_launched")
     }
 
     override fun onCreateView(

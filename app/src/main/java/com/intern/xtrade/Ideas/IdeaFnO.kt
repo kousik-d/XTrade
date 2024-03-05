@@ -34,6 +34,7 @@ class IdeaFnO : Fragment() {
     override fun onResume() {
         super.onResume()
         ApxorSDK.logAppEvent("Fno_clicked")
+        ApxorSDK.trackScreen("Fno_clicked")
     }
 
     override fun onCreateView(

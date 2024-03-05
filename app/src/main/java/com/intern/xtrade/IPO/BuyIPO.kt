@@ -1,6 +1,6 @@
 package com.intern.xtrade.IPO
 
-import android.content.Intent
+
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -179,6 +179,7 @@ class BuyIPO : AppCompatActivity() {
 
 
         ApxorSDK.logAppEvent("IPO_apply_now_clicked")
+        ApxorSDK.trackScreen("IPO_apply_now_clicked")
     }
     fun RandomIPOData(): MutableList<IPOData> {
         val IPODataList = mutableListOf<IPOData>()

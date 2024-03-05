@@ -44,6 +44,7 @@ class IdeaEquity : Fragment() {
     override fun onResume() {
         super.onResume()
         ApxorSDK.logAppEvent("Equity_clicked")
+        ApxorSDK.trackScreen("Equity_clicked")
     }
 
     override fun onCreateView(

@@ -16,6 +16,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatSpinner
 import androidx.core.content.ContentProviderCompat.requireContext
+import com.apxor.androidsdk.core.ApxorSDK
 import com.intern.xtrade.BackGroundChange.ButtonBackgroundChange
 import com.intern.xtrade.FinalPayment
 import com.intern.xtrade.Fragments.DepositINRActivity
@@ -35,6 +36,11 @@ class AddFundsActivity : AppCompatActivity() {
     lateinit var FundsWarning : TextView
     lateinit var xPayBtn : ImageView
     lateinit var sharedPreferences: SharedPreferences
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Add_funds_Activity");
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

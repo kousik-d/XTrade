@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
+import com.apxor.androidsdk.core.ApxorSDK
 import com.google.android.material.tabs.TabLayout
 import com.intern.xtrade.Adapters.FragmentPageAdapter
 import com.intern.xtrade.Adapters.FragmentPageAdapterSell
@@ -17,6 +18,10 @@ class SellActivity : AppCompatActivity() {
     lateinit var adapter : FragmentPageAdapterSell
     lateinit var purchaseStockBackBtn : ImageView
     //    lateinit var BuyToolBar : Toolbar
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.logAppEvent("Sell_Activity")
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sell)

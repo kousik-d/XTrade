@@ -13,12 +13,18 @@ import com.intern.xtrade.R
 import com.intern.xtrade.UserDetails
 import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
+import com.apxor.androidsdk.core.ApxorSDK
+
 class PersonalDetails4 : Fragment() {
     private val buttons = mutableListOf<Button>()
     private lateinit var userActivity : UserDetails
     lateinit var PersonalDetails4ContinueBtn : Button
     var isButtonClicked = false
     lateinit var sharedPreferences: SharedPreferences
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Personal_details4")
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -25,6 +25,10 @@ class YourOrders : AppCompatActivity() {
     lateinit var OrderViewPager : ViewPager2
     lateinit var adapter : FragmentPageAdapterOrders
     lateinit var tabLayout : TabLayout
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Your_orders");
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_your_orders)

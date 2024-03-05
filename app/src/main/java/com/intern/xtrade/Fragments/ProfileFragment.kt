@@ -63,6 +63,7 @@ class ProfileFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         ApxorSDK.logAppEvent("Profilepage_launched")
+        ApxorSDK.trackScreen("Profilepage_launched")
     }
 
     override fun onCreateView(

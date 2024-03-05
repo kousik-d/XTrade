@@ -17,6 +17,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var loginBtn : Button
     lateinit var signUptext : TextView
 //    lateinit var loginsharedPreferences :SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)

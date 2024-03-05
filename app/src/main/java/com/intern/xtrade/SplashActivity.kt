@@ -283,7 +283,7 @@ class SplashActivity:  AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        XtradeImageView.setOnClickListener {
+        Handler().postDelayed({
             val LoadAct = sharedPreferences.getInt("current_step", -1)
             Log.i("SPLASHLOADACT", "${LoadAct}")
             if (LoadAct == 0) {
@@ -297,9 +297,6 @@ class SplashActivity:  AppCompatActivity() {
                 val intent = Intent(this, AppOpenActivity::class.java)
                 startActivity(intent)
             }
-//        Handler().postDelayed({
-//
-//            }},2000)
-        }
+        }, 2000)
     }
 }

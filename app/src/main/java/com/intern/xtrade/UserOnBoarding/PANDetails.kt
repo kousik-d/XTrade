@@ -46,6 +46,10 @@ class PANDetails : Fragment() {
     var isButtonClickable = false
     var isDateSelected = false
 
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("pan_details_page")
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

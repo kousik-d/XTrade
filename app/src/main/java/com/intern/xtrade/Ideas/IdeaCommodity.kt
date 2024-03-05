@@ -30,6 +30,7 @@ class IdeaCommodity : Fragment() {
     override fun onResume() {
         super.onResume()
         ApxorSDK.logAppEvent("Commodity_Clicked")
+        ApxorSDK.trackScreen("Commodity_Clicked")
     }
 
     override fun onCreateView(

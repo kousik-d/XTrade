@@ -21,6 +21,12 @@ class EmailVerification : AppCompatActivity() {
     lateinit var EmailEditText : EditText
     lateinit var Emailwarning : TextView
     var canContinue = false
+
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Email_verification")
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_email_verification)

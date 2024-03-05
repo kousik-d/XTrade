@@ -38,6 +38,7 @@ class PastBids : Fragment() {
     override fun onResume() {
         super.onResume()
         ApxorSDK.logAppEvent("Past_bids_launched")
+        ApxorSDK.logAppEvent("Past_bids_launched")
     }
 
     override fun onCreateView(

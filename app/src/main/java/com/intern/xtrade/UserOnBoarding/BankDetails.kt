@@ -47,7 +47,6 @@ class BankDetails : Fragment() {
     var isBankAccountNumberOk = false
     var isBankIFSCCode = false
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

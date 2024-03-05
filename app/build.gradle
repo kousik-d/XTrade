@@ -59,7 +59,7 @@ dependencies {
     implementation 'com.apxor.androidx:apxor-android-sdk-qe:1.6.4-qa1@aar'
     implementation 'com.apxor.androidx:apxor-android-sdk-rtm:2.3.6-qa1@aar'
     implementation 'com.apxor.androidx:surveys:2.1.0@aar'
-    implementation 'com.apxor.androidx:wysiwyg:1.4.7-qa1@aar'
+    implementation 'com.apxor.androidx:wysiwyg:1.4.7-qa@aar'
 
 //    // Add these for Realtime Actions and Surveys
 //    implementation 'com.apxor.androidx:apxor-android-sdk-qe:1.6.2@aar'

@@ -29,6 +29,11 @@ class MobileNumberOTP : AppCompatActivity() {
     var resendCount =0
 
     var isOtpEntered = false
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Mobile_number_otp")
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mobile_number_otp)

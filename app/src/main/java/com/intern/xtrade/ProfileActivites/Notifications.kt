@@ -13,6 +13,11 @@ class Notifications : AppCompatActivity() {
 
     lateinit var notificationBackBtn : ImageView
     lateinit var PushNotification : SwitchCompat
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("Notification_page")
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_notifications)

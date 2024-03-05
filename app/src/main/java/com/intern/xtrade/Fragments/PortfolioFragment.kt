@@ -75,6 +75,7 @@ class PortfolioFragment : Fragment() {
         super.onResume()
 
         ApxorSDK.logAppEvent("Portfolio_page_launched")
+        ApxorSDK.trackScreen("Portfolio_page_launched")
 
         var invested = sharedPreferences.getFloat("INVESTEDVALUE",0.0f)
         val totalMoney =  sharedPreferences.getInt("AVAILABLEINR",0)

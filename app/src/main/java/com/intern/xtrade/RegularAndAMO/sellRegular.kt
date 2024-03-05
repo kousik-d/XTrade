@@ -76,6 +76,11 @@ class sellRegular : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.logAppEvent("Sell_regular")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

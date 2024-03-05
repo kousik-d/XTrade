@@ -366,6 +366,7 @@ class BuyRegularActivity : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        ApxorSDK.trackScreen("Buy_regular_activity")
 
     }
 

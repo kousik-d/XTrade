@@ -13,6 +13,11 @@ class AppOpenActivity : AppCompatActivity() {
 
     lateinit var OpenDematBtn : Button
     lateinit var LoginText : TextView
+
+    override fun onResume() {
+        super.onResume()
+        ApxorSDK.trackScreen("App_Open_Activity")
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_app_open)

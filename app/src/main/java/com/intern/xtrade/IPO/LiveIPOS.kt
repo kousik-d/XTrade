@@ -54,6 +54,7 @@ class LiveIPOS : Fragment() {
     override fun onResume() {
         super.onResume()
         ApxorSDK.logAppEvent("Live_IPO_launched")
+        ApxorSDK.trackScreen("Live_IPO_launched")
     }
 
 
